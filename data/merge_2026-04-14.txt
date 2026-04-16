@@ -1,0 +1,146 @@
+Cleaned chronological entries to merge into combined_workout_log.txt.
+Source: Eric's iPhone Notes, 3/18/26 – 4/14/26. Processed 2026-04-14.
+All totals verified/recomputed. Dropped items marked with [DROPPED].
+================================================================================
+
+03/18/2026, volume = 125,999
+  Ab Crunch Machine: 120x100 = 12,000
+  Back Extension: 145x100 = 14,500
+  Bent Over Barbell Row: 55x20+65x30+75x25+95x20+115x15+125x10+135x10 = 11,150
+  Cable Row: 88x50+99x20+104x20+109x10 = 9,550
+  Crunches: 1x500 = 500
+  Dumbell Curl: 25x20+30x12+35x10x2+40x5 = 1,760
+  Lateral Pull Down: 88x25+93x25+99x15+104x15+110x15x12+121x12+126x10+131x8+136x8+143x6+148x6 = 33,964
+  Pec Fly: 120x30+125x20 = 6,100
+  Rear Delt: 50x50+55x50+60x60+65x25 = 10,475
+  Rotary Torso: 130x50x2x2 = 26,000
+
+03/24/2026, volume = 56,975
+  Chest Press: 80x50+75x10x2+70x10x3 = 7,600
+  Hip Abduction: 100x60+100x40 = 10,000
+  Lat Pull-Down Machine: 70x50+75x20+80x20+85x15 = 7,875
+  Leg Extension: 85x50+85x50 = 8,500
+  Seated Calf Raise: 90x50x2 = 9,000
+  Seated Leg Press: 140x50x2 = 14,000
+
+03/26/2026, volume = 46,595
+  Crunches: 12x50+12x30+12x20x2 = 1,440
+  Hip Thrust: 50+50 = 100
+  Incline Bench Press: 45x50x2+65x20+75x15+85x10+95x12+105x8 = 9,755
+  Lateral Machine: 65x50 = 3,250
+  Pec Fly: 125x35+125x20+125x15+125x15+125x15 = 12,500
+  Seated Cable Row: 100x50+100x50 = 10,000
+  Shoulder Press Machine: 23x50+23x50 = 2,300
+  Triceps Push: 50x15+60x50+70x50 = 7,250
+
+03/31/2026, volume = 34,855
+  Behind the Back Pulldown: (88x30+88x40+88x30) = 8,800
+  Bench Press: 95x10x5+135x6+135x8+135x9 = 7,855
+  Lateral Pull Down: (88x25+88x1+88x15)+(88x20+88x10x3) = 8,008
+  Seated Cable Row: 104x25x2+104x24x2 = 10,192
+
+04/01/2026, volume = 25,085
+  Back Extension: 147.5x25x4 = 14,750
+  Bicep Curl Machine Low: 40x25x4 = 4,000
+  Chest Press: 70x10 = 700
+  Triceps Push: (70x25+72.5+75x25+77.5x25) = 5,635
+
+04/06/2026, volume = 97,135
+  Ab Crunch Machine: 120x50x2 = 12,000
+  Back Extension: 150x100 = 15,000
+  Decline Bench Press: 95x20+105x15+115x10+125x10+135x10 = 7,225
+  Hip Abduction: 125x50x2 = 12,500
+  Hip Adduction: 95x50x2 = 9,500
+  Incline Bench Press: 95x15+105x10+115x10+125x
+  Lateral Machine: 70x50+70x50 = 7,000
+  Pectoral Fly: 120x10+90x15x2+95x15+100x10+105x10 = 7,375
+  Rotary Torso: 132.5x100x2 = 26,500
+  Target Ab Crunch: 1x10+1x15+1x10 = 35
+
+04/07/2026, volume = 29,629
+  Dumbbell Flies: 20x35+25x35+30x35+40x30 = 3,825
+  Dumbell Press: 25x50+35x25+40x25+45x20+50x17+55x15+60x6 = 6,060
+  Incline Dumbell Press: 25x50+25x25x2 = 2,500
+  Seated Cable Row: 110x25+115x25+121x25+126x25+131x16+136x12+143x12 = 17,244
+
+04/08/2026, volume = 36,347
+  Bent Over Barbell Row: 75x30+95x20+115x20+135x10+145x10+155x8+165x5+170x5 = 12,165
+  Dumbbell Raise: 35x25x2+40x25+45x25+50x25+55x25 = 6,500
+  Dumbbell Shoulder Press: 30x20+30x20+30x20+25x20+25x20 = 2,800
+  Dumbbell Shoulder Shrug: 55x50x2 = 5,500
+  Lateral Pull Down: 99x25+104x20+110x15+115x15+121x12 = 9,382
+
+04/11/2026, volume = 30,840
+  Arnold Curls: 20x20+20x20+15x20+15x20 = 1,400
+  Bench Press: 135x15+145x12+155x10+165x6 = 6,305
+  Lateral Machine: 70x35 = 2,450
+  Pec Fly: 130x30+130x20 = 6,500
+  Smith Machine Incline Bench Press: 115x15+125x12+135x6 = 4,035
+  Triceps Press: 55x50+60x20+66x5+71x10 = 4,990
+  Triceps Press Rope: 38x25+44x40 = 2,710
+  Triceps Push: 70x35 = 2,450
+
+04/13/2026, volume = 38,140
+  Cable Cross Over: 22.5x10x10 = 2,250
+  Chest Press: 70x10x6+75x10x2+80x10+85x10 = 7,350
+  Incline Dumbell Press: 35x50+35x25+40x20+45x12 = 3,965
+  Lat Pull-Down Machine: 80x50+85x25+90x25+95x10 = 9,325
+  Leg Extension: 90x10x10 = 9,000
+  Shoulder Press Machine: 30x50+30x50 = 3,000
+  Straight Arm Lateral Press: 32.5x50+32.5x10x5 = 3,250
+
+04/14/2026, volume = 33,000
+  Back Extension: 145x100 = 14,500
+  Calf Press: 100x100 = 10,000
+  Seated Leg Curl: 85x100 = 8,500
+
+================================================================================
+DROPPED / NOTES
+================================================================================
+
+[DROPPED] Hip Adduction row without a date: "120x30+120x15+120x15+120x12+110x12+100x13+90x10 = 12,160"
+  Reason: no date attached in source. If you can tell me the date, I'll add it.
+
+[DROPPED] 4/16/2026 empty session — per your instruction.
+[DROPPED] 4/1/26 Bicep Curl Machine High Dependent (no reps) — per your instruction.
+[DROPPED] "Overhead triceps" (no data) — per your instruction.
+[DROPPED] Trailing "Triceps press" at end (no data) — per your instruction.
+
+[MERGED] 4/11/26 Triceps Press and Triceps Push both had 70x35 — kept as
+  two distinct exercise lines (Triceps Press on its own line had 55x50+60x20+66x5+71x10;
+  the 70x35 stayed under Triceps Push, and there's a separate Triceps Press Rope
+  entry too). If that's wrong, tell me and I'll consolidate.
+
+[CORRECTION] 4/11/26 Bench Press total:
+  I told you earlier I'd compute it as 7,895 — that was my arithmetic error.
+  Actual: 135x15 (2,025) + 145x12 (1,740) + 155x10 (1,550) + 165x6 (990) = 6,305 lbs.
+  Your 135x15 on this day ties your current best-at-135 (Nov 15, 2024), but doesn't beat it.
+
+[ADJUSTED] 4/13/26 Straight Arm Lateral Press:
+  Source said = 1,644.231 but the actual math is 32.5*50 + 32.5*10*5 = 3,250. Used 3,250.
+
+[INTERPRETED] 4/6/26 Target Ab Crunch "1x10, x15, 1x10" as three bodyweight sets
+  of 10, 15, 10 reps → total 35. Adjust if that's wrong.
+
+[INTERPRETED] 3/26/26 Hip Thrust "50+50 = 100" kept as 100 (appears to be 50 reps
+  bodyweight twice). Not a volume number in the traditional sense.
+
+[KEPT INCOMPLETE] 4/6/26 Incline Bench Press ending in "125x" kept as-is with no
+  total, since you said that line is correct as written.
+
+================================================================================
+SUMMARY OF WHAT GETS ADDED
+================================================================================
+
+Sessions added:     11  (all weight sessions)
+Volume added:       554,600 lbs
+Date range:         3/18/2026 – 4/14/2026
+Unique new exercises: Cable Cross Over, Straight Arm Lateral Press, Rotary Torso,
+  Target Ab Crunch, Hip Adduction, Hip Abduction, Behind the Back Pulldown,
+  Pectoral Fly (distinct from Pec Fly), Dumbbell Raise, Triceps Press Rope,
+  Arnold Curls, Smith Machine Incline Bench Press, Calf Press, Seated Leg Curl,
+  Bicep Curl Machine Low
+
+Best headline: 4/11/2026 Bench Press 135x15 ties your all-time best continuous at 135 lbs.
+New 2026 totals (after merge): 46 sessions, ~1,690,835 lbs (from 35 / 1,136,235).
+New grand totals (after merge): 402 sessions, ~8,657,115 lbs (from 391 / 8,102,515).

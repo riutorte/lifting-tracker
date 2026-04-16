@@ -1,0 +1,224 @@
+Raw paste from iPhone Notes, provided 2026-04-14.
+Covers sessions after combined_workout_log.txt was compiled (3/17/26) through 4/14/26.
+Needs cleanup before merging into combined_workout_log.txt — see QUESTIONS at bottom.
+================================================================================
+
+Back
+
+Cable cross over
+4/13/26, 22.5x10x10 = 2,250
+
+Straight arm lateral press
+4/13/26  32.5x50+32.5x10x5 = 1,644.231
+
+Back extension
+3/18/26, 145x100 = 14,500
+4/1/26, 4/1/25, 147.5x25x4 = 14,750
+4/6/26, 150x100 = 15,000
+4/14/26, 145x
+
+Abs
+Rotary torso
+3/18/26, 130x50x2x2 = 26,000
+4/6/26, 132.5x100x2 = 26,500
+
+Ab crunch machine
+3/18/26, 120x100 = 12,000
+
+Crunches
+3/18/26, 1x500 = 500
+3/26/26, 12x50+12x30+12x20x2 = 1,440
+
+Bent over Barbell Row
+3/18/26, 55x20+65x30+75x25+95x20+115x15+125x10+135x10 = 11,150
+4/8/26, 75x30+95x20+115x20+135x10+145x10+155x8+165x5+170x5
+
+Dumbell curls
+3/18/26, 25x20+30x12+35x10x2+40x5
+
+Cable row
+3/18/36, 88x50+99x20+104x20+109x10 = 9,550     [*** 3/18/36 is clearly 3/18/26]
+
+Lateral pull down
+3/18/26, 88x25+93x25+99x15+104x15+110x115x12+121x12+126x10+131x8+136x8+143x6+148x6 = 165,964   [*** total way off; "110x115x12" looks like a typo]
+3/31/26, (88x25+88x1+88x15)+(88x20+88x10x3) = 8,008
+4/6/26, 93x25+99x25+104x20+110x15+115x15 = 10,255
+4/8/26, 99x25+104x20+110x15+115x15+121x12 = 9,382
+
+Pecfly                                        [*** same as "Pec Fly" / "Pectoral fly" below?]
+3/18/26, 120x30+125x20 = 6,100
+3/26/26, 125x35+125x20+125x15+125x15+125x15 = 12,500
+4/11/26, 130x30+130x20 = 6,500
+
+Pectoral fly                                  [*** merge with Pecfly?]
+4/6/26, 120x10+90x15x2+95x15+100x10+105x10 = 7,375
+
+Rear delt
+3/18/26, 50x50+55x50+60x60+65x25 = 10,475
+
+Legs
+
+Hip adduction
+[no date] 120x30+120x15+120x15+120x12+110x12+100x13+90x10 = 12,160    [*** missing date]
+4/6/25, 95x50x2 = 9,500                         [*** 4/6/25 or 4/6/26?]
+
+Leg extension
+3/24/26, 85x50+85x50 = 8,500
+4/13/26, 90x10x10 = 9,000
+
+Hip abduction
+3/24/26, 100x60+100x40 = 10,000
+4/6/26, 125x50x2 = 12,500
+
+Seated leg press
+3/24/26, 140x50x2 = 14,000
+
+Shoulder press machine
+3/26/26, 23x50+23x50 = 2,300
+4/13/26, 30x50+30x50 = 3,000
+
+Chest press
+3/24/26, 80x50+75x10x2+70x10x3 = 7,600
+4/1/26, 70x10 = 700
+4/13/26, 70x10x6+75x10x2+80x10+85x10 = 7,350
+
+Lat pull-down machine                         [*** "Lat Pulldown (Machine)" canonical?]
+3/24/26, 70x50+75x20+80x20+85x15 = 7,875
+4/13/26, 80x50+85x25+90x25+95x10 = 9,325
+
+Seated calf raise
+3-24/26, 90x50x2 = 9,000                        [*** "3-24/26" → "3/24/26"?]
+
+Incline Bench Press
+3/26/26, 45x50x2+65x20+75x15+85x10+95x12+105x8 = 9,755
+4/6/26, 95x15+105x10+115x10+125x             [*** truncated]
+
+Decline bench press
+4/6/26, 95x20+105x15+115x10+125x10+135x10 = 7,225
+
+Seated cable row
+3/26/26, 100x50+100x50 = 10,000
+3/31/26, 104x25x2+104x24x2 = 10,192
+4/7/26, 110x25+115x25+121x25+126x25+131x16+136x12+143x12 = 17,244
+
+Triceps press
+4/11/26, 55x50+60x20+66x5+71x10 = 4,990
+
+Triceps press rope
+4/11/26, 38x25+44x40 = 2,710
+
+Triceps press
+4/11/26, 70x35 = 2,450                          [*** repeated exercise name — same machine?]
+
+Triceps push
+3/26/26, 50x15+60x50+70x50 = 7,250
+4/1/26, (70x25+72.5+75x25+77.5x25) = 5,635      [*** "72.5+" missing reps?]
+4/11/26, 70x35                                  [*** same as Triceps press 4/11 above? dup?]
+
+Arnold curls
+4/11/26, 20x20+20x20+15x20+15x20 = 1,400
+
+Hip thrust Eric
+3/26/26, 50+50 = 100                            [*** bodyweight x 50, twice? Or just 50 reps each round?]
+
+Behind the back pulldown                       [*** was "pulkdown" — typo]
+3/31/26, 3/31/26, (88x30+88x40+88x30) = 8,800  [*** duplicated date]
+
+Bench press
+3/31/26, 95x10x5+135x6+135x8+135x9 = 7,855
+4/11/26, 135x15+145x12+155x10+165x6             [*** total missing; computes to 7,895]
+
+Smith machine incline bench press
+4/11/26, 115x15+125x12+135x6 = 4,035
+
+Bicep Curl machine low                          [*** canonical name?]
+4/1/26, 40x25x4 = 4,000
+
+Bicep curl machine high dependent               [*** canonical name? no data]
+4/1/26
+
+Target ab crunch
+4/6/26, 1x10, x15, 1x10                         [*** parse this — 1 set x 10 reps x 3?]
+
+Ab crunch machine                               [*** was "An crunch machine" — typo]
+4/6/26, 120x50x2 = 12,000
+
+Lateral machine                                 [*** which lateral machine? lateral raise?]
+3/26/26, 65x50 = 3,250
+4/6/26, 70x50+70x50 = 7,000
+4/11/26, 70x35                                  [*** was "4/11/26." — period→comma]
+
+Dumbell press
+4/7/26, 25x50+35x25+40x25+45x20+50x17+55x15+60x6 = 6,060
+
+Incline Dumbell press
+4/7/26, 25x50+25x25x2 = 2,500
+4/13/26, 35x50+35x25+40x20+45x12 = 3,965
+
+4/16/26                                         [*** future / empty session, drop?]
+
+Dumbbell flies
+4/7/26, 20x35+25x35+30x35+40x30 = 3,825
+
+Overhead triceps                                [*** no data, drop?]
+
+Dumbbell shoulder press
+4/8/26, 30x20+30x20+30x20+25x20+25x20 = 2,800
+
+Dumbbell raise                                  [*** raise = lateral raise? front raise?]
+4/8/26, 35x25x2+40x25+45x25+50x25+55x25 = 6,500
+
+Dumbbell shoulder shrug
+4/8/26, 55x50x2 = 5,500
+
+Triceps press                                   [*** no data, drop?]
+
+Calf press
+4/14/26, 100x100                                [*** total missing; computes to 10,000]
+
+Seated leg curl
+4/14/26, 85x100                                 [*** total missing; computes to 8,500]
+
+================================================================================
+QUESTIONS I need your calls on:
+================================================================================
+
+1. DATE TYPOS — OK to auto-correct?
+   a. 3/18/36 → 3/18/26 (Cable row)
+   b. 4/6/25 → 4/6/26 (Hip adduction, in a 2026 block)
+   c. 3-24/26 → 3/24/26 (Seated calf raise)
+   d. Back extension "4/1/26, 4/1/25" — one date or two?
+   e. "3/31/26, 3/31/26" (Behind the back pulldown) — dedupe to one?
+
+2. INCOMPLETE ENTRIES — drop, or will you fill in?
+   a. 4/14/26 Back extension "145x"
+   b. 4/6/26 Incline Bench Press "...125x"
+   c. 4/16/26 empty session
+   d. Bicep curl machine high dependent (no reps)
+   e. Overhead triceps (no data)
+   f. Triceps press (last entry, no data)
+   g. Hip adduction first row (no date)
+
+3. EXERCISE NAME NORMALIZATION — confirm canonical names:
+   a. Pecfly + Pectoral fly → "Pec Fly"?
+   b. "Lateral machine" — is this Lateral Raise Machine? Or something else?
+   c. "Dumbbell raise" — lateral? front? 6-way?
+   d. "Bicep Curl machine low" / "Bicep curl machine high dependent" — canonical names?
+   e. "Hip thrust Eric" — just "Hip Thrust"?
+   f. "Target ab crunch" — canonical? and how to parse "1x10, x15, 1x10"?
+
+4. DATA ERROR — 3/18/26 Lateral pull down
+   - Stated "= 165,964" is wildly off for the listed sets
+   - "110x115x12" looks like a typo (should be 115x12? or 110x15 then 115x12?)
+   - Drop broken total, I'll recompute after you clarify the "110x115x12" entry
+
+5. DUPLICATES / UNITS
+   a. "Triceps press" 4/11/26 70x35 AND "Triceps push" 4/11/26 70x35 — same set or two exercises?
+   b. "Hip thrust Eric 3/26/26, 50+50 = 100" — is this bodyweight × 50 reps twice (100 total reps)?
+
+6. AUTO-COMPUTE MISSING TOTALS — OK to fill these in automatically?
+   a. 4/11/26 Bench press → 7,895
+   b. 4/14/26 Calf press → 10,000
+   c. 4/14/26 Seated leg curl → 8,500
+   d. 4/8/26 Bent over Barbell Row → 13,450
+   e. 3/18/26 Dumbell curls → 2,090
