@@ -25,6 +25,7 @@ Planning is complete. Best practices research is complete. Implementation is sta
 - **Best practices research** at `docs/reference/best-practices-review.md` — YouTube course analysis, Anthropic engineering patterns, 5 gaps identified
 - **CLAUDE.md** at repo root — updated for Expo + Supabase / XRSize4 ALL
 - **Legacy v1 PWA** — deployed to GitHub Pages, superseded by new architecture
+- **Conversation archives** in `docs/conversation-archive/` — 3 files: April 14 chat Claude extract, April 14 Claude Code build transcript, April 21 full Dispatch session 1 (RTF)
 - All docs committed and pushed to GitHub
 
 ### What does NOT exist yet
