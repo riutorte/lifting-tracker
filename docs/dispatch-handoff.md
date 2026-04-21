@@ -6,74 +6,77 @@ updated: 2026-04-21
 
 # Dispatch Handoff — Lifting Tracker
 
-**Read this first** when picking up a fresh Dispatch session for the lifting-tracker project. It's the curated context; raw archives in `conversation-archive/` and the full doc set in `docs/` have the detail.
+**Read this first.** This is the context document for a new Dispatch session picking up the Lifting Tracker project.
 
-## Where things stand (2026-04-21)
+## Current state (2026-04-21, evening)
 
-Planning is complete. Implementation has not started.
+Planning is complete. Best practices research is complete. Implementation is starting.
 
-The project has evolved from "personal lifting tracker" to **XRSize4 ALL** — a system of systems for fitness, training, coaching, and community. The **Lifting Tracker** is the first sub-system, shipping as MVP. All planning documents are written, reviewed, committed, and pushed to GitHub.
+### What exists
 
-## Document set (all in `~/lifting-tracker/docs/`)
+- **Full planning doc set** in `~/lifting-tracker/docs/`:
+  - `xrsize4all_concept.md` — XRSize4 ALL platform concept (system of systems)
+  - `architecture.md` — 24 decisions (D1–D24), full data model with 30+ tables
+  - `user-stories.md` — 114 user stories, MVP through v4+
+  - `themes-epics-features.md` — 8 themes, 31 epics, 109 features
+  - `roadmap.md` — 8 MVP sprints with Kanban tables, dependencies, sizing
+  - `effort-estimate.md` — calendar time estimates (MVP ~6 months at 10–15 hrs/week)
+  - `architecture-comparison.md` — 7-approach comparison + platform evolution through 5 phases
+- **Best practices research** at `docs/reference/best-practices-review.md` — YouTube course analysis, Anthropic engineering patterns, 5 gaps identified
+- **CLAUDE.md** at repo root — updated for Expo + Supabase / XRSize4 ALL
+- **Legacy v1 PWA** — deployed to GitHub Pages, superseded by new architecture
+- All docs committed and pushed to GitHub
 
-| File | What it is | Lines |
-|---|---|---|
-| `xrsize4all_concept.md` | Platform-level concept: people, process, technology, 11 roles, 5-phase roadmap | 361 |
-| `architecture.md` | Lifting Tracker architecture: 24 decisions (D1–D24), full data model, non-decisions | 735 |
-| `user-stories.md` | 114 user stories, MVP through v4+, organized by phase and role | 359 |
-| `themes-epics-features.md` | 8 themes, 31 epics, 109 features, release planning view | 470 |
-| `roadmap.md` | 8 MVP sprints with Kanban tables, dependencies, sizing, post-MVP backlog | ~200 |
-| `effort-estimate.md` | Calendar time estimates per phase, Claude Code productivity analysis | 205 |
-| `architecture-comparison.md` | 7-approach comparison + Platform Evolution through 5 XRSize4 ALL phases | 369 |
-| `architecture-comparison.xlsx` | Spreadsheet version (MVP comparison only — outdated vs .md) | — |
-| `ontology-plan.md` | Exercise ontology planning | 162 |
-| `dispatch-handoff.md` | This file | — |
-| `conversation-archive/` | 2 archived transcripts from April 14 | — |
+### What does NOT exist yet
+
+- No Expo project scaffolded
+- No Supabase schema deployed
+- No app code
+- Docker and Supabase CLI not installed on Eric's Mac
+- Community research doc not yet written (web search data gathered but not compiled)
+
+### Active sessions
+
+- **Lifting Tracker project session** ("Review dispatch handoff documentation") — completed best practices research, currently idle, asked Eric about making review doc into an artifact
+- **Sprint 0 Code task** — was started then paused because Supabase CLI isn't installed yet. May need to be restarted fresh.
+
+### Pending work items
+
+1. **Community research doc** — web search data from 8 searches already gathered (offline-first libraries, RLS pitfalls, EAS Build gotchas, magic-link deep linking, migration best practices, starter templates, Claude Code real-world lessons). Needs to be compiled into `docs/reference/community-research.md`.
+2. **Close 5 gaps from best practices review** — D19 context strategy, Sprint 6 split, tool-design standards, memory-tool pattern, CLAUDE.md guardrails. See `docs/reference/best-practices-review.md`.
+3. **Data merge** — `data/merge_2026-04-14.txt` (11 cleaned April sessions) still not merged into `combined_workout_log.txt`. Multiple prior Code tasks failed.
+4. **Sprint 0 implementation** — Docker + Supabase CLI install, Expo scaffolding, schema deployment, auth flow, offline sync skeleton.
 
 ## Key decisions (quick reference)
 
-- **D8**: Expo (React Native) + Supabase, offline-first. Real iPhone app via TestFlight + web dashboard from same codebase.
-- **D3**: Hierarchical RBAC: Athlete → Coach → Gym → Super Admin. Roles inherit downward.
-- **D12**: Schema is ontological — all relationships above Session are nullable FKs.
-- **D19**: AI follows Reasoner Duality — Tier 1 deterministic governs, Tier 2 LLM explains.
-- Full list: D1–D24 in `architecture.md`.
-
-## What's been decided but NOT yet built
-
-Everything. The repo has planning docs and a legacy v1 PWA. No Expo project, no Supabase schema, no app code.
-
-## Immediate next steps (implementation)
-
-1. **Set up local dev environment** — Docker + Supabase CLI + Expo scaffolding. All local, no cloud accounts needed yet.
-2. **Deploy schema** — full D1–D24 data model to local Supabase Postgres.
-3. **Auth flow** — magic-link via Supabase Auth.
-4. **Exercise library seed** — parse canonical exercises from `data/combined_workout_log.txt`.
-5. **Follow Sprint 0 in `roadmap.md`** for the full breakdown.
-
-## Pending tasks not yet done
-
-- **Data merge** — `data/merge_2026-04-14.txt` (11 cleaned April sessions) was never merged into `combined_workout_log.txt`. Multiple Code tasks attempted but hit worktree/auth issues. Still pending.
-- **Anthropic docs review** — D19 and AI feature design should be cross-checked against Anthropic's published engineering patterns before Sprint 6. See memory file `feedback_check_anthropic_docs.md`.
-- **YouTube transcript** — Eric wants to study "Build & Sell with Claude Code (10+ Hour Course)" (youtube.com/watch?v=mpALXah_PBg). YouTube was added to the domain allowlist but the setting requires a new Dispatch session to take effect.
+- **D8**: Expo (React Native) + Supabase, offline-first
+- **D3**: Hierarchical RBAC: Athlete → Coach → Gym → Super Admin
+- **D12**: Ontological schema — all relationships above Session are nullable FKs
+- **D14/D15**: Weight = per-implement; limb config is property of exercise
+- **D19**: AI follows Reasoner Duality — Tier 1 deterministic governs, Tier 2 LLM explains
 
 ## Workspace conventions
 
-- **Dispatch** = strategy, planning, architecture, document work. No code.
+- **Dispatch** = orchestrator. Spawns and monitors Code tasks. Strategy and planning discussions. Can be driven from phone.
+- **Lifting Tracker project tasks** = research, architecture discussions, document drafting. Created from the project home.
 - **Claude Code tasks** (`start_code_task`) = all implementation, commits, pushes.
-- **Claude Code CLI** = interactive coding sessions. `~/lifting-tracker/CLAUDE.md` is updated and loads automatically.
-- Work autonomously on routine tasks. Only ask Eric when genuinely ambiguous, risky, or requiring domain knowledge.
-- Every generated document gets YAML frontmatter (author: Eric Riutort, created/updated dates) and `© YYYY Eric Riutort. All rights reserved.` footer.
+- **Claude Code CLI** = interactive coding. `~/lifting-tracker/CLAUDE.md` loads automatically.
+- Work autonomously. Only ask Eric when genuinely ambiguous, risky, or requiring domain knowledge.
+- Every doc: YAML frontmatter (author: Eric Riutort) + copyright footer.
+- Always check Anthropic's published docs before making AI-related architecture recommendations.
 
 ## Cowork setup
 
-- **Lifting Tracker project** exists in Cowork with `~/lifting-tracker` attached.
-- **Global instructions** are set in Settings → Cowork (planning/architecture role, Eric's background, files-over-memory, attribution, structured deliverables).
-- **Network allowlist** updated to include `www.youtube.com` and `youtu.be` — requires new session to take effect.
-- **Memory files** persist across sessions: user background, attribution rule, workspace split, project state, autonomous work, Anthropic docs check.
+- **Lifting Tracker project** exists with `~/lifting-tracker` attached
+- **Global instructions** set (planning/architecture role, Eric's background, files-over-memory, attribution, structured deliverables)
+- **Domain allowlist** changed to "All domains" — new sessions should have unrestricted web access
+- **Extensions installed**: Filesystem, Read/Write Apple Notes, Control your Mac
+- **Connectors**: GitHub Integration, Claude in Chrome
+- **Code permissions**: Auto mode
 
-## Stale sessions to clean up
+## Immediate next step
 
-Multiple idle Code tasks and Dispatch tasks from prior attempts. All work from them is either completed, superseded, or captured in docs. Safe to ignore.
+Compile the community research doc from gathered web search data, then proceed to Sprint 0 implementation (install Docker + Supabase CLI on Eric's Mac, scaffold Expo project, deploy schema).
 
 ---
 
