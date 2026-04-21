@@ -1,12 +1,14 @@
 ---
 author: Eric Riutort
 created: 2026-04-15
-updated: 2026-04-15
+updated: 2026-04-19
 ---
 
 # Lifting Tracker — Architectural Approach Comparison
 
 A systems-engineering-level comparison of all platform approaches discussed for the coach-client workout tracking application. This document evaluates each approach across consistent dimensions to support an informed architectural decision.
+
+**Scope note (2026-04-19):** The original comparison (sections 1–7 and the decision matrix below) was scoped to the Lifting Tracker sub-system MVP when the project was "a workout tracker with a coach view." The project has since expanded into **XRSize4 ALL** — a system of systems spanning 8 discipline-specific training sub-systems and 12 cross-cutting services (see `xrsize4all_concept.md`). The MVP comparison remains valid for the Lifting Tracker's first release. A new section, **"Platform Evolution — Technical Direction Beyond MVP,"** maps the chosen stack (A4: Expo + Supabase) forward through all five XRSize4 ALL phases, identifying where the foundation holds, where it needs augmentation, and where new infrastructure enters.
 
 ## Approaches evaluated
 
@@ -195,6 +197,172 @@ This sequence gives you the fastest initial validation (web deploy, no App Store
 | SwiftUI | Apple's declarative UI framework for iOS/macOS | Native UI layer (A6 only) |
 | SwiftData | Apple's persistence framework (Core Data successor) | Local data layer with iCloud sync (A5/A6) |
 | CloudKit | Apple's cloud database service tied to iCloud | Sync layer for Apple-only approach (A5) |
+
+## Platform Evolution — Technical Direction Beyond MVP
+
+The MVP decision (A4: Expo + Supabase) is confirmed. This section maps that foundation forward through XRSize4 ALL's five phases, evaluating what stays, what gets augmented, and what requires new infrastructure.
+
+### Phase 1 — Lifting Tracker MVP
+
+**What Expo + Supabase covers completely:**
+
+| Concern | How it's handled | Notes |
+|---|---|---|
+| Mobile app (iPhone) | Expo → TestFlight via EAS Build | Single codebase |
+| Web dashboard (laptop) | Expo Web → Vercel | Same codebase |
+| Database | Supabase Postgres | Full D1–D24 schema deployed from day one |
+| Auth | Supabase Auth (magic-link) | Invite-only, SecureStore on device |
+| Offline sync | AsyncStorage + custom sync queue | Reconnect reconciliation |
+| Real-time | Supabase Realtime (WebSocket) | Not needed in MVP but available |
+| File storage (photos) | Supabase Storage | Encrypted at rest, RLS-gated |
+| AI/LLM (NL parsing, summaries) | Supabase Edge Functions → external LLM API (Anthropic/OpenAI) | Edge Function calls the model; results stored in ai_interactions table |
+| Row Level Security | Supabase RLS policies | Athlete sees own data only |
+| Exercise library seed | Supabase SQL migration | Canonical exercises from combined_workout_log.txt |
+
+**New infrastructure: None.** Expo + Supabase handles everything in Phase 1.
+
+**Technical debt created: None.** The schema is ontological (D12) with nullable FKs for all future entities. No shortcuts that block later phases.
+
+### Phase 2 — Coaching Activation
+
+**What stays as-is:**
+
+| Concern | Status |
+|---|---|
+| Mobile app + web | Same Expo codebase; coach UI added as role-gated screens |
+| Database | Same Supabase Postgres instance; coach_relationships, routines, assigned_sessions already in schema |
+| Auth | Same; coach accounts get role=2 |
+| Offline sync | Same mechanism; coach actions (assignments, reviews) don't require offline — they're laptop-primary |
+
+**What gets augmented (new Supabase features):**
+
+| Concern | Augmentation | Why |
+|---|---|---|
+| Video storage (form capture, D23 Layer 1) | Supabase Storage with larger bucket policies | Set videos are larger than photos; may need paid tier for storage quota |
+| RLS complexity | Additional policies for coach-sees-client-data | Coach can read their clients' sessions but not other coaches' clients |
+| Edge Functions (AI coaching) | More Edge Functions for coach summaries, program generation (D19) | Higher AI API call volume; cost monitoring becomes relevant |
+| Supabase Realtime | Enable for coach-client data (coach sees client log in near-real-time) | Low additional cost; existing Supabase capability |
+
+**New infrastructure outside Supabase:**
+
+| Concern | Infrastructure | Why |
+|---|---|---|
+| Video transcoding | Likely not needed yet — raw video stored and played back as-is. If quality/size becomes an issue: Mux, Cloudflare Stream, or AWS MediaConvert | D23 Layer 1 is storage + playback only; transcoding is a Phase 3+ concern |
+| Push notifications | Expo Notifications service (free tier) | Coach notified when client logs; client notified when coach assigns |
+
+**Technical debt risk: LOW.** Coach features extend the existing model cleanly. The main cost driver is Supabase storage for videos — monitor and upgrade tier as needed.
+
+### Phase 3 — Commerce and Content
+
+**What stays as-is:**
+
+| Concern | Status |
+|---|---|
+| Mobile app + web | Same Expo codebase |
+| Core database | Same Supabase Postgres; new tables for commerce and content added via migration |
+| Auth | Same Supabase Auth; no new auth patterns needed |
+| Offline sync | Same for athlete logging; commerce actions are online-only |
+
+**What gets augmented:**
+
+| Concern | Augmentation | Why |
+|---|---|---|
+| Supabase Storage | Paid tier almost certainly required; hosted coach video content (D24) adds significant storage | Instructional videos are larger than set videos |
+| Edge Functions | Payment webhooks from Stripe, content processing triggers | Higher function invocation count |
+| Database | Commerce tables (payment_accounts, subscriptions, transactions, payouts) added to schema | New domain; same Postgres instance unless performance dictates separation |
+
+**New infrastructure outside Supabase:**
+
+| Concern | Infrastructure | Why |
+|---|---|---|
+| Payment processing | **Stripe Connect** (or Square for Platforms) | Coach-to-client billing (D9 note). Marketplace model with KYC/AML, 1099s. Supabase doesn't handle payments. |
+| Media CDN | **Cloudflare Stream**, **Mux**, or **AWS CloudFront + S3** | Hosted coach demonstration videos need a CDN for playback performance. Supabase Storage alone won't scale for video streaming to many users. |
+| Video transcoding | **Mux** or **AWS MediaConvert** | Multiple resolutions, adaptive bitrate for coach content. Not needed for private set videos (Phase 2) but needed for published content. |
+| Backend-for-frontend (BFF) | **Consider but defer.** If Edge Functions become unwieldy (too many, too complex), introduce a thin API layer (Node.js on Railway/Render/Fly.io) that sits between Expo and Supabase. | This is a "watch and decide" item. Many projects stay on Edge Functions indefinitely; some outgrow them. |
+
+**Technical debt risk: MEDIUM.** This is the phase where Supabase stops being "the entire backend" and becomes "the database + auth + realtime layer" within a broader infrastructure. The Expo client doesn't care — it talks to APIs regardless of what's behind them. The risk is operational complexity: more services to monitor, more credentials to manage, more failure points.
+
+### Phase 4 — Community and Discovery
+
+**What stays as-is:**
+
+| Concern | Status |
+|---|---|
+| Mobile app + web | Same Expo codebase; social UI added |
+| Core database | Same Supabase Postgres; social and proximity tables added |
+| Auth | Same |
+
+**What gets augmented:**
+
+| Concern | Augmentation | Why |
+|---|---|---|
+| Supabase Realtime | Heavier use for messaging, activity feeds, live updates | Monitor connection limits on Supabase plan |
+| Supabase Postgres | **PostGIS extension** for geospatial queries (proximity, venue matching) | Supabase supports PostGIS natively; enable the extension |
+| RLS | Significantly more complex policies for social visibility, group membership, blocking | RLS policy count grows; test thoroughly |
+
+**New infrastructure outside Supabase:**
+
+| Concern | Infrastructure | Why |
+|---|---|---|
+| Messaging | Evaluate: Supabase Realtime channels vs. dedicated messaging service (e.g., Stream Chat, Ably) | Supabase Realtime can handle basic messaging. At scale (thousands of concurrent connections), a dedicated service is more reliable. |
+| Content moderation | **AI-based screening** (image + text) via external API (OpenAI moderation, Anthropic, or dedicated service like Hive) | User-generated social content requires automated screening + human review queue. |
+| Search | **Consider Supabase full-text search** (built-in) or **Typesense/Meilisearch** for exercise library, content, and user search at scale | Built-in Postgres full-text search works initially; dedicated search improves relevance and speed as content grows. |
+| Activity feed | Evaluate: Postgres-based fan-out vs. dedicated feed service (e.g., Stream Feeds, custom Redis-based) | Simple feeds work in Postgres. Algorithmic feeds with hundreds of thousands of users need specialized infrastructure. |
+
+**Technical debt risk: MEDIUM-HIGH.** Social features introduce the highest operational complexity. The core Expo + Supabase foundation still holds for the app itself, but the backend becomes a multi-service architecture. Key decision point: hire or outsource DevOps capacity before this phase.
+
+### Phase 5 — Extended Reality and Advanced AI
+
+**What stays as-is:**
+
+| Concern | Status |
+|---|---|
+| Core mobile app + web | Same Expo codebase for phone and web |
+| Database | Same Supabase Postgres as source of truth |
+| Auth | Same Supabase Auth; wearable apps authenticate via companion-phone handoff |
+
+**What requires new, separate infrastructure:**
+
+| Concern | Infrastructure | Why |
+|---|---|---|
+| Apple Watch app | **Native SwiftUI** (watchOS) — completely separate codebase | Per D20. Expo cannot target watchOS. The watch app communicates with the phone app via WatchConnectivity framework and syncs to Supabase indirectly through the phone. |
+| Wear OS app | **Native Kotlin** (Wear OS) — separate codebase | Same rationale as Watch. |
+| Smart glasses / AR | **Platform-specific SDK** (Meta, Apple Vision, etc.) — separate codebase per device | Immature ecosystem; target only when platform SDKs stabilize. |
+| On-device ML (form analysis) | **Core ML** (iOS) or **TensorFlow Lite** (cross-platform) | D23 Layer 4 (real-time form feedback) requires on-device inference. Models trained offline, deployed to device. Expo can access Core ML via native modules. |
+| AI pipeline (advanced) | **Dedicated ML infrastructure** — model fine-tuning, evaluation, deployment pipeline | Advanced AI features (D19 v3+ scope: goal synthesis, program generation, tension detection) may require fine-tuned models, not just API calls. Infrastructure: AWS SageMaker, GCP Vertex, or self-hosted. |
+| Voice processing | **Speech-to-text API** (Whisper, Deepgram, Apple Speech) → D19 NL parser | Voice-based logging (D20 via AirPods/glasses) requires real-time speech transcription piped into the NL workout parser. |
+
+**Technical debt risk: LOW from MVP choices.** The Expo + Supabase MVP creates no debt for this phase. Watch and glasses apps were always going to be separate native targets regardless of the MVP stack choice. The Supabase data layer is accessed by all targets through the same API. The main risk is organizational, not technical: multiple codebases, multiple platform expertises, multiple deployment pipelines.
+
+### Platform Evolution Summary
+
+| Phase | Expo | Supabase | New Infrastructure | Debt from MVP |
+|---|---|---|---|---|
+| 1 (MVP) | Primary app (iPhone + web) | Entire backend | None | None |
+| 2 (Coaching) | Same + coach screens | + Storage for video, + RLS policies, + Edge Functions | Push notifications (Expo service) | None |
+| 3 (Commerce) | Same + commerce UI | + Paid tier, + commerce tables | Stripe Connect, media CDN, video transcoding. Possibly BFF API layer. | None — but operational complexity increases |
+| 4 (Community) | Same + social UI | + PostGIS, + heavier Realtime, + complex RLS | Messaging service (maybe), content moderation, search, activity feed | None — but multi-service architecture requires DevOps |
+| 5 (XR + AI) | Same for phone/web | Same as source of truth | Watch (SwiftUI), Wear OS (Kotlin), on-device ML, AI pipeline, voice processing | None from MVP. New codebases are additive, not replacements. |
+
+**Key finding:** The Expo + Supabase MVP choice creates zero technical debt for any future phase. Supabase evolves from "the entire backend" to "the database + auth + realtime core" of a broader infrastructure, but it's never replaced — only augmented. Expo remains the primary mobile + web codebase through all five phases; wearable and AR targets are always separate native apps regardless of what the MVP stack was.
+
+### Extended Requirements Coverage (Platform-Level)
+
+The original comparison evaluated 10 requirements (R1–R10) scoped to the MVP. The platform vision introduces additional requirements. Here is how A4 (Expo + Supabase) covers them, with the infrastructure augmentation identified per phase:
+
+| Requirement | Phase | How A4 + Supabase handles it |
+|---|---|---|
+| R1–R10 (original MVP) | 1 | Fully covered (scored 8.40/10) |
+| R11: Video hosting + streaming | 2–3 | Supabase Storage (Phase 2 for private); CDN + transcoding (Phase 3 for public) |
+| R12: Payment marketplace | 3 | Stripe Connect — external to Supabase; Expo client integrates via SDK |
+| R13: AI/ML pipeline (beyond API calls) | 3–5 | Edge Functions (Phase 1–3); dedicated ML infra (Phase 5) |
+| R14: Real-time messaging | 4 | Supabase Realtime (basic); dedicated service at scale |
+| R15: Geospatial queries | 4 | PostGIS extension on Supabase Postgres |
+| R16: Content moderation | 4 | External AI moderation API + human review queue |
+| R17: Wearable native apps | 5 | Separate SwiftUI / Kotlin codebases — outside Expo |
+| R18: On-device ML | 5 | Core ML / TF Lite via Expo native modules |
+| R19: Voice interaction | 5 | Speech-to-text API → NL parser (D19) |
+| R20: Multi-discipline training | 2+ | Schema already supports via exercise_types table (D13) |
 
 ---
 

@@ -1,44 +1,62 @@
 ## Project
-Lifting Tracker — a mobile-first PWA for logging weightlifting workouts, sets, and progress over time.
+Lifting Tracker — the first sub-system of XRSize4 ALL. A coach-client workout tracking app with hierarchical RBAC (Athlete → Coach → Gym → Super Admin). MVP ships the athlete experience; coach and admin views follow iteratively.
 
-## Stack
-- HTML5, CSS3, vanilla JavaScript (ES modules)
-- No framework — keep it dependency-light
-- Storage: browser `localStorage` (IndexedDB later if data grows)
-- Service Worker + Web App Manifest for PWA/offline support
-- Deployed on GitHub Pages
+## Stack (MVP)
+- Expo (React Native) — single codebase for iPhone app (TestFlight) + web dashboard (Expo Web on Vercel)
+- Supabase — Postgres, auth (magic-link), real-time, storage, edge functions
+- Offline-first — AsyncStorage + sync queue; reconcile on reconnect
+- AI — Supabase Edge Functions → external LLM API for NL workout parsing and summaries
 
-## Structure
-- `index.html` — app shell entry point
-- `css/` — stylesheets (mobile-first, one file per concern)
-- `js/` — ES modules (one file per concern: storage, ui, workouts, etc.)
-- `assets/` — icons, images, manifest
-- `sw.js` — service worker (at repo root so it can control the whole scope)
-- `manifest.webmanifest` — PWA manifest
+## Architecture docs (read before making decisions)
+- `docs/architecture.md` — 24 decisions (D1–D24), full data model, non-decisions list
+- `docs/user-stories.md` — 114 user stories, MVP through v4+
+- `docs/themes-epics-features.md` — 8 themes, 31 epics, 109 features
+- `docs/xrsize4all_concept.md` — platform-level system-of-systems concept
+- `docs/architecture-comparison.md` — platform comparison and evolution through 5 phases
+- `docs/roadmap.md` — 8 MVP sprints with backlog and dependencies
+
+## Key decisions (quick reference)
+- D2: Per-set granularity. User → Session → Exercise → Set.
+- D4: Cloud DB (Supabase Postgres) is sole source of truth. Devices cache locally.
+- D12: Schema is ontological — all relationships above Session are nullable FKs. Never force structure.
+- D14: Weight stored as per-implement (what's on the dumbbell), not total. Volume computed from limb config.
+- D15: Limb configuration (together/apart_simultaneous/apart_alternating/single/none) is a property of the exercise.
+- D16: Rest in integer seconds with session → exercise → set defaulting cascade.
+- D17: Set grouping via group_id (supersets, drop sets).
+- D19: AI follows Reasoner Duality — Tier 1 deterministic governs decisions, Tier 2 LLM explains and suggests.
 
 ## Commands
-- Dev: `python3 -m http.server 8000` (or any static server — service workers need http, not `file://`)
-- Build: none — static files are deployed as-is
-- Test: none yet — add later if logic grows
-- Lint: none yet — add Prettier/ESLint later if desired
+- Dev: `npx expo start` (iOS simulator + web)
+- Build iOS: `eas build --platform ios --profile preview` (cloud build, no local Xcode)
+- Build Web: `npx expo export --platform web` then deploy to Vercel
+- Test: not yet configured — add Jest + React Native Testing Library
+- Lint: not yet configured — add ESLint + Prettier
 
-## Verification
-After every change:
-1. Reload the page in a mobile viewport (Chrome DevTools device mode) — check layout and interactions
-2. Check the DevTools Console for errors
-3. If the service worker or manifest changed, unregister the old SW and hard reload
-4. Test offline: DevTools → Network → Offline, confirm the app still loads
+## Structure (target — not yet scaffolded)
+- `app/` — Expo Router screens
+- `components/` — reusable UI components
+- `lib/` — Supabase client, sync engine, AI service
+- `data/` — workout log files (historical import source)
+- `docs/` — architecture, stories, roadmap, comparisons
+- `supabase/` — migrations, seed data, edge functions
 
 ## Conventions
-- Mobile-first CSS: write base styles for small screens, use `min-width` media queries to scale up
-- Vanilla JS only — no frameworks or build tools unless there's a clear reason
-- ES modules with `<script type="module">` — no bundler
-- Small, focused functions; early returns over nested conditionals
-- Bump the service worker cache version string whenever cached assets change, or users will get stale files
-- All paths must work from a GitHub Pages subpath (e.g. `/lifting-tracker/`) — use relative paths, not leading `/`
+- Mobile-first design — iPhone is the primary device for all roles
+- Offline-first — every write goes to local storage first, syncs when online
+- Schema-complete from day one — all D1–D24 tables exist even if MVP UI doesn't expose them
+- Exercise variations with different limb configs are distinct exercises, grouped by family
+- Weight entered = per-implement; volume = computed from limb config at analytics time
+- AI outputs are always drafts — user confirms before any write to athlete data
+- Every doc gets YAML frontmatter (author: Eric Riutort, created/updated dates) and a copyright footer
 
 ## Don't
-- Don't add a framework or build step without discussing first — the point is simplicity
-- Don't use absolute paths like `/css/app.css` — they break on GitHub Pages project sites. Use `./css/app.css`
-- Don't cache `index.html` aggressively in the service worker — users will get stuck on old versions. Use network-first for HTML, cache-first for assets
-- Don't store sensitive data in `localStorage` — it's plaintext and readable by any script on the page
+- Don't make architectural decisions without checking `docs/architecture.md` first
+- Don't store weight as total load — always per-implement (D14)
+- Don't force Sessions into Programs/Routines — all parent relationships are nullable (D12)
+- Don't let AI write data without user confirmation (D19 Authority Rule)
+- Don't build coach/admin UI in MVP — schema supports it, UI doesn't expose it yet
+- Don't use localStorage for auth tokens — use Expo SecureStore
+- Don't skip offline support — gym connectivity is unreliable
+
+## Legacy
+The repo contains a v1 PWA prototype (vanilla HTML/CSS/JS, GitHub Pages). It's superseded by this architecture but stays in git history. The `data/combined_workout_log.txt` is the historical import source (400+ sessions).
