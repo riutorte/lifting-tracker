@@ -1,73 +1,79 @@
 ---
 author: Eric Riutort
 created: 2026-04-14
-updated: 2026-04-14
+updated: 2026-04-21
 ---
 
 # Dispatch Handoff — Lifting Tracker
 
-**Read this first** when picking up a fresh Dispatch session for the lifting-tracker project. It's the curated context; raw archives in `conversation-archive/` have full detail.
+**Read this first** when picking up a fresh Dispatch session for the lifting-tracker project. It's the curated context; raw archives in `conversation-archive/` and the full doc set in `docs/` have the detail.
 
-## Where things stand (one paragraph)
+## Where things stand (2026-04-21)
 
-PWA v1 is built and deployed to GitHub Pages from this repo. It works as a personal tracker (parser, Overview/History/Log tabs, localStorage, PWA shell). Eric is now pivoting the product from "personal tracker" to "coach-client alpha." The Xcode + iCloud direction was considered and rejected because it doesn't support multi-user / cross-Apple-ID sync. Current direction: web app on **Vercel + Supabase** (Postgres + auth + JS SDK). Architecture decisions captured in `architecture.md` (D1–D6 closed, O1–O5 open).
+Planning is complete. Implementation has not started.
 
-## Files to know
+The project has evolved from "personal lifting tracker" to **XRSize4 ALL** — a system of systems for fitness, training, coaching, and community. The **Lifting Tracker** is the first sub-system, shipping as MVP. All planning documents are written, reviewed, committed, and pushed to GitHub.
 
-| File | What it is |
-|---|---|
-| `docs/architecture.md` | Working architecture doc. D1–D6 settled, O1–O5 open. Source of truth for design decisions. |
-| `data/combined_workout_log.txt` | Eric's full historical workout log. Currently the source of truth for the v1 PWA's Overview and History views. After Supabase migration, becomes a read-only seed archive. |
-| `data/pending_notes_2026-04-14.txt` | Raw iPhone Notes paste, 3/18/26–4/14/26, ~30 sessions. Annotated with cleanup questions. |
-| `data/merge_2026-04-14.txt` | Cleaned draft of those sessions, ready to merge into `combined_workout_log.txt`. **Not yet merged.** |
-| `docs/conversation-archive/2026-04-14_claude-code-build.md` | Verbatim Claude Code session transcript: v1 build, parser fixes, data merge work, architecture pivot conversation. |
-| `docs/conversation-archive/2026-04-14_chat-claude-setup-extract.md` | Curated extract from the chat Claude conversation (CLAUDE.md template guidance + Cowork/Dispatch architectural argument). |
+## Document set (all in `~/lifting-tracker/docs/`)
 
-## Settled (don't re-litigate)
+| File | What it is | Lines |
+|---|---|---|
+| `xrsize4all_concept.md` | Platform-level concept: people, process, technology, 11 roles, 5-phase roadmap | 361 |
+| `architecture.md` | Lifting Tracker architecture: 24 decisions (D1–D24), full data model, non-decisions | 735 |
+| `user-stories.md` | 114 user stories, MVP through v4+, organized by phase and role | 359 |
+| `themes-epics-features.md` | 8 themes, 31 epics, 109 features, release planning view | 470 |
+| `roadmap.md` | 8 MVP sprints with Kanban tables, dependencies, sizing, post-MVP backlog | ~200 |
+| `effort-estimate.md` | Calendar time estimates per phase, Claude Code productivity analysis | 205 |
+| `architecture-comparison.md` | 7-approach comparison + Platform Evolution through 5 XRSize4 ALL phases | 369 |
+| `architecture-comparison.xlsx` | Spreadsheet version (MVP comparison only — outdated vs .md) | — |
+| `ontology-plan.md` | Exercise ontology planning | 162 |
+| `dispatch-handoff.md` | This file | — |
+| `conversation-archive/` | 2 archived transcripts from April 14 | — |
 
-- **D1**: Entry + analysis are equally first-class. Analytics is alpha, not v2.
-- **D2**: Per-set granularity. `User → Session → Exercise → Set` hierarchy.
-- **D3**: One app, role-aware UI. A user can be coach + athlete on one account.
-- **D4**: Cloud DB is sole source of truth post-import. Text log becomes archive.
-- **D5**: Seeded canonical exercise library + user-scoped custom exercises with alias mapping.
-- **D6**: Real auth from day one (likely magic-link email).
+## Key decisions (quick reference)
 
-Full rationale in `architecture.md`.
+- **D8**: Expo (React Native) + Supabase, offline-first. Real iPhone app via TestFlight + web dashboard from same codebase.
+- **D3**: Hierarchical RBAC: Athlete → Coach → Gym → Super Admin. Roles inherit downward.
+- **D12**: Schema is ontological — all relationships above Session are nullable FKs.
+- **D19**: AI follows Reasoner Duality — Tier 1 deterministic governs, Tier 2 LLM explains.
+- Full list: D1–D24 in `architecture.md`.
 
-## Open (need answers before code)
+## What's been decided but NOT yet built
 
-- **O1**: Alpha audience scope — narrow (Eric + his clients) vs broad (any coach). Current lean: narrow.
-- **O2**: Platform — web PWA vs native iOS vs Capacitor. Current lean: web (testers may not all use iPhones).
-- **O3**: Business model — free in alpha, revisit before beta.
-- **O4**: Ethan's role in the system — client / co-coach / co-developer / placeholder?
-- **O5**: Business-vs-hobby framing — affects how much is invested beyond alpha minimum.
+Everything. The repo has planning docs and a legacy v1 PWA. No Expo project, no Supabase schema, no app code.
 
-## Pending implementation work (not for Dispatch — route to Claude Code)
+## Immediate next steps (implementation)
 
-1. **Merge `data/merge_2026-04-14.txt`** into `data/combined_workout_log.txt` (Eric reviewed and approved the cleanup; merge was paused mid-conversation when scope shifted to architecture).
-2. **Update v1 PWA** for any data changes after merge (parser re-run, Overview stats refresh).
-3. **Eventually**: Supabase project setup, schema implementation, import script for `combined_workout_log.txt`, auth, frontend rebuild. None of this should start until O1 and O2 are answered.
+1. **Set up local dev environment** — Docker + Supabase CLI + Expo scaffolding. All local, no cloud accounts needed yet.
+2. **Deploy schema** — full D1–D24 data model to local Supabase Postgres.
+3. **Auth flow** — magic-link via Supabase Auth.
+4. **Exercise library seed** — parse canonical exercises from `data/combined_workout_log.txt`.
+5. **Follow Sprint 0 in `roadmap.md`** for the full breakdown.
 
-## Workspace conventions (project-specific)
+## Pending tasks not yet done
 
-- Dispatch (this layer) = **strategy, planning, architecture, docs**. No code edits beyond docs.
-- Claude Code sessions = **all implementation work**. Spawn via `start_code_task` against `~/lifting-tracker`.
-- Architecture decisions live in `docs/architecture.md`; update there before declaring anything settled.
-- Data files in `data/` are versioned; the existing v1 PWA reads them directly.
+- **Data merge** — `data/merge_2026-04-14.txt` (11 cleaned April sessions) was never merged into `combined_workout_log.txt`. Multiple Code tasks attempted but hit worktree/auth issues. Still pending.
+- **Anthropic docs review** — D19 and AI feature design should be cross-checked against Anthropic's published engineering patterns before Sprint 6. See memory file `feedback_check_anthropic_docs.md`.
+- **YouTube transcript** — Eric wants to study "Build & Sell with Claude Code (10+ Hour Course)" (youtube.com/watch?v=mpALXah_PBg). YouTube was added to the domain allowlist but the setting requires a new Dispatch session to take effect.
 
-## Concept Computing — parked
+## Workspace conventions
 
-Eric also runs a Concept Computing project at `~/Concept` (different paradigm — formal Concepts, tiered docs, gated workflows). It was raised as a candidate paradigm for the tracker's data model but **deferred to v2 consideration**. Alpha uses a conventional schema. See `~/Concept/CLAUDE.md` if you want context, but don't apply it here without explicit go.
+- **Dispatch** = strategy, planning, architecture, document work. No code.
+- **Claude Code tasks** (`start_code_task`) = all implementation, commits, pushes.
+- **Claude Code CLI** = interactive coding sessions. `~/lifting-tracker/CLAUDE.md` is updated and loads automatically.
+- Work autonomously on routine tasks. Only ask Eric when genuinely ambiguous, risky, or requiring domain knowledge.
+- Every generated document gets YAML frontmatter (author: Eric Riutort, created/updated dates) and `© YYYY Eric Riutort. All rights reserved.` footer.
 
-## Cowork setup notes
+## Cowork setup
 
-- Global instructions (Settings → Cowork) are set: planning/architecture role, Eric's professional background, files-over-memory, attribution to Eric Riutort on every doc.
-- Folders granted: `~/lifting-tracker`, `~/Concept`.
-- A Cowork **Space** for "Lifting Tracker" (and one for "Concept Computing") is being set up so future sessions inherit folder access automatically.
+- **Lifting Tracker project** exists in Cowork with `~/lifting-tracker` attached.
+- **Global instructions** are set in Settings → Cowork (planning/architecture role, Eric's background, files-over-memory, attribution, structured deliverables).
+- **Network allowlist** updated to include `www.youtube.com` and `youtu.be` — requires new session to take effect.
+- **Memory files** persist across sessions: user background, attribution rule, workspace split, project state, autonomous work, Anthropic docs check.
 
-## Immediate next step
+## Stale sessions to clean up
 
-Work through O1–O5 with Eric, then update `architecture.md` with the answers and commit.
+Multiple idle Code tasks and Dispatch tasks from prior attempts. All work from them is either completed, superseded, or captured in docs. Safe to ignore.
 
 ---
 
