@@ -2,6 +2,10 @@
 author: Eric Riutort
 created: 2026-04-22
 updated: 2026-04-22
+valid_as_of: 2026-04-22
+re_check_by: 2026-07-21
+tier: REFERENCE
+content_class: research
 ---
 
 # Stack Validation — 2026 Community Signal Audit

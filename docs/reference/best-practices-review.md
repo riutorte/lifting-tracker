@@ -2,6 +2,10 @@
 author: Eric Riutort
 created: 2026-04-21
 updated: 2026-04-21
+valid_as_of: 2026-04-21
+re_check_by: 2026-07-20
+tier: REFERENCE
+content_class: research
 ---
 
 # Best-Practices Review — Pre-Implementation
