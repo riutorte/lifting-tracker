@@ -41,12 +41,12 @@ Binding status uses four levels:
 | **HTTP/2 + HTTP/3 (where supported)** | Transport multiplexing | Public web edges (Vercel) | Adopted | Configured by host; not application-layer. |
 | **JSON-RPC 2.0** | RPC envelope used by MCP | All MCP servers | Required | Foundational to MCP transport. |
 | **JSON Schema (Draft 2020-12)** | Tool and message schema validation | MCP tool contracts; manifest schema; OpenAPI bodies | Adopted | Used by `cm.update / approve / record / verify / status / history` tool definitions. |
-| **YAML 1.2** | Frontmatter and manifest format | All in-scope docs (frontmatter); `.cm/manifest.yaml` | Required | Per CONVENTIONS_v0.2.0.md §7. |
-| **Markdown (CommonMark + GitHub-flavored extensions)** | Document format | All in-scope docs | Required | Per CONVENTIONS_v0.2.0.md §6 (extension `.md`). |
+| **YAML 1.2** | Frontmatter and manifest format | All in-scope docs (frontmatter); `.cm/manifest.yaml` | Required | Per CONVENTIONS_v0.2.1.md §7. |
+| **Markdown (CommonMark + GitHub-flavored extensions)** | Document format | All in-scope docs | Required | Per CONVENTIONS_v0.2.1.md §6 (extension `.md`). |
 | **Mermaid (current spec)** | Diagram-as-code format | All DoDAF view diagrams (this directory); xrsize4all_concept_v0.2.0.md process diagrams | Required | Per `xrsize4all_concept_v0.2.0.md` Process section ("Mermaid notation … expressible in plain text … machine-parseable for tooling"). |
 | **SysML 1.x notation (within Mermaid limits)** | Stereotypes, cardinalities, association directionality | DoDAF view diagrams in this directory | Adopted | Per D28. Where Mermaid cannot render a SysML construct (delegation ports, item flows on connectors, allocation arrows), descriptive markdown carries the intent. |
 | **DoDAF 2.02 viewpoints** | Architecture description framework | This directory | Adopted | Per D28 — DoDAF over TOGAF for this portfolio. Fit-for-purpose authority: the producer of any view may add or subtract content per what supports the decision the view exists to inform. |
-| **SemVer 2.0.0** | Version numbering for documents and software | Architecture-class docs; Reference-class docs; software releases | Required | Per CONVENTIONS_v0.2.0.md §8. |
+| **SemVer 2.0.0** | Version numbering for documents and software | Architecture-class docs; Reference-class docs; software releases | Required | Per CONVENTIONS_v0.2.1.md §8. |
 | **Conventional Commits** | Commit message format | All git commits in scope | Adopted | Per source-doc-cm-design.md §2.6. Drives `semantic-release`-style tooling when adopted. |
 | **OWASP LLM Top 10 (2025)** | Threat model for LLM-integrated applications | Edge Functions invoking Tier 2 LLM; AI_INTERACTIONS audit row design; Tier 2 concern log | Required | Cross-listed: D19 Reasoner Duality, AI_INTERACTIONS hybrid schema, Authority Rule. Specific defenses: prompt-injection guard on user-supplied text; least-privilege on LLM outputs; confirmation gate before any write to athlete data. |
 | **OWASP DevSecOps Maturity Model — Level 1 baseline** | Security controls for the development pipeline | CI; pre-commit hooks; secret scanning rollout | Adopted | Per source-doc-cm-design.md §5.2 staged-rollout for gitleaks. |
@@ -120,7 +120,7 @@ These are principles, patterns, and conventions authored within the portfolio. L
 | **Set grouping via group_id (D17)** | Nullable integer on sets; same group_id = back-to-back | Lifting Tracker logging + analytics | Required | architecture_v0.4.0.md §D17 |
 | **Schema-completeness from day one (D12 corollary)** | Every table from architecture_v0.4.0.md exists in MVP even if UI doesn't expose it | Database migrations | Required | architecture_v0.4.0.md MVP approach + D12 |
 | **D28 Fit-for-purpose DoDAF view authority** | The producer of a DoDAF view may add or subtract content per what supports the decision | This directory | Required | (D28 ADR pending; convention applied here) |
-| **CONVENTIONS_v0.2.0.md frontmatter + footer rule** | Every doc carries YAML frontmatter (author / created / updated / tier / content_class / version / status as required by class) and `© YYYY Eric Riutort. All rights reserved.` footer | All in-scope docs | Required | CONVENTIONS_v0.2.0.md §7, §11 |
+| **CONVENTIONS_v0.2.1.md frontmatter + footer rule** | Every doc carries YAML frontmatter (author / created / updated / tier / content_class / version / status as required by class) and `© YYYY Eric Riutort. All rights reserved.` footer | All in-scope docs | Required | CONVENTIONS_v0.2.1.md §7, §11 |
 
 ## 4. Declined standards (presence prevents accidental re-adoption)
 

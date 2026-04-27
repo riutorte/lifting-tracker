@@ -1,17 +1,17 @@
 ---
 author: Eric Riutort
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-04-27
 tier: OPERATIONAL
 content_class: reference
-version: 0.2.0
+version: 0.2.1
 ---
 
 # CONVENTIONS — File Structure and Versioning Rules
 
 ## 1. Purpose
 
-Authoritative file-placement and versioning specification for the XRSize4 ALL portfolio — Lifting Tracker, Reach4All, Concept, and future programs. When a session asks "where does this doc go, what do I name it, and how is it versioned," CONVENTIONS_v0.2.0.md is the answer of record. Downstream docs cite this file rather than restate the rules.
+Authoritative file-placement and versioning specification for the XRSize4 ALL portfolio — Lifting Tracker, Reach4All, Concept, and future programs. When a session asks "where does this doc go, what do I name it, and how is it versioned," CONVENTIONS_v0.2.1.md is the answer of record. Downstream docs cite this file rather than restate the rules.
 
 This file is Reference class and carries semver on structural revisions (see §8). Minor text edits bump `updated:` only.
 
@@ -24,7 +24,7 @@ Four content classes govern every in-scope artifact in the portfolio, plus one n
 | Architecture | ADRs, `architecture_v0.4.0.md`, `xrsize4all_concept_v0.2.0.md`, ontology plans | WF-003 full | Semver | Required | None (cited by pin; drift handled via `superseded_by:`) |
 | Research | Finding reports, landscape scans, vendor analyses, book digestions | WF-003L (light) | Date-based default; semver if promoted to Reference | Optional per finding; **required** for landscape synthesis | Mandatory `stale_after:` tag, 90-day default |
 | Operational | Kanban, metrics, risks, dispatch-handoff, retros, roadmap | Direct-edit or WF-003L depending on scope | Date-based (`updated:` is the version) | Optional; required only for material reorganization | Sprint-boundary review; read-only after 30 days |
-| Reference | `CLAUDE.md`, `README.md`, `CONVENTIONS_v0.2.0.md`, orchestration, glossary | WF-003 full (soft GATE if no downstream pins) | Semver on structural revisions | Required | 180-day review horizon |
+| Reference | `CLAUDE.md`, `README.md`, `CONVENTIONS_v0.2.1.md`, orchestration, glossary | WF-003 full (soft GATE if no downstream pins) | Semver on structural revisions | Required | 180-day review horizon |
 | Code | Source, tests, build scripts, IaC | **Deferred** to future code-cm | Not specified here | Not specified here | Not specified here |
 
 Three inter-class invariants apply: every in-scope artifact declares its class in the manifest; the governance profile is machine-readable from the manifest; cross-class migration is an ADR.
@@ -42,7 +42,7 @@ Each repo owns a distinct slice of the portfolio. A doc lives in exactly one rep
 | `~/document-cm/` and `~/code-cm/` (future) | Skill repos | SKILL.md, lib/, hooks/, manifests |
 | `~/setup/` (future) | Distribution of skills, plugins, managed policy | Install scripts, managed-settings.json, plugin bundles |
 
-Lifting Tracker is the authoritative copy of CONVENTIONS_v0.2.0.md today because most existing docs live there. When Reach4All matures a portfolio-level CONVENTIONS mirror, that mirror links back here and this file stays canonical until explicitly superseded.
+Lifting Tracker is the authoritative copy of CONVENTIONS_v0.2.1.md today because most existing docs live there. When Reach4All matures a portfolio-level CONVENTIONS mirror, that mirror links back here and this file stays canonical until explicitly superseded.
 
 ## 4. lifting-tracker/docs/ structure
 
@@ -51,7 +51,7 @@ Canonical layout. Every existing doc in the repo resolves into one of these slot
 | Path | Content | Class |
 |---|---|---|
 | `docs/CLAUDE.md` (root) | Project-scoped Claude config | Reference |
-| `docs/CONVENTIONS_v0.2.0.md` (this file) | Rule of record | Reference |
+| `docs/CONVENTIONS_v0.2.1.md` (this file) | Rule of record | Reference |
 | `docs/architecture_v0.4.0.md` | D1–D27 full architecture record | Architecture |
 | `docs/xrsize4all_concept_v0.2.0.md` | Platform-level system-of-systems concept | Architecture |
 | `docs/architecture-comparison_v0.3.0.md` | Platform comparison and evolution phases | Architecture |
@@ -98,13 +98,14 @@ New research docs land directly in the appropriate subcategory. Research added t
 
 ## 6. Filename conventions
 
-- **Case.** kebab-case for every filename except the uppercase rule docs (`CLAUDE.md`, `CONVENTIONS_v0.2.0.md`, `README.md`), which follow the industry convention for repo-rule files.
+- **Case.** kebab-case for every filename except the uppercase rule docs (`CLAUDE.md`, `CONVENTIONS_v<version>.md`, `README_v<version>.md`), which follow the industry convention for repo-rule files.
 - **Extension.** `.md` for markdown docs. Other extensions as appropriate (`.yaml`, `.json`, `.py`).
 - **Date prefix.** For chronological content that accumulates without a monotonic ID: `YYYY-MM-DD_<slug>.md`. Used in `conversation-archive/`.
 - **No date prefix where an ID is monotonic.** Sprint retros are `sprint-0a.md`, `sprint-0b.md`, etc. The sprint ID already orders the series; a date prefix would be redundant and brittle.
-- **ADR naming.** `D##-slug.md` where `##` is the decision number and `slug` is kebab-case (`D25-source-document-cm_v0.1.0.md`).
-- **No version in filename.** Version lives in frontmatter, not the filename. One current exception: `source-doc-cm-design.md` is growing large enough that a split may be warranted; revisit when it crosses that line.
-- **Baseline snapshots.** `.baseline-<state>-YYYYMMDD.md` at the same directory as the file they shadow. Examples: `.baseline-v0.2.0-20260423.md`, `.baseline-pre-sprint-0b-20260424.md`.
+- **ADR naming.** `D##-slug_v<version>.md` where `##` is the decision number, `slug` is kebab-case, and `<version>` is the ADR's semver (`D25-source-document-cm_v0.1.0.md`).
+- **Version in filename — semver-versioned docs only.** Files governed by semver (Architecture class, Reference class, substantive Operational class per the §7 amendment) carry their current version in the filename per the Concept Computing pattern: `<name>_v<version>.md` (underscore + lowercase v + dotted semver). Examples: `architecture_v0.4.0.md`, `CONVENTIONS_v0.2.1.md`, `roadmap_v0.4.0.md`, `D25-source-document-cm_v0.1.0.md`. Each version bump renames the file. Cross-references update at the same time. The filename and the frontmatter `version:` field carry the same value; mismatch is a defect.
+- **No version in filename — date-versioned and pure-ledger docs.** Files without semver — Research class (`valid_as_of:` + `re_check_by:` carry freshness), pure Operational ledgers (`updated:` is the version, e.g., `kanban.md`, `dispatch-handoff.md`, `sprint-0a.md`) — keep bare filenames. Date-versioning lives in frontmatter; the filename does not need to mirror it because there is no semver to mirror.
+- **Baseline snapshots.** `.baseline-<state>-YYYYMMDD.md` at the same directory as the file they shadow. Examples: `.baseline-v0.2.0-20260423.md`, `.baseline-pre-sprint-0b-20260424.md`. Baselines do not carry a version-in-filename suffix — the `<state>` field already encodes the version they shadow.
 
 ## 7. Required frontmatter fields per content class
 
@@ -183,7 +184,7 @@ Unambiguous decision rules. Given any edit, the rule below answers "do I bump a 
 
 **Operational class — date-based, no semver.** `updated:` is the version. Git log is the change history. No baselines.
 
-**Reference class — semver on structural revisions only.** MINOR on a structural revision (new section, new rule, reorganization). PATCH on clarifications. Minor text edits that don't change the rule model bump `updated:` only, not `version`. CLAUDE.md, README.md, CONVENTIONS_v0.2.0.md, orchestration_v0.1.0.md are Reference class.
+**Reference class — semver on structural revisions only.** MINOR on a structural revision (new section, new rule, reorganization). PATCH on clarifications. Minor text edits that don't change the rule model bump `updated:` only, not `version`. CLAUDE.md, README.md, CONVENTIONS_v0.2.1.md, orchestration_v0.1.0.md are Reference class.
 
 **Bump propagation.** When an Architecture-class doc bumps MINOR or MAJOR, consumers that pin to it are not auto-migrated. Consumers update their pin explicitly in a separate commit; manifest validation surfaces unpinned consumers.
 
@@ -325,7 +326,7 @@ Mermaid renders to SVG via build pipeline (`mermaid-cli` locally, GitHub native 
 
 Every doc in the portfolio carries YAML frontmatter with `author: Eric Riutort`, `created: YYYY-MM-DD` (immutable after creation), `updated: YYYY-MM-DD` (bumped on every material edit), plus a footer line `© YYYY Eric Riutort. All rights reserved.`
 
-This rule predates CONVENTIONS_v0.2.0.md and stays binding. No exceptions. An unattributed doc is a defect.
+This rule predates CONVENTIONS_v0.2.1.md and stays binding. No exceptions. An unattributed doc is a defect.
 
 ## 13. How future sessions use this doc
 
@@ -339,7 +340,7 @@ A session creating a new doc follows this decision sequence:
 6. **Apply versioning rule** per §8.
 7. **If the doc is staged in lifting-tracker pending promotion, plan the migration** per §9.
 
-A session that reads CONVENTIONS_v0.2.0.md first should be able to place any new doc correctly without asking. When the placement is ambiguous, flag the ambiguity as a CONVENTIONS_v0.2.0.md revision candidate — ambiguity is a defect in this doc, not a judgment call to be made per-session.
+A session that reads CONVENTIONS_v0.2.1.md first should be able to place any new doc correctly without asking. When the placement is ambiguous, flag the ambiguity as a CONVENTIONS_v0.2.1.md revision candidate — ambiguity is a defect in this doc, not a judgment call to be made per-session.
 
 ## Change log
 
@@ -347,10 +348,13 @@ A session that reads CONVENTIONS_v0.2.0.md first should be able to place any new
 |---|---|---|
 | 0.1.0 | 2026-04-24 | Initial version. Establishes content-class matrix, repo taxonomy, per-class frontmatter templates, versioning rules, migration procedure, baseline-snapshot discipline. |
 | 0.2.0 | 2026-04-24 | DoDAF + SysML diagrams section added per D28. |
+| 0.2.1 | 2026-04-27 | §6 Filename conventions amended: semver-versioned docs carry version in filename per Concept Computing pattern (`<name>_v<version>.md`). Reverses prior "no version in filename" rule. Date-versioned and pure-ledger docs unchanged. |
 
 **v0.1.0 (2026-04-24).** First release. Codifies the rules that had been accumulating informally across `source-doc-cm-design.md` v0.3.0 §3.7, `retrospectives/README_v0.1.0.md`, `kanban.md`, `metrics_v0.1.0.md`, and the existing frontmatter patterns in `docs/adrs/` and `docs/reference/`. The Reach4All subfolder taxonomy (§5) reflects the staging → portfolio migration plan for Sprint 0b Day 1. No prior version to diff against; baseline is implicit in the Sprint 0a closing state captured in `.baseline-pre-sprint-0b-20260424.md` at the docs/ root.
 
 **v0.2.0 (2026-04-24).** Adds §11 "Diagrams and architectural views" codifying the discipline established in ADR D28: mermaid-in-markdown as canonical diagram tool, eleven named DoDAF views (AV-1, AV-2, CV, OV-1, OV-2, OV-5a/5b, SV-1, SV-4, SV-6, SvcV, DIV-1/2/3, StdV-1) with file-location and per-view production guidance, SysML iconography conventions applied within mermaid's expressive limits, mermaid-type → DoDAF-view mapping table, fit-for-purpose ADD/SUBTRACT authority for view producers, cross-reference discipline tying views to D# decisions and US-### stories, fallback options for diagrams mermaid can't render, and presentation-portability rules. Renumbers prior §11 (Attribution) → §12 and prior §12 (How future sessions use this doc) → §13. Internal §11 reference in §7 frontmatter prose updated to §12. No content removed; §11 is purely additive. Baseline at `docs/.baseline-CONVENTIONS-v0.1.0-20260424.md`.
+
+**v0.2.1 (2026-04-27).** §6 Filename conventions amended to encode the Concept Computing filename-versioning pattern. Files governed by semver — Architecture class, Reference class, substantive Operational class — now carry the version in the filename as `<name>_v<version>.md` (underscore + lowercase v + dotted semver). The prior "No version in filename" rule is reversed for these classes. Date-versioned (Research class) and pure-ledger (`kanban.md`, `dispatch-handoff.md`, sprint retros) docs continue to use bare filenames because they have no semver to mirror. Baselines also keep bare names; their `<state>` field already encodes the version they shadow. The ADR-naming bullet was updated to reflect that ADRs (Architecture class) carry version in filename per the new rule. CLAUDE.md and project-rule README files are noted as version-bearing where they have semver. The rule is self-applied: this file is `CONVENTIONS_v0.2.1.md`. Cross-references portfolio-wide were updated in the same Sprint 0b Day 1 commit that introduced filename versioning. No baseline snapshot for this minor amendment — change is small and the §6 text was the only material edit; the prior content survives at `docs/CONVENTIONS_v0.2.0.md` in git history (commit `df89d3f` — that earlier filename was renamed to `docs/CONVENTIONS_v0.2.1.md` as part of this amendment, applying the new rule to itself).
 
 ---
 

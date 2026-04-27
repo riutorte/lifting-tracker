@@ -170,7 +170,7 @@ This matrix is **append-only**, with two operations allowed:
 1. **Add a row** when a new exchange ships or when an existing one was missed during initial population.
 2. **Bump the Phase column** when an exchange transitions from reserved to active. Do not delete the reserved row when a Phase 2 surface goes live; just change the Phase tag.
 
-Removing a row is an architectural change (an interface was retired) and bumps SV-6 to MINOR per CONVENTIONS_v0.2.0.md §8 — the prior row is preserved in the baseline snapshot.
+Removing a row is an architectural change (an interface was retired) and bumps SV-6 to MINOR per CONVENTIONS_v0.2.1.md §8 — the prior row is preserved in the baseline snapshot.
 
 ## Cross-references
 

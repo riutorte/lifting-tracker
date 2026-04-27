@@ -20,7 +20,7 @@ Three lookup conventions:
 
 - **By term** — alphabetic within each section.
 - **By identifier** — D-numbers (D1–D27), workflow IDs (WF-001–WF-006), risk IDs (R-CI-01, etc.), and US/feature/epic/theme IDs each have their own range.
-- **By content class** — the "Class" column shows whether the term sits in the architecture, research, operational, or reference governance profile per CONVENTIONS_v0.2.0.md §2.
+- **By content class** — the "Class" column shows whether the term sits in the architecture, research, operational, or reference governance profile per CONVENTIONS_v0.2.1.md §2.
 
 ## Section 1 — Architectural decisions (D1–D27)
 
@@ -60,7 +60,7 @@ Three lookup conventions:
 | Term | Definition | References | Class |
 |---|---|---|---|
 | Lifting Tracker | First sub-system; weightlifting, strength training, bodybuilding. Alpha in progress. | architecture_v0.4.0.md scope note; xrsize4all_concept_v0.2.0.md | architecture |
-| Reach4All | Portfolio-level research repository; native-tools-only. Standing up Sprint 0b. | CONVENTIONS_v0.2.0.md §3, §5 | reference |
+| Reach4All | Portfolio-level research repository; native-tools-only. Standing up Sprint 0b. | CONVENTIONS_v0.2.1.md §3, §5 | reference |
 | Concept Computing | Architectural framework. Provides four-tier doc hierarchy and 16-agent suite. | source-doc-cm-design.md §3.4 | architecture |
 | Identity and Trust | Cross-cutting auth/authz/role assignment sub-system. Shared by all training sub-systems. | xrsize4all_concept_v0.2.0.md (Sub-Systems) | architecture |
 | Ontology and Data | Canonical model and persistence. Shared entities live here. | xrsize4all_concept_v0.2.0.md | architecture |
@@ -111,14 +111,14 @@ All 16 agents are **operational and authoritative** as of v0.3.0 amendments (202
 | Context Persistence | Meta/Gov | Replace with Claude memory + session reports | source-doc-cm-design.md §5.6 |
 | Format Controller | Meta/Gov | Replace with pre-commit + PostToolUse hook + CI | source-doc-cm-design.md §5.6 |
 
-## Section 5 — Content classes (CONVENTIONS_v0.2.0.md §2)
+## Section 5 — Content classes (CONVENTIONS_v0.2.1.md §2)
 
 | Term | Definition | References | Class |
 |---|---|---|---|
-| Architecture | ADRs, architecture_v0.4.0.md, concept docs, ontology plans. WF-003 full. Semver. GATE required. No staleness. | CONVENTIONS_v0.2.0.md §2 | reference |
-| Research | Finding reports, landscape scans, vendor analyses. WF-003L. Date-based version. GATE optional per finding, required for syntheses. Mandatory `stale_after:`. | CONVENTIONS_v0.2.0.md §2; source-doc-cm-design.md §3.7.3 | reference |
-| Operational | Kanban, metrics, risks, dispatch-handoff, retros, roadmap. Direct-edit or WF-003L. `updated:` is the version. GATE optional. Sprint-boundary review. | CONVENTIONS_v0.2.0.md §2 | reference |
-| Reference | CLAUDE.md, README.md, CONVENTIONS_v0.2.0.md, orchestration. WF-003 full (soft GATE if no downstream pins). Semver on structural revisions. | CONVENTIONS_v0.2.0.md §2 | reference |
+| Architecture | ADRs, architecture_v0.4.0.md, concept docs, ontology plans. WF-003 full. Semver. GATE required. No staleness. | CONVENTIONS_v0.2.1.md §2 | reference |
+| Research | Finding reports, landscape scans, vendor analyses. WF-003L. Date-based version. GATE optional per finding, required for syntheses. Mandatory `stale_after:`. | CONVENTIONS_v0.2.1.md §2; source-doc-cm-design.md §3.7.3 | reference |
+| Operational | Kanban, metrics, risks, dispatch-handoff, retros, roadmap. Direct-edit or WF-003L. `updated:` is the version. GATE optional. Sprint-boundary review. | CONVENTIONS_v0.2.1.md §2 | reference |
+| Reference | CLAUDE.md, README.md, CONVENTIONS_v0.2.1.md, orchestration. WF-003 full (soft GATE if no downstream pins). Semver on structural revisions. | CONVENTIONS_v0.2.1.md §2 | reference |
 | Code (NAMED-BUT-DEFERRED) | Source, tests, build scripts, IaC. Governance deferred to future code-cm discipline. | source-doc-cm-design.md §3.7 | reference |
 
 ## Section 6 — Architectural principles
@@ -140,7 +140,7 @@ All 16 agents are **operational and authoritative** as of v0.3.0 amendments (202
 | Composition discipline (CC-017) | Governance steps must be composed (skill calls a script that runs the check), not listed in prose. Prose erodes; composed tools do not. | source-doc-cm-design.md §1.4, §5.4 | reference |
 | Fit-for-purpose view authority (D28) | The producer of a DoDAF view has authority to add or subtract content based on what genuinely supports the decision the view exists to inform. | (this directory; D28 ADR pending) | architecture |
 
-## Section 7 — Tiers (CONVENTIONS_v0.2.0.md §3 / source-doc-cm-design.md §3)
+## Section 7 — Tiers (CONVENTIONS_v0.2.1.md §3 / source-doc-cm-design.md §3)
 
 | Term | Definition | References | Class |
 |---|---|---|---|
@@ -148,7 +148,7 @@ All 16 agents are **operational and authoritative** as of v0.3.0 amendments (202
 | COMPANION tier | Deep-dive; describes *how things work* in a specific dimension. Cites references. | source-doc-cm-design.md §3.2 | reference |
 | MASTER tier | Integration; the single doc a newcomer reads. Authority lives in the tier it integrates from. | source-doc-cm-design.md §3.2 | reference |
 | OPERATIONAL tier | Live; describes the *current state* of the system. Registries, change logs, roadmaps. Shortest half-life, lowest edit bar. | source-doc-cm-design.md §3.2 | reference |
-| ARCHITECTURE tier | Used in frontmatter for architecture-class artifacts. Orthogonal to content_class. | CONVENTIONS_v0.2.0.md §7 | reference |
+| ARCHITECTURE tier | Used in frontmatter for architecture-class artifacts. Orthogonal to content_class. | CONVENTIONS_v0.2.1.md §7 | reference |
 
 ## Section 8 — Roles (XRSize4 ALL participants)
 

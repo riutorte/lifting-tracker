@@ -171,7 +171,7 @@ flowchart TB
 
 ## Fit-for-purpose notes
 
-The earlier in-conversation portfolio diagram included the conversation-archive folder structure and the docs taxonomy. Those are formalized in CONVENTIONS_v0.2.0.md §4–§5 and do not earn their place in OV-1; they belong in a separate operational view if and when one is needed. The OV-1 here keeps the diagram focused on "what runs" and "who participates," leaving "where docs live" to CONVENTIONS_v0.2.0.md.
+The earlier in-conversation portfolio diagram included the conversation-archive folder structure and the docs taxonomy. Those are formalized in CONVENTIONS_v0.2.1.md §4–§5 and do not earn their place in OV-1; they belong in a separate operational view if and when one is needed. The OV-1 here keeps the diagram focused on "what runs" and "who participates," leaving "where docs live" to CONVENTIONS_v0.2.1.md.
 
 The Apple Watch surface is shown despite being out of MVP scope because D20 explicitly names it as the post-MVP target. Hiding it here would mislead readers about the platform commitment.
 
