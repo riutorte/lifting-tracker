@@ -15,7 +15,7 @@ version: 0.1.0
 
 **Accepted** — 2026-04-24 (Sprint 0b Day 1).
 
-The seven-discipline profile this ADR codifies was committed verbally on 2026-04-23 during architecture-discipline planning and refined the same session against the Concept Computing framework's full UML/SysML/BPMN tool stack. This ADR is the single-page summary of that commitment, drafted 2026-04-24, linkable from `architecture_v0.4.0.md`, `CONVENTIONS_v0.2.1.md`, and the per-view DoDAF artifact files that follow it. Authoritative narrative for any specific view lives in the view's own file under `docs/architecture/views/`.
+The seven-discipline profile this ADR codifies was committed verbally on 2026-04-23 during architecture-discipline planning and refined the same session against the Concept Computing framework's full UML/SysML/BPMN tool stack. This ADR is the single-page summary of that commitment, drafted 2026-04-24, linkable from `architecture_v0.4.0.md`, `CONVENTIONS_v0.2.2.md`, and the per-view DoDAF artifact files that follow it. Authoritative narrative for any specific view lives in the view's own file under `docs/architecture/views/`.
 
 ## Context
 
@@ -79,7 +79,7 @@ Concept Computing's full tool stack (Gaphor + Open-BPMN + Gitea/Mattermost/LXC, 
 - **Deployment view (technical stack diagram).** Discipline 2 explicitly named the software hierarchy as *logical*, not *technical*. A deployment view (servers, containers, network topology) is a separate artifact that may be produced as a DoDAF SV-2 (Systems Resource Flow) when relevant — it is not assumed to be present for every sub-system.
 - **Tool-chain selection for code.** D28 governs diagrams; D26 governs language; a future code-cm ADR governs build, lint, test, and deployment toolchains.
 - **Cross-portfolio architecture authoring tool.** Whether `~/xrsize4all/` (the future portfolio-meta repo) adopts a heavier toolchain when it stands up is out of scope here. D28 binds Lifting Tracker and the XRSize4 ALL *sub-systems*; the portfolio-meta layer may make its own choice.
-- **Visual style standards.** Color, font, and layout conventions for diagrams are not specified here. They will be added to `CONVENTIONS_v0.2.1.md` if and when consistency-cost across views warrants it.
+- **Visual style standards.** Color, font, and layout conventions for diagrams are not specified here. They will be added to `CONVENTIONS_v0.2.2.md` if and when consistency-cost across views warrants it.
 
 ## Consequences
 
@@ -151,7 +151,7 @@ The April 10 analysis is the evidence. Prose architecture documents drift becaus
 
 - `docs/reference/source-doc-cm-design.md` v0.3.0 §3.7 — Content Classes definition; the architecture class this profile produces under.
 - `docs/architecture_v0.4.0.md` v0.4.0 — D1–D27 plus D26 (TypeScript) and D27 (multi-agent interop). D28 will be added to this file's decisions list when the file is next touched.
-- `docs/CONVENTIONS_v0.2.1.md` — file structure and versioning rules; will be amended to add `docs/architecture/views/` once the first DoDAF view ships.
+- `docs/CONVENTIONS_v0.2.2.md` — file structure and versioning rules; will be amended to add `docs/architecture/views/` once the first DoDAF view ships.
 - `docs/adrs/D25-source-document-cm_v0.1.0.md` — the governance framework D28 composes with.
 - `docs/reference/april-10-session-analysis.md` — evidence base for prose-only drift; motivates the visual-discipline requirement.
 
