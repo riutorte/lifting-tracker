@@ -265,7 +265,7 @@ Durations are conservative initial estimates. Update as actuals come in; the gan
 - `docs/retrospectives/` — sprint-close retros (one per sprint, indexed at folder root)
 - `docs/risks_v0.1.0.md` — risks and mitigations affecting sprint timing
 - `docs/architecture_v0.4.0.md` D27 — multi-agent interop (Phase 5+ concern; informs MCP server design from Sprint 3 onward)
-- `docs/reference/lifting-tracker-business-model-research.md` — business-model phase markers (Phase 1 in 0c/0d, Phase 2 paywall in Sprint 4)
+- `reach4all://docs/research/lifting-tracker-business-model-research.md` — business-model phase markers (Phase 1 in 0c/0d, Phase 2 paywall in Sprint 4)
 
 ### Timing assumptions worth flagging
 

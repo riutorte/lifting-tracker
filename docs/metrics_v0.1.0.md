@@ -12,7 +12,7 @@ status: accepted
 
 ## Purpose
 
-Pre-AI-amplification baseline for solo+AI development throughput, captured weekly starting Sprint 0a. Future claims of "AI made me N× faster" are only real claims if they falsify against a number written in this table. Motivated by `docs/reference/ai-productivity-sdlc-dataops-review.md` §1.4 (baselining guidance as the document's most directly actionable finding) — six metrics, Monday morning cadence, minimal ceremony.
+Pre-AI-amplification baseline for solo+AI development throughput, captured weekly starting Sprint 0a. Future claims of "AI made me N× faster" are only real claims if they falsify against a number written in this table. Motivated by `reach4all://docs/research/ai-productivity-sdlc-dataops-review.md` §1.4 (baselining guidance as the document's most directly actionable finding) — six metrics, Monday morning cadence, minimal ceremony.
 
 ## Metrics tracked
 

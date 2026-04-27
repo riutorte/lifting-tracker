@@ -12,7 +12,7 @@ status: accepted
 
 ## 1. Purpose
 
-This document names and governs the orchestration pattern Eric runs across three Claude surfaces — Cowork (Dispatch), Claude Code, and Claude in Chrome — plus the shared-state files that move work between them. Gartner's AI-Native SWE heatmap (`docs/reference/gartner-ai-native-swe-review.md`) treats "AI automation orchestration" as durable shared-responsibility work that remains human-led at L5; this is the artifact that converts Eric's informal habit into a documented practice so the capability stops being tacit. Living reference: revisions land at sprint close and on each newly observed failure mode.
+This document names and governs the orchestration pattern Eric runs across three Claude surfaces — Cowork (Dispatch), Claude Code, and Claude in Chrome — plus the shared-state files that move work between them. Gartner's AI-Native SWE heatmap (`reach4all://docs/research/gartner-ai-native-swe-review.md`) treats "AI automation orchestration" as durable shared-responsibility work that remains human-led at L5; this is the artifact that converts Eric's informal habit into a documented practice so the capability stops being tacit. Living reference: revisions land at sprint close and on each newly observed failure mode.
 
 ## 2. Tools and their lanes
 
@@ -46,7 +46,7 @@ Mechanical. If a new Claude session had only this table, it should pick the righ
 
 | Trigger | Surface | Spawn how |
 |---|---|---|
-| New research task, single topic, batched output | Cowork `start_task` | Dispatch spawns a child; returns findings doc under `docs/reference/` |
+| New research task, single topic, batched output | Cowork `start_task` | Dispatch spawns a child; returns findings doc under `reach4all/docs/research/` (portfolio-level) or `lifting-tracker/docs/reference/` (project-scoped) |
 | Landscape scan or parallel-to-external-system research (e.g., Gemini Deep Research) | Cowork `start_task` with anti-contamination rules | Dispatch orchestrates; child never sees competing findings |
 | Code change or test change in a specific repo | Claude Code session | Open directly, or `start_code_task` from Cowork with prompt that includes repo path and current kanban link |
 | Multi-system workflow requiring both research and code | Cowork orchestrates; spawns Claude Code tasks as children | Dispatch holds state; Code children do repo ops and return |

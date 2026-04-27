@@ -101,7 +101,7 @@ Tension with SDLC's human-authored discipline: the agent may *draft* the doc but
 
 ### 1.6 Terminology — "agent" in this brief (v0.3.0)
 
-Every use of "agent" in this brief is grounded in the five-clause working definition developed in `docs/reference/what-are-agents.md` §8. The test is applied consistently — a system is an *agent* for this brief's purposes only if it satisfies all five clauses; otherwise the correct word is *tool*, *script*, *workflow*, or *skill* as appropriate.
+Every use of "agent" in this brief is grounded in the five-clause working definition developed in `reach4all://docs/research/what-are-agents.md` §8. The test is applied consistently — a system is an *agent* for this brief's purposes only if it satisfies all five clauses; otherwise the correct word is *tool*, *script*, *workflow*, or *skill* as appropriate.
 
 **General clauses (1–4)** — a system is an agent if it:
 
@@ -116,7 +116,7 @@ Every use of "agent" in this brief is grounded in the five-clause working defini
 
 The fifth clause is load-bearing for D19 (Reasoner Duality). A system that satisfies 1–4 but not 5 is an agent in the technical sense; this portfolio will not ship one. Every skill, every hook, every background task referenced in this brief is designed so that clause 5 is structurally enforceable (hook exit 2, CI refusal, GATE artifact triple), not a polite request in prose.
 
-Paraphrased from `docs/reference/what-are-agents.md` §8; the originating doc is the authoritative source if this brief and it ever disagree.
+Paraphrased from `reach4all://docs/research/what-are-agents.md` §8; the originating doc is the authoritative source if this brief and it ever disagree.
 
 ---
 
@@ -319,7 +319,7 @@ Four content classes are in-scope, plus one named-but-deferred. Each class decla
 - **Staleness policy:** None at the class level. Architecture documents are cited by pin-version; a pin against an old semver is a deliberate choice, not drift. Deprecation uses the `superseded_by:` mechanism (§4.5), not a staleness tag.
 - **Cross-reference strictness:** STRICT. Every `depends_on:` resolves; every inline cite either resolves or carries an explicit "pending" annotation. `cm validate` fails the PR on an unresolved architecture-class citation.
 
-**RESEARCH.** External-source-review documents, finding reports, competitive landscape summaries, published-paper digestions (`docs/reference/claude-code-internals-findings.md`, `workato-findings.md`, `building-agentic-ai-systems-findings.md`, etc.), and any artifact whose primary purpose is to capture *what someone else said and what it means for us*.
+**RESEARCH.** External-source-review documents, finding reports, competitive landscape summaries, published-paper digestions (`reach4all://docs/research/claude-code-internals-findings.md`, `workato-findings.md`, `building-agentic-ai-systems-findings.md`, etc.), and any artifact whose primary purpose is to capture *what someone else said and what it means for us*.
 
 Research-class docs have their own full governance specification in §3.7.3 below (including the light-workflow WF-003L, date-based versioning default, mandatory staleness tag, and the individual-finding vs landscape-synthesis GATE distinction). That subsection is load-bearing for the research repo decision in Eric's memory: the repo is portfolio-level, native-tools-only (git, no Notion/Obsidian), governed by document-cm with class-specific relaxations. The repo is **`reach4all`**; creation is a Sprint 0b week-1 deliverable.
 
@@ -568,7 +568,7 @@ Rationale: JSON Schema / OpenAPI / Kubernetes CRD practice all require versioned
 
 ### 4.9 Typed episodic memory — TravelEpisode Pydantic schema (v0.3.0)
 
-The scorekeeper ledger (§6 and §9.2) records each governance action. v0.2.0 treated scorekeeper rows as free-form JSON. v0.3.0 adopts a typed-row pattern imported from `docs/reference/building-agentic-ai-systems-findings.md`: the **TravelEpisode Pydantic schema**, adapted for the CM ledger and the broader `ai_interactions` surface in XRSize4 ALL.
+The scorekeeper ledger (§6 and §9.2) records each governance action. v0.2.0 treated scorekeeper rows as free-form JSON. v0.3.0 adopts a typed-row pattern imported from `reach4all://docs/research/building-agentic-ai-systems-findings.md`: the **TravelEpisode Pydantic schema**, adapted for the CM ledger and the broader `ai_interactions` surface in XRSize4 ALL.
 
 **Baseline schema — four fields:**
 
@@ -696,7 +696,7 @@ Different concept from pre-commit — these run when Claude is editing, not when
 
 These are thin wrappers around the same CLI scripts the CI uses. Brain-hands separation — skills don't re-implement checks, they call the same binary.
 
-**Execution-time enforcement migrates from CLAUDE.md prose to PreToolUse hooks (v0.3.0 — CC-017 validated).** The CC-017 pattern observed in Concept (governance rules stated in CLAUDE.md prose erode across long sessions) has now been traced to a specific runtime property, documented in `docs/reference/claude-code-internals-findings.md`: the CLAUDE.md hierarchy is **read-time only**; enforcement is **execution-time**. CLAUDE.md files concatenate into the system prompt in precedence order; "override" means the later rule appears later in the text. If two rules conflict but do not share identical wording, the model sees both and decides by interpretation. **CLAUDE.md is a suggestion, not a command.**
+**Execution-time enforcement migrates from CLAUDE.md prose to PreToolUse hooks (v0.3.0 — CC-017 validated).** The CC-017 pattern observed in Concept (governance rules stated in CLAUDE.md prose erode across long sessions) has now been traced to a specific runtime property, documented in `reach4all://docs/research/claude-code-internals-findings.md`: the CLAUDE.md hierarchy is **read-time only**; enforcement is **execution-time**. CLAUDE.md files concatenate into the system prompt in precedence order; "override" means the later rule appears later in the text. If two rules conflict but do not share identical wording, the model sees both and decides by interpretation. **CLAUDE.md is a suggestion, not a command.**
 
 The architectural consequence is direct: **every load-bearing rule in this brief that protects the CM discipline moves out of CLAUDE.md prose and into a PreToolUse hook**. CLAUDE.md becomes norms-and-context (tone, attribution, architectural reminders, pointers to docs), not enforcement. The hook exit-code contract — from the Claude Code docs — is the enforcement primitive:
 
@@ -751,11 +751,11 @@ Every one of those steps is a script. The skill's SKILL.md does not implement th
 
 **GATE enforcement — XML-instruction vs PreToolUse hook.** The Step 4 GATE is currently described as an XML-style instruction in SKILL.md ("STOP. Do not proceed without the word 'approved.'"). That works but is not tamper-proof. A stronger construction is a Claude Code PreToolUse hook that refuses `Edit` / `Write` on `docs/**` until a specific approval artifact exists (e.g., `.cm/scratch/<id>-approved.flag` written by an explicit `cm approve <id>` command). Hook enforcement moves the GATE from a text instruction the agent may skip to a tool-level refusal the agent cannot bypass. This is called out as the single highest-leverage reliability upgrade in §10 Q13 and is a deliberate deferred decision — the brief names both options and picks one in Sprint 0b.
 
-**GATE as XML-tagged markdown — the prompt-chaining monolithic variant (v0.3.0).** The SKILL.md-embedded XML instruction form ("`<gate>STOP. Do not proceed without 'approved.'</gate>`") is a valid implementation of the canonical prompt-chaining pattern in a monolithic host document, per `docs/reference/anthropic-engineering-patterns-review.md`. It is a deviation from the canonical form (which separates each chain step into its own prompt), but not forbidden. The monolithic form is acceptable because the steps are small and the XML tags give the LLM a clear attention anchor. The deviation is documented here so future reviewers understand it is intentional, not an oversight. Note that even a well-structured XML GATE instruction is still a prose-level request to the agent; it does not enforce. The PreToolUse hook is what enforces. The XML form is the readable layer; the hook is the load-bearing layer — belt and suspenders (§10 Q13 recommendation C).
+**GATE as XML-tagged markdown — the prompt-chaining monolithic variant (v0.3.0).** The SKILL.md-embedded XML instruction form ("`<gate>STOP. Do not proceed without 'approved.'</gate>`") is a valid implementation of the canonical prompt-chaining pattern in a monolithic host document, per `reach4all://docs/research/anthropic-engineering-patterns-review.md`. It is a deviation from the canonical form (which separates each chain step into its own prompt), but not forbidden. The monolithic form is acceptable because the steps are small and the XML tags give the LLM a clear attention anchor. The deviation is documented here so future reviewers understand it is intentional, not an oversight. Note that even a well-structured XML GATE instruction is still a prose-level request to the agent; it does not enforce. The PreToolUse hook is what enforces. The XML form is the readable layer; the hook is the load-bearing layer — belt and suspenders (§10 Q13 recommendation C).
 
 ### 5.5a GATE — artifact triple + timeout + reassignment (v0.3.0)
 
-The Step 4 GATE is the only human-approval checkpoint in WF-003. In v0.2.0 it was modeled as a single event (Claude pauses, Eric types "approved"). Workato's governance primitives (see `docs/reference/workato-findings.md`) formalize a three-part artifact structure that makes the GATE auditable without changing who approves. **Eric remains the sole approver** at this scale — nothing in this subsection introduces multi-approver workflows or CI-substituted approval; the only addition is traceability.
+The Step 4 GATE is the only human-approval checkpoint in WF-003. In v0.2.0 it was modeled as a single event (Claude pauses, Eric types "approved"). Workato's governance primitives (see `reach4all://docs/research/workato-findings.md`) formalize a three-part artifact structure that makes the GATE auditable without changing who approves. **Eric remains the sole approver** at this scale — nothing in this subsection introduces multi-approver workflows or CI-substituted approval; the only addition is traceability.
 
 **Artifact triple — three records per GATE invocation:**
 
@@ -799,7 +799,7 @@ The Step 4 GATE is the only human-approval checkpoint in WF-003. In v0.2.0 it wa
 
 This subsection is new in v0.3.0 and is **load-bearing for the whole framework**. Every other governance discipline in this brief is undermined if the underlying content mechanics allow silent content drops during routine edits. Three mechanics in the current Claude Code runtime can drop content without warning; this section names each and specifies the defense.
 
-**Root-cause reference.** See `docs/reference/claude-code-internals-findings.md` for full mechanism detail. The three load-bearing mechanics:
+**Root-cause reference.** See `reach4all://docs/research/claude-code-internals-findings.md` for full mechanism detail. The three load-bearing mechanics:
 
 - **micro_compact (Layer 1 compression).** Runs silently before every LLM call. Walks the message history, finds tool_result parts older than `KEEP_RECENT` turns, and rewrites their `content` to a minimal placeholder like `[Previous: used <tool_name>]` when the original content length exceeds 100 characters. The model is not notified of the eviction; a Read result returned 20 turns ago is a stub by the time the next edit is planned.
 - **25K-token Read ceiling.** Hard threshold on `Read` tool output (env var `CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS`; GrowthBook flag `tengu_amber_wren` can override). Exceeding it throws `MaxFileReadTokenExceededError` — the truncation path was implemented, tested, and reverted in issue #21841 (Mar 2026) because truncation silently returned ~25K tokens of unusable content whereas a throw fails cheaply. This file itself, at 2,000+ lines, is in that size class.
@@ -843,7 +843,7 @@ This is a deliberate reversal from the default assumption that a newer, vendor-n
 
 2. **Claude Code natives run in parallel as redundant observability.** The native stack — CLAUDE.md hierarchy loading, TaskList, Read-before-Edit discipline, session transcripts, auto-memory, built-in turn history, PreToolUse / PostToolUse / Stop / SessionStart hooks, the skills registry — operates alongside the 16-agent suite, not instead of it. Where the two produce divergent readings of the same state, the divergence is itself the signal: both layers wrote their version, and the difference is what a reviewer examines.
 
-3. **The mapping matrix stays in the brief as a reference for future evaluation.** The `docs/reference/claude-code-internals-findings.md` 16-agent mapping matrix (9 candidate Claude Code primitive replacements + 5 candidate MCP-exposed Python tools + 2 candidate skills/workflows) remains the best structured comparison of what a replacement would look like. It is not a plan. It is a lookup table that names, for each Concept agent, what the plausible Claude Code equivalent is — so that when empirical evidence accumulates on either side (native primitive proves stable; or bespoke agent proves fragile), the lookup is already done.
+3. **The mapping matrix stays in the brief as a reference for future evaluation.** The `reach4all://docs/research/claude-code-internals-findings.md` 16-agent mapping matrix (9 candidate Claude Code primitive replacements + 5 candidate MCP-exposed Python tools + 2 candidate skills/workflows) remains the best structured comparison of what a replacement would look like. It is not a plan. It is a lookup table that names, for each Concept agent, what the plausible Claude Code equivalent is — so that when empirical evidence accumulates on either side (native primitive proves stable; or bespoke agent proves fragile), the lookup is already done.
 
 4. **Deprecation requires empirical evidence via the Tier 2 concern log pattern.** Retiring any single Concept agent requires evidence that the Claude Code primitive is actually equivalent *in practice* for the functions that agent performs. The evidence surface is the Tier 2 concern log defined in §9.10 (`.cm/tier2-concerns.json`), adapted to agent-output consumption. The specific pattern:
    - **Time-to-acceptance.** For each function an agent owns, record how long it takes Eric to accept the Claude Code primitive's output without modification. Immediate acceptance across many sessions is equivalence evidence; repeated "fix after the fact" is not.
@@ -942,7 +942,7 @@ Every governance capability in this brief — baseline extract, GATE approve, re
 
 **Why MCP-first.** Two findings converge on this posture:
 
-- **Workato's MCP-first sub-system strategy** (see `docs/reference/workato-findings.md`). Workato ships 100+ prebuilt MCP servers and treats MCP as the primary integration surface, with REST as secondary. For a solo + AI build, the pattern is: every sub-system exposes an MCP server as its outward contract. Sub-systems that expose only a REST surface cannot be composed into Claude Code sessions, Cursor, Codex CLI, or any other agent host without bespoke adapters.
+- **Workato's MCP-first sub-system strategy** (see `reach4all://docs/research/workato-findings.md`). Workato ships 100+ prebuilt MCP servers and treats MCP as the primary integration surface, with REST as secondary. For a solo + AI build, the pattern is: every sub-system exposes an MCP server as its outward contract. Sub-systems that expose only a REST surface cannot be composed into Claude Code sessions, Cursor, Codex CLI, or any other agent host without bespoke adapters.
 - **Context Hub's dual CLI + MCP adapter pattern** (see `reach4all://docs/research/context-hub-platform-findings.md`). Context Hub's cleanest design is a shared `lib/` whose functions are called from two sibling adapter layers: `cli/` and `mcp/`. Both adapters call the same underlying `lib/` functions (`searchEntries`, `getEntry`, `fetchDoc`, `writeAnnotation`, `sendFeedback`); analytics events are tagged `via: 'cli'` or `via: 'mcp'` to distinguish surfaces.
 
 **The mandated structure for document-cm:**
@@ -1800,7 +1800,7 @@ All twelve hard requirements (a–l) are addressed by one or more of the followi
 
 ### 9.10 D27 Multi-agent interop — promoted from Phase 5 to a decision (v0.3.0)
 
-Per `docs/reference/gartner-ai-native-swe-review.md`, the "Phase 5 autonomy" framing in earlier drafts has been superseded by a more specific posture. Gartner's L4→L5 transition in the AI-Native Software Engineering review depends on three properties: **(1) interoperable agents across platforms** (agents speak a common protocol for handoffs across IDE, CI/CD, observability, issue tracker); **(2) event-driven multi-agent workflows** (triggered by commits, alerts, user requests — not by human orchestration); **(3) minimal human oversight** (human out of critical path).
+Per `reach4all://docs/research/gartner-ai-native-swe-review.md`, the "Phase 5 autonomy" framing in earlier drafts has been superseded by a more specific posture. Gartner's L4→L5 transition in the AI-Native Software Engineering review depends on three properties: **(1) interoperable agents across platforms** (agents speak a common protocol for handoffs across IDE, CI/CD, observability, issue tracker); **(2) event-driven multi-agent workflows** (triggered by commits, alerts, user requests — not by human orchestration); **(3) minimal human oversight** (human out of critical path).
 
 For XRSize4 ALL, the path is *not* "make LLMs more autonomous" but **"build the interop + event-driven fabric so multiple Tier 1 + Tier 2 pairs compose across sub-systems, with D19 in force at each."** The proposed decision record:
 
@@ -2045,7 +2045,7 @@ The three-role decomposition (Coordinator / Delegator / Worker) is now explicit 
 
 **The question.** Run a focused pass on Building Agentic AI Systems Ch 4 (Reflection) and Ch 7 (Memory), or rely on the notebook-level analysis?
 
-**Resolution: completed.** The focused pass was delivered. The resulting findings are appended to `docs/reference/building-agentic-ai-systems-findings.md` as its §10. This brief has folded in the two substantive v0.3.0 findings from that §10 pass:
+**Resolution: completed.** The focused pass was delivered. The resulting findings are appended to `reach4all://docs/research/building-agentic-ai-systems-findings.md` as its §10. This brief has folded in the two substantive v0.3.0 findings from that §10 pass:
 
 - **`memory_type` enum orthogonal to `memory_scope`** (§4.9). Four values: `working | long_term_semantic | long_term_episodic | procedural`.
 - **SKILL.md files are procedural memory persisted as versioned code** (§4.9). First-class framing.
@@ -2167,7 +2167,7 @@ Consolidating pass before Sprint 0a formal close. All open questions resolved, C
 - **Q15 = documentation-only typed-episode contracts.** No server-side Pydantic validation in Edge Functions; schemas enforced at application-code layer; `input_raw` column preserves ground truth.
 - **Q16 = Delegator role paragraph expanded in §5.5.** Coordinator / Delegator / Worker three-role decomposition now explicit.
 - **Q17 = HyperDX OSS (MIT), self-hosted on Railway, ClickHouse backend.** SigNoz as fallback if HyperDX ever relicenses. Chosen over Grafana LGTM because MIT > AGPLv3 and HyperDX ships a first-party React Native SDK.
-- **Q18 = focused pass on Building Agentic AI Systems Ch 4 + Ch 7 completed.** Findings appended to `docs/reference/building-agentic-ai-systems-findings.md` as its §10; two substantive findings folded into this brief (see below).
+- **Q18 = focused pass on Building Agentic AI Systems Ch 4 + Ch 7 completed.** Findings appended to `reach4all://docs/research/building-agentic-ai-systems-findings.md` as its §10; two substantive findings folded into this brief (see below).
 - **Q19 = hybrid `ai_interactions` schema.** `input_raw` jsonb always populated + `input_mode` enum + `output_episode_type` enum + `output_episode` jsonb typed + `reasoning_trace` jsonb nullable + `thread_id` uuid + `memory_scope` enum + `memory_type` enum. Raw input preserved; typed output enforced at application layer.
 - **Q20 = starter closed-vocabulary taxonomy in three domains.** Research findings (ACCURATE / STALE / CONTRADICTED / OPEN_QUESTION / FOLLOW_UP_NEEDED / RESOLVED); architectural decisions (ADOPTED / ADOPTED_WITH_MODIFICATIONS / DEFERRED / REJECTED / SUPERSEDED); WF-003 GATEs (APPROVED / REQUEST_CHANGES / DEFERRED / ESCALATED). Revisit at Sprint 0c close.
 
@@ -2192,7 +2192,7 @@ This revision folds in the Sprint 0a research corpus (11 research docs + memory-
 
 - Header **Change Log (at-a-glance)** table at document top, summarizing v0.1 / v0.2 / v0.3 in one row each for fast reader orientation.
 - Scope note addition: **one-repo-for-CM decision** (document-cm only; code-cm deferred; code named as 5th content class NAMED-BUT-DEFERRED with "what differs for code" paragraphs in relevant sections).
-- **§1.6 Terminology — "agent" in this brief.** Five-clause working definition imported from `docs/reference/what-are-agents.md` §8; clauses 1–4 are general, clause 5 is portfolio-specific and enforces the Authority Rule.
+- **§1.6 Terminology — "agent" in this brief.** Five-clause working definition imported from `reach4all://docs/research/what-are-agents.md` §8; clauses 1–4 are general, clause 5 is portfolio-specific and enforces the Authority Rule.
 - **§3.7 Content Classes.** New top-level classification orthogonal to Tier: ARCHITECTURE, RESEARCH, OPERATIONAL, REFERENCE, plus CODE as NAMED-BUT-DEFERRED. Each class carries a governance profile (workflow variant, version scheme, governance level, staleness policy, cross-reference strictness). Three inter-class invariants.
 - **§3.7.2 Code-as-5th-class, NAMED-BUT-DEFERRED.**
 - **§3.7.3 RESEARCH-class governance details.** WF-003L lightweight workflow (~5 steps); date-versioning default; mandatory `stale_after:` tag; GATE optional for individual findings / required for landscape syntheses.
@@ -2221,16 +2221,16 @@ This revision folds in the Sprint 0a research corpus (11 research docs + memory-
 
 **Research corpus folded in (paraphrased throughout; short quotes only as identifying handles):**
 
-- `docs/reference/claude-code-internals-findings.md` — four content-drop defenses; 25K Read ceiling; CC-017 validation; 16-agent mapping matrix.
-- `docs/reference/workato-findings.md` — WF-003 GATE artifact triple; orchestrator-worker pattern; MCP-first sub-system strategy; contract-first harness posture.
-- `docs/reference/building-agentic-ai-systems-findings.md` — TravelEpisode schema; thread_id + memory_scope + Coordinator/Delegator; six §7 open questions imported as Q14–Q19.
-- `docs/reference/gartner-ai-native-swe-review.md` — Tier 2 concern log for D19; D27 multi-agent interop; `docs/orchestration_v0.1.0.md` artifact gap.
+- `reach4all://docs/research/claude-code-internals-findings.md` — four content-drop defenses; 25K Read ceiling; CC-017 validation; 16-agent mapping matrix.
+- `reach4all://docs/research/workato-findings.md` — WF-003 GATE artifact triple; orchestrator-worker pattern; MCP-first sub-system strategy; contract-first harness posture.
+- `reach4all://docs/research/building-agentic-ai-systems-findings.md` — TravelEpisode schema; thread_id + memory_scope + Coordinator/Delegator; six §7 open questions imported as Q14–Q19.
+- `reach4all://docs/research/gartner-ai-native-swe-review.md` — Tier 2 concern log for D19; D27 multi-agent interop; `docs/orchestration_v0.1.0.md` artifact gap.
 - `reach4all://docs/research/context-hub-platform-findings.md` — dual CLI + MCP adapter; closed-vocabulary feedback labels; BM25 validates D19; console.log→stderr guard.
 - `reach4all://docs/research/concept-computing-april-10-failure-analysis.md` — 13 failure patterns with per-pattern mitigation mapping; three-tier severity synthesis with twelve hard requirements.
-- `docs/reference/anthropic-engineering-patterns-review.md` — XML-tagged markdown workflows confirmed as valid prompt-chaining monolithic variant.
+- `reach4all://docs/research/anthropic-engineering-patterns-review.md` — XML-tagged markdown workflows confirmed as valid prompt-chaining monolithic variant.
 - `reach4all://docs/research/managed-ai-policy-platforms-research.md` — macOS path correction; managed-settings.json recommendation; three-layer pattern for 5 of 7 controls.
-- `docs/reference/agentic-ai-bible-findings.md` — Q11 closure reinforcement (already incorporated in v0.2.0 §9.5).
-- `docs/reference/what-are-agents.md` — §8 five-clause working definition imported to §1.6.
+- `reach4all://docs/research/agentic-ai-bible-findings.md` — Q11 closure reinforcement (already incorporated in v0.2.0 §9.5).
+- `reach4all://docs/research/what-are-agents.md` — §8 five-clause working definition imported to §1.6.
 - Memory-locked decisions — `project_cm_approval_model.md` (Eric-only manual GATE; no CI gate; no signed commits on main; Option B tags only); `project_research_repo.md` (research repo portfolio-level, native-tools-only, governed by document-cm with class-specific relaxations; named `reach4all`, creation Sprint 0b week 1).
 
 **Explicitly not incorporated (v0.3.0 DECLINE additions):**
@@ -2250,9 +2250,9 @@ This revision folds in the Sprint 0a research corpus (11 research docs + memory-
 External references informing this design (entries new in v0.2.0 are marked ⟡; entries new in v0.3.0 are marked ✦):
 
 - Anthropic engineering posts aggregated in `~/Concept/anthropic_engineering_patterns_for_claude.md` (12 patterns across 21 posts, Sep 2024 – Apr 2026).
-- ⟡ `docs/reference/anthropic-engineering-patterns-review.md` — Apr 2026 review of where this design aligns with and deviates from Anthropic's published patterns. Source of the WF-003 naming precision (chain-with-gate + embedded evaluator-optimizer-verify), the Book Boss verify refinements, the JIT retrieval / progressive-disclosure recommendation, and the GATE-as-hook finding.
-- ⟡ `docs/reference/source-doc-cm-design-validated-review.md` — Apr 2026 validated gap review against SAFe, DORA, OWASP, SLSA, ISO/IEC, EIA, Anthropic. 29 gaps; 18 incorporated in this revision (see Change Log).
-- ⟡ `docs/reference/agentic-ai-bible-findings.md` — findings from the Agentic AI Bible reading pass (2025 book family) that informed §9.5 evals harness (the Q11 closure).
+- ⟡ `reach4all://docs/research/anthropic-engineering-patterns-review.md` — Apr 2026 review of where this design aligns with and deviates from Anthropic's published patterns. Source of the WF-003 naming precision (chain-with-gate + embedded evaluator-optimizer-verify), the Book Boss verify refinements, the JIT retrieval / progressive-disclosure recommendation, and the GATE-as-hook finding.
+- ⟡ `reach4all://docs/research/source-doc-cm-design-validated-review.md` — Apr 2026 validated gap review against SAFe, DORA, OWASP, SLSA, ISO/IEC, EIA, Anthropic. 29 gaps; 18 incorporated in this revision (see Change Log).
+- ⟡ `reach4all://docs/research/agentic-ai-bible-findings.md` — findings from the Agentic AI Bible reading pass (2025 book family) that informed §9.5 evals harness (the Q11 closure).
 - ⟡ `reach4all://docs/research/lifting-tracker-stack-validation.md` — stack findings constraining which examples/references appear in this brief.
 - Anthropic Agent Skills specification (December 2025, open standard adopted by OpenAI Codex CLI, Cursor, Gemini CLI, Antigravity IDE, ChatGPT); SKILL.md format.
 - [Claude Mythos Preview — red.anthropic.com](https://red.anthropic.com/2026/mythos-preview/) and [Project Glasswing — anthropic.com/project/glasswing](https://www.anthropic.com/project/glasswing) (April 7, 2026).
@@ -2282,16 +2282,16 @@ External references informing this design (entries new in v0.2.0 are marked ⟡;
 
 **v0.3.0 research corpus (Sprint 0a — folded into this revision):**
 
-- ✦ `docs/reference/claude-code-internals-findings.md` — four content-drop defenses, 25K Read ceiling mechanics (`MaxFileReadTokenExceededError`, env var `CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS`, GrowthBook `tengu_amber_wren` flag, issue #21841 truncation revert), CC-017 execution-time-enforcement validation, exit-2 semantics, 16-agent mapping matrix (9 primitives + 5 MCP-exposed tools + 2 skills/workflows).
-- ✦ `docs/reference/workato-findings.md` — WF-003 GATE artifact triple (request / assignment / resolution + timeout + reassignment), orchestrator-worker pattern, MCP-first sub-system strategy, "contract-first harness, not DSL" posture for MCP servers.
-- ✦ `docs/reference/building-agentic-ai-systems-findings.md` — TravelEpisode Pydantic schema (`request` / `considerations` / `recommendation` / `outcome`), `thread_id` + `memory_scope` enum + Coordinator/Delegator role split, §7 open questions imported as Q14–Q19.
-- ✦ `docs/reference/gartner-ai-native-swe-review.md` — Tier 2 concern log for D19, multi-agent interop promoted from Phase 5 to D27 ("interop-first L5, authority-preserving"), `docs/orchestration_v0.1.0.md` artifact named as gap.
+- ✦ `reach4all://docs/research/claude-code-internals-findings.md` — four content-drop defenses, 25K Read ceiling mechanics (`MaxFileReadTokenExceededError`, env var `CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS`, GrowthBook `tengu_amber_wren` flag, issue #21841 truncation revert), CC-017 execution-time-enforcement validation, exit-2 semantics, 16-agent mapping matrix (9 primitives + 5 MCP-exposed tools + 2 skills/workflows).
+- ✦ `reach4all://docs/research/workato-findings.md` — WF-003 GATE artifact triple (request / assignment / resolution + timeout + reassignment), orchestrator-worker pattern, MCP-first sub-system strategy, "contract-first harness, not DSL" posture for MCP servers.
+- ✦ `reach4all://docs/research/building-agentic-ai-systems-findings.md` — TravelEpisode Pydantic schema (`request` / `considerations` / `recommendation` / `outcome`), `thread_id` + `memory_scope` enum + Coordinator/Delegator role split, §7 open questions imported as Q14–Q19.
+- ✦ `reach4all://docs/research/gartner-ai-native-swe-review.md` — Tier 2 concern log for D19, multi-agent interop promoted from Phase 5 to D27 ("interop-first L5, authority-preserving"), `docs/orchestration_v0.1.0.md` artifact named as gap.
 - ✦ `reach4all://docs/research/context-hub-platform-findings.md` — dual CLI + MCP adapter pattern over shared `lib/`, closed-vocabulary feedback labels, BM25 validates D19 (no vector store needed), `console.log`→stderr guard for MCP stdio servers.
 - ✦ `reach4all://docs/research/concept-computing-april-10-failure-analysis.md` — 13 failure patterns with per-pattern CM mitigation mapping, §9 three-tier severity synthesis (Tier 1 framework-killers / Tier 2 trust-killers / Tier 3 drift) with twelve hard requirements.
-- ✦ `docs/reference/anthropic-engineering-patterns-review.md` (re-referenced) — XML-tagged markdown workflows confirmed as valid prompt-chaining monolithic variant; brief's WF-003 format posture validated.
+- ✦ `reach4all://docs/research/anthropic-engineering-patterns-review.md` (re-referenced) — XML-tagged markdown workflows confirmed as valid prompt-chaining monolithic variant; brief's WF-003 format posture validated.
 - ✦ `reach4all://docs/research/managed-ai-policy-platforms-research.md` — correct OS paths (macOS `/Library/Application Support/ClaudeCode/CLAUDE.md`; Linux `/etc/claude-code/CLAUDE.md`; Windows `C:\Program Files\ClaudeCode\CLAUDE.md`); managed-settings.json recommendation; three-layer pattern (CLAUDE.md norm → pre-commit → CI) for 5 of 7 controls.
-- ✦ `docs/reference/what-are-agents.md` §8 — five-clause working definition (general clauses 1–4 + portfolio clause 5 enforcing the Authority Rule).
-- ✦ `docs/reference/source-doc-cm-design-validated-review.md` (re-referenced) — one additional gap closed in v0.3.0: G16 audit-log tamper-evidence via hash-chained scorekeeper (§6.7).
+- ✦ `reach4all://docs/research/what-are-agents.md` §8 — five-clause working definition (general clauses 1–4 + portfolio clause 5 enforcing the Authority Rule).
+- ✦ `reach4all://docs/research/source-doc-cm-design-validated-review.md` (re-referenced) — one additional gap closed in v0.3.0: G16 audit-log tamper-evidence via hash-chained scorekeeper (§6.7).
 - ✦ Memory-locked decisions (Cowork session state, April 2026): `project_cm_approval_model.md` — Eric-only manual GATE; no CI gate; no signed commits on main; Option B (tags only) for enforcement per §10 Q13. `project_research_repo.md` — research repo portfolio-level, native-tools-only (git, no Notion / Obsidian), governed by document-cm with class-specific relaxations of §3.7.3; repo named `reach4all` (decision landed in v0.3.0 amendments; creation Sprint 0b week 1).
 
 **Note on Anthropic-skills-framework references.** The document-cm skill's target file layout (§6.1, §6.6) assumes Anthropic's Agent Skills open standard (SKILL.md + references/ + scripts/ + schemas/ + evals/) plus Anthropic's skill-creator plugin for scaffolding. These are cross-vendor open as of December 2025; the same layout runs across Claude Code, Cursor, Gemini CLI, Codex CLI, Antigravity IDE, and ChatGPT. No new vendor surfaces are introduced by v0.3.0.

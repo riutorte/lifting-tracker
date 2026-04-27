@@ -270,7 +270,7 @@ Tier 2 outputs are governed by the Authority Rule — user confirmation required
 - batch-accept patterns (multiple Tier 2 drafts accepted in rapid succession)
 - divergence between accepted Tier 2 outputs and actual outcomes (accepted draft didn't match what the athlete actually did)
 
-The concern log is not a gate — it does not block Tier 2 output or user acceptance. It is a monitoring surface that can later feed prompts to the user ("you've been accepting drafts without edits for two weeks — are they still accurate?") or inform model/prompt tuning. Storage: `.cm/tier2-concerns.json` in the running app's data directory. Source framing: Gartner "activation signals" pattern ported from HR-scale human-in-the-loop systems. See `docs/reference/gartner-ai-native-swe-review.md`.
+The concern log is not a gate — it does not block Tier 2 output or user acceptance. It is a monitoring surface that can later feed prompts to the user ("you've been accepting drafts without edits for two weeks — are they still accurate?") or inform model/prompt tuning. Storage: `.cm/tier2-concerns.json` in the running app's data directory. Source framing: Gartner "activation signals" pattern ported from HR-scale human-in-the-loop systems. See `reach4all://docs/research/gartner-ai-native-swe-review.md`.
 
 ### D20. Watch and wearable apps are separate targets, not MVP scope
 
@@ -429,7 +429,7 @@ Content is attached to exercises or exercise families (per D15). Each exercise m
 
 Multi-agent interoperability is an XRSize4 ALL cross-cutting concern, promoted from Phase 5 future work to a first-class architectural concern per the Gartner L5 AI-native software engineering maturity framework. The specific protocol choice (A2A, AAIF, custom MCP-over-MCP patterns) is deferred pending the `code-cm` skill buildout and the `reach4all` research repo standup. Current inter-agent communication uses `send_message` between agents plus MCP tool composition — adequate for MVP, not a long-term answer.
 
-**Rationale:** Gartner's L4→L5 progression frames multi-agent orchestration as table stakes for the next generation of agentic systems. Deferring the protocol choice is appropriate — the decision needs evidence from actually running multi-agent workflows — but pretending it's a Phase 5 problem delays the infrastructure work that has to precede the protocol choice. See `docs/reference/gartner-ai-native-swe-review.md` for the promotion rationale.
+**Rationale:** Gartner's L4→L5 progression frames multi-agent orchestration as table stakes for the next generation of agentic systems. Deferring the protocol choice is appropriate — the decision needs evidence from actually running multi-agent workflows — but pretending it's a Phase 5 problem delays the infrastructure work that has to precede the protocol choice. See `reach4all://docs/research/gartner-ai-native-swe-review.md` for the promotion rationale.
 
 ## Cross-cutting architectural principles
 
@@ -439,7 +439,7 @@ Principles that inform multiple decisions but do not sit as single D-numbers. Ea
 
 Every XRSize4 ALL sub-system ships an MCP server before further UI investment. Lifting Tracker's next sprint after the athlete MVP ships `lifting-tracker-mcp`, exposing tools like `query_sessions`, `log_session`, `get_coach_hierarchy`, `assign_program`, and the like. Coach and admin workflows are built as MCP compositions first; UI wraps the MCP once patterns stabilize.
 
-**Rationale:** The integration center of gravity has moved to MCP. Workato's October 2025 Enterprise MCP launch (100+ prebuilt servers) is the clearest commercial signal; Anthropic owns the protocol; Cursor and Claude Code are built on MCP consumption. Platform value is in composition, not in any single UI. Building the MCP layer first forces interface discipline and unlocks agent-driven workflows before the UI is ready to expose them. See `docs/reference/workato-findings.md` and `docs/reference/claude-code-internals-findings.md`.
+**Rationale:** The integration center of gravity has moved to MCP. Workato's October 2025 Enterprise MCP launch (100+ prebuilt servers) is the clearest commercial signal; Anthropic owns the protocol; Cursor and Claude Code are built on MCP consumption. Platform value is in composition, not in any single UI. Building the MCP layer first forces interface discipline and unlocks agent-driven workflows before the UI is ready to expose them. See `reach4all://docs/research/workato-findings.md` and `reach4all://docs/research/claude-code-internals-findings.md`.
 
 ### Three-layer data architecture
 
@@ -451,7 +451,7 @@ Three layers, used together:
 
 The mobile client accesses (a) and (b) via Supabase (direct REST / ElectricSQL-style sync, or through MCP). The client accesses (c) via a dedicated MCP server (`fuseki-mcp` or `lifting-tracker-semantic-mcp`), not directly.
 
-**Rationale:** Keeping vectors co-located with the transactional store removes a second system from the MVP (pgvector is good enough). Fuseki earns its keep when ontology reasoning is the actual workload — premature before Sprint 3. Accessing Fuseki only through an MCP server keeps the mobile client's direct dependencies minimal. See `docs/reference/electricsql-assessment.md` and Concept Computing §16 Implementation Architecture for the Fuseki commitment.
+**Rationale:** Keeping vectors co-located with the transactional store removes a second system from the MVP (pgvector is good enough). Fuseki earns its keep when ontology reasoning is the actual workload — premature before Sprint 3. Accessing Fuseki only through an MCP server keeps the mobile client's direct dependencies minimal. See `reach4all://docs/research/electricsql-assessment.md` and Concept Computing §16 Implementation Architecture for the Fuseki commitment.
 
 ### Hosting posture
 
@@ -459,13 +459,13 @@ All self-hosted services run as Docker containers on Railway: self-hosted Supaba
 
 Projected monthly cost at MVP scale: ~$20–50. Migration path: any Docker-capable host (Hetzner, Fly, self-hosted Kubernetes) if Railway's pricing or terms shift adversely. The commitment is to Docker, not to Railway specifically.
 
-**Rationale:** Railway's developer ergonomics and pricing beat hyperscaler equivalents at this scale, and the Docker-first posture keeps portability cheap. See `docs/reference/workato-findings.md` and `docs/reference/observability-backend-assessment.md`.
+**Rationale:** Railway's developer ergonomics and pricing beat hyperscaler equivalents at this scale, and the Docker-first posture keeps portability cheap. See `reach4all://docs/research/workato-findings.md` and `reach4all://docs/research/observability-backend-assessment.md`.
 
 ### Observability
 
 Observability: HyperDX OSS (MIT license), self-hosted on Railway, ClickHouse backend, OpenTelemetry-native ingestion. First-party React Native SDK (`@hyperdx/otel-react-native`) covers the Expo client. Fallback: SigNoz (MIT core) if ClickHouse Inc. relicenses HyperDX adversely. Grafana stack considered and declined — AGPL 3.0 since 2021 fails the composite principle's permissive-license preference.
 
-**Rationale:** OTel-native with a permissive license, first-party RN SDK, and ClickHouse-backed query performance at a cost that's acceptable for a pre-revenue MVP. See `docs/reference/observability-backend-assessment.md` for the full analysis.
+**Rationale:** OTel-native with a permissive license, first-party RN SDK, and ClickHouse-backed query performance at a cost that's acceptable for a pre-revenue MVP. See `reach4all://docs/research/observability-backend-assessment.md` for the full analysis.
 
 ## Non-decisions (flagged for later versions, not alpha)
 
