@@ -1,3 +1,17 @@
 .claude/settings.local.json
 .claude/worktrees/
+
+# macOS
 .DS_Store
+
+# Jupyter / notebook
+.ipynb_checkpoints/
+
+# Editors / IDEs
+*.swp
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.local
