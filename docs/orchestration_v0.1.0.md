@@ -75,7 +75,7 @@ No shared memory exists between Cowork and Claude Code. Context moves through fi
 
 ## 5. Failure modes observed
 
-Pulled from `docs/reference/april-10-session-analysis.md`, `claude-code-internals-findings.md`, and this session's experiences. Each row is a pattern with a concrete mitigation.
+Pulled from `reach4all://docs/research/concept-computing-april-10-failure-analysis.md`, `reach4all://docs/research/claude-code-internals-findings.md`, and this session's experiences. Each row is a pattern with a concrete mitigation.
 
 | Pattern | Root cause | Mitigation |
 |---|---|---|

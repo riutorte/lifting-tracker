@@ -24,7 +24,7 @@ Planning is complete. Best practices research is complete. Implementation is sta
   - `roadmap_v0.4.0.md` — 8 MVP sprints with Kanban tables, dependencies, sizing
   - `effort-estimate_v0.1.0.md` — calendar time estimates (MVP ~6 months at 10–15 hrs/week)
   - `architecture-comparison_v0.3.0.md` — 7-approach comparison + platform evolution through 5 phases
-- **Best practices research** at `docs/reference/best-practices-review.md` — YouTube course analysis, Anthropic engineering patterns, 5 gaps identified
+- **Best practices research** at `reach4all://docs/research/agentic-coding-best-practices-review.md` — YouTube course analysis, Anthropic engineering patterns, 5 gaps identified
 - **CLAUDE.md** at repo root — updated for Expo + Supabase / XRSize4 ALL
 - **Legacy v1 PWA** — deployed to GitHub Pages, superseded by new architecture
 - **Conversation archives** in `docs/conversation-archive/` — 3 files: April 14 chat Claude extract, April 14 Claude Code build transcript, April 21 full Dispatch session 1 (RTF)
@@ -45,8 +45,8 @@ Planning is complete. Best practices research is complete. Implementation is sta
 
 ### Pending work items
 
-1. **Community research doc** — web search data from 8 searches already gathered (offline-first libraries, RLS pitfalls, EAS Build gotchas, magic-link deep linking, migration best practices, starter templates, Claude Code real-world lessons). Needs to be compiled into `docs/reference/community-research.md`.
-2. **Close 5 gaps from best practices review** — D19 context strategy, Sprint 6 split, tool-design standards, memory-tool pattern, CLAUDE.md guardrails. See `docs/reference/best-practices-review.md`.
+1. **Community research doc** — web search data from 8 searches already gathered (offline-first libraries, RLS pitfalls, EAS Build gotchas, magic-link deep linking, migration best practices, starter templates, Claude Code real-world lessons). Needs to be compiled into `reach4all://docs/research/agentic-ai-developer-community-research.md`.
+2. **Close 5 gaps from best practices review** — D19 context strategy, Sprint 6 split, tool-design standards, memory-tool pattern, CLAUDE.md guardrails. See `reach4all://docs/research/agentic-coding-best-practices-review.md`.
 3. **Data merge** — `data/merge_2026-04-14.txt` (11 cleaned April sessions) still not merged into `combined_workout_log.txt`. Multiple prior Code tasks failed.
 4. **Sprint 0 implementation** — Docker + Supabase CLI install, Expo scaffolding, schema deployment, auth flow, offline sync skeleton.
 

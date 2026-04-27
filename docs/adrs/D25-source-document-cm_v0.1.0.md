@@ -21,7 +21,7 @@ This ADR was drafted 2026-04-24 (Sprint 0b Day 1) to give the decision a single-
 
 Source documents — architecture decisions, specs, roadmaps, stories, themes/epics/features, workflow definitions, and the agent-and-skill definitions that operate on them — are the load-bearing artifacts of this portfolio. When they drift, the system drifts. The XRSize4 ALL portfolio has no governance framework for those documents today, and recent evidence shows this is no longer acceptable.
 
-The April 10, 2026 session analysis (`docs/reference/april-10-session-analysis.md`) documented thirteen distinct content-drop and governance-erosion failure patterns across ten-plus Claude.ai sessions attempting to synchronize eleven architecture documents under the Concept Computing agent suite. Failures clustered around three mechanical causes: silent compression eviction (`micro_compact`) removing tool-result content from context without the model noticing; the 25K-token Read ceiling forcing long-doc writes into patterns that corrupt mid-document; and governance rules stated in CLAUDE.md prose that the model ignored or re-interpreted across long sessions.
+The April 10, 2026 session analysis (`reach4all://docs/research/concept-computing-april-10-failure-analysis.md`) documented thirteen distinct content-drop and governance-erosion failure patterns across ten-plus Claude.ai sessions attempting to synchronize eleven architecture documents under the Concept Computing agent suite. Failures clustered around three mechanical causes: silent compression eviction (`micro_compact`) removing tool-result content from context without the model noticing; the 25K-token Read ceiling forcing long-doc writes into patterns that corrupt mid-document; and governance rules stated in CLAUDE.md prose that the model ignored or re-interpreted across long sessions.
 
 The Claude Code internals analysis (`docs/reference/claude-code-internals-findings.md`) traced the last of these to a specific runtime property: **CLAUDE.md is read-time only; enforcement is execution-time**. CLAUDE.md files concatenate into the system prompt and are interpreted; they do not constrain. Hooks, on the other hand, operate in the tool-call layer and can refuse a mutation outright. Rules written as prose are suggestions; only hooks enforce. This is the generalized CC-017 finding from Concept Computing: governance steps that are *listed* erode; steps that are *composed into tools* do not.
 
@@ -169,7 +169,7 @@ The Sprint 0a governance lock committed to native-tools-only for the research re
 
 - `docs/reference/source-doc-cm-design.md` — the full design brief (v0.3.0, 2,298 lines). Authoritative; this ADR summarizes it.
 - `docs/reference/source-doc-cm-design-validated-review.md` — gap-closure review that fed v0.2.0 and v0.3.0.
-- `docs/reference/april-10-session-analysis.md` — the thirteen failure patterns that motivated the framework.
+- `reach4all://docs/research/concept-computing-april-10-failure-analysis.md` — the thirteen failure patterns that motivated the framework.
 - `docs/reference/claude-code-internals-findings.md` — the runtime analysis that proved CC-017 and named the 25K Read ceiling and the three-layer compression cascade.
 - `docs/retrospectives/sprint-0a.md` — sprint close; records the governance locks (Eric-only manual, Option B tags, native-tools-only, research-repo=`reach4all`).
 - `docs/architecture_v0.4.0.md` — D1–D24 plus D26 (TypeScript) and D27 (multi-agent interop) added in Sprint 0a.

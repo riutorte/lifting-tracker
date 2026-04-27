@@ -32,7 +32,7 @@ The full change-log narrative lives at the foot of the document. This header tab
 
 **Data vs data-ingestion rules (G28).** Raw data files are out of scope: `data/combined_workout_log.txt` (the 400+ session historical log), future exercise-catalog seeds, and any athlete data are data artifacts, not documentation CIs. Their provenance is a data-lineage concern (W3C PROV-DM / DataOps) that this brief does not govern. However, the *ingestion rules* for those files — e.g., `docs/data-import.md` describing how the combined log is parsed into Sessions and Sets, or schema-mapping documents for the ontology — are in-scope documentation CIs and are tracked by this framework like any other COMPANION-tier doc.
 
-**Prior art in this repo.** This brief builds on `~/Concept/CLAUDE.md`, `~/Concept/AgentSuiteReference_v4.md`, `~/Concept/DesignPrinciples_v3.md`, and the two April-10-2026 migration plans (`migration_plan_claude_code.md`, `migration_plan_managed_agents_v2.md`, neither executed). It aligns with `docs/architecture_v0.4.0.md` (D1–D24), `docs/themes-epics-features_v0.2.0.md`, `docs/roadmap_v0.4.0.md`, and `docs/reference/best-practices-review.md`. Where this brief contradicts any of those, this brief is wrong — flag it and correct the brief.
+**Prior art in this repo.** This brief builds on `~/Concept/CLAUDE.md`, `~/Concept/AgentSuiteReference_v4.md`, `~/Concept/DesignPrinciples_v3.md`, and the two April-10-2026 migration plans (`migration_plan_claude_code.md`, `migration_plan_managed_agents_v2.md`, neither executed). It aligns with `docs/architecture_v0.4.0.md` (D1–D24), `docs/themes-epics-features_v0.2.0.md`, `docs/roadmap_v0.4.0.md`, and `reach4all://docs/research/agentic-coding-best-practices-review.md`. Where this brief contradicts any of those, this brief is wrong — flag it and correct the brief.
 
 ---
 
@@ -261,8 +261,8 @@ Applying these definitions to the existing `docs/` folder:
 | `effort-estimate_v0.1.0.md` | COMPANION | Sizing analysis; cites roadmap and stories. |
 | `roadmap_v0.4.0.md` | OPERATIONAL | Active planning doc; sprint contents mutate. |
 | `dispatch-handoff.md` | OPERATIONAL | Session handoff artifact; regenerated each planning cycle. |
-| `docs/reference/best-practices-review.md` | COMPANION | Analysis of external sources against architecture decisions. |
-| `docs/reference/community-research.md` | COMPANION | Market/community landscape; informs but does not decide. |
+| `reach4all://docs/research/agentic-coding-best-practices-review.md` | COMPANION | Analysis of external sources against architecture decisions. |
+| `reach4all://docs/research/agentic-ai-developer-community-research.md` | COMPANION | Market/community landscape; informs but does not decide. |
 | `docs/reference/source-doc-cm-design.md` | COMPANION | This document. |
 | `docs/conversation-archive/*` | OPERATIONAL | Session records; append-only. |
 
@@ -301,7 +301,7 @@ The portfolio-level REFERENCE docs are the ones every sub-system pins to. When `
 
 Concept's migration plan v1 proposes folder-per-tier (`architecture/master/`, `architecture/companion/`, etc.). This brief recommends against it. Rationale: tier is a property of the document that can change; a folder move is disruptive (breaks links, breaks git blame continuity at a glance); and the manifest is the canonical source of the tier anyway. Keep docs in flat or semantic folders (`docs/`, `docs/reference/`, `docs/conversation-archive/`), carry tier in the manifest entry.
 
-The one exception: `docs/reference/` is idiomatic for "background docs consumed by this project" and may stay as a folder convention. It does not map 1:1 to the CM tier — best-practices-review.md lives in `docs/reference/` as a folder-name but is a COMPANION tier doc.
+The one exception: `docs/reference/` is idiomatic for "background docs consumed by this project" and may stay as a folder convention. It does not map 1:1 to the CM tier — agentic-coding-best-practices-review.md lives in `docs/reference/` as a folder-name but is a COMPANION tier doc.
 
 ### 3.7 Content Classes (v0.3.0)
 
@@ -817,7 +817,7 @@ The four defenses below are the specific mitigations. All four are **non-negotia
 
 **Self-application clause.** The author of any revision to this brief must be able to truthfully report that all four defenses were applied to the revision itself. If the defenses were not applied, the revision is invalid and must be redone from the baseline snapshot. This is the brief's Strange Loop: v0.3.0 is the first revision that specifies the defenses, and is also the first revision whose authoring self-verified against them. The post-mutation section read in the final verification pass (§Verification in v0.3.0's revision notes) satisfies Defense 2; the baseline snapshot satisfies Defense 4; each Edit call in the revision was preceded by a Read of the surrounding context in the same turn (Defense 1); no `Write` on the full file was issued during the revision (Defense 3).
 
-**Connection to april-10 failure patterns.** Defenses 1, 2, and 4 close **failure patterns #4 (Doc Librarian title-match silent divergence), #5 (memory-shortcut baseline extraction), #6 (self-reported verification), and #10 (self-contradiction within session)** from `docs/reference/april-10-session-analysis.md`. Defense 3 does not map to an april-10 pattern — it is prospective, closing a pattern the runtime makes available but which has not yet bitten Eric hard enough to show up in retrospect.
+**Connection to april-10 failure patterns.** Defenses 1, 2, and 4 close **failure patterns #4 (Doc Librarian title-match silent divergence), #5 (memory-shortcut baseline extraction), #6 (self-reported verification), and #10 (self-contradiction within session)** from `reach4all://docs/research/concept-computing-april-10-failure-analysis.md`. Defense 3 does not map to an april-10 pattern — it is prospective, closing a pattern the runtime makes available but which has not yet bitten Eric hard enough to show up in retrospect.
 
 *What differs for code (NAMED-BUT-DEFERRED):* Defenses 1 and 2 apply identically to code files (read before edit; verify after edit, with the compiler and test suite as the verifier). Defense 3 applies less strictly because source files are typically smaller and Writes against whole files are more common in code workflows. Defense 4 maps to branch snapshots and the git reflog rather than side-car baseline files.
 
@@ -835,7 +835,7 @@ This is a deliberate reversal from the default assumption that a newer, vendor-n
 
 - **Single-layer failure is costly at solo + AI scale.** There is no team to catch a regression caused by retiring an agent whose Claude Code equivalent turns out to be subtly different in practice. Keeping both layers gives the portfolio two independent audit trails.
 - **Python agents that hold state in JSON files are immune to the micro_compact content-drop pattern** (§5.7). `scorekeeper_agent.py` writing to `scorekeeper.json` on disk does not lose its state when `tool_result` messages get rewritten to placeholders 20 turns later. A Claude Code primitive that relies on in-context memory does. The two failure modes are different, and belt-and-suspenders is cheap.
-- **The governance substrate should persist until proven replaceable, not assumed replaceable.** The April 10 failure analysis (`docs/reference/april-10-session-analysis.md`) documents what Eric named the *compound pivot trigger* — the session that crystallized migration planning because governance framed in prose had eroded too many times to trust the pattern. The lesson from that session is not "retire the old agents because the new primitives exist"; it is "keep the most reliable substrate until the alternative has earned parity in practice, not just in theory."
+- **The governance substrate should persist until proven replaceable, not assumed replaceable.** The April 10 failure analysis (`reach4all://docs/research/concept-computing-april-10-failure-analysis.md`) documents what Eric named the *compound pivot trigger* — the session that crystallized migration planning because governance framed in prose had eroded too many times to trust the pattern. The lesson from that session is not "retire the old agents because the new primitives exist"; it is "keep the most reliable substrate until the alternative has earned parity in practice, not just in theory."
 
 **What this subsection now says:**
 
@@ -943,7 +943,7 @@ Every governance capability in this brief — baseline extract, GATE approve, re
 **Why MCP-first.** Two findings converge on this posture:
 
 - **Workato's MCP-first sub-system strategy** (see `docs/reference/workato-findings.md`). Workato ships 100+ prebuilt MCP servers and treats MCP as the primary integration surface, with REST as secondary. For a solo + AI build, the pattern is: every sub-system exposes an MCP server as its outward contract. Sub-systems that expose only a REST surface cannot be composed into Claude Code sessions, Cursor, Codex CLI, or any other agent host without bespoke adapters.
-- **Context Hub's dual CLI + MCP adapter pattern** (see `docs/reference/context-hub-findings.md`). Context Hub's cleanest design is a shared `lib/` whose functions are called from two sibling adapter layers: `cli/` and `mcp/`. Both adapters call the same underlying `lib/` functions (`searchEntries`, `getEntry`, `fetchDoc`, `writeAnnotation`, `sendFeedback`); analytics events are tagged `via: 'cli'` or `via: 'mcp'` to distinguish surfaces.
+- **Context Hub's dual CLI + MCP adapter pattern** (see `reach4all://docs/research/context-hub-platform-findings.md`). Context Hub's cleanest design is a shared `lib/` whose functions are called from two sibling adapter layers: `cli/` and `mcp/`. Both adapters call the same underlying `lib/` functions (`searchEntries`, `getEntry`, `fetchDoc`, `writeAnnotation`, `sendFeedback`); analytics events are tagged `via: 'cli'` or `via: 'mcp'` to distinguish surfaces.
 
 **The mandated structure for document-cm:**
 
@@ -1205,7 +1205,7 @@ DISA publishes a Python STIG (Security Technical Implementation Guide) that spec
 
 ### 8.7 Managed Policy Paths and managed-settings.json (v0.3.0)
 
-When Claude Code governance needs to be enforced at the OS policy layer rather than at the per-repo layer — for example, a portfolio-wide rule that every skill under `~/Concept`, `~/lifting-tracker`, and `~/reach4all` must carry the same copyright footer check — the correct mechanism is Claude Code's **managed policy directory**, one layer above user-scope CLAUDE.md. Findings from `docs/reference/managed-policy-research.md`:
+When Claude Code governance needs to be enforced at the OS policy layer rather than at the per-repo layer — for example, a portfolio-wide rule that every skill under `~/Concept`, `~/lifting-tracker`, and `~/reach4all` must carry the same copyright footer check — the correct mechanism is Claude Code's **managed policy directory**, one layer above user-scope CLAUDE.md. Findings from `reach4all://docs/research/managed-ai-policy-platforms-research.md`:
 
 **OS-specific managed policy paths.** The path differs by operating system; this brief commits to the correct paths below (a v0.2.0 draft incorrectly referenced `/etc/claude-code/` on macOS; v0.3.0 corrects the record).
 
@@ -1286,8 +1286,8 @@ lifting-tracker/
 │   ├── effort-estimate_v0.1.0.md
 │   ├── dispatch-handoff.md
 │   ├── reference/
-│   │   ├── best-practices-review.md
-│   │   ├── community-research.md
+│   │   ├── agentic-coding-best-practices-review.md
+│   │   ├── agentic-ai-developer-community-research.md
 │   │   └── source-doc-cm-design.md
 │   └── conversation-archive/
 ├── reports/                      # session reports; append-only; .gitignore'd or committed (Q7)
@@ -1382,14 +1382,14 @@ documents:
     depends_on: [{id: roadmap, version: "*"}]
 
   - id: best-practices-review
-    path: docs/reference/best-practices-review.md
+    path: reach4all://docs/research/agentic-coding-best-practices-review.md
     tier: COMPANION
     version: 1.0.0
     status: active
     owners: [ericriutort]
 
   - id: community-research
-    path: docs/reference/community-research.md
+    path: reach4all://docs/research/agentic-ai-developer-community-research.md
     tier: COMPANION
     version: 1.0.0
     status: active
@@ -1772,7 +1772,7 @@ NO VIOLATIONS
 
 ### 9.9 April-10 failure patterns — mitigation map (v0.3.0)
 
-`docs/reference/april-10-session-analysis.md` enumerates 13 distinct failure patterns observed across sessions, each with cross-session evidence. §9 of that doc synthesizes a three-tier severity ranking: Tier 1 (framework-killers), Tier 2 (trust-killers), Tier 3 (behavior-level drift). This subsection maps each pattern to the v0.3.0 mitigation that closes or mitigates it. Patterns without a full-close mitigation are flagged.
+`reach4all://docs/research/concept-computing-april-10-failure-analysis.md` enumerates 13 distinct failure patterns observed across sessions, each with cross-session evidence. §9 of that doc synthesizes a three-tier severity ranking: Tier 1 (framework-killers), Tier 2 (trust-killers), Tier 3 (behavior-level drift). This subsection maps each pattern to the v0.3.0 mitigation that closes or mitigates it. Patterns without a full-close mitigation are flagged.
 
 | # | Pattern | Tier | Mitigation in v0.3.0 | Status |
 |---|---|---|---|---|
@@ -2150,7 +2150,7 @@ G3 value-stream mapping, G4 PI cadence, G5 WSJF prioritization, G6 DORA metrics,
 
 Two targeted amendments adopted after the initial v0.3.0 landed; both reflect decisions Eric made after reviewing the revised brief. The amendments are surgical and do not otherwise change the document's structure.
 
-**Amendment 1 — §6.0a posture reversal (trust-but-verify).** The earlier §6.0a framed the 16-agent mapping matrix as a refactor scope — 9 agents replaced by Claude Code primitives, 5 kept as MCP-exposed Python tools, 2 kept as skills/workflows. **That framing is superseded.** All 16 Concept agents now remain operational and authoritative. Claude Code natives (CLAUDE.md hierarchy loading, TaskList, Read-before-Edit discipline, session transcripts, auto-memory, built-in turn history, hooks, skills registry) run in parallel as redundant observability. The mapping matrix stays in the brief as a reference for future evaluation, not as a replacement plan. Deprecation of any single agent requires empirical evidence that the Claude Code primitive is equivalent in practice, surfaced through the Tier 2 concern log pattern of §9.10 — time-to-acceptance and rubber-stamp detection adapted to agent-output consumption. Rationale: (i) solo + AI shop, single-layer failure is costly; (ii) Python agents holding state in JSON files are immune to the micro_compact content-drop pattern (§5.7); (iii) the governance substrate should persist until proven replaceable, not assumed replaceable; (iv) the "compound pivot trigger" lesson from `docs/reference/april-10-session-analysis.md` argues for conservatism in replacement decisions. The disposition table that follows §6.0a is retained but reframed as "candidate disposition pending evidence," not as adopted plan.
+**Amendment 1 — §6.0a posture reversal (trust-but-verify).** The earlier §6.0a framed the 16-agent mapping matrix as a refactor scope — 9 agents replaced by Claude Code primitives, 5 kept as MCP-exposed Python tools, 2 kept as skills/workflows. **That framing is superseded.** All 16 Concept agents now remain operational and authoritative. Claude Code natives (CLAUDE.md hierarchy loading, TaskList, Read-before-Edit discipline, session transcripts, auto-memory, built-in turn history, hooks, skills registry) run in parallel as redundant observability. The mapping matrix stays in the brief as a reference for future evaluation, not as a replacement plan. Deprecation of any single agent requires empirical evidence that the Claude Code primitive is equivalent in practice, surfaced through the Tier 2 concern log pattern of §9.10 — time-to-acceptance and rubber-stamp detection adapted to agent-output consumption. Rationale: (i) solo + AI shop, single-layer failure is costly; (ii) Python agents holding state in JSON files are immune to the micro_compact content-drop pattern (§5.7); (iii) the governance substrate should persist until proven replaceable, not assumed replaceable; (iv) the "compound pivot trigger" lesson from `reach4all://docs/research/concept-computing-april-10-failure-analysis.md` argues for conservatism in replacement decisions. The disposition table that follows §6.0a is retained but reframed as "candidate disposition pending evidence," not as adopted plan.
 
 **Amendment 2 — research repo named `reach4all`.** Eric chose `reach4all` as the research repo name from among the candidates (`research` / `radar` / `findings`). Every occurrence of the `<research-repo>` placeholder has been replaced with `reach4all`; the footnote that flagged the pending decision has been removed; the former "Research repo name decision" DEFER entry has been replaced by a Sprint 0b week-1 creation task. The repo remains governed by document-cm with the class-specific relaxations of §3.7.3 (WF-003L, date-based versioning default, mandatory `stale_after:` tag, finding-vs-synthesis GATE distinction).
 
@@ -2225,10 +2225,10 @@ This revision folds in the Sprint 0a research corpus (11 research docs + memory-
 - `docs/reference/workato-findings.md` — WF-003 GATE artifact triple; orchestrator-worker pattern; MCP-first sub-system strategy; contract-first harness posture.
 - `docs/reference/building-agentic-ai-systems-findings.md` — TravelEpisode schema; thread_id + memory_scope + Coordinator/Delegator; six §7 open questions imported as Q14–Q19.
 - `docs/reference/gartner-ai-native-swe-review.md` — Tier 2 concern log for D19; D27 multi-agent interop; `docs/orchestration_v0.1.0.md` artifact gap.
-- `docs/reference/context-hub-findings.md` — dual CLI + MCP adapter; closed-vocabulary feedback labels; BM25 validates D19; console.log→stderr guard.
-- `docs/reference/april-10-session-analysis.md` — 13 failure patterns with per-pattern mitigation mapping; three-tier severity synthesis with twelve hard requirements.
+- `reach4all://docs/research/context-hub-platform-findings.md` — dual CLI + MCP adapter; closed-vocabulary feedback labels; BM25 validates D19; console.log→stderr guard.
+- `reach4all://docs/research/concept-computing-april-10-failure-analysis.md` — 13 failure patterns with per-pattern mitigation mapping; three-tier severity synthesis with twelve hard requirements.
 - `docs/reference/anthropic-engineering-patterns-review.md` — XML-tagged markdown workflows confirmed as valid prompt-chaining monolithic variant.
-- `docs/reference/managed-policy-research.md` — macOS path correction; managed-settings.json recommendation; three-layer pattern for 5 of 7 controls.
+- `reach4all://docs/research/managed-ai-policy-platforms-research.md` — macOS path correction; managed-settings.json recommendation; three-layer pattern for 5 of 7 controls.
 - `docs/reference/agentic-ai-bible-findings.md` — Q11 closure reinforcement (already incorporated in v0.2.0 §9.5).
 - `docs/reference/what-are-agents.md` — §8 five-clause working definition imported to §1.6.
 - Memory-locked decisions — `project_cm_approval_model.md` (Eric-only manual GATE; no CI gate; no signed commits on main; Option B tags only); `project_research_repo.md` (research repo portfolio-level, native-tools-only, governed by document-cm with class-specific relaxations; named `reach4all`, creation Sprint 0b week 1).
@@ -2253,7 +2253,7 @@ External references informing this design (entries new in v0.2.0 are marked ⟡;
 - ⟡ `docs/reference/anthropic-engineering-patterns-review.md` — Apr 2026 review of where this design aligns with and deviates from Anthropic's published patterns. Source of the WF-003 naming precision (chain-with-gate + embedded evaluator-optimizer-verify), the Book Boss verify refinements, the JIT retrieval / progressive-disclosure recommendation, and the GATE-as-hook finding.
 - ⟡ `docs/reference/source-doc-cm-design-validated-review.md` — Apr 2026 validated gap review against SAFe, DORA, OWASP, SLSA, ISO/IEC, EIA, Anthropic. 29 gaps; 18 incorporated in this revision (see Change Log).
 - ⟡ `docs/reference/agentic-ai-bible-findings.md` — findings from the Agentic AI Bible reading pass (2025 book family) that informed §9.5 evals harness (the Q11 closure).
-- ⟡ `docs/reference/stack-validation.md` — stack findings constraining which examples/references appear in this brief.
+- ⟡ `reach4all://docs/research/lifting-tracker-stack-validation.md` — stack findings constraining which examples/references appear in this brief.
 - Anthropic Agent Skills specification (December 2025, open standard adopted by OpenAI Codex CLI, Cursor, Gemini CLI, Antigravity IDE, ChatGPT); SKILL.md format.
 - [Claude Mythos Preview — red.anthropic.com](https://red.anthropic.com/2026/mythos-preview/) and [Project Glasswing — anthropic.com/project/glasswing](https://www.anthropic.com/project/glasswing) (April 7, 2026).
 - ⟡ [Anthropic — Writing Tools for Agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Sep 2025) — evals as forcing function; least-privilege execution.
@@ -2278,7 +2278,7 @@ External references informing this design (entries new in v0.2.0 are marked ⟡;
 - [Trunk-based development vs Git-Flow — Atlassian](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development) and solo-developer workflow guidance circa 2026.
 - [Claude Code Hooks — code.claude.com/docs/en/hooks-guide](https://code.claude.com/docs/en/hooks-guide).
 - Concept Computing repository: `CLAUDE.md`, `AgentSuiteReference_v4.md`, `DesignPrinciples_v3.md`, `migration_plan_claude_code.md`, `migration_plan_managed_agents_v2.md`, `wf_*.md`, the 16 `*_agent.py` scripts (AGENT_META + copyright blocks).
-- Lifting Tracker: `docs/architecture_v0.4.0.md` (D1–D24), `docs/themes-epics-features_v0.2.0.md`, `docs/roadmap_v0.4.0.md`, `docs/user-stories_v0.2.0.md`, `docs/reference/best-practices-review.md`.
+- Lifting Tracker: `docs/architecture_v0.4.0.md` (D1–D24), `docs/themes-epics-features_v0.2.0.md`, `docs/roadmap_v0.4.0.md`, `docs/user-stories_v0.2.0.md`, `reach4all://docs/research/agentic-coding-best-practices-review.md`.
 
 **v0.3.0 research corpus (Sprint 0a — folded into this revision):**
 
@@ -2286,10 +2286,10 @@ External references informing this design (entries new in v0.2.0 are marked ⟡;
 - ✦ `docs/reference/workato-findings.md` — WF-003 GATE artifact triple (request / assignment / resolution + timeout + reassignment), orchestrator-worker pattern, MCP-first sub-system strategy, "contract-first harness, not DSL" posture for MCP servers.
 - ✦ `docs/reference/building-agentic-ai-systems-findings.md` — TravelEpisode Pydantic schema (`request` / `considerations` / `recommendation` / `outcome`), `thread_id` + `memory_scope` enum + Coordinator/Delegator role split, §7 open questions imported as Q14–Q19.
 - ✦ `docs/reference/gartner-ai-native-swe-review.md` — Tier 2 concern log for D19, multi-agent interop promoted from Phase 5 to D27 ("interop-first L5, authority-preserving"), `docs/orchestration_v0.1.0.md` artifact named as gap.
-- ✦ `docs/reference/context-hub-findings.md` — dual CLI + MCP adapter pattern over shared `lib/`, closed-vocabulary feedback labels, BM25 validates D19 (no vector store needed), `console.log`→stderr guard for MCP stdio servers.
-- ✦ `docs/reference/april-10-session-analysis.md` — 13 failure patterns with per-pattern CM mitigation mapping, §9 three-tier severity synthesis (Tier 1 framework-killers / Tier 2 trust-killers / Tier 3 drift) with twelve hard requirements.
+- ✦ `reach4all://docs/research/context-hub-platform-findings.md` — dual CLI + MCP adapter pattern over shared `lib/`, closed-vocabulary feedback labels, BM25 validates D19 (no vector store needed), `console.log`→stderr guard for MCP stdio servers.
+- ✦ `reach4all://docs/research/concept-computing-april-10-failure-analysis.md` — 13 failure patterns with per-pattern CM mitigation mapping, §9 three-tier severity synthesis (Tier 1 framework-killers / Tier 2 trust-killers / Tier 3 drift) with twelve hard requirements.
 - ✦ `docs/reference/anthropic-engineering-patterns-review.md` (re-referenced) — XML-tagged markdown workflows confirmed as valid prompt-chaining monolithic variant; brief's WF-003 format posture validated.
-- ✦ `docs/reference/managed-policy-research.md` — correct OS paths (macOS `/Library/Application Support/ClaudeCode/CLAUDE.md`; Linux `/etc/claude-code/CLAUDE.md`; Windows `C:\Program Files\ClaudeCode\CLAUDE.md`); managed-settings.json recommendation; three-layer pattern (CLAUDE.md norm → pre-commit → CI) for 5 of 7 controls.
+- ✦ `reach4all://docs/research/managed-ai-policy-platforms-research.md` — correct OS paths (macOS `/Library/Application Support/ClaudeCode/CLAUDE.md`; Linux `/etc/claude-code/CLAUDE.md`; Windows `C:\Program Files\ClaudeCode\CLAUDE.md`); managed-settings.json recommendation; three-layer pattern (CLAUDE.md norm → pre-commit → CI) for 5 of 7 controls.
 - ✦ `docs/reference/what-are-agents.md` §8 — five-clause working definition (general clauses 1–4 + portfolio clause 5 enforcing the Authority Rule).
 - ✦ `docs/reference/source-doc-cm-design-validated-review.md` (re-referenced) — one additional gap closed in v0.3.0: G16 audit-log tamper-evidence via hash-chained scorekeeper (§6.7).
 - ✦ Memory-locked decisions (Cowork session state, April 2026): `project_cm_approval_model.md` — Eric-only manual GATE; no CI gate; no signed commits on main; Option B (tags only) for enforcement per §10 Q13. `project_research_repo.md` — research repo portfolio-level, native-tools-only (git, no Notion / Obsidian), governed by document-cm with class-specific relaxations of §3.7.3; repo named `reach4all` (decision landed in v0.3.0 amendments; creation Sprint 0b week 1).
