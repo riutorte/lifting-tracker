@@ -1,12 +1,16 @@
 ---
 author: Eric Riutort
 created: 2026-04-17
-updated: 2026-04-17
+updated: 2026-04-24
+tier: ARCHITECTURE
+content_class: architecture
+version: 0.2.0
+status: accepted
 ---
 
 # Lifting Tracker — Themes, Epics, Features
 
-**Scope note:** This document organizes the user stories in `user-stories.md` into an agile work hierarchy: Theme → Epic → Feature → User Story. It covers the Lifting Tracker sub-system of XRSize4 ALL. Stories describe what the user needs; this document describes how the work is grouped and planned. Reading order: `xrsize4all_concept.md` (platform), `architecture.md` (decisions D1–D24), `user-stories.md` (stories), this document (work hierarchy).
+**Scope note:** This document organizes the user stories in `user-stories_v0.2.0.md` into an agile work hierarchy: Theme → Epic → Feature → User Story. It covers the Lifting Tracker sub-system of XRSize4 ALL. Stories describe what the user needs; this document describes how the work is grouped and planned. Reading order: `xrsize4all_concept_v0.2.0.md` (platform), `architecture_v0.4.0.md` (decisions D1–D24), `user-stories_v0.2.0.md` (stories), this document (work hierarchy).
 
 ## Hierarchy Overview
 
@@ -18,7 +22,7 @@ The hierarchy follows standard agile conventions (compatible with SAFe):
 - **User Story** fits in one sprint.
 - **Task** is the engineering work item within a story — not tracked in this document.
 
-Phase labels from `user-stories.md` (MVP, v2, v3, v4, Future) describe when a story ships. Epics span phases — an epic may have MVP stories, v2 stories, and v3 stories that together deliver the full capability over time.
+Phase labels from `user-stories_v0.2.0.md` (MVP, v2, v3, v4, Future) describe when a story ships. Epics span phases — an epic may have MVP stories, v2 stories, and v3 stories that together deliver the full capability over time.
 
 ## Counts at a Glance
 
@@ -27,7 +31,7 @@ Phase labels from `user-stories.md` (MVP, v2, v3, v4, Future) describe when a st
 - Features: 109
 - User Stories: 114
 
-All 114 stories from `user-stories.md` are covered. Three stories (US-036, US-120, US-121) are referenced from two places by design — they bridge a role definition and a functional epic.
+All 114 stories from `user-stories_v0.2.0.md` are covered. Three stories (US-036, US-120, US-121) are referenced from two places by design — they bridge a role definition and a functional epic.
 
 ## Themes
 
@@ -325,7 +329,7 @@ Instructional content (how an exercise should be done) and form analysis (how th
 
 AI/LLM capabilities applied across all other themes. Implements Reasoner Duality (D19) with Authority Rule. Every AI feature has a Tier 1 deterministic anchor and a Tier 2 LLM narrative layer.
 
-**Architectural anchors:** D19 (Reasoner Duality, Authority Rule, MVP scope), platform-level AI governance in `xrsize4all_concept.md`.
+**Architectural anchors:** D19 (Reasoner Duality, Authority Rule, MVP scope), platform-level AI governance in `xrsize4all_concept_v0.2.0.md`.
 
 ### Epic E7.1 — Natural-Language Workout Entry and Summaries
 
@@ -376,7 +380,7 @@ Capabilities beyond the primary iPhone app: Apple Watch, smart glasses, voice-on
 
 ## Story Coverage Summary
 
-Every story from `user-stories.md` is accounted for. Three stories (US-036, US-120, US-121) are referenced in two places by design, because they serve two purposes (a role definition and a functional capability).
+Every story from `user-stories_v0.2.0.md` is accounted for. Three stories (US-036, US-120, US-121) are referenced in two places by design, because they serve two purposes (a role definition and a functional capability).
 
 **Counts by theme:**
 
@@ -461,7 +465,7 @@ This hierarchy is framework-agnostic. In Scrum, stories are committed into sprin
 
 ## Change log
 
-- 2026-04-17: Initial version. Eight themes (T1–T8), 31 epics (E1.1 through E8.3), 109 features (F1.1.1 through F8.3.1), covering all 114 user stories from `user-stories.md`. Derived from architectural decisions D1–D24 in `architecture.md` and the system-of-systems framing in `xrsize4all_concept.md`. Phase labels (MVP, v2, v3, v4, Future) preserved from the user stories document; themes and epics span phases where appropriate. Three stories (US-036, US-120, US-121) intentionally cross-referenced in two places where they serve two distinct purposes.
+- 2026-04-17: Initial version. Eight themes (T1–T8), 31 epics (E1.1 through E8.3), 109 features (F1.1.1 through F8.3.1), covering all 114 user stories from `user-stories_v0.2.0.md`. Derived from architectural decisions D1–D24 in `architecture_v0.4.0.md` and the system-of-systems framing in `xrsize4all_concept_v0.2.0.md`. Phase labels (MVP, v2, v3, v4, Future) preserved from the user stories document; themes and epics span phases where appropriate. Three stories (US-036, US-120, US-121) intentionally cross-referenced in two places where they serve two distinct purposes.
 - 2026-04-17 (revision): Rewrote feature lists from table format to prose/bullet format for easier copying on mobile devices. No content changed; all 31 epics, 109 features, and 114 story references preserved. Only format changed from `| Feature | Phase | Stories |` tables to `- Feature name (Phase) — Stories` bullet format.
 - 2026-04-17 (QC fix): Corrected feature-ID prefix inconsistency in the Release Planning View section. References to specific features (F1.2.1, F1.2.2, F1.2.3, F1.2.4, F1.2.5, F1.5.1, F1.5.2, F1.5.3, F1.5.4, F1.5.5) were erroneously written with an E-prefix (as if they were epic-level), giving the impression of three-level epic numbering (e.g., E1.2.1) which does not exist in this hierarchy. Epics are E-prefixed with two-level numbering (e.g., E1.2); features are F-prefixed with three-level numbering (e.g., F1.2.1). No semantic content changed; only ten prefix corrections in the Release Planning View.
 

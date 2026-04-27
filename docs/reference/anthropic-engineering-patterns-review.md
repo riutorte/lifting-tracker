@@ -310,7 +310,7 @@ Both produce the same end-to-end behavior when everything goes well. They diverg
 
 **Whether it matters.**
 
-- *At current scale.* Lifting Tracker's `docs/architecture.md` is ~1200 lines, `docs/user-stories.md` is ~1500 lines, the largest reference docs are ~1500 lines. A 500-line wf_*.md plus a 1500-line doc plus baseline JSON plus change map is well under Claude's Opus 4.6 200K context. The attention-budget concern is that context rot starts degrading recall well before the window fills — but "well before" for a 200K model probably means tens of thousands of tokens, not hundreds. Operationally, it is unlikely to bite at MVP scale.
+- *At current scale.* Lifting Tracker's `docs/architecture_v0.4.0.md` is ~1200 lines, `docs/user-stories_v0.2.0.md` is ~1500 lines, the largest reference docs are ~1500 lines. A 500-line wf_*.md plus a 1500-line doc plus baseline JSON plus change map is well under Claude's Opus 4.6 200K context. The attention-budget concern is that context rot starts degrading recall well before the window fills — but "well before" for a 200K model probably means tens of thousands of tokens, not hundreds. Operationally, it is unlikely to bite at MVP scale.
 - *At v2+ scale.* If a coaching-session workflow runs alongside (athlete history, 30 sessions of structured data, LLM-generated summaries, plus the workflow definition), the budget pressure mounts. By then, architectural remediation is cheap because the workflow itself is smaller after skill refactoring.
 - *At failure mode.* The more acute concern is CC-017: a long session that silently skips a governance step because the governance step's XML tag is now 400 lines back in the context. This is not a JIT violation per se — it is an attention-budget violation. Both point to the same fix: get the workflow file shorter, or out of context entirely.
 
@@ -510,7 +510,7 @@ Everything else in §5.a is either cheap (minutes to hours) or not urgent at MVP
 
 The ten recommendations in §5.a all apply to the `document-cm` skill as designed for Lifting Tracker. Four of them (2, 3, 4, 7) would apply identically to Concept Computing when its migration happens (per source-doc-cm-design.md §10 Q4 Option C — build in Lifting Tracker first, then port). The two recommendations that are Lifting Tracker-specific (1 workflow externalization, 5 manifest annotation) are trivially portable.
 
-One recommendation that is *new* at the cross-project level: when the skill ships and runs in both repos, the memory tool becomes a real option for cross-project architectural decisions that span both (the `xrsize4all_concept.md` graduation trigger in Q1 of the brief). The Sep 2025 context-engineering post and the memory-tool beta are the substrate for that. No action required today; flag for the quarter-boundary review.
+One recommendation that is *new* at the cross-project level: when the skill ships and runs in both repos, the memory tool becomes a real option for cross-project architectural decisions that span both (the `xrsize4all_concept_v0.2.0.md` graduation trigger in Q1 of the brief). The Sep 2025 context-engineering post and the memory-tool beta are the substrate for that. No action required today; flag for the quarter-boundary review.
 
 ### 5.d Priority ordering
 
@@ -591,7 +591,7 @@ Project documents cross-referenced:
 - `docs/reference/agentic-ai-bible-findings.md` (2026-04-22) — book findings, including the "no new patterns" judgment vs Anthropic's engineering corpus.
 - `docs/reference/source-doc-cm-design.md` v0.1 (2026-04-22) — CM design brief; §1.4 is the agentic-AI-dev alignment frame; §5.5 is the `cm update` flow; §6.1 is the skill file layout.
 - `docs/reference/source-doc-cm-design-validated-review.md` (2026-04-22) — 26 gaps + 3 newly identified; G24 evals harness and G25 multi-skill coordination are most relevant to this review.
-- `docs/architecture.md` D1–D24 (MASTER, v1.2.0) — especially D19 Reasoner Duality and the Authority Rule.
+- `docs/architecture_v0.4.0.md` D1–D24 (MASTER, v1.2.0) — especially D19 Reasoner Duality and the Authority Rule.
 
 Related standards and primitives cited in passing:
 

@@ -2,6 +2,10 @@
 author: Eric Riutort
 created: 2026-04-16
 updated: 2026-04-16
+tier: ARCHITECTURE
+content_class: architecture
+version: 0.1.0
+status: draft
 ---
 
 # Ontology Plan — Lifting Tracker
@@ -41,7 +45,7 @@ The ontology MVP is ready when:
 - Exercise mapping tables (110 exercises → PACO + KHMO)
 - EXMO boundary analysis
 - Go/no-go decision on each ontology
-- Updated `architecture.md` with ontology decisions
+- Updated `architecture_v0.4.0.md` with ontology decisions
 
 ### Sprint 1 — Subsetting and Alignment (2 weeks)
 
@@ -87,7 +91,7 @@ The ontology MVP is ready when:
 |---|-----------|-------------------|
 | 3.1 | As an architect, I need to classify all 110 exercises from the tracker against the unified ontology (PACO type + KHMO muscles + EXMO prescription + Programming set structures). | Every exercise fully classified. Zero orphans. Any exercise that required ontology changes documented. |
 | 3.2 | As an architect, I need to classify a sample of 20 sessions from the 391-session history against the programming ontology (what split, what periodization model, what set structures were used). | 20 sessions annotated with ontology classes. Fit and friction documented. |
-| 3.3 | As an architect, I need to map the ontology to a relational schema (Postgres tables/columns) so the Supabase implementation can consume it directly. | Schema mapping document: each ontology class → table/column/enum. The architecture.md first-sketch data model updated or replaced. |
+| 3.3 | As an architect, I need to map the ontology to a relational schema (Postgres tables/columns) so the Supabase implementation can consume it directly. | Schema mapping document: each ontology class → table/column/enum. The architecture_v0.4.0.md first-sketch data model updated or replaced. |
 | 3.4 | As an architect, I need to validate that the rest notation from the existing log (x = <30s, + = 60s, 90s = explicit) and set grouping (parens for no-rest grouping) are representable in the ontology. | Each notation pattern mapped to ontology classes. No data loss on import. |
 | 3.5 | As an architect, I need to confirm that multi-weight sets (95x10x10) and the existing parser's edge cases are ontologically sound. | Each edge case from the parser mapped. Decision documented: expand to individual set rows vs. store as repeat count with ontological justification. |
 
@@ -95,7 +99,7 @@ The ontology MVP is ready when:
 - Validated exercise classification (110/110)
 - Annotated session samples (20 sessions)
 - Ontology-to-relational schema mapping
-- Updated `architecture.md` data model section
+- Updated `architecture_v0.4.0.md` data model section
 - Edge case resolution document
 
 ### Sprint 4 — Seeded Catalog and Schema Finalization (1 week)
@@ -105,13 +109,13 @@ The ontology MVP is ready when:
 | # | User Story | Acceptance Criteria |
 |---|-----------|-------------------|
 | 4.1 | As a developer, I need a seeded exercise catalog (SQL or JSON) with every exercise typed against the ontology so the app launches with a populated, ontology-backed library. | Seed file containing all 110 exercises with PACO type, KHMO muscles, category, equipment, canonical name, and known aliases. |
-| 4.2 | As a developer, I need the finalized Postgres schema (DDL) reflecting the ontology-to-relational mapping so Supabase implementation can begin. | SQL DDL file. Matches the Sprint 3 mapping. Reviewed against architecture.md. |
-| 4.3 | As an architect, I need architecture.md updated with all ontology decisions, the final schema, and the rationale for each adoption/build/defer choice. | Architecture.md updated. Ontology section added with: adopted ontologies, custom ontology summary, deferred items (FoodOn, SDO, SSN), schema. |
+| 4.2 | As a developer, I need the finalized Postgres schema (DDL) reflecting the ontology-to-relational mapping so Supabase implementation can begin. | SQL DDL file. Matches the Sprint 3 mapping. Reviewed against architecture_v0.4.0.md. |
+| 4.3 | As an architect, I need architecture_v0.4.0.md updated with all ontology decisions, the final schema, and the rationale for each adoption/build/defer choice. | Architecture.md updated. Ontology section added with: adopted ontologies, custom ontology summary, deferred items (FoodOn, SDO, SSN), schema. |
 
 **Sprint 4 Deliverables**:
 - Seeded exercise catalog (SQL/JSON)
 - Postgres DDL
-- Updated `architecture.md` (ontology decisions, final schema)
+- Updated `architecture_v0.4.0.md` (ontology decisions, final schema)
 - Ontology OWL files in repo (`ontology/` directory)
 
 ## Backlog (Deferred — Not MVP)
@@ -132,7 +136,7 @@ A backlog item is done when:
 
 1. The artifact (OWL file, mapping table, document, schema) exists in the repo.
 2. It has been validated against real data from the lifting tracker (not hypothetical examples).
-3. It is documented in or referenced from `architecture.md`.
+3. It is documented in or referenced from `architecture_v0.4.0.md`.
 4. Eric has reviewed and approved it.
 
 ## Risks

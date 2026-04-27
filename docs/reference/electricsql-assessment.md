@@ -153,7 +153,7 @@ No implementation plan for Electric in Sprint 0b. If the HOLD flips after the 90
 | 3 | Wire PowerSync client SDK into Expo app with expo-sqlite | 0.5 |
 | 4 | Implement upload queue integration + auth (Supabase JWT) | 1.0 |
 | 5 | Smoke test offline writes, airplane-mode reconnect, multi-device (single user, two devices) | 0.5 |
-| 6 | Update `docs/architecture.md` D8 with change log entry | 0.5 |
+| 6 | Update `docs/architecture_v0.4.0.md` D8 with change log entry | 0.5 |
 
 ~4 days. Treat that as an estimate to price the switch against staying on WatermelonDB.
 

@@ -12,7 +12,7 @@ status: v1 complete
 
 # What Are Agents? A Grounding Reference
 
-**Purpose.** Canonical reference for the term "agent" as used across Eric Riutort's XRSize4 ALL portfolio, Concept Computing framework, and 16-agent Concept suite. Other documents (`architecture.md`, `source-doc-cm-design.md`, the Concept Computing docs) cite this when they need to anchor terminology. This is not a literature review; it is a working definition backed by a defensible synthesis of how the term is used across the academic canon, the 2025–2026 lab and vendor ecosystem, industry analysts, and cognitive-science antecedents.
+**Purpose.** Canonical reference for the term "agent" as used across Eric Riutort's XRSize4 ALL portfolio, Concept Computing framework, and 16-agent Concept suite. Other documents (`architecture_v0.4.0.md`, `source-doc-cm-design.md`, the Concept Computing docs) cite this when they need to anchor terminology. This is not a literature review; it is a working definition backed by a defensible synthesis of how the term is used across the academic canon, the 2025–2026 lab and vendor ecosystem, industry analysts, and cognitive-science antecedents.
 
 ---
 
@@ -333,8 +333,8 @@ Terms used across this portfolio when discussing agents. Every entry is delibera
 
 ### Portfolio cross-references
 
-- `docs/architecture.md` — D19 (Reasoner Duality), Authority Rule, full D1–D24 decision set
-- `docs/xrsize4all_concept.md` — platform-level system-of-systems concept
+- `docs/architecture_v0.4.0.md` — D19 (Reasoner Duality), Authority Rule, full D1–D24 decision set
+- `docs/xrsize4all_concept_v0.2.0.md` — platform-level system-of-systems concept
 - `docs/reference/source-doc-cm-design.md` — Concept Computing design for the 16-agent suite
 
 ---

@@ -12,7 +12,7 @@ content_class: research
 
 ## Purpose and scope
 
-`docs/architecture-comparison.md` selected A4 (Expo + Supabase) for the Lifting Tracker MVP on a weighted-criteria score of 8.40/10. That comparison evaluated seven *architectural patterns* (vanilla PWA, React SPA, Expo, SwiftUI+CloudKit, SwiftUI+Supabase, Capacitor) — not the individual tool choices that sit inside D8's "Expo + Supabase, offline-first" envelope. This document closes that gap. It audits each concrete tool pick against 2025–2026 community signal — top-starred repos, subreddit complaint threads, HN/Lobsters discussions, indie and production-team write-ups — and returns one of three verdicts per pick: **confirm** (picked well, signal is aligned), **soften** (picked well but flag a known tax), **reconsider** (signal points to a better alternative).
+`docs/architecture-comparison_v0.3.0.md` selected A4 (Expo + Supabase) for the Lifting Tracker MVP on a weighted-criteria score of 8.40/10. That comparison evaluated seven *architectural patterns* (vanilla PWA, React SPA, Expo, SwiftUI+CloudKit, SwiftUI+Supabase, Capacitor) — not the individual tool choices that sit inside D8's "Expo + Supabase, offline-first" envelope. This document closes that gap. It audits each concrete tool pick against 2025–2026 community signal — top-starred repos, subreddit complaint threads, HN/Lobsters discussions, indie and production-team write-ups — and returns one of three verdicts per pick: **confirm** (picked well, signal is aligned), **soften** (picked well but flag a known tax), **reconsider** (signal points to a better alternative).
 
 Explicit non-goals: Eric picks. This doc surfaces evidence and trade-offs; it does not rewrite D1–D24.
 
@@ -539,7 +539,7 @@ For Eric's specific workflow — Dispatch (Opus) for architecture + Claude Code 
 
 **Confirm TypeScript.** The DesignPrinciples v3 concern about TypeScript's Microsoft governance is *real but not binding* for a 5-year bet because: (a) the language spec has no hostile-fork precedent in 20+ years, (b) TC39 Type Annotations provides a structural escape hatch to vendor-neutral governance without a codebase rewrite, (c) exit options (plain JS + JSDoc; Flow; a future TC39-governed type syntax) don't require throwing away TS code. The Glasswing memory-safety concern does not apply to Lifting Tracker's application code — the runtime provides memory safety.
 
-**Document the governance caveat in `docs/architecture.md`** as a decision record rather than burying it here: something like "D25 draft: TypeScript chosen with explicit Microsoft-governance caveat; TC39 Type Annotations progression is the migration path if governance risk materializes." Proposing that addition is a judgment call for Eric.
+**Document the governance caveat in `docs/architecture_v0.4.0.md`** as a decision record rather than burying it here: something like "D25 draft: TypeScript chosen with explicit Microsoft-governance caveat; TC39 Type Annotations progression is the migration path if governance risk materializes." Proposing that addition is a judgment call for Eric.
 
 **Rejections:**
 

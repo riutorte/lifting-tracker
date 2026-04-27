@@ -218,7 +218,7 @@ Eric's setup differs on three axes that break the benchmark:
 
 1. **Team size of 1.** The forecast assumes AI removes coordination overhead and handoff latency. Solo removes those costs by being solo, not by adopting AI.
 2. **Agentic coding tools beyond the document's list.** Claude Code, Cursor, Windsurf, Cline — all missing from the page-4 tool enumeration. These shift the frontier in 2025–2026 in ways the document's 2028 projection does not capture.
-3. **Docs-first / architecture-first working style.** The `docs/architecture.md`, `docs/user-stories.md`, `docs/themes-epics-features.md` scaffold is unusual for solo work. It increases AI-leverage per hour of coding, likely above the benchmark's per-phase ceilings for requirements, documentation, and review.
+3. **Docs-first / architecture-first working style.** The `docs/architecture_v0.4.0.md`, `docs/user-stories_v0.2.0.md`, `docs/themes-epics-features_v0.2.0.md` scaffold is unusual for solo work. It increases AI-leverage per hour of coding, likely above the benchmark's per-phase ceilings for requirements, documentation, and review.
 
 ### 5.3 How to use the numbers anyway
 
@@ -335,7 +335,7 @@ Defer until the relevant feature ships:
 
 ### 8.3 How to record
 
-Simplest workable format: append a `docs/metrics.md` file, updated weekly, with six numbers. Don't build a dashboard. Don't pick a vendor. The point is the baseline trend, not the visualization.
+Simplest workable format: append a `docs/metrics_v0.1.0.md` file, updated weekly, with six numbers. Don't build a dashboard. Don't pick a vendor. The point is the baseline trend, not the visualization.
 
 ---
 

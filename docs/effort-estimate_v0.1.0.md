@@ -2,11 +2,15 @@
 author: Eric Riutort
 created: 2026-04-17
 updated: 2026-04-17
+tier: OPERATIONAL
+content_class: operational
+version: 0.1.0
+status: accepted
 ---
 
 # Lifting Tracker — Effort Estimate
 
-> **Scope note:** This document estimates the calendar time required to build the **Lifting Tracker** sub-system of **XRSize4 ALL** across its planned phases (MVP, v2, v3, v4, Future). The estimate assumes Eric as the primary developer working with **Claude Code** as the primary coding partner, with Ethan providing coaching domain expertise and alpha testing. This is a working estimate, not a commitment. Reading order: `xrsize4all_concept.md` (platform), `architecture.md` (decisions D1–D24), `user-stories.md` (114 stories), `themes-epics-features.md` (work hierarchy), this document (schedule).
+> **Scope note:** This document estimates the calendar time required to build the **Lifting Tracker** sub-system of **XRSize4 ALL** across its planned phases (MVP, v2, v3, v4, Future). The estimate assumes Eric as the primary developer working with **Claude Code** as the primary coding partner, with Ethan providing coaching domain expertise and alpha testing. This is a working estimate, not a commitment. Reading order: `xrsize4all_concept_v0.2.0.md` (platform), `architecture_v0.4.0.md` (decisions D1–D24), `user-stories_v0.2.0.md` (114 stories), `themes-epics-features_v0.2.0.md` (work hierarchy), this document (schedule).
 
 ## Baseline Assumptions
 
@@ -155,7 +159,7 @@ For comparison, a funded team of 3–5 engineers would likely ship the same full
 - Refactoring
 
 **Why the documents we've built lower ongoing cost further:**
-Each sprint, you can give Claude Code a specific epic or feature (from `themes-epics-features.md`) with its linked stories (from `user-stories.md`) and architectural anchors (from `architecture.md`), and Claude Code has the complete context it needs without re-explaining. That's worth roughly **20–30% productivity boost** on top of the raw coding acceleration because context-loading is a meaningful tax on every session without good specs.
+Each sprint, you can give Claude Code a specific epic or feature (from `themes-epics-features_v0.2.0.md`) with its linked stories (from `user-stories_v0.2.0.md`) and architectural anchors (from `architecture_v0.4.0.md`), and Claude Code has the complete context it needs without re-explaining. That's worth roughly **20–30% productivity boost** on top of the raw coding acceleration because context-loading is a meaningful tax on every session without good specs.
 
 ## Risks and Headwinds
 
@@ -201,7 +205,7 @@ Each sprint, you can give Claude Code a specific epic or feature (from `themes-e
 
 ## Change log
 
-- 2026-04-17: Initial version. Estimates calendar time for solo developer (Eric) working with Claude Code, ~10–15 hours/week, to deliver the Lifting Tracker sub-system across MVP, v2, v3, v4, and Future phases as scoped in `user-stories.md` and `themes-epics-features.md`. MVP at 4–6 months, MVP+v2 at 9–13 months, full current scope at 16–22 months. Claude Code productivity multiplier estimated at 3–5× on implementation work, reducing to ~1× on fixed costs (testing, deployment, external services). Documents produced to date (architecture, user stories, themes/epics) estimated to provide additional 20–30% productivity boost through context-loading efficiency. Identifies risks, uncertainties, and recommends commitment only through MVP with re-planning at each phase boundary.
+- 2026-04-17: Initial version. Estimates calendar time for solo developer (Eric) working with Claude Code, ~10–15 hours/week, to deliver the Lifting Tracker sub-system across MVP, v2, v3, v4, and Future phases as scoped in `user-stories_v0.2.0.md` and `themes-epics-features_v0.2.0.md`. MVP at 4–6 months, MVP+v2 at 9–13 months, full current scope at 16–22 months. Claude Code productivity multiplier estimated at 3–5× on implementation work, reducing to ~1× on fixed costs (testing, deployment, external services). Documents produced to date (architecture, user stories, themes/epics) estimated to provide additional 20–30% productivity boost through context-loading efficiency. Identifies risks, uncertainties, and recommends commitment only through MVP with re-planning at each phase boundary.
 
 ---
 

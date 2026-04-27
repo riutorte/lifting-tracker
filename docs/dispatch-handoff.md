@@ -2,6 +2,8 @@
 author: Eric Riutort
 created: 2026-04-14
 updated: 2026-04-21
+tier: OPERATIONAL
+content_class: operational
 ---
 
 # Dispatch Handoff — Lifting Tracker
@@ -15,13 +17,13 @@ Planning is complete. Best practices research is complete. Implementation is sta
 ### What exists
 
 - **Full planning doc set** in `~/lifting-tracker/docs/`:
-  - `xrsize4all_concept.md` — XRSize4 ALL platform concept (system of systems)
-  - `architecture.md` — 24 decisions (D1–D24), full data model with 30+ tables
-  - `user-stories.md` — 114 user stories, MVP through v4+
-  - `themes-epics-features.md` — 8 themes, 31 epics, 109 features
-  - `roadmap.md` — 8 MVP sprints with Kanban tables, dependencies, sizing
-  - `effort-estimate.md` — calendar time estimates (MVP ~6 months at 10–15 hrs/week)
-  - `architecture-comparison.md` — 7-approach comparison + platform evolution through 5 phases
+  - `xrsize4all_concept_v0.2.0.md` — XRSize4 ALL platform concept (system of systems)
+  - `architecture_v0.4.0.md` — 24 decisions (D1–D24), full data model with 30+ tables
+  - `user-stories_v0.2.0.md` — 114 user stories, MVP through v4+
+  - `themes-epics-features_v0.2.0.md` — 8 themes, 31 epics, 109 features
+  - `roadmap_v0.4.0.md` — 8 MVP sprints with Kanban tables, dependencies, sizing
+  - `effort-estimate_v0.1.0.md` — calendar time estimates (MVP ~6 months at 10–15 hrs/week)
+  - `architecture-comparison_v0.3.0.md` — 7-approach comparison + platform evolution through 5 phases
 - **Best practices research** at `docs/reference/best-practices-review.md` — YouTube course analysis, Anthropic engineering patterns, 5 gaps identified
 - **CLAUDE.md** at repo root — updated for Expo + Supabase / XRSize4 ALL
 - **Legacy v1 PWA** — deployed to GitHub Pages, superseded by new architecture

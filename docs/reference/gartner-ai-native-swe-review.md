@@ -111,9 +111,9 @@ Eric's disproportionate domains — system architecture stewardship, governance/
 |---|---|---|
 | Prerequisite: agree on the job, outcome-focused | Concept's emphasis on capabilities and outcomes over verbs | DONE in spirit |
 | Step 1: Start with workflows | Concept Computing WF-001–WF-006 workflow decomposition | DONE |
-| Step 2: Deconstruct the job | D19 Reasoner Duality (Tier 1 vs Tier 2 allocation); agent-role decomposition in XRSize4 ALL (AI Agent authority boundaries in xrsize4all_concept.md §AI Agent as Participant) | DONE |
+| Step 2: Deconstruct the job | D19 Reasoner Duality (Tier 1 vs Tier 2 allocation); agent-role decomposition in XRSize4 ALL (AI Agent authority boundaries in xrsize4all_concept_v0.2.0.md §AI Agent as Participant) | DONE |
 | Step 3: Capability portfolio | Not formally present. The XRSize4 ALL roadmap (Phases 1–5) is capability **sequencing**, not capability **portfolio** — no named skill-development paths for the human side of the pair, because the human side is one person. Still, there's a latent version: the D1–D24 decision log is a capability map by proxy. | LATENT — worth making explicit |
-| Step 4: Organize teams | N/A at current scale (solo + AI). The analog at XRSize4 ALL v1 is which agents occupy which roles in the coaching / athlete / content / moderation scaffolds. This is already explicit in `xrsize4all_concept.md` §AI Agent as Participant. | DONE in product, N/A for Eric's own org |
+| Step 4: Organize teams | N/A at current scale (solo + AI). The analog at XRSize4 ALL v1 is which agents occupy which roles in the coaching / athlete / content / moderation scaffolds. This is already explicit in `xrsize4all_concept_v0.2.0.md` §AI Agent as Participant. | DONE in product, N/A for Eric's own org |
 | Step 5: Activation signals / stretch monitoring | No analog. Eric has no explicit mechanism for noticing when he (or the agents) is being asked to stretch too far. | GAP |
 
 **The Step 5 gap is the most interesting finding.** Gartner's warning is about humans in a workforce transformation. The same warning applies inside Eric's own head at a solo shop, and it applies to **agent reliability** — the signals that an agent is operating beyond its calibrated envelope (hallucination, premature closure, scope creep) are exactly the stretch signals Step 5 names for humans. This is a natural place to extend the D19 framework: an explicit "stretch signal" layer that flags when Tier 2 outputs are being relied on in ways D19's Authority Rule was designed to prevent.
@@ -143,7 +143,7 @@ Gartner's heatmap row of the same name is described as a durable shared-responsi
 **Mapping.** AI automation orchestration as Gartner uses it = (i) deciding which agent does which kind of work, (ii) stitching agent outputs into end-to-end flows, (iii) handling agent failure, escalation, and human handoff, (iv) measuring agent performance and retuning. In XRSize4 ALL terms, this is:
 
 - A *platform capability* within the Intelligence sub-system (authority boundaries, routing, fallback, audit).
-- A *cross-cutting concern* in the same category as Governance (§Cross-Cutting Concerns in `xrsize4all_concept.md`).
+- A *cross-cutting concern* in the same category as Governance (§Cross-Cutting Concerns in `xrsize4all_concept_v0.2.0.md`).
 - **Not yet named.** The Intelligence sub-system description focuses on reasoning (Tier 1/Tier 2); it does not yet name orchestration, routing, failover, or cross-agent state.
 
 **Implication.** Consider adding an explicit concern or sub-capability within Intelligence titled *Orchestration and Handoff* (or a similar name), with its own authority rules, observability requirements, and failure semantics. Gartner's heatmap treats this as durable human-led work; giving it a first-class name in the architecture makes it a place where Eric can deliberately stay rather than a place that gets lost between roadmap phases.
@@ -162,9 +162,9 @@ Eric's practice on the L1–L5 ladder, by capability domain and honestly scored:
 | Reliability, observability | L1 | No logging/monitoring design yet beyond Supabase defaults |
 | Security and compliance | L2 | Considered in architecture (D22 privacy defaults, auth-token policy), not yet operationalized |
 | Scalability and resilience | L2 | Offline-first architecture is a resilience posture; no load/chaos discipline |
-| Cross-team leadership | N/A (solo) | At XRSize4 ALL v1, the relational design between coach / athlete / gym / admin roles is in `xrsize4all_concept.md`; the *meta* version (Eric coordinating across agents and humans on the project itself) is nascent |
+| Cross-team leadership | N/A (solo) | At XRSize4 ALL v1, the relational design between coach / athlete / gym / admin roles is in `xrsize4all_concept_v0.2.0.md`; the *meta* version (Eric coordinating across agents and humans on the project itself) is nascent |
 | Innovation and experimentation | L4 | This document is an instance — using AI as a research and synthesis partner at feature-of-work unit |
-| System architecture stewardship | L4 with L5 elements | Human-authored architecture.md + xrsize4all_concept.md; agents assist with cross-file consistency, drafts, reviews |
+| System architecture stewardship | L4 with L5 elements | Human-authored architecture_v0.4.0.md + xrsize4all_concept_v0.2.0.md; agents assist with cross-file consistency, drafts, reviews |
 | Product experimentation and strategy | L3 | User stories, roadmap, themes-epics-features — agent-assisted, human-decided |
 | Governance and risk tradeoffs | L3 | D19 Authority Rule is a governance principle; no governance *process* yet |
 | AI automation orchestration | L3 | Hand-crafted orchestration (this Cowork + Claude Code pattern); no codified patterns or named artifact yet |
@@ -179,7 +179,7 @@ Four domains where Eric's attention concentrates, with Gartner's L4/L5 read and 
 
 ### System architecture stewardship
 - **Gartner at L4–L5:** shared responsibility; AI assists with consistency checking, cross-reference, draft generation, trade-off articulation; human holds the stewardship role (ownership of the canonical model, naming, decision authority).
-- **Implication for Eric:** the architecture.md / xrsize4all_concept.md stance (human-authored decision log, AI-assisted review and drafting) is exactly the L4–L5 shared model Gartner describes. Keep the human as author-of-record. Don't let the agent's fluency in generating architecture prose seduce into letting it become decision-maker — it's a consistency and articulation tool, not an architect.
+- **Implication for Eric:** the architecture_v0.4.0.md / xrsize4all_concept_v0.2.0.md stance (human-authored decision log, AI-assisted review and drafting) is exactly the L4–L5 shared model Gartner describes. Keep the human as author-of-record. Don't let the agent's fluency in generating architecture prose seduce into letting it become decision-maker — it's a consistency and articulation tool, not an architect.
 
 ### Governance and risk tradeoffs
 - **Gartner at L4–L5:** mostly human; AI automates routine audit, logging, policy-conformance checks, but the tradeoff-making itself stays human because tradeoffs are value-laden.
@@ -193,22 +193,22 @@ Four domains where Eric's attention concentrates, with Gartner's L4/L5 read and 
 - **Gartner at L4–L5:** shared responsibility; AI generates candidate ideas and evaluates them against evidence, humans select what's worth pursuing.
 - **Implication:** this document is literally the flow Gartner describes. The productive pattern is already in use. Worth noting that L5 "innovation" in Gartner's frame does not mean AI innovates autonomously — it means AI generates, humans select, much faster.
 
-**Attention-allocation takeaway.** All four rows say the same thing: human authority, AI acceleration. This is already Eric's de-facto stance. Naming it explicitly (in architecture.md or in a new governance doc) converts it from habit to policy and makes it defensible to outside observers.
+**Attention-allocation takeaway.** All four rows say the same thing: human authority, AI acceleration. This is already Eric's de-facto stance. Naming it explicitly (in architecture_v0.4.0.md or in a new governance doc) converts it from habit to policy and makes it defensible to outside observers.
 
 ## 7. Actions-and-Cautions playbook — mapped to Concept / XRSize4 ALL
 
 ### What's already done
-- **Prerequisite + Step 1.** Concept Computing's workflow decomposition (WF-001–WF-006) *is* the "start with workflows" move. The flows in `xrsize4all_concept.md` §Process (training, coaching, instruction, content, community, commerce, safety, governance, AI) enumerate process categories at the platform level. Lifting Tracker's user stories (`user-stories.md`) enumerate at the sub-system level.
-- **Step 2 (human-AI allocation).** D19 Reasoner Duality allocates decisions to deterministic logic and narration to LLM; the xrsize4all_concept.md AI-Agent-as-Participant section allocates authority classes (observe / suggest / automate routine / may-not-decide). Together these are the job-deconstruction Gartner is asking for, at architectural rather than HR granularity.
+- **Prerequisite + Step 1.** Concept Computing's workflow decomposition (WF-001–WF-006) *is* the "start with workflows" move. The flows in `xrsize4all_concept_v0.2.0.md` §Process (training, coaching, instruction, content, community, commerce, safety, governance, AI) enumerate process categories at the platform level. Lifting Tracker's user stories (`user-stories_v0.2.0.md`) enumerate at the sub-system level.
+- **Step 2 (human-AI allocation).** D19 Reasoner Duality allocates decisions to deterministic logic and narration to LLM; the xrsize4all_concept_v0.2.0.md AI-Agent-as-Participant section allocates authority classes (observe / suggest / automate routine / may-not-decide). Together these are the job-deconstruction Gartner is asking for, at architectural rather than HR granularity.
 - **Step 2 (heatmap).** Not formalized but §5 above is a first pass.
 
 ### What's latent and worth naming
 - **Step 3 capability portfolio.** For a solo shop, this translates to "named skill paths Eric is developing" — e.g., agent orchestration patterns, ontology design, governance process design, AI architecture. Worth a short living doc, not because Eric will switch jobs but because it clarifies where to spend discretionary study time.
-- **Step 4 org organization.** At the product level, this is the agent-role decomposition already in xrsize4all_concept.md. At the shop level, it's "which agent sessions are for what" — arguably Concept Computing already names this, but it's not codified in `lifting-tracker`.
+- **Step 4 org organization.** At the product level, this is the agent-role decomposition already in xrsize4all_concept_v0.2.0.md. At the shop level, it's "which agent sessions are for what" — arguably Concept Computing already names this, but it's not codified in `lifting-tracker`.
 
 ### What's not in the current design
 - **Step 5 activation signals.** No stretch-monitoring mechanism for either Eric or the agents. The D19 Authority Rule is the *policy* that agents should not over-reach; there is no *signal* that tells Eric when over-reach is happening. Candidate artifact: a small "Tier 2 concern log" — interactions where Tier 2 output was accepted in a way that Tier 1 couldn't confirm, flagged for later review. This is the Step 5 analog most portable to Eric's solo context.
-- **An orchestration artifact.** Gartner's heatmap treats AI automation orchestration as a durable human capability. Eric does it by hand. Consider a `docs/orchestration.md` naming the patterns in use (Cowork for architecture/research, Claude Code for in-repo work, how context moves between them, when each is the right choice, failure modes observed). This is the artifact Gartner's Step 3 would produce for a team; for a solo shop it produces the same value with less ceremony.
+- **An orchestration artifact.** Gartner's heatmap treats AI automation orchestration as a durable human capability. Eric does it by hand. Consider a `docs/orchestration_v0.1.0.md` naming the patterns in use (Cowork for architecture/research, Claude Code for in-repo work, how context moves between them, when each is the right choice, failure modes observed). This is the artifact Gartner's Step 3 would produce for a team; for a solo shop it produces the same value with less ceremony.
 
 ## 8. Open questions and principled divergences
 

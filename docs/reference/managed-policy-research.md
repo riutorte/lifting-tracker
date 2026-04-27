@@ -290,7 +290,7 @@ Everything else I'd expect to be "universal" is not. This is the most useful fin
 - **Data-handling / privacy / compliance reminders** (GDPR, HIPAA, PII). 0/10 in this sample. Anthropic's own managed-CLAUDE-vs-settings table explicitly names this as the right CLAUDE.md use case, so you'd *expect* to see it — but none of the OSS samples handle regulated data. Eric will have to invent this part.
 - **File attribution / copyright / authorship rules.** 0/10. Eric's own global instructions mandate YAML frontmatter (`author: Eric Riutort`) and a copyright footer on every generated doc. No public CLAUDE.md I found mandates this. Genuinely novel and worth putting in the managed tier.
 - **Dependency / vendor allowlists** ("don't add a new framework without approval"). Only the user-global template has this as "Hard No List" wording. Surprisingly absent from the rest.
-- **Explicit appeal-to-architecture-docs** ("always check `docs/architecture.md` before deciding X"). 0/10 in the public samples. Worth preserving when the managed-policy file is added.
+- **Explicit appeal-to-architecture-docs** ("always check `docs/architecture_v0.4.0.md` before deciding X"). 0/10 in the public samples. Worth preserving when the managed-policy file is added.
 - **Integrity / self-checks.** 0/10. No one builds this into the file itself.
 
 ### 3.6 Scope distinction: what changes for a managed-policy file

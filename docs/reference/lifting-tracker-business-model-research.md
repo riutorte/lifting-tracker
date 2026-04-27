@@ -162,7 +162,7 @@ Composite principle dimensions: self-hostable, low-vendor-lock, AI/MCP-friendly,
 | **Phase 3 — Web + Coach** *(Post-Sprint 8, ~9–12 months post-MVP)* | Web dashboard ships; first coach SKU | Free + Pro + Coach (Pattern 2) | IAP on iOS; **custom Stripe wrapper** on web; RevenueCat for reconciliation | Build Stripe wrapper; ship Coach SKU; onboard Ethan formally as founder-coach |
 | **Phase 4 — Hybrid billing review** *(Trigger: $100K ARR or appellate clarity, whichever first)* | Revenue threshold or legal milestone | Tier structure stable; revisit billing rail | Optionally add IAP-plus-external-link hybrid on iOS | Compute IAP-vs-external savings against engineering cost; decide whether to add web-checkout link inside iOS app |
 
-**Markers are measurable.** Sprint numbers reference `docs/roadmap.md`. Revenue trigger is gross collected, before Apple cut. Appellate clarity = US Supreme Court denial of cert or final 9th Circuit ruling on the December 2025 reversal.
+**Markers are measurable.** Sprint numbers reference `docs/roadmap_v0.4.0.md`. Revenue trigger is gross collected, before Apple cut. Appellate clarity = US Supreme Court denial of cert or final 9th Circuit ruling on the December 2025 reversal.
 
 ---
 

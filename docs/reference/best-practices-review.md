@@ -81,7 +81,7 @@ Most of this validates Claude Code usage patterns we've already adopted. New poi
 
 - **"Give Claude a way to verify its work" is named the single highest-leverage thing.** For this project: tests + lint + typecheck + a visible simulator/preview for UI work. Sprint 0 should set all of these up before any feature code lands.
 - **Explore → Plan → Execute.** Plan Mode is the right default for multi-file changes or anything we haven't seen before. Skip it for one-line fixes where we could describe the diff in one sentence.
-- **`CLAUDE.md` — what to include vs. exclude.** Bash/build commands, repo etiquette, architectural decisions specific to the project, gotchas and non-obvious behavior, env-var quirks. **Exclude** things Claude already knows, standard language conventions, obvious reminders, API docs that should be linked, file-by-file descriptions, information that changes frequently. We're already largely compliant; the one thing to watch is that every material `docs/architecture.md` decision that constrains implementation needs a one-liner pointer in `CLAUDE.md`.
+- **`CLAUDE.md` — what to include vs. exclude.** Bash/build commands, repo etiquette, architectural decisions specific to the project, gotchas and non-obvious behavior, env-var quirks. **Exclude** things Claude already knows, standard language conventions, obvious reminders, API docs that should be linked, file-by-file descriptions, information that changes frequently. We're already largely compliant; the one thing to watch is that every material `docs/architecture_v0.4.0.md` decision that constrains implementation needs a one-liner pointer in `CLAUDE.md`.
 - **Subagents** for file-heavy investigations. "Use subagents to investigate how our auth system handles token refresh and whether we have existing OAuth utilities I should reuse." Keeps main context clean.
 - **Non-interactive mode** (`claude -p`) for batch operations. Relevant for the data merge task — the stuck `merge_2026-04-14.txt` merge could be a `claude -p` one-shot rather than an interactive session.
 - **Writer/Reviewer pattern** using two sessions. Session A implements. Session B, with fresh context, reviews. Useful for security-sensitive code (auth flow, Supabase RLS policies in Sprint 2).
@@ -184,7 +184,7 @@ Before Sprint 6, draft `docs/reference/tool-design-standards.md` covering:
 
 ### Gap 4: Memory tool pattern for athlete context
 
-Not an MVP concern, but flag in `docs/roadmap.md` post-MVP backlog: when coach-AI summaries ship, athlete context (goals, injuries, recent milestones, active program) uses the Anthropic memory tool pattern — file-backed, loaded on demand, not packed into the system prompt.
+Not an MVP concern, but flag in `docs/roadmap_v0.4.0.md` post-MVP backlog: when coach-AI summaries ship, athlete context (goals, injuries, recent milestones, active program) uses the Anthropic memory tool pattern — file-backed, loaded on demand, not packed into the system prompt.
 
 ### Gap 5: Failure patterns listed as explicit anti-patterns
 
@@ -202,7 +202,7 @@ Anthropic's five named failure patterns should be called out in `CLAUDE.md` or a
 
 - Set up Jest + React Native Testing Library, ESLint, Prettier, TypeScript typecheck. Verification infrastructure first.
 - Draft `docs/reference/tool-design-standards.md` skeleton even if empty — reserve the slot.
-- Confirm `CLAUDE.md` audit: every material `docs/architecture.md` constraint that touches implementation has a one-liner pointer in the project `CLAUDE.md`.
+- Confirm `CLAUDE.md` audit: every material `docs/architecture_v0.4.0.md` constraint that touches implementation has a one-liner pointer in the project `CLAUDE.md`.
 
 **Sprint 1–2 (auth + exercise library + session CRUD):**
 

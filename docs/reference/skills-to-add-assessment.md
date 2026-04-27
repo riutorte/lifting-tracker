@@ -48,7 +48,7 @@ Baseline is minimal and cleanly Anthropic-first. No legacy custom skills to depr
 | Skill | License | Fit | Adopt? | Reason |
 |---|---|---|---|---|
 | `claude-api` | Anthropic | HIGH | Adopt Sprint 0c | Needed when evals harness and Supabase Edge Functions call the API directly. Reduces boilerplate. |
-| `mcp-builder` | Anthropic | HIGH | Adopt Sprint 0c | Generates MCP servers from spec. Directly relevant to §6.6 MCP-first exposure and the per-sub-system MCP pattern in architecture.md. |
+| `mcp-builder` | Anthropic | HIGH | Adopt Sprint 0c | Generates MCP servers from spec. Directly relevant to §6.6 MCP-first exposure and the per-sub-system MCP pattern in architecture_v0.4.0.md. |
 | `frontend-design` | Anthropic | MEDIUM | Pilot Sprint 1+ | Design-system authoring. 277K installs signals maturity. Relevant when Expo UI work begins; not load-bearing for schema/logging MVP. |
 
 ### 3.2 Community marketplaces and bundles
@@ -110,9 +110,9 @@ Candidates surfaced from corpus scan of design briefs, kanban, retros, and resea
 | 6 | `agentic-ai-evals-harness` | design §9.5, §1.4 | Load-bearing per D19; 9 scenarios; golden-output framework | 2-3 days |
 | 7 | `content-drop-detector` | internals findings §3.2-§3.4; design §5.7 | Post-mutation baseline compare; flags micro_compact content loss | 1 day |
 | 8 | `managed-policy-installer` | `managed-policy-research.md` | Deploy machine-wide CLAUDE.md + managed-settings.json; integrity check | 1 day (triggered when Fernando joins) |
-| 9 | `mcp-server-factory` | architecture.md §D27; design §6.6 | Scaffold MCP server directories with tool stubs | **Defer — `anthropics/skills:mcp-builder` covers this** |
+| 9 | `mcp-server-factory` | architecture_v0.4.0.md §D27; design §6.6 | Scaffold MCP server directories with tool stubs | **Defer — `anthropics/skills:mcp-builder` covers this** |
 | 10 | `trust-but-verify-instrumenter` | design v0.3.0 amendment (a) | Tier 2 concern log; time-to-acceptance + rubber-stamp detection | 1 day |
-| 11 | `metrics-collector` | `metrics.md` | Automated Monday pull of six DORA-adjacent metrics | 1 day |
+| 11 | `metrics-collector` | `metrics_v0.1.0.md` | Automated Monday pull of six DORA-adjacent metrics | 1 day |
 | 12 | `kanban-sync` | kanban.md line 14 (Q12) | Keep kanban in sync with CM state changes; hook on WF-003 completion | 0.5 day |
 
 ### 5.3 Domain-specific (Lifting Tracker sub-system)
@@ -120,7 +120,7 @@ Candidates surfaced from corpus scan of design briefs, kanban, retros, and resea
 | # | Skill | Source | Rationale | Effort |
 |---|---|---|---|---|
 | 13 | `workout-log-parser` | roadmap Sprint 3 (US-040, US-041); Sprint 6 (US-070) | Parses combined_workout_log.txt and NL entries; D19 Tier 2 draft → user confirm → Tier 1 write | 3-5 days (Sprint 3 or 6) |
-| 14 | `ontology-validator` | `ontology-plan.md` Sprint 3 | Classifies exercises against PACO/KHMO/EXMO; flags unmapped. Likely **app code, not skill** — reconsider scope | Skip as skill |
+| 14 | `ontology-validator` | `ontology-plan_v0.1.0.md` Sprint 3 | Classifies exercises against PACO/KHMO/EXMO; flags unmapped. Likely **app code, not skill** — reconsider scope | Skip as skill |
 | 15 | `exercise-library-seeder` | roadmap Sprint 1 (US-020) | Seeds canonical exercise library from workout log + historical data | 1 day (one-shot; arguably a script not a skill) |
 | 16 | `schema-drift-detector` | architecture D2/D4/D14; Sprint 0 foundation | Compare Supabase live schema against Drizzle/migrations; flag drift | 1-2 days (Sprint 0c) |
 | 17 | `sync-reconciler-test-harness` | architecture D8; stack-validation | Simulates offline edits, network partitions; validates last-write-wins | 2 days (Sprint 2) |

@@ -22,7 +22,7 @@ Cross-reference of two external LLM research sessions (Eric's Gemini session + E
 
 - **One NEW-TO-OUR-LIST MCP merits adoption (Gemini-sourced):** Firecrawl (self-hosted Apache-2.0 build) fills a gap Brave Search does not cover (URL → LLM-ready Markdown). Recommend rank 8.
 - **One conditional ADD (Gemini-sourced):** DuckDB MCP for ad-hoc analytics against `data/combined_workout_log.txt` and local JSONL — self-hostable, OSS, complements Supabase MCP. Tie-breaker rank 12.
-- **Grok adds the standards/governance layer that neither Gemini nor our assessments addressed:** AAIF (Agentic AI Foundation under Linux Foundation, Dec 2025), OpenTelemetry GenAI semantic conventions, AG-UI protocol. None are MCPs or skills — they are **architecture-level** inputs that should update `docs/architecture.md` D27 discussion and our observability choice. Grok does not change the MCP top-10 but materially changes D27 context.
+- **Grok adds the standards/governance layer that neither Gemini nor our assessments addressed:** AAIF (Agentic AI Foundation under Linux Foundation, Dec 2025), OpenTelemetry GenAI semantic conventions, AG-UI protocol. None are MCPs or skills — they are **architecture-level** inputs that should update `docs/architecture_v0.4.0.md` D27 discussion and our observability choice. Grok does not change the MCP top-10 but materially changes D27 context.
 - **Convergence signal (weak):** Gemini and Grok agree on almost no specific MCPs. They operate at different abstraction layers — Gemini at the product layer (install these MCPs), Grok at the protocol layer (adopt these standards). Only MCP Registry and the MCP spec itself appear in both; our assessment already names both.
 - **Three Gemini MCPs fail our composite filter and should be explicitly declined:** Supadata (SaaS, TOS risk), Jira MCP (no Jira in stack), Gemini MCP (SaaS, weak ROI). Desktop Commander is borderline decline.
 - **Our MCP top-10 needs one add (Firecrawl, rank 8) and one re-rank cascade.** Skills top-10 stands. Architecture doc needs a follow-up edit to fold in AAIF + OTel GenAI awareness.
@@ -55,7 +55,7 @@ Five Gemini "skills." All five are capability categories, not named installable 
 
 ### 3.G3 Error Handling & Self-Correction — ALREADY-ON-OUR-LIST
 
-- **Map to our work:** `agentic-ai-evals-harness` at **rank 4** of skills top-10; `content-drop-detector` at **rank 7**; D19 Tier 1/Tier 2 reasoner duality is the load-bearing framework (architecture.md).
+- **Map to our work:** `agentic-ai-evals-harness` at **rank 4** of skills top-10; `content-drop-detector` at **rank 7**; D19 Tier 1/Tier 2 reasoner duality is the load-bearing framework (architecture_v0.4.0.md).
 - **Verdict:** Our coverage is stronger and more specific than Gemini's generic "verification loop." No change.
 
 ### 3.G4 Multimodal Orchestration — CATEGORY-MISMATCH + LOW-PRIORITY
@@ -85,14 +85,14 @@ Grok's answer operates at a different abstraction layer than Gemini's — it cov
 | **awesome-mcp-servers (punkpeye)** | `github.com/punkpeye/awesome-mcp-servers` | NEW-TO-OUR-LIST (discovery aid, not an MCP) | Our §3 lists registries (PulseMCP, Glama, Docker Catalog) but not awesome-list style community curation. Add as a discovery-aid footnote, not a top-10 entry. |
 | **A2A (Agent-to-Agent) protocol** | `a2a-protocol.org`, `github.com/a2aproject/A2A` | ALREADY-ON-OUR-LIST (D27 tension) | Architecture D27 explicitly names A2A as one of three interop candidates (A2A vs AAIF-sponsored vs MCP-for-interop). Grok provides the canonical URLs we can cite. **Update D27 notes.** |
 | **AG-UI protocol** | `github.com/ag-ui-protocol/ag-ui`, `docs.ag-ui.com` | **NEW-TO-OUR-LIST** | Agent-to-UI event protocol (~26 standard event types, SSE/WebSockets). Not on our radar. Relevance: if Lifting Tracker's coach dashboard eventually needs agent-driven UI updates (D19 Tier 2 drafts streaming to the UI), AG-UI is a candidate over custom WebSocket protocol. **Architecture follow-up, not MCP top-10.** |
-| **AAIF (Agentic AI Foundation under Linux Foundation)** | `aaif.io`, `linuxfoundation.org/press/...agentic-ai-foundation`, `github.com/aaif` | **NEW-TO-OUR-LIST — material** | Neutral governance foundation launched Dec 2025; founding contributions include Anthropic's MCP, Block's goose, OpenAI's AGENTS.md. Our D27 discussion names "AAIF" as a protocol candidate but predates this governance context. Grok's framing reframes AAIF from "a candidate protocol" to "a foundation under which MCP already lives." **Materially updates D27 reasoning.** Recommend edit to `architecture.md` D27 narrative and a short finding doc. |
+| **AAIF (Agentic AI Foundation under Linux Foundation)** | `aaif.io`, `linuxfoundation.org/press/...agentic-ai-foundation`, `github.com/aaif` | **NEW-TO-OUR-LIST — material** | Neutral governance foundation launched Dec 2025; founding contributions include Anthropic's MCP, Block's goose, OpenAI's AGENTS.md. Our D27 discussion names "AAIF" as a protocol candidate but predates this governance context. Grok's framing reframes AAIF from "a candidate protocol" to "a foundation under which MCP already lives." **Materially updates D27 reasoning.** Recommend edit to `architecture_v0.4.0.md` D27 narrative and a short finding doc. |
 | **OpenTelemetry GenAI semantic conventions** | `opentelemetry.io/docs/specs/semconv/gen-ai/`, `github.com/open-telemetry/semantic-conventions` | **NEW-TO-OUR-LIST — material for HyperDX decision** | Standard attribute set for tracing LLM/agent/tool calls (`gen_ai.operation.name`, `gen_ai.request.model`, agent spans). Our Sprint 0c observability decision (HyperDX/ClickHouse) has not yet committed to an instrumentation convention. Adopting OTel GenAI conventions now makes our observability vendor-portable. **Sprint 0c follow-up.** |
 
 ### 3.5.2 Framework layer — CATEGORY-MISMATCH across the board
 
 Grok's first turn lists: LangChain/LangGraph, LlamaIndex, CrewAI, AutoGen, Semantic Kernel, OpenAI Swarm, Claude Agent SDK, Google ADK, and comparisons. None are MCPs or Anthropic Skills.
 
-- **Our stance:** We are a Claude Agent SDK + Claude Code shop by default (architecture.md). Framework choice is already settled implicitly. Third-party agent frameworks (LangGraph, CrewAI, AutoGen) are not in our stack and would violate the composite principle's "self-hostable + not-SaaS + AI-native friction reduction" axis by adding abstraction layers over the Anthropic stack.
+- **Our stance:** We are a Claude Agent SDK + Claude Code shop by default (architecture_v0.4.0.md). Framework choice is already settled implicitly. Third-party agent frameworks (LangGraph, CrewAI, AutoGen) are not in our stack and would violate the composite principle's "self-hostable + not-SaaS + AI-native friction reduction" axis by adding abstraction layers over the Anthropic stack.
 - **CATEGORY-MISMATCH verdict:** None of these belong in the MCP or Skills top-10. A follow-up `docs/reference/agent-framework-comparison.md` could document the decline rationale if the question recurs — not urgent.
 
 ### 3.5.3 Convergence and divergence vs Gemini
@@ -157,7 +157,7 @@ Seven Gemini-named MCPs. Per-entry classification + composite-principle assessme
 ### 4.7 Jira MCP — DECLINE (CATEGORY-SKIP)
 
 - **Classification:** NEW but out of scope.
-- **Rationale:** Eric uses `docs/kanban.md` + `docs/roadmap.md` for project tracking. No Jira workspace in portfolio. Already implied-SKIP in our anti-list under SaaS-locked work-tracking category (Linear is explicit; Jira is the same pattern).
+- **Rationale:** Eric uses `docs/kanban.md` + `docs/roadmap_v0.4.0.md` for project tracking. No Jira workspace in portfolio. Already implied-SKIP in our anti-list under SaaS-locked work-tracking category (Linear is explicit; Jira is the same pattern).
 - **Rank rec:** Add to anti-list explicitly alongside Linear/Notion/Slack.
 
 ### 4.8 Gemini MCP (cross-model) — DECLINE
@@ -196,13 +196,13 @@ No revisions. Gemini's skill items are capability categories, not installable sk
 - Desktop Commander — not anti-list, but document the "filesystem + bash covers this surface" rationale as a DECLINE-NOT-SKIP entry.
 - Third-party agent frameworks (LangGraph, CrewAI, AutoGen, LlamaIndex, Swarm) — from Grok turn 1. Not MCPs, but if the question recurs: DECLINE — Claude Agent SDK is the stack, adding a framework layer violates composite principle.
 
-**Grok does NOT change the MCP top-10 rankings.** Grok's contributions are architecture-level (protocols, governance, observability conventions), not product-level. Those feed `docs/architecture.md` D27 and Sprint 0c observability, not the MCP adoption top-10.
+**Grok does NOT change the MCP top-10 rankings.** Grok's contributions are architecture-level (protocols, governance, observability conventions), not product-level. Those feed `docs/architecture_v0.4.0.md` D27 and Sprint 0c observability, not the MCP adoption top-10.
 
 ### Architecture follow-ups triggered by Grok (not top-10 changes)
 
 | Item | Follow-up | Priority |
 |---|---|---|
-| AAIF (Linux Foundation) | Update `architecture.md` D27 narrative to reflect that MCP now lives under AAIF governance. Reframes "MCP vs A2A vs AAIF" as "MCP + A2A both under AAIF stewardship." | Sprint 0c |
+| AAIF (Linux Foundation) | Update `architecture_v0.4.0.md` D27 narrative to reflect that MCP now lives under AAIF governance. Reframes "MCP vs A2A vs AAIF" as "MCP + A2A both under AAIF stewardship." | Sprint 0c |
 | OpenTelemetry GenAI conventions | Add to Sprint 0c observability decision record — adopt as default instrumentation convention for HyperDX/ClickHouse pipeline. Vendor-portable. | Sprint 0c |
 | AG-UI protocol | Add a tripwire: if/when agent-driven UI updates become a requirement (coach dashboard with D19 Tier 2 streaming drafts), evaluate AG-UI vs custom WebSocket before building. | Deferred / tripwire |
 | A2A canonical URLs | Cite `a2a-protocol.org` in D27 alongside existing A2A references. | Housekeeping |
@@ -249,7 +249,7 @@ Blind spots and strengths across the three sources. Columns: our internal assess
 
 ### From Grok
 
-- **AAIF awareness + canonical URLs** — material for `docs/architecture.md` D27. MCP under AAIF governance reframes the protocol-choice discussion.
+- **AAIF awareness + canonical URLs** — material for `docs/architecture_v0.4.0.md` D27. MCP under AAIF governance reframes the protocol-choice discussion.
 - **OpenTelemetry GenAI semantic conventions** — material for Sprint 0c observability decision. Vendor-portable instrumentation standard we should adopt as default with HyperDX/ClickHouse.
 - **AG-UI protocol awareness** — tripwire for future coach dashboard work; keep a pointer but do not commit.
 - **A2A canonical URLs** (`a2a-protocol.org`) — citable in D27.
@@ -264,7 +264,7 @@ Everything else from either source either duplicates our list, fails the composi
 1. **Firecrawl Railway cost spike** — headless browser pool is not cheap. Budget a cost-spike investigation during Sprint 1 standup before committing.
 2. **DuckDB MCP variant selection** — multiple community variants exist. Pick one with active maintenance and 2K+ stars; document choice in `docs/reference/` follow-up.
 3. **Memory architecture segmentation** (from §3.G2) — is user-preference memory separate from content-indexing pgvector, or one unified store with namespace tags? Architecture review.
-4. **AAIF governance implications on D27** (Grok) — MCP, A2A, and potentially AG-UI are now under AAIF stewardship. Does adopting these protocols implicitly commit to AAIF's governance trajectory? What's our exit path if AAIF direction diverges from our needs? Flag for architecture.md D27 update.
+4. **AAIF governance implications on D27** (Grok) — MCP, A2A, and potentially AG-UI are now under AAIF stewardship. Does adopting these protocols implicitly commit to AAIF's governance trajectory? What's our exit path if AAIF direction diverges from our needs? Flag for architecture_v0.4.0.md D27 update.
 5. **OpenTelemetry GenAI adoption for HyperDX** (Grok) — confirm ClickHouse/HyperDX side supports the OTel GenAI attribute set natively. If yes, standardize on it Sprint 0c. If no, evaluate the delta.
 6. **AG-UI tripwire** (Grok) — when does a coach dashboard streaming D19 Tier 2 drafts become concrete enough to warrant an AG-UI vs custom-WebSocket evaluation? Not Sprint 0c; flag for Sprint 1-2 UI kickoff.
 7. **BridgeMind video** — if `youtube-mcp-skills-research.md` lands later, re-run this delta against the primary source. Gemini's summary may have compressed away nuance.

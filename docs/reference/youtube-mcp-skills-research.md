@@ -15,13 +15,13 @@ Companion to `mcp-servers-to-add-assessment.md` and `skills-to-add-assessment.md
 Cross-references (do not duplicate):
 - `docs/reference/mcp-servers-to-add-assessment.md` — top-10 MCPs + anti-list
 - `docs/reference/skills-to-add-assessment.md` — top-10 skills + anti-list
-- `docs/architecture.md §2.1` — MCP-first principle
+- `docs/architecture_v0.4.0.md §2.1` — MCP-first principle
 
 ## 1. Executive Summary
 
 - **Three new MCPs surfaced that our assessment missed, one worth adding:** `Context7` (Upstash, up-to-date library docs for LLM coding) hits every composite axis except self-hostability — propose addition at rank 8–10 on the MCP shortlist. `PostHog` MCP and `Exa` MCP are candidates for specific sub-systems (ViewCreator / Reach4All) but weaker fit for Lifting Tracker.
 - **Anthropic's own current thesis (Dec 2025, Barry Zhang + Mahesh Murag) lands where our skills assessment already sits:** skills are the primary packaging unit, not bespoke agents. Our top-10 skills is skills-first and document-cm-centric — aligned. Forward-looking claim worth tracking: agents writing their own skills from experience.
-- **David Soria Parra's April 2026 Anthropic keynote introduces a three-layer connectivity frame** — Skills + MCP + CLI/Computer use — that we should surface into `architecture.md §2.1`. Our current framing treats MCP-first; the keynote pushes CLI/Computer use as a peer primitive, which matches the Playwright-CLI-over-MCP reversal already noted at Q11.
+- **David Soria Parra's April 2026 Anthropic keynote introduces a three-layer connectivity frame** — Skills + MCP + CLI/Computer use — that we should surface into `architecture_v0.4.0.md §2.1`. Our current framing treats MCP-first; the keynote pushes CLI/Computer use as a peer primitive, which matches the Playwright-CLI-over-MCP reversal already noted at Q11.
 - **No strong contradictions with our top-10,** only one quasi-contradiction: practitioner enthusiasm for Sentry MCP vs. our HOLD (redundant with HyperDX). Our assessment already acknowledged Sentry's error-grouping advantage; video signal reinforces rather than refutes.
 - **One named MCP is a marketing plant:** BridgeMind MCP (host's own product in the primary video). Flagged as LOW-SIGNAL. Do not adopt.
 
@@ -64,7 +64,7 @@ Cross-ref: alignment with our skills assessment §1 (skills-first posture, docum
 
 Chapter-level claims: MCP ecosystem over 18 months (1:34); adoption milestones (2:30); shift from exploration in 2025 to production in 2026 (3:46); **the 2026 connectivity stack is three-layer — Skills, MCP, and CLI/Computer use (5:07)**; Progressive Discovery for client harnesses (7:47); programmatic tool calling and agent orchestration (9:39); best practices for agents and server authors (12:00).
 
-Architectural implication: our `architecture.md §2.1` frames MCP-first; Soria Parra's frame is Skills + MCP + CLI/Computer use as three peer primitives. This matches Q11 Playwright-CLI-over-MCP already in our assessment. **Recommendation: amend §2.1 to name CLI/Computer use as a peer primitive, not a fallback.**
+Architectural implication: our `architecture_v0.4.0.md §2.1` frames MCP-first; Soria Parra's frame is Skills + MCP + CLI/Computer use as three peer primitives. This matches Q11 Playwright-CLI-over-MCP already in our assessment. **Recommendation: amend §2.1 to name CLI/Computer use as a peer primitive, not a fallback.**
 
 ### 3.4 Agent Skills or MCP in the era of Claude Code?
 **Tim Berglund, Confluent Developer** (56.7K subs). ~1 month ago. 159K views. 9:57 runtime. [Video](https://www.youtube.com/watch?v=pvxNcQTcIy4). Practitioner signal: MEDIUM-HIGH — Berglund is a long-tenured developer-relations educator; lightboard explainer format.
@@ -134,7 +134,7 @@ Marketing-fluff flags: BridgeMind MCP (self-promoted in primary video); Nimbalys
 | ALREADY-ON-OUR-LIST items | 2 (Sentry at Q12 HOLD, GitHub at rank 9 HOLD) |
 | CONTRADICTED items | 0 — no strong refutations of our top-10 |
 | Skills-specific named items | 0 — no specific skill packages name-checked; only methodology (Anthropic, Tech With Tim, Berglund) |
-| Architectural frame changes surfaced | 1 — three-layer connectivity stack (Soria Parra) warrants `architecture.md §2.1` amendment |
+| Architectural frame changes surfaced | 1 — three-layer connectivity stack (Soria Parra) warrants `architecture_v0.4.0.md §2.1` amendment |
 
 Sources (video URLs verified 200 OK on 2026-04-24):
 - [Top 5 MCP Servers For Vibe Coding In 2026 — BridgeMind](https://www.youtube.com/watch?v=jyv3HCiVSD4)

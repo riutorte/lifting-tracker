@@ -1,14 +1,18 @@
 ---
 author: Eric Riutort
 created: 2026-04-15
-updated: 2026-04-17
+updated: 2026-04-24
+tier: ARCHITECTURE
+content_class: architecture
+version: 0.2.0
+status: accepted
 ---
 
 # Lifting Tracker — User Stories
 
-**Scope note:** These user stories cover the Lifting Tracker sub-system of XRSize4 ALL. Cross-platform capabilities (identity shared across sub-systems, shared content and social, proximity, commerce, full wearable ecosystem, full AI platform) are documented at the platform level in `xrsize4all_concept.md`. Stories here describe how the Lifting Tracker sub-system uses those platform capabilities. Stories span MVP through v3+; non-MVP stories are included to anchor the roadmap and to ensure the data model reserves room for them.
+**Scope note:** These user stories cover the Lifting Tracker sub-system of XRSize4 ALL. Cross-platform capabilities (identity shared across sub-systems, shared content and social, proximity, commerce, full wearable ecosystem, full AI platform) are documented at the platform level in `xrsize4all_concept_v0.2.0.md`. Stories here describe how the Lifting Tracker sub-system uses those platform capabilities. Stories span MVP through v3+; non-MVP stories are included to anchor the roadmap and to ensure the data model reserves room for them.
 
-Derived from `architecture.md` (D1–D24). Organized by MVP phase and role. Each story follows: **As a [role], I want to [action] so that [benefit].**
+Derived from `architecture_v0.4.0.md` (D1–D24). Organized by MVP phase and role. Each story follows: **As a [role], I want to [action] so that [benefit].**
 
 Stories marked **(MVP)** are in scope for the first release. Stories marked **(v2)** ship in the second iteration. Stories marked **(v3)** or **(v4)** ship in later iterations. Stories marked **(Future)** are deferred with no target iteration.
 
@@ -351,7 +355,7 @@ US-331 (Future): As a super admin, I want to export the full database as a Postg
 
 ## Change log
 
-- 2026-04-15: Initial version. Derived from architecture.md D1–D6.
+- 2026-04-15: Initial version. Derived from architecture_v0.4.0.md D1–D6.
 - 2026-04-17: Major expansion. Added D7–D24 stories. New sections: Sessions and Context, Goals, Progress Photos, AI-Assisted Logging, Form Analysis, Programs/Routines/Classes, Instructional Content, Wearables. Expanded exercise library stories for limb configuration, families, per-implement weight. Expanded import story for full notation semantics. Added non-functional stories for import fidelity, AI transparency, sensitive data handling. Reframed as Lifting Tracker sub-system of XRSize4 ALL.
 
 ---

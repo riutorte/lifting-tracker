@@ -22,7 +22,7 @@ The full change-log narrative lives at the foot of the document. This header tab
 |---|---|---|
 | v0.1.0 | 2026-04-21 | Initial framing: four frames (§1), tier model, manifest, workflow matrix, open-standards audit, open questions. |
 | v0.2.0 | 2026-04-22 | Validated-review gap closure (18 gaps, G2/G7/G8/G9/G10/G11/G14/G15/G17/G18/G20/G24/G25/G26/G27/G28/G29/G30/G31); Anthropic patterns review findings A–D; restructured §10 with security posture first, open questions second; §9.5 evals harness; §10.0 threat model; §10.2 least-privilege; §10.3 third-party skill vetting. |
-| v0.3.0 | 2026-04-23 | Sprint 0a research corpus folded in. New top-level §3.7 Content Classes (4 classes + code as 5th NAMED-BUT-DEFERRED). New §5.7 Content-Drop Defenses (four defenses against micro_compact and 25K Read ceiling; load-bearing). §5.5 WF-003 GATE enriched with Workato artifact triple (request/assignment/resolution + timeout + reassignment). New §6.6 MCP-First Exposure (document-cm is itself an MCP server; dual CLI + MCP adapter over shared lib/). §5.4/§5.5 migrate execution-time enforcement from CLAUDE.md prose to PreToolUse hooks with `exit 2` (CC-017 validated). §6.0a 16-agent mapping matrix reference (9 Claude Code primitives + 5 MCP-exposed Python tools + 2 skills/workflows). New §8.7 Managed Policy Paths (`/Library/Application Support/ClaudeCode/CLAUDE.md` on macOS, `/etc/claude-code/` on Linux, plus managed-settings.json recommendation and three-layer pattern for 5 of 7 controls). Research Content Class governance details (WF-003L lightweight, date-versioning, staleness tags). Open questions refreshed with Q14–Q19 from Building Agentic AI Systems §7 and Q20 from context-hub. New D27 multi-agent interop promoted from Phase 5 (gartner); `docs/orchestration.md` named as artifact gap. Tier 2 concern log for D19 (gartner). TravelEpisode Pydantic schema adopted for `ai_interactions`; `thread_id` + `memory_scope` enum + Coordinator/Delegator role split (Building Agentic AI Systems). Workato orchestrator-worker pattern named as sole multi-agent pattern at this scale; MCP-first sub-system strategy; "contract-first harness, not DSL" posture for MCP servers. XML-tagged markdown workflows confirmed as valid prompt-chaining monolithic variant (anthropic-engineering-patterns-review). Context-hub findings: dual CLI + MCP adapter, closed-vocabulary feedback labels, BM25 validates D19, console.log→stderr guard for MCP stdio. April-10 thirteen failure patterns mapped to mitigations; §5.7 and §9.9 carry the load-bearing subset. Terminology alignment to `what-are-agents.md` §8 working definition (five-clause test, clause 5 portfolio-specific). |
+| v0.3.0 | 2026-04-23 | Sprint 0a research corpus folded in. New top-level §3.7 Content Classes (4 classes + code as 5th NAMED-BUT-DEFERRED). New §5.7 Content-Drop Defenses (four defenses against micro_compact and 25K Read ceiling; load-bearing). §5.5 WF-003 GATE enriched with Workato artifact triple (request/assignment/resolution + timeout + reassignment). New §6.6 MCP-First Exposure (document-cm is itself an MCP server; dual CLI + MCP adapter over shared lib/). §5.4/§5.5 migrate execution-time enforcement from CLAUDE.md prose to PreToolUse hooks with `exit 2` (CC-017 validated). §6.0a 16-agent mapping matrix reference (9 Claude Code primitives + 5 MCP-exposed Python tools + 2 skills/workflows). New §8.7 Managed Policy Paths (`/Library/Application Support/ClaudeCode/CLAUDE.md` on macOS, `/etc/claude-code/` on Linux, plus managed-settings.json recommendation and three-layer pattern for 5 of 7 controls). Research Content Class governance details (WF-003L lightweight, date-versioning, staleness tags). Open questions refreshed with Q14–Q19 from Building Agentic AI Systems §7 and Q20 from context-hub. New D27 multi-agent interop promoted from Phase 5 (gartner); `docs/orchestration_v0.1.0.md` named as artifact gap. Tier 2 concern log for D19 (gartner). TravelEpisode Pydantic schema adopted for `ai_interactions`; `thread_id` + `memory_scope` enum + Coordinator/Delegator role split (Building Agentic AI Systems). Workato orchestrator-worker pattern named as sole multi-agent pattern at this scale; MCP-first sub-system strategy; "contract-first harness, not DSL" posture for MCP servers. XML-tagged markdown workflows confirmed as valid prompt-chaining monolithic variant (anthropic-engineering-patterns-review). Context-hub findings: dual CLI + MCP adapter, closed-vocabulary feedback labels, BM25 validates D19, console.log→stderr guard for MCP stdio. April-10 thirteen failure patterns mapped to mitigations; §5.7 and §9.9 carry the load-bearing subset. Terminology alignment to `what-are-agents.md` §8 working definition (five-clause test, clause 5 portfolio-specific). |
 | v0.3.0 amendments | 2026-04-23 | **(a) §6.0a reversal — trust-but-verify.** All 16 Concept agents remain operational and authoritative; Claude Code natives run in parallel as redundant observability; the 16-agent mapping matrix stays in the brief as a reference for future evaluation, not as a replacement plan; deprecation of any single agent requires empirical evidence via Tier 2 concern log (time-to-acceptance + rubber-stamp detection). Rationale: single-layer failure costly at solo+AI scale; Python agents holding state in JSON files are immune to micro_compact content-drop; compound-pivot-trigger lesson from April 10 analysis. **(b) Research repo named `reach4all`**, creation Sprint 0b week 1. Placeholder `<research-repo>` and its footnote removed throughout. |
 | v0.3.0 amendments 2 — final | 2026-04-23 | **All Q13–Q20 resolved as explicit decisions** (§10.4 renamed to "Resolved Questions (v0.3.0)"; no open questions remain). Q13 = C belt-and-suspenders (XML + PreToolUse hook); Q14 = adopt `memory_scope` enum now; Q15 = documentation-only typed-episode contracts (no server-side Pydantic); Q16 = Delegator role definition expanded in §5.5; Q17 = HyperDX OSS on Railway with SigNoz fallback; Q18 = Ch 4 / Ch 7 focused pass completed (see `building-agentic-ai-systems-findings.md` §10); Q19 = hybrid `ai_interactions` schema (raw input + typed output); Q20 = starter closed-vocabulary taxonomy in three domains (research findings / architectural decisions / WF-003 GATEs). **§4.9 expanded** with `memory_type` enum orthogonal to `memory_scope` (working / long_term_semantic / long_term_episodic / procedural) and SKILL.md files labeled as procedural memory persisted as versioned code. **§5.5 Delegator role paragraph added.** **§6.8 Final Lifting Tracker stack added** (Supabase-on-Railway backend; expo-sqlite + Drizzle ORM local store; custom sync adapter; TanStack Query; NativeWind; magic-link MVP + OAuth post-MVP; TypeScript with TC39 Type Annotations as open-standards escape hatch (D26 confirmed); HyperDX OSS observability on Railway; Railway for all self-hosted services; D27 multi-agent interop protocol promoted from Phase 5, protocol choice deferred to Sprint 0c+). **§9.11 Future considerations** added — self-model block flagged as Concept-only speculative with no v0.3.0 action. D26 + D27 now captured. |
 
@@ -32,7 +32,7 @@ The full change-log narrative lives at the foot of the document. This header tab
 
 **Data vs data-ingestion rules (G28).** Raw data files are out of scope: `data/combined_workout_log.txt` (the 400+ session historical log), future exercise-catalog seeds, and any athlete data are data artifacts, not documentation CIs. Their provenance is a data-lineage concern (W3C PROV-DM / DataOps) that this brief does not govern. However, the *ingestion rules* for those files — e.g., `docs/data-import.md` describing how the combined log is parsed into Sessions and Sets, or schema-mapping documents for the ontology — are in-scope documentation CIs and are tracked by this framework like any other COMPANION-tier doc.
 
-**Prior art in this repo.** This brief builds on `~/Concept/CLAUDE.md`, `~/Concept/AgentSuiteReference_v4.md`, `~/Concept/DesignPrinciples_v3.md`, and the two April-10-2026 migration plans (`migration_plan_claude_code.md`, `migration_plan_managed_agents_v2.md`, neither executed). It aligns with `docs/architecture.md` (D1–D24), `docs/themes-epics-features.md`, `docs/roadmap.md`, and `docs/reference/best-practices-review.md`. Where this brief contradicts any of those, this brief is wrong — flag it and correct the brief.
+**Prior art in this repo.** This brief builds on `~/Concept/CLAUDE.md`, `~/Concept/AgentSuiteReference_v4.md`, `~/Concept/DesignPrinciples_v3.md`, and the two April-10-2026 migration plans (`migration_plan_claude_code.md`, `migration_plan_managed_agents_v2.md`, neither executed). It aligns with `docs/architecture_v0.4.0.md` (D1–D24), `docs/themes-epics-features_v0.2.0.md`, `docs/roadmap_v0.4.0.md`, and `docs/reference/best-practices-review.md`. Where this brief contradicts any of those, this brief is wrong — flag it and correct the brief.
 
 ---
 
@@ -181,7 +181,7 @@ Conventional commit prefix attaches the scope:
 ```
 doc(architecture): add D25 offline sync conflict policy
 
-Bumps architecture.md from v1.2.0 to v1.3.0 (MINOR, additive).
+Bumps architecture_v0.4.0.md from v1.2.0 to v1.3.0 (MINOR, additive).
 Resolves: NK-042
 ```
 
@@ -252,21 +252,21 @@ Applying these definitions to the existing `docs/` folder:
 
 | Doc | Tier | Rationale |
 |---|---|---|
-| `xrsize4all_concept.md` | REFERENCE | Platform-level vocabulary the entire portfolio pins to. Lifting Tracker is *a sub-system of* XRSize4 ALL. |
-| `user-stories.md` | REFERENCE | Canonical story catalog; every feature and every sprint cites a story ID. |
-| `ontology-plan.md` | REFERENCE | Exercise ontology schema; the data model and the NL parser both pin to it. |
-| `architecture.md` | MASTER | Integrates D1–D24 across the subsystem. |
-| `architecture-comparison.md` | COMPANION | Elaborates architectural evolution; not canonical on its own. |
-| `themes-epics-features.md` | COMPANION | Agile-layer elaboration of `user-stories.md`; derived, not authoritative. |
-| `effort-estimate.md` | COMPANION | Sizing analysis; cites roadmap and stories. |
-| `roadmap.md` | OPERATIONAL | Active planning doc; sprint contents mutate. |
+| `xrsize4all_concept_v0.2.0.md` | REFERENCE | Platform-level vocabulary the entire portfolio pins to. Lifting Tracker is *a sub-system of* XRSize4 ALL. |
+| `user-stories_v0.2.0.md` | REFERENCE | Canonical story catalog; every feature and every sprint cites a story ID. |
+| `ontology-plan_v0.1.0.md` | REFERENCE | Exercise ontology schema; the data model and the NL parser both pin to it. |
+| `architecture_v0.4.0.md` | MASTER | Integrates D1–D24 across the subsystem. |
+| `architecture-comparison_v0.3.0.md` | COMPANION | Elaborates architectural evolution; not canonical on its own. |
+| `themes-epics-features_v0.2.0.md` | COMPANION | Agile-layer elaboration of `user-stories_v0.2.0.md`; derived, not authoritative. |
+| `effort-estimate_v0.1.0.md` | COMPANION | Sizing analysis; cites roadmap and stories. |
+| `roadmap_v0.4.0.md` | OPERATIONAL | Active planning doc; sprint contents mutate. |
 | `dispatch-handoff.md` | OPERATIONAL | Session handoff artifact; regenerated each planning cycle. |
 | `docs/reference/best-practices-review.md` | COMPANION | Analysis of external sources against architecture decisions. |
 | `docs/reference/community-research.md` | COMPANION | Market/community landscape; informs but does not decide. |
 | `docs/reference/source-doc-cm-design.md` | COMPANION | This document. |
 | `docs/conversation-archive/*` | OPERATIONAL | Session records; append-only. |
 
-Update order — any tier cascades upward. A change to `user-stories.md` (REFERENCE) may force changes in `themes-epics-features.md` (COMPANION) and then `architecture.md` (MASTER) and then `roadmap.md` (OPERATIONAL).
+Update order — any tier cascades upward. A change to `user-stories_v0.2.0.md` (REFERENCE) may force changes in `themes-epics-features_v0.2.0.md` (COMPANION) and then `architecture_v0.4.0.md` (MASTER) and then `roadmap_v0.4.0.md` (OPERATIONAL).
 
 ### 3.4 Concept tier assignment (existing, unchanged)
 
@@ -286,7 +286,7 @@ XRSize4 ALL is a system of systems. Each sub-system (Lifting Tracker, Concept Co
 ```
 XRSize4 ALL (root)
 ├── REFERENCE (portfolio-level)
-│   └── xrsize4all_concept.md (lives in lifting-tracker today; may be promoted to its own repo later)
+│   └── xrsize4all_concept_v0.2.0.md (lives in lifting-tracker today; may be promoted to its own repo later)
 ├── COMPANION (portfolio-level)
 │   └── platform_comparison_v1.md (lives in Concept today)
 └── Sub-systems
@@ -295,7 +295,7 @@ XRSize4 ALL (root)
     └── [future sub-systems]
 ```
 
-The portfolio-level REFERENCE docs are the ones every sub-system pins to. When `xrsize4all_concept.md` becomes contested across two sub-systems, it graduates to its own repo with its own manifest. That is a *future* decision (see Section 10 Q1), not a now-decision.
+The portfolio-level REFERENCE docs are the ones every sub-system pins to. When `xrsize4all_concept_v0.2.0.md` becomes contested across two sub-systems, it graduates to its own repo with its own manifest. That is a *future* decision (see Section 10 Q1), not a now-decision.
 
 ### 3.6 Tier is metadata, not a folder
 
@@ -311,7 +311,7 @@ Four content classes are in-scope, plus one named-but-deferred. Each class decla
 
 #### 3.7.1 The four in-scope classes
 
-**ARCHITECTURE.** Architecture documents (decision records, ADRs, `architecture.md`, `xrsize4all_concept.md`, `ontology-plan.md`), sub-system design briefs, and anything whose content binds other artifacts to its meaning.
+**ARCHITECTURE.** Architecture documents (decision records, ADRs, `architecture_v0.4.0.md`, `xrsize4all_concept_v0.2.0.md`, `ontology-plan_v0.1.0.md`), sub-system design briefs, and anything whose content binds other artifacts to its meaning.
 
 - **Workflow variant:** WF-003 full (9 steps including GATE Step 4 and Book Boss verify Step 7).
 - **Version scheme:** Semver (§2.1). MAJOR breaks consumers; MINOR adds; PATCH clarifies.
@@ -374,7 +374,7 @@ cm update <research-id> --class research
 
 No explicit GATE step. No Book Boss verify step on individual findings (the baseline-preservation rule is relaxed for research because research docs are supposed to evolve as understanding develops — content loss is replaced by content update).
 
-**Version scheme — date-based default.** Research docs carry a `YYYY-MM-DD` filename stamp or frontmatter-date, not a semver. A research doc *may* optionally carry a semver if it has become load-bearing enough that downstream artifacts pin to a specific snapshot (e.g., a landscape-synthesis that architecture.md cites). When a research doc acquires a pinned downstream, it migrates to REFERENCE class (with the ADR described in §3.7.2 invariant 3).
+**Version scheme — date-based default.** Research docs carry a `YYYY-MM-DD` filename stamp or frontmatter-date, not a semver. A research doc *may* optionally carry a semver if it has become load-bearing enough that downstream artifacts pin to a specific snapshot (e.g., a landscape-synthesis that architecture_v0.4.0.md cites). When a research doc acquires a pinned downstream, it migrates to REFERENCE class (with the ADR described in §3.7.2 invariant 3).
 
 **Staleness tag — mandatory.** Every research doc declares a `stale_after:` date in frontmatter, typically 90 days from the `updated:` date. A research doc past its `stale_after` without a refresh is downgraded to "historical" status by `cm status` — still cite-able but flagged as potentially outdated. Refresh is cheaper than re-creation; the staleness tag prevents the accretion of unchallenged assertions.
 
@@ -434,7 +434,7 @@ portfolio:
 # Documents in this project's CM scope
 documents:
   - id: architecture
-    path: docs/architecture.md
+    path: docs/architecture_v0.4.0.md
     tier: MASTER
     version: 1.2.0
     status: active           # draft | active | frozen | deprecated
@@ -454,7 +454,7 @@ documents:
       - doc/architecture/v1.2.0
 
   - id: user-stories
-    path: docs/user-stories.md
+    path: docs/user-stories_v0.2.0.md
     tier: REFERENCE
     version: 1.0.0
     status: active
@@ -464,7 +464,7 @@ documents:
     depends_on: []
 
   - id: themes-epics-features
-    path: docs/themes-epics-features.md
+    path: docs/themes-epics-features_v0.2.0.md
     tier: COMPANION
     version: 1.0.0
     status: active
@@ -478,7 +478,7 @@ documents:
       - id: user-stories
 
   - id: roadmap
-    path: docs/roadmap.md
+    path: docs/roadmap_v0.4.0.md
     tier: OPERATIONAL
     version: 0.9.0
     status: active
@@ -515,7 +515,7 @@ workflows:
 portfolio_refs:
   - id: xrsize4all-concept
     repo: lifting-tracker          # may later move to its own repo
-    path: docs/xrsize4all_concept.md
+    path: docs/xrsize4all_concept_v0.2.0.md
     pinned_version: "1.0.0"
 ```
 
@@ -707,7 +707,7 @@ The architectural consequence is direct: **every load-bearing rule in this brief
 | `exit 0` with `deny` decision | Block the tool call (not an error; a deliberate refusal) |
 | **`exit 2`** | **Blocking error; the hook's stderr output feeds back into Claude's context so the model adjusts its plan** |
 
-`exit 2` is the enforcement primitive for this brief's discipline. A GATE hook that `exit 2`s with `"Fresh-Read Discipline: re-Read docs/architecture.md in this turn before Edit"` is a command the agent cannot override, and the stderr message gives the agent a clear repair path. Prose in CLAUDE.md that says the same thing is ignored at execution time.
+`exit 2` is the enforcement primitive for this brief's discipline. A GATE hook that `exit 2`s with `"Fresh-Read Discipline: re-Read docs/architecture_v0.4.0.md in this turn before Edit"` is a command the agent cannot override, and the stderr message gives the agent a clear repair path. Prose in CLAUDE.md that says the same thing is ignored at execution time.
 
 **What this means for CLAUDE.md content going forward.** The project CLAUDE.md and any repo-scoped CLAUDE.md files retain their role as norms-and-context: they express conventions, tone, and architectural reminders that inform the agent's judgment. They do not express load-bearing rules whose violation would break the discipline — those rules live in PreToolUse hooks, pre-commit hooks, and CI checks (§5.2 / §5.3 / §5.4). The three-layer pattern documented in §8.7 (norm in CLAUDE.md → client-side hook → CI check) is the general form of this migration.
 
@@ -1022,7 +1022,7 @@ The scorekeeper ledger (`.cm/scorekeeper.json`) has always been append-only by d
 
 ### 6.8 Final Lifting Tracker stack (2026-04-23)
 
-This subsection records the stack decisions Eric locked at Sprint 0a close. It lives in the CM brief because document-cm governs decision records, and the stack itself is a first-order decision that downstream documents (architecture.md, roadmap.md, the Sprint 0b implementation plan) will pin against. Short-form rationale per row; full rationale is in the research corpus referenced in the Sources section.
+This subsection records the stack decisions Eric locked at Sprint 0a close. It lives in the CM brief because document-cm governs decision records, and the stack itself is a first-order decision that downstream documents (architecture_v0.4.0.md, roadmap_v0.4.0.md, the Sprint 0b implementation plan) will pin against. Short-form rationale per row; full rationale is in the research corpus referenced in the Sources section.
 
 | Layer | Choice | Notes |
 |---|---|---|
@@ -1074,7 +1074,7 @@ Calibration rule, saved in Eric's agent memory: **this is solo and AI-assisted, 
 | **Change Control Board / formal approval workflow** | Unreviewed decisions in shared codebase | Hours per decision; requires multiple people | **Skip** | No board exists. Human GATE at WF-003 Step 6 *is* the change control — one person, one decision, approved inline. |
 | **Full CM audit (periodic verification that recorded state matches reality)** | Drift between catalog and files (ACL-004 class bug) | A full day per audit | **Adapt** | The daily equivalent is `cm validate` in CI, which validates every PR. Skip the periodic audit — the CI job is the audit, run continuously. |
 | **Traceability — bidirectional (requirements ↔ tests ↔ impl)** | Requirement silently dropped | High; requires tooling and discipline | **Skip for MVP**; **Adapt for v2+** | MVP has 114 stories and one person. `git log --grep="US-"` is enough. At v2 scale with multiple contributors, revisit. |
-| **Risk register (strategic risks + mitigations, tracked)** | Blind spots on threats that are nobody's immediate problem | 30 min / quarter | **Adapt** | Keep as an OPERATIONAL doc, `docs/risks.md`, reviewed at sprint boundaries. Four-to-six rows. Don't let it become a compliance artifact. |
+| **Risk register (strategic risks + mitigations, tracked)** | Blind spots on threats that are nobody's immediate problem | 30 min / quarter | **Adapt** | Keep as an OPERATIONAL doc, `docs/risks_v0.1.0.md`, reviewed at sprint boundaries. Four-to-six rows. Don't let it become a compliance artifact. |
 | **Change proposals captured as tickets** | Loss of "we almost changed X but decided not to" | 30 sec per item | **Adapt** | GitHub Issues with `cm-backlog` label, or `.cm/notekeeper.json`. Either works. Q3 to decide. |
 | **Scorekeeper — append-only change ledger** | Audit trail loss; inability to reconstruct "what was done and when" | Auto-recorded by skill | **Adopt** | Redundant with `git log` in content, but the JSON is easier to query programmatically. Near-zero cost since the skill writes it. |
 | **Session reports (Reporter)** | Loss of context across sessions | Auto-generated by Stop hook | **Adopt** | High value when Claude picks up work days later. Keep. |
@@ -1277,13 +1277,13 @@ lifting-tracker/
 ├── .pre-commit-config.yaml
 ├── CLAUDE.md                     # pointers, not content; < 200 lines
 ├── docs/                         # all canonical CM sources
-│   ├── architecture.md
-│   ├── user-stories.md
-│   ├── themes-epics-features.md
-│   ├── roadmap.md
-│   ├── xrsize4all_concept.md
-│   ├── ontology-plan.md
-│   ├── effort-estimate.md
+│   ├── architecture_v0.4.0.md
+│   ├── user-stories_v0.2.0.md
+│   ├── themes-epics-features_v0.2.0.md
+│   ├── roadmap_v0.4.0.md
+│   ├── xrsize4all_concept_v0.2.0.md
+│   ├── ontology-plan_v0.1.0.md
+│   ├── effort-estimate_v0.1.0.md
 │   ├── dispatch-handoff.md
 │   ├── reference/
 │   │   ├── best-practices-review.md
@@ -1307,7 +1307,7 @@ portfolio:
 
 documents:
   - id: xrsize4all-concept
-    path: docs/xrsize4all_concept.md
+    path: docs/xrsize4all_concept_v0.2.0.md
     tier: REFERENCE
     version: 1.0.0
     status: active
@@ -1319,7 +1319,7 @@ documents:
       may be promoted to its own repo when a second sub-system depends on it.
 
   - id: user-stories
-    path: docs/user-stories.md
+    path: docs/user-stories_v0.2.0.md
     tier: REFERENCE
     version: 1.0.0
     status: active
@@ -1328,7 +1328,7 @@ documents:
     owners: [ericriutort]
 
   - id: ontology-plan
-    path: docs/ontology-plan.md
+    path: docs/ontology-plan_v0.1.0.md
     tier: REFERENCE
     version: 0.9.0
     status: draft
@@ -1337,7 +1337,7 @@ documents:
     owners: [ericriutort]
 
   - id: architecture
-    path: docs/architecture.md
+    path: docs/architecture_v0.4.0.md
     tier: MASTER
     version: 1.2.0
     status: active
@@ -1353,7 +1353,7 @@ documents:
       - {id: themes-epics-features}
 
   - id: themes-epics-features
-    path: docs/themes-epics-features.md
+    path: docs/themes-epics-features_v0.2.0.md
     tier: COMPANION
     version: 1.0.0
     status: active
@@ -1365,7 +1365,7 @@ documents:
     derives_from: [user-stories]
 
   - id: architecture-comparison
-    path: docs/architecture-comparison.md
+    path: docs/architecture-comparison_v0.3.0.md
     tier: COMPANION
     version: 1.0.0
     status: active
@@ -1374,7 +1374,7 @@ documents:
     owners: [ericriutort]
 
   - id: effort-estimate
-    path: docs/effort-estimate.md
+    path: docs/effort-estimate_v0.1.0.md
     tier: COMPANION
     version: 1.0.0
     status: active
@@ -1413,7 +1413,7 @@ documents:
       research, and the related memory-locked decisions. See Change Log.
 
   - id: roadmap
-    path: docs/roadmap.md
+    path: docs/roadmap_v0.4.0.md
     tier: OPERATIONAL
     version: 0.9.0
     status: active
@@ -1470,7 +1470,7 @@ workflows:
 portfolio_refs:
   - id: xrsize4all-concept
     repo: lifting-tracker
-    path: docs/xrsize4all_concept.md
+    path: docs/xrsize4all_concept_v0.2.0.md
     pinned_version: "1.0.0"
 ```
 
@@ -1643,12 +1643,12 @@ Anthropic's "Writing Tools for Agents" (Sep 2025) is emphatic: *evals are the fo
 
 **Initial scenario set (7 scenarios, MVP).** Chosen to cover the load-bearing behaviors of WF-003, WF-004, and WF-005:
 
-1. **Add new ADR.** Add D25 to `architecture.md`; expect MINOR bump, manifest version update, new tag.
+1. **Add new ADR.** Add D25 to `architecture_v0.4.0.md`; expect MINOR bump, manifest version update, new tag.
 2. **Typo PATCH.** Fix a single typo in an active doc; expect PATCH bump, no propagation.
 3. **Rescind MAJOR.** Retract D12 nullable-FK convention; expect MAJOR bump, dependent-flag report, superseded_by annotation.
 4. **New doc register.** Scaffold a new REFERENCE doc; expect manifest entry created at v1.0.0, template populated, frontmatter present.
-5. **Rename doc.** Rename `architecture.md` to `architecture-mvp.md`; expect manifest path update, all `depends_on` references updated, no silent ID change.
-6. **Reconcile two drifted docs.** Compare `user-stories.md` and `themes-epics-features.md` after a story is added to one but not the other; expect GAP list and notekeeper entries.
+5. **Rename doc.** Rename `architecture_v0.4.0.md` to `architecture-mvp.md`; expect manifest path update, all `depends_on` references updated, no silent ID change.
+6. **Reconcile two drifted docs.** Compare `user-stories_v0.2.0.md` and `themes-epics-features_v0.2.0.md` after a story is added to one but not the other; expect GAP list and notekeeper entries.
 7. **Freeze portfolio baseline.** Freeze current state as `baseline/2026-Q2/v1`; expect tag created, manifest `baselines:` updated, every in-scope doc's hash recorded.
 
 **Metrics captured per scenario.** The runner records three numbers per run, written to `.cm/scratch/evals/results-<timestamp>.json`:
@@ -1806,7 +1806,7 @@ For XRSize4 ALL, the path is *not* "make LLMs more autonomous" but **"build the 
 
 **D27 — Multi-agent interop as 'interop-first L5, authority-preserving'.** XRSize4 ALL adopts interop as the path to platform scale and explicitly does **not** pursue autonomy-maximizing L5. The interop requirement is: every sub-system exposes its capabilities through MCP (already mandated for document-cm in §6.6); every sub-system logs into a common scorekeeper-or-equivalent audit surface; every multi-agent workflow preserves D19 Authority Rule at each Tier 1 / Tier 2 boundary, regardless of how many agents are in the composition.
 
-**Artifact gap: `docs/orchestration.md`.** Gartner treats AI automation orchestration as a durable human responsibility even at L5; giving it a first-class name makes it a place Eric can deliberately stay rather than have it get lost between roadmap phases. The named artifact `docs/orchestration.md` (not yet written — Sprint 0b+) documents: the orchestration patterns in use (Cowork for architecture/research, Claude Code for in-repo work, how context moves between them), when each is the right choice, and failure modes observed. The artifact is OPERATIONAL-tier (state reflects current practice), content-class RESEARCH when capturing lessons-learned and ARCHITECTURE when recording the pattern decision.
+**Artifact gap: `docs/orchestration_v0.1.0.md`.** Gartner treats AI automation orchestration as a durable human responsibility even at L5; giving it a first-class name makes it a place Eric can deliberately stay rather than have it get lost between roadmap phases. The named artifact `docs/orchestration_v0.1.0.md` (not yet written — Sprint 0b+) documents: the orchestration patterns in use (Cowork for architecture/research, Claude Code for in-repo work, how context moves between them), when each is the right choice, and failure modes observed. The artifact is OPERATIONAL-tier (state reflects current practice), content-class RESEARCH when capturing lessons-learned and ARCHITECTURE when recording the pattern decision.
 
 **Tier 2 concern log for D19 (from gartner review).** A natural extension of D19: flag interactions where Tier 2 (LLM) output was accepted in ways D19's Authority Rule was designed to prevent — e.g., LLM analysis driving consequential decisions without Tier 1 confirmation. The log format: `{date, session_id, interaction_id, concern_type, narrative}`, stored at `.cm/tier2-concerns.json` (append-only, same discipline as scorekeeper). Concerns surfaced by Eric, Book Boss verify, or a future meta-review skill. The log is what lets the portfolio tell the difference between "this Tier 2 output happened to be right" and "this Tier 2 output was accepted before Tier 1 confirmation and we got lucky." Recommended adoption in Sprint 0b alongside the first document-cm skill invocation.
 
@@ -1881,9 +1881,9 @@ Every question in this section is now resolved. The v0.3.0 amendments 2 pass (20
 
 Each question below is a named decision: the question, the options that were in play, and the resolution with rationale. The format is retained so that the decision trail stays auditable — a future reader can see not only what was decided but what else was on the table.
 
-### Q1. Portfolio-level repo — when does `xrsize4all_concept.md` graduate to its own repo?
+### Q1. Portfolio-level repo — when does `xrsize4all_concept_v0.2.0.md` graduate to its own repo?
 
-Today `docs/xrsize4all_concept.md` lives in `lifting-tracker/` because Lifting Tracker is the first sub-system. When the second sub-system (say, coaching or content) needs to pin to it, either the second repo vendors a copy (drift-prone) or the doc moves to a shared `xrsize4all/` repo.
+Today `docs/xrsize4all_concept_v0.2.0.md` lives in `lifting-tracker/` because Lifting Tracker is the first sub-system. When the second sub-system (say, coaching or content) needs to pin to it, either the second repo vendors a copy (drift-prone) or the doc moves to a shared `xrsize4all/` repo.
 
 **Recommendation**: keep it in `lifting-tracker/` until the second sub-system starts. At that point, promote to `~/xrsize4all/` repo with its own manifest and mark `portfolio_refs:` in every sub-system manifest pinning to it.
 
@@ -1957,7 +1957,7 @@ Session reports are append-only markdown. Options:
 
 **Recommendation**: A. Session reports are how Claude picks up context next session; losing them defeats the purpose. Repo size is not a concern at solo scale.
 
-### Q8. When does a `docs/risks.md` get created?
+### Q8. When does a `docs/risks_v0.1.0.md` get created?
 
 Section 7 recommended adopting a lightweight risk register. This brief did not draft one. The trigger: when Eric has more than 3 operational risks that aren't already tracked somewhere.
 
@@ -1979,7 +1979,7 @@ The recommendations that were in v0.1's Q9 have moved into positions in v0.2.0 �
 
 Two small-but-load-bearing naming calls:
 
-- **"Portfolio" vs "platform" vs "system of systems."** The brief uses `portfolio:` in the manifest. XRSize4 ALL's own planning vocabulary may prefer one of the other terms. Resolve once in `xrsize4all_concept.md`, propagate. Cost of deferring: search-and-replace later.
+- **"Portfolio" vs "platform" vs "system of systems."** The brief uses `portfolio:` in the manifest. XRSize4 ALL's own planning vocabulary may prefer one of the other terms. Resolve once in `xrsize4all_concept_v0.2.0.md`, propagate. Cost of deferring: search-and-replace later.
 - **This brief's own version.** `source-doc-cm-design.md` lands at `v0.2.0 / status: draft` with this revision. Trigger for `v1.0.0 / active`: Eric approves the design *and* the `document-cm` skill has shipped its first working invocation against Lifting Tracker docs. Until then, this is a design brief, not an in-force framework — exactly the pre-infrastructure state Concept's Design Principles §1 warns against treating as binding.
 
 ### Q12. Kanban and CM integration
@@ -2205,7 +2205,7 @@ This revision folds in the Sprint 0a research corpus (11 research docs + memory-
 - **§6.7 Tamper-evidence scorekeeper.** Hash-chain via `prev_hash:` field; `cm verify-scorekeeper` walker; closes G16 at solo scale without adopting full cryptographic signing (G12/G13 deferred per Eric's memory).
 - **§8.7 Managed Policy Paths + managed-settings.json.** macOS `/Library/Application Support/ClaudeCode/CLAUDE.md`; Linux `/etc/claude-code/CLAUDE.md`; Windows `C:\Program Files\ClaudeCode\CLAUDE.md`. Three-layer pattern (norm → hook → CI) for 5 of 7 controls (attribution, confidentiality, pre-commit, secret scanning, file format allowlist). v0.2.0 draft's incorrect `/etc/claude-code/` macOS path corrected.
 - **§9.9 April-10 failure patterns — mitigation map.** Thirteen-row table mapping each pattern to the v0.3.0 section that closes or mitigates it; three-tier severity synthesis (Tier 1 framework-killers / Tier 2 trust-killers / Tier 3 drift) with twelve hard requirements (a–l) enumerated and traced back to sections.
-- **§9.10 D27 Multi-agent interop.** "Interop-first L5, authority-preserving" decision; `docs/orchestration.md` artifact gap named (OPERATIONAL tier, RESEARCH class when capturing lessons-learned / ARCHITECTURE when recording pattern decisions); Tier 2 concern log for D19 (`.cm/tier2-concerns.json`, append-only).
+- **§9.10 D27 Multi-agent interop.** "Interop-first L5, authority-preserving" decision; `docs/orchestration_v0.1.0.md` artifact gap named (OPERATIONAL tier, RESEARCH class when capturing lessons-learned / ARCHITECTURE when recording pattern decisions); Tier 2 concern log for D19 (`.cm/tier2-concerns.json`, append-only).
 - **§10.4 Q14–Q20 open questions.** Q14 memory-scope enum now vs defer; Q15 typed-episode Pydantic enforcement; Q16 explicit Delegator definition; Q17 observability back-end; Q18 book follow-up prose; Q19 TravelEpisode replace vs supplement; Q20 closed-vocabulary feedback label taxonomy. All six of Building Agentic AI Systems §7 questions surfaced as Q14–Q19; context-hub label taxonomy surfaced as Q20. No recommendations — Eric adjudicates.
 
 **Corrections to v0.2.0:**
@@ -2224,7 +2224,7 @@ This revision folds in the Sprint 0a research corpus (11 research docs + memory-
 - `docs/reference/claude-code-internals-findings.md` — four content-drop defenses; 25K Read ceiling; CC-017 validation; 16-agent mapping matrix.
 - `docs/reference/workato-findings.md` — WF-003 GATE artifact triple; orchestrator-worker pattern; MCP-first sub-system strategy; contract-first harness posture.
 - `docs/reference/building-agentic-ai-systems-findings.md` — TravelEpisode schema; thread_id + memory_scope + Coordinator/Delegator; six §7 open questions imported as Q14–Q19.
-- `docs/reference/gartner-ai-native-swe-review.md` — Tier 2 concern log for D19; D27 multi-agent interop; `docs/orchestration.md` artifact gap.
+- `docs/reference/gartner-ai-native-swe-review.md` — Tier 2 concern log for D19; D27 multi-agent interop; `docs/orchestration_v0.1.0.md` artifact gap.
 - `docs/reference/context-hub-findings.md` — dual CLI + MCP adapter; closed-vocabulary feedback labels; BM25 validates D19; console.log→stderr guard.
 - `docs/reference/april-10-session-analysis.md` — 13 failure patterns with per-pattern mitigation mapping; three-tier severity synthesis with twelve hard requirements.
 - `docs/reference/anthropic-engineering-patterns-review.md` — XML-tagged markdown workflows confirmed as valid prompt-chaining monolithic variant.
@@ -2240,7 +2240,7 @@ This revision folds in the Sprint 0a research corpus (11 research docs + memory-
 **Explicitly deferred (v0.3.0 DEFER additions):**
 
 - Research repo creation — repo named `reach4all`; creation is Sprint 0b week 1. Name decision resolved in the v0.3.0 amendments (see Change Log).
-- Sprint 0b: implement document-cm skill (§6.6 shared `lib/` + CLI + MCP adapters); write `docs/orchestration.md` (§9.10); write `docs/reference/stig-alignment.md` stub (§8.6); deploy managed CLAUDE.md + managed-settings.json (§8.7); author CC-017 migration PreToolUse hooks (§5.4); resolve Q13 (GATE as PreToolUse hook vs XML instruction, recommendation C); resolve Q20 (closed-vocabulary feedback label taxonomy).
+- Sprint 0b: implement document-cm skill (§6.6 shared `lib/` + CLI + MCP adapters); write `docs/orchestration_v0.1.0.md` (§9.10); write `docs/reference/stig-alignment.md` stub (§8.6); deploy managed CLAUDE.md + managed-settings.json (§8.7); author CC-017 migration PreToolUse hooks (§5.4); resolve Q13 (GATE as PreToolUse hook vs XML instruction, recommendation C); resolve Q20 (closed-vocabulary feedback label taxonomy).
 - Sprint 0c and later: observability back-end choice (Q17); TravelEpisode replace-vs-supplement decision (Q19); Delegator explicit definition (Q16); typed-episode Pydantic enforcement (Q15); memory-scope enum population policy (Q14); follow-up pass on Building Agentic AI Systems Ch 4 Reflection and Ch 7 Memory (Q18).
 
 ---
@@ -2278,14 +2278,14 @@ External references informing this design (entries new in v0.2.0 are marked ⟡;
 - [Trunk-based development vs Git-Flow — Atlassian](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development) and solo-developer workflow guidance circa 2026.
 - [Claude Code Hooks — code.claude.com/docs/en/hooks-guide](https://code.claude.com/docs/en/hooks-guide).
 - Concept Computing repository: `CLAUDE.md`, `AgentSuiteReference_v4.md`, `DesignPrinciples_v3.md`, `migration_plan_claude_code.md`, `migration_plan_managed_agents_v2.md`, `wf_*.md`, the 16 `*_agent.py` scripts (AGENT_META + copyright blocks).
-- Lifting Tracker: `docs/architecture.md` (D1–D24), `docs/themes-epics-features.md`, `docs/roadmap.md`, `docs/user-stories.md`, `docs/reference/best-practices-review.md`.
+- Lifting Tracker: `docs/architecture_v0.4.0.md` (D1–D24), `docs/themes-epics-features_v0.2.0.md`, `docs/roadmap_v0.4.0.md`, `docs/user-stories_v0.2.0.md`, `docs/reference/best-practices-review.md`.
 
 **v0.3.0 research corpus (Sprint 0a — folded into this revision):**
 
 - ✦ `docs/reference/claude-code-internals-findings.md` — four content-drop defenses, 25K Read ceiling mechanics (`MaxFileReadTokenExceededError`, env var `CLAUDE_CODE_FILE_READ_MAX_OUTPUT_TOKENS`, GrowthBook `tengu_amber_wren` flag, issue #21841 truncation revert), CC-017 execution-time-enforcement validation, exit-2 semantics, 16-agent mapping matrix (9 primitives + 5 MCP-exposed tools + 2 skills/workflows).
 - ✦ `docs/reference/workato-findings.md` — WF-003 GATE artifact triple (request / assignment / resolution + timeout + reassignment), orchestrator-worker pattern, MCP-first sub-system strategy, "contract-first harness, not DSL" posture for MCP servers.
 - ✦ `docs/reference/building-agentic-ai-systems-findings.md` — TravelEpisode Pydantic schema (`request` / `considerations` / `recommendation` / `outcome`), `thread_id` + `memory_scope` enum + Coordinator/Delegator role split, §7 open questions imported as Q14–Q19.
-- ✦ `docs/reference/gartner-ai-native-swe-review.md` — Tier 2 concern log for D19, multi-agent interop promoted from Phase 5 to D27 ("interop-first L5, authority-preserving"), `docs/orchestration.md` artifact named as gap.
+- ✦ `docs/reference/gartner-ai-native-swe-review.md` — Tier 2 concern log for D19, multi-agent interop promoted from Phase 5 to D27 ("interop-first L5, authority-preserving"), `docs/orchestration_v0.1.0.md` artifact named as gap.
 - ✦ `docs/reference/context-hub-findings.md` — dual CLI + MCP adapter pattern over shared `lib/`, closed-vocabulary feedback labels, BM25 validates D19 (no vector store needed), `console.log`→stderr guard for MCP stdio servers.
 - ✦ `docs/reference/april-10-session-analysis.md` — 13 failure patterns with per-pattern CM mitigation mapping, §9 three-tier severity synthesis (Tier 1 framework-killers / Tier 2 trust-killers / Tier 3 drift) with twelve hard requirements.
 - ✦ `docs/reference/anthropic-engineering-patterns-review.md` (re-referenced) — XML-tagged markdown workflows confirmed as valid prompt-chaining monolithic variant; brief's WF-003 format posture validated.

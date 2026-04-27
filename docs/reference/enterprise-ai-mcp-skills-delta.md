@@ -119,7 +119,7 @@ Both are SaaS CRMs. No CRM in any portfolio sub-system (Lifting Tracker is coach
 
 ### 5.5 Jira MCP — DECLINE confirmed (already on Gemini-delta anti-list)
 
-Eric uses `docs/kanban.md` + `docs/roadmap.md` for project tracking. Already explicitly added to anti-list in Gemini delta §4.7 + §5. No further action.
+Eric uses `docs/kanban.md` + `docs/roadmap_v0.4.0.md` for project tracking. Already explicitly added to anti-list in Gemini delta §4.7 + §5. No further action.
 
 ### 5.6 Slack MCP — DECLINE confirmed (already on mcp-assessment anti-list)
 
@@ -143,7 +143,7 @@ Per-item assessment of items the input names that COULD apply to both Lifting Tr
 
 Excalidraw is a real, well-maintained MIT-licensed virtual whiteboard (`excalidraw/excalidraw` on GitHub, ~80K+ stars). Self-hostable as a static SPA; no backend required. A community **excalidraw-mcp-server** exists (multiple variants on GitHub as of 2026; surveyed maturity = MEDIUM, single-maintainer projects). **Composite principle: passes self-hostable, passes not-SaaS, passes MCP-able (community variant); AI-native friction reduction = clear when generating architecture diagrams from text descriptions.**
 
-- **LIFTING-TRACKER-APPLICABLE:** Yes — generating architecture diagrams for `docs/architecture.md` from natural-language descriptions could speed D-decision visualization. Currently those decisions are text-only with no visual layer.
+- **LIFTING-TRACKER-APPLICABLE:** Yes — generating architecture diagrams for `docs/architecture_v0.4.0.md` from natural-language descriptions could speed D-decision visualization. Currently those decisions are text-only with no visual layer.
 - **ENTERPRISE-CONSULTING-APPLICABLE:** Yes — strategy decks, reference architectures, system-of-systems diagrams all benefit.
 - **Recommendation:** NOT a top-10 entry. Add as a **tie-breaker rank 13** on the MCP shortlist behind DuckDB MCP (rank 12 from Gemini delta). Investigate self-hosted excalidraw-mcp-server maturity in Sprint 1 alongside Reach4All standup. **Caveat:** community MCP variants need maintenance review before commit.
 

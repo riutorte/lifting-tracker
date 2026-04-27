@@ -324,12 +324,12 @@ Validation pass over the 26 gaps identified in the first-pass review of `docs/re
 ### G22 — DoDAF views/viewpoints not cross-referenced
 
 - **Original claim:** DoDAF 2.02 OV/SV/SvcV/DIV/CV/PV/AV could frame SoS applicability.
-- **Current state per sources:** DoDAF 2.02 is the current version (no 3.0 released), and its viewpoints are designed for defense SoS. The brief's scope is source-document CM for a single sub-system (Lifting Tracker) with an explicit SoS parent (XRSize4 ALL) documented in `xrsize4all_concept.md`. DoDAF viewpoint mapping would belong in the xrsize4all concept doc, not this CM brief — the CM brief governs *how* architecture docs are versioned, not *what* views they contain.
+- **Current state per sources:** DoDAF 2.02 is the current version (no 3.0 released), and its viewpoints are designed for defense SoS. The brief's scope is source-document CM for a single sub-system (Lifting Tracker) with an explicit SoS parent (XRSize4 ALL) documented in `xrsize4all_concept_v0.2.0.md`. DoDAF viewpoint mapping would belong in the xrsize4all concept doc, not this CM brief — the CM brief governs *how* architecture docs are versioned, not *what* views they contain.
 - **Confidence:** HIGH — DoDAF is clearly scoped to defense SoS and is orthogonal to CM-of-docs.
 - **Priority for solo+AI:** decline — wrong doc; belongs in the SoS concept doc if anywhere.
 - **Citations:**
   - [DoDAF 2.02 — Viewpoints](https://dodcio.defense.gov/Library/DoD-Architecture-Framework/) — OV, SV, SvcV, DIV, CV, PV, AV.
-- **Recommended action:** Decline. Optionally note in §1 that DoDAF view/viewpoint applicability belongs in `xrsize4all_concept.md`, not in the CM brief.
+- **Recommended action:** Decline. Optionally note in §1 that DoDAF view/viewpoint applicability belongs in `xrsize4all_concept_v0.2.0.md`, not in the CM brief.
 
 ---
 
@@ -405,7 +405,7 @@ Implication: bundle the recommendations at write time rather than implementing t
 - **G1 (Architectural Runway).** Brief already ships the equivalent scaffolding (tier model, manifest schema, templates in §6.1). "Missing" is misleading; "not named using SAFe terminology" is accurate.
 - **G4 (PI cadence).** Correctly identified as a missing enterprise practice but irrelevant at solo+AI scale. Priority is decline, not must-fix.
 - **G19 (CMMI mapping).** CMMI assessment is enterprise-scoped. Self-assessment adds ceremony without changing what gets built.
-- **G22 (DoDAF views).** Wrong doc — belongs in `xrsize4all_concept.md` if anywhere, not the CM brief.
+- **G22 (DoDAF views).** Wrong doc — belongs in `xrsize4all_concept_v0.2.0.md` if anywhere, not the CM brief.
 - **G23 (MBSE).** Deliberate document-based choice; the brief would benefit from naming it as such rather than adopting MBSE.
 
 ### 3.3 Gaps the original review understated

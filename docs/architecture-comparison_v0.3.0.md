@@ -1,14 +1,18 @@
 ---
 author: Eric Riutort
 created: 2026-04-15
-updated: 2026-04-19
+updated: 2026-04-24
+tier: ARCHITECTURE
+content_class: architecture
+version: 0.3.0
+status: accepted
 ---
 
 # Lifting Tracker — Architectural Approach Comparison
 
 A systems-engineering-level comparison of all platform approaches discussed for the coach-client workout tracking application. This document evaluates each approach across consistent dimensions to support an informed architectural decision.
 
-**Scope note (2026-04-19):** The original comparison (sections 1–7 and the decision matrix below) was scoped to the Lifting Tracker sub-system MVP when the project was "a workout tracker with a coach view." The project has since expanded into **XRSize4 ALL** — a system of systems spanning 8 discipline-specific training sub-systems and 12 cross-cutting services (see `xrsize4all_concept.md`). The MVP comparison remains valid for the Lifting Tracker's first release. A new section, **"Platform Evolution — Technical Direction Beyond MVP,"** maps the chosen stack (A4: Expo + Supabase) forward through all five XRSize4 ALL phases, identifying where the foundation holds, where it needs augmentation, and where new infrastructure enters.
+**Scope note (2026-04-19):** The original comparison (sections 1–7 and the decision matrix below) was scoped to the Lifting Tracker sub-system MVP when the project was "a workout tracker with a coach view." The project has since expanded into **XRSize4 ALL** — a system of systems spanning 8 discipline-specific training sub-systems and 12 cross-cutting services (see `xrsize4all_concept_v0.2.0.md`). The MVP comparison remains valid for the Lifting Tracker's first release. A new section, **"Platform Evolution — Technical Direction Beyond MVP,"** maps the chosen stack (A4: Expo + Supabase) forward through all five XRSize4 ALL phases, identifying where the foundation holds, where it needs augmentation, and where new infrastructure enters.
 
 ## Approaches evaluated
 

@@ -197,7 +197,7 @@ For the project's purposes, this means: the book is most useful as a completenes
 
 ## 4. Mapping to existing project work
 
-For each major book framework cluster, three questions: does it align with, contradict, or extend (a) the Concept Computing 16-agent CM suite (`~/Concept/AgentSuiteReference_v4.md` v4.0, `~/Concept/DesignPrinciples_v3.md` v3.0); (b) the Lifting Tracker D19 Reasoner Duality (`~/lifting-tracker/docs/architecture.md` D19); (c) the `document-cm` skill design (`~/lifting-tracker/docs/reference/source-doc-cm-design.md`).
+For each major book framework cluster, three questions: does it align with, contradict, or extend (a) the Concept Computing 16-agent CM suite (`~/Concept/AgentSuiteReference_v4.md` v4.0, `~/Concept/DesignPrinciples_v3.md` v3.0); (b) the Lifting Tracker D19 Reasoner Duality (`~/lifting-tracker/docs/architecture_v0.4.0.md` D19); (c) the `document-cm` skill design (`~/lifting-tracker/docs/reference/source-doc-cm-design.md`).
 
 ### 4.1 Book: perception → reasoning → planning → action loop (Ch. 3–5)
 
@@ -294,7 +294,7 @@ Candidate changes to three surfaces — the CM skill, the D19 reasoner implement
 - **Do not adopt the book's multi-agent framing.** The skill's Section 6 correctly refactors Concept's 16-agent suite into 4 skill scripts. The book's multi-agent chapter would push in the opposite direction. Source attribution: source-doc-cm-design.md Section 6.3 ("From 16 bespoke Python agents to 4 skill scripts").
 - **Consider adopting the book's monitoring-at-the-tool-call level stance for the skill's scripts.** Each `cm` invocation already writes a scorekeeper entry; adding lightweight duration/success metrics per script would align with the book's "monitoring systems" framing at essentially zero cost. Source attribution: book Ch. 25 (paraphrased).
 
-### 5.2 For the D19 reasoner implementation plan (`~/lifting-tracker/docs/architecture.md` D19)
+### 5.2 For the D19 reasoner implementation plan (`~/lifting-tracker/docs/architecture_v0.4.0.md` D19)
 
 - **Flag the Authority Rule's tension with Tier 2 self-reflection.** The book's recursive-reasoning / self-reflection framing (Ch. 6) can silently violate the Authority Rule if Tier 2 reflects its way to a conclusion that contradicts Tier 1. A clarifying note in D19 would scope Tier 2 reflection to its own outputs, not to Tier 1 findings. Source attribution: Caldwell Ch. 6 + the Authority Rule's current phrasing in D19.
 - **Adopt the book's evaluation-framework framing for Tier 2 outputs post-MVP.** D19's current user-feedback mechanism (thumbs up/down via `ai_interactions.user_rating`) is a runtime signal, not a benchmark suite. For the NL workout parsing and session summary features specifically, a held-out set of workout log excerpts with expected parsed output would let Eric detect regressions across model changes. MVP: defer. v2: adopt. Source attribution: book Ch. 9 + Anthropic evaluation guidance.
@@ -365,7 +365,7 @@ Project documents cross-referenced for Section 4 mapping:
 
 - `~/Concept/AgentSuiteReference_v4.md` v4.0 — 16-agent CM suite, classes, namespace prefixes, workflow patterns.
 - `~/Concept/DesignPrinciples_v3.md` v3.0 — Principle-to-Instruction lifecycle, foundational architecture principles, Reasoner Duality (§2.8), Authority Rule, conversion tracker (45 items).
-- `~/lifting-tracker/docs/architecture.md` — D1–D24 decisions, particularly D19 (Reasoner Duality, Authority Rule, MVP AI scope).
+- `~/lifting-tracker/docs/architecture_v0.4.0.md` — D1–D24 decisions, particularly D19 (Reasoner Duality, Authority Rule, MVP AI scope).
 - `~/lifting-tracker/docs/reference/source-doc-cm-design.md` v0.1 draft — document-cm skill design brief, four-frame alignment, agent-to-skill refactor plan, risk-vs-ops calibration, ten open questions for Eric.
 
 ---

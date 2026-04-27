@@ -10,13 +10,13 @@ content_class: research
 
 # MCP Server Adoption Assessment — XRSize4 ALL Portfolio
 
-Decision-grade assessment of which Model Context Protocol (MCP) servers to adopt, build, hold, or skip across Lifting Tracker, Concept Computing, and Reach4All. Anchored to the MCP-first principle (architecture.md §2.1) and the composite filter: **MCP-able OR trivially MCP-able + self-hostable + not-SaaS-locked + AI-native friction reduction**.
+Decision-grade assessment of which Model Context Protocol (MCP) servers to adopt, build, hold, or skip across Lifting Tracker, Concept Computing, and Reach4All. Anchored to the MCP-first principle (architecture_v0.4.0.md §2.1) and the composite filter: **MCP-able OR trivially MCP-able + self-hostable + not-SaaS-locked + AI-native friction reduction**.
 
 Cross-references (do not duplicate):
 - `docs/reference/context-hub-findings.md` — dual CLI+MCP adapter pattern
 - `docs/reference/workato-findings.md` — Enterprise MCP buffet (Oct 2025)
 - `docs/reference/claude-code-internals-findings.md` — skill resolution layer
-- `docs/architecture.md §2.1` — MCP-first principle; D27 — protocol deferred
+- `docs/architecture_v0.4.0.md §2.1` — MCP-first principle; D27 — protocol deferred
 
 ## 1. Executive Summary
 
@@ -140,7 +140,7 @@ Per-candidate: author / license / maturity / operations / composite-fit / use ca
 ## 5. Build Candidates (Q14–Q18)
 
 ### Q14. `lifting-tracker-domain-mcp` — the MCP-first sub-system
-- **Rationale:** architecture.md §2.1 mandates every sub-system ships an MCP server before further UI investment. Lifting Tracker is the first sub-system. This is not optional by the stated principle.
+- **Rationale:** architecture_v0.4.0.md §2.1 mandates every sub-system ships an MCP server before further UI investment. Lifting Tracker is the first sub-system. This is not optional by the stated principle.
 - **Effort (solo + AI):** 3–5 days initial scaffold; 1 day per tool thereafter.
 - **Deps:** Supabase client, Drizzle schema, RLS-aware service layer (same `lib/` the UI calls — per context-hub dual-adapter pattern).
 - **Exposes:** `log_session`, `query_athlete_history(athlete_id, range)`, `assign_program(athlete_id, program_id)`, `get_coach_hierarchy(coach_id)`, `list_exercises(family_id?)`, `compute_volume(session_id)`.
@@ -204,7 +204,7 @@ Tie-breakers (Rank 11+): `drizzle-mcp` (HOLD, Sprint 1+), `concept-agent-invoker
 | MCP | Reason |
 | --- | --- |
 | `notion` MCP (official) | SaaS-locked. Eric's doc stack is repo-based (`docs/` + YAML frontmatter) not Notion. No ingress path. |
-| `linear` MCP (official) | SaaS-locked, work-tracking only. No current Linear workspace. Sprint planning lives in `docs/roadmap.md`. |
+| `linear` MCP (official) | SaaS-locked, work-tracking only. No current Linear workspace. Sprint planning lives in `docs/roadmap_v0.4.0.md`. |
 | `slack` MCP | SaaS-locked. No Slack workspace in portfolio. Communication is email / direct. |
 | `confluence` MCP | SaaS-locked. Enterprise doc platform not in stack. |
 | `google-drive` MCP (Anthropic reference) | SaaS-locked; violates "self-hostable" leg of composite filter for primary storage. |

@@ -57,8 +57,8 @@ No code, schemas, file references, or third-party URLs appear in the assistant t
 | `docs/dispatch-handoff.md`                                | Eric already uses "Dispatch" as the operational workflow (mobile → desktop Cowork session). The conversation's product taxonomy is consistent with current usage. No update needed. |
 | `docs/conversation-archive/2026-04-21_dispatch-session-1.rtf` | Confirms Dispatch is the channel for actual project work, not just a definition. Conversation's "Mac awake + QR pairing" matches Eric's setup. |
 | `docs/reference/april-10-session-analysis.md`             | 14 share URLs ingested there. `c6324783` is not among them. No duplication.                                                              |
-| `docs/architecture.md` (D1–D27)                           | None of D1–D27 touch Anthropic product taxonomy. No decision is contradicted or extended.                                               |
-| `docs/risks.md` (27 active risks)                         | The "Dispatch reliability issues on longer tasks" caveat is *operational* for Eric's working environment, not a portfolio risk for Lifting Tracker. Already implicitly mitigated by the offline-first / archive-as-you-go pattern Eric uses. |
+| `docs/architecture_v0.4.0.md` (D1–D27)                           | None of D1–D27 touch Anthropic product taxonomy. No decision is contradicted or extended.                                               |
+| `docs/risks_v0.1.0.md` (27 active risks)                         | The "Dispatch reliability issues on longer tasks" caveat is *operational* for Eric's working environment, not a portfolio risk for Lifting Tracker. Already implicitly mitigated by the offline-first / archive-as-you-go pattern Eric uses. |
 | `docs/reference/source-doc-cm-design.md` (CM brief v0.3.0) | Content classes and WF-003 are about Concept-Computing-style document workflows; orthogonal to Anthropic product naming.                |
 | `docs/retrospectives/sprint-0a.md`                        | No overlap.                                                                                                                              |
 
@@ -78,7 +78,7 @@ None at decision level. Items worth noting at reference level only:
 
 Rationale: the conversation is a one-turn product-definition Q&A. The substantive content is already present, operationally, in `dispatch-handoff.md` and the April 21 dispatch session archive. Writing this back into a primary doc would add no information and would dilute those docs' decision-density.
 
-If a future "Working Environment" or "Tooling Inventory" appendix is created (currently no such doc exists in the portfolio), the Cowork/Dispatch distinction belongs there — not in `architecture.md`, not in `risks.md`, and not in the CM brief.
+If a future "Working Environment" or "Tooling Inventory" appendix is created (currently no such doc exists in the portfolio), the Cowork/Dispatch distinction belongs there — not in `architecture_v0.4.0.md`, not in `risks_v0.1.0.md`, and not in the CM brief.
 
 ## §7 Open questions
 

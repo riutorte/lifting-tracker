@@ -1,8 +1,11 @@
 ---
 author: Eric Riutort
 created: 2026-04-17
-updated: 2026-04-17
-status: Working draft
+updated: 2026-04-24
+tier: ARCHITECTURE
+content_class: architecture
+version: 0.2.0
+status: draft
 ---
 
 # XRSize4 ALL — Concept Document
@@ -105,7 +108,7 @@ This is the current enumeration. Additional sub-systems will be added as the pla
 
 Each discipline has its own training sub-system, tailored to its conventions, measurements, and coaching practices. The sub-systems share the common ontology (Program → Exercise Type → Routine / Class → Session → Exercise → Set) but specialize in the conventions of their discipline.
 
-- **Lifting Tracker** — weightlifting, strength training, bodybuilding. First sub-system. Alpha in progress. See `architecture.md` for detailed architecture.
+- **Lifting Tracker** — weightlifting, strength training, bodybuilding. First sub-system. Alpha in progress. See `architecture_v0.4.0.md` for detailed architecture.
 - **Running** — distance, pace, routes, interval training. Future.
 - **Martial Arts** — technique practice, sparring, belt progression, class attendance. Future.
 - **Yoga** — practice sessions, flow sequences, instruction attendance. Future.
@@ -347,9 +350,9 @@ flowchart LR
 
 XRSize4 ALL is documented across several artifacts:
 
-- `xrsize4all_concept.md` — this document; platform-level concept, dimensions, sub-systems, roadmap, cross-cutting concerns.
-- `architecture.md` — architecture of the Lifting Tracker sub-system (first module of XRSize4 ALL).
-- `user-stories.md` — user stories for the Lifting Tracker sub-system.
+- `xrsize4all_concept_v0.2.0.md` — this document; platform-level concept, dimensions, sub-systems, roadmap, cross-cutting concerns.
+- `architecture_v0.4.0.md` — architecture of the Lifting Tracker sub-system (first module of XRSize4 ALL).
+- `user-stories_v0.2.0.md` — user stories for the Lifting Tracker sub-system.
 - Future: additional sub-system architecture documents as each sub-system is designed in detail.
 
 ## Change Log
