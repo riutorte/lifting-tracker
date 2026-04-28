@@ -1,7 +1,7 @@
 ---
 author: Eric Riutort
 created: 2026-04-24
-updated: 2026-04-27
+updated: 2026-04-28
 tier: OPERATIONAL
 content_class: reference
 version: 0.2.3
@@ -418,9 +418,11 @@ Reserved sprint IDs (`0a`, `0b`, `0b1`, `0c`) are not reused. A sprint that is c
 
 ### 14.4 Retrospective convention
 
-Sprint retrospectives live at `docs/retrospectives/sprint-<id>.md` (no version, no semver — the sprint ID is the descriptor and the retro is point-in-time). Standard sections per the retros README: Outcome, Stats, Artifacts delivered, What worked, What didn't work, Improvements for next sprint, Key takeaways, Memory updates, Next sprint scoped.
+Sprint retrospectives live at `docs/retrospectives/sprint-retro-<id>.md` (per §6.2 — type prefix `sprint-retro-`, sprint ID at the end per "version at end" rule, no semver because retros are point-in-time). Standard sections per `docs/retrospectives/README.md`: Outcome, Stats, Artifacts delivered, What worked, What didn't work, Improvements for next sprint, Key takeaways, Memory updates, Next sprint scoped.
 
 The retrospective is mandatory at sprint close. A sprint without a retrospective is not closed.
+
+**README index discipline.** `docs/retrospectives/README.md` carries an "Index of retrospectives" section listing every retro that exists. At sprint close, the new retro file AND the README index entry land in the same atomic commit. The README is fixed-name (per §6.2) and never goes stale — it always reflects the current set of retros. Forgetting the index update is a defect; the commit is incomplete without it.
 
 ### 14.5 SDLC work modes (between-sprint and continuous work)
 

@@ -1,10 +1,9 @@
 ---
 author: Eric Riutort
 created: 2026-04-23
-updated: 2026-04-23
+updated: 2026-04-27
 tier: OPERATIONAL
 content_class: reference
-version: 0.1.0
 ---
 
 # Sprint Retrospectives
@@ -56,6 +55,18 @@ Retros are not polished prose. They are honest operational records. Specific exa
 ## Linking from kanban
 
 Each closed sprint's `kanban-sprint-<id>.md` should reference its retrospective file by relative path. Makes cross-reference mechanical.
+
+## Index of retrospectives
+
+Living index. Updated atomically alongside each new retro at sprint close (per CONVENTIONS_v0.2.3.md §14.4). Most recent at the top.
+
+| Sprint | Theme | Dates | Duration | Retro file |
+|---|---|---|---|---|
+| 0c | document-cm Skill Build (UNMET — closed early) | 2026-04-27 → 2026-04-28 | 2 days | [sprint-retro-0c.md](sprint-retro-0c.md) |
+| 0b2 | Documentation Rule Application | 2026-04-27 | 1 day | [sprint-retro-0b2.md](sprint-retro-0b2.md) |
+| 0b1 | Documentation Rule Codification | 2026-04-27 | 1 day | [sprint-retro-0b1.md](sprint-retro-0b1.md) |
+| 0b | Foundation Sprint Day 1 | 2026-04-24 | 1 day | [sprint-retro-0b.md](sprint-retro-0b.md) |
+| 0a | Foundation Research & CM Design | 2026-04-21 → 2026-04-23 | 3 days | [sprint-retro-0a.md](sprint-retro-0a.md) |
 
 ---
 

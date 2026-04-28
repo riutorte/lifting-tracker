@@ -1,6 +1,9 @@
 .claude/settings.local.json
 .claude/worktrees/
 
+# Obsidian
+.obsidian/
+
 # macOS
 .DS_Store
 
