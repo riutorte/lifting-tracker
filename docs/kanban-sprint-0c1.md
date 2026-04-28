@@ -2,6 +2,7 @@
 author: Eric Riutort
 created: 2026-04-28
 updated: 2026-04-28
+sprint_open_date: 2026-04-28
 tier: OPERATIONAL
 content_class: operational
 sprint: 0c1
@@ -59,9 +60,28 @@ Per CONVENTIONS_v0.2.4 §8 + §14.2, this is Sprint 0c1's per-sprint kanban. Cre
 
 ---
 
-## Open-items migration from Sprint 0c
+## Open-items migration from Sprint 0c0.5 (immediate predecessor)
 
-Per §14.2 inheritance rule. Each Sprint 0c carry-forward evaluated.
+Per §14.2 inheritance rule. Sprint 0c0.5 inserted between 0c and 0c1 (decimal half-step per CONVENTIONS_v0.2.4 §14.3). Each 0c0.5 close-criterion evaluated below. Sprint 0c0.5 closed cleanly with 7 of 8 CCs DONE; only CC8 carried forward, and it deferred PAST 0c1 per architectural-discipline correction.
+
+### From Sprint 0c0.5 close (1 item evaluated)
+
+| Item | 0c0.5 status | Disposition for 0c1 |
+|---|---|---|
+| CC1 — CONVENTIONS §14 amendments + version bump 0.2.3 → 0.2.4 | DONE | Released; 0c1 inherits the amendment as baseline |
+| CC2 — Strategic-decisions log v0.1.0 (12 SD entries) | DONE | Released; 0c1 cites the log as authoritative |
+| CC3 — CLAUDE.md tier-architecture v0.1.0 | DONE | Released; 0c1 cites the doc as authoritative |
+| CC4 — kanban-sprint-0c2.md draft | DONE | Released; 0c1 cites it as the next sprint's draft |
+| CC5 — kanban-sprint-0d.md draft | DONE | Released; 0c1 cites the updated 0d kanban (CC8 install removed, CC3a re-scoped, CC3b moved out) |
+| CC6 — kanban-sprint-0e.md draft | DONE | Released; 0c1 cites it |
+| CC7 — Memory files (project_strategic_decisions_log + feedback_decision_promotion) | DONE | Released; pattern propagated |
+| CC8 — Bindfs lock-reaper install (Layer 1 + Layer 2) | DEFERRED-TO-POST-SPRINT-0D2 | Does NOT carry forward to 0c1. Skips 0c1, 0c2, 0d, 0d1, 0d2; lands post-0d2 in a sprint TBD. Layer 1 env var (`GIT_OPTIONAL_LOCKS=0`) added to 0c1 as separate operational item |
+
+Net: nothing from 0c0.5 close requires 0c1 sprint-scope work. The 0c0.5 deliverables become 0c1's authoritative substrate.
+
+## Open-items migration from Sprint 0c (prior to 0c0.5)
+
+Per §14.2 inheritance rule. Each Sprint 0c carry-forward evaluated. (This section was authored at 0c close, before 0c0.5 was inserted; it remains accurate because 0c0.5 specifically drained chat-state without touching 0c→0c1 carry-forward items.)
 
 ### Bring forward to Sprint 0c1 (10 items, in scope per the close-criteria above)
 
