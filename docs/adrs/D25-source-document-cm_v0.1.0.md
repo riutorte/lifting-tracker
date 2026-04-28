@@ -171,7 +171,7 @@ The Sprint 0a governance lock committed to native-tools-only for the research re
 - `reach4all://docs/research/source-doc-cm-design-validated-review.md` — gap-closure review that fed v0.2.0 and v0.3.0.
 - `reach4all://docs/research/concept-computing-april-10-failure-analysis.md` — the thirteen failure patterns that motivated the framework.
 - `reach4all://docs/research/claude-code-internals-findings.md` — the runtime analysis that proved CC-017 and named the 25K Read ceiling and the three-layer compression cascade.
-- `docs/retrospectives/sprint-0a.md` — sprint close; records the governance locks (Eric-only manual, Option B tags, native-tools-only, research-repo=`reach4all`).
+- `docs/retrospectives/sprint-retro-0a.md` — sprint close; records the governance locks (Eric-only manual, Option B tags, native-tools-only, research-repo=`reach4all`).
 - `docs/architecture_v0.4.0.md` — D1–D24 plus D26 (TypeScript) and D27 (multi-agent interop) added in Sprint 0a.
 
 ### External references

@@ -100,7 +100,7 @@ Live work tracker across all Claude sessions (Dispatch, Code, Chrome, other). Di
 - **2026-04-22** — CM design review first pass delivered (26 gaps from memory).
 - **2026-04-22** — Agentic AI Bible findings delivered (369 lines).
 - **2026-04-22** — CM design validated review delivered (506 lines, 29 gaps with HIGH/MED confidence + must-fix/should/nice/decline priority).
-- **2026-04-22** — `docs/kanban.md` created (this file).
+- **2026-04-22** — `docs/kanban-sprint-<id>.md` created (this file).
 - **2026-04-22** — Anthropic engineering patterns review delivered (600 lines).
 - **2026-04-22** — Building Agentic AI Systems findings delivered (521 lines).
 - **2026-04-22** — Managed policy research delivered (1,310 lines).

@@ -184,7 +184,7 @@ CV omits the full 109-feature roster. That decision is conscious: features are t
 
 CV omits the per-story acceptance criteria. Acceptance criteria belong in `user-stories_v0.2.0.md` and in the engineering-task layer, not in the capability view.
 
-CV does not show MoSCoW or RICE prioritization. The MVP / v2 / v3 / v4 / Future labels carry the prioritization signal at this scale; finer-grained priority belongs in `roadmap_v0.4.0.md` and `kanban.md`.
+CV does not show MoSCoW or RICE prioritization. The MVP / v2 / v3 / v4 / Future labels carry the prioritization signal at this scale; finer-grained priority belongs in `roadmap_v0.4.0.md` and `kanban-sprint-<id>.md`.
 
 The DoDAF 2.02 CV taxonomy includes CV-1 through CV-7 (capability vision, taxonomy, phasing, dependencies, transition, mappings to operational activities, mapping to services). This view collapses CV-1, CV-2, CV-3, and CV-4 into a single capability viewpoint. When a specific CV sub-view (e.g., CV-5 transition or CV-6 capability-to-operational mapping) becomes load-bearing for a decision, it gets its own file. Premature file fragmentation is its own form of waste.
 

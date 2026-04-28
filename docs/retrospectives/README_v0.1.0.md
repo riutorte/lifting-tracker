@@ -17,16 +17,19 @@ Operational (per `docs/reference/source-doc-cm-design.md` v0.3.0 §3.7 Content C
 
 ## Filename convention
 
-`sprint-<id>.md` where `<id>` is the sprint identifier:
+Per CONVENTIONS_v0.2.3.md §6.1 (descriptiveness rule) and §6.2 (point-in-time docs):
 
-- `sprint-0a.md` — first foundation sprint (pre-programming)
-- `sprint-0b.md` — second foundation sprint
-- `sprint-0c.md` — third
-- `sprint-1.md` — first programming sprint
-- `sprint-1.5.md` — mid-sprint decision check-ins if warranted
-- `sprint-2.md` — etc.
+`sprint-retro-<id>.md` where `<id>` is the sprint identifier. Type prefix `sprint-retro-` at the start; sprint ID at the end ("version at end" rule).
 
-Sprint 0x naming for pre-programming phases (research, design, infrastructure stand-up). Sprint 1+ for programming phases. See `docs/kanban.md` for the live sprint tracker.
+- `sprint-retro-0a.md` — first foundation sprint (pre-programming)
+- `sprint-retro-0b.md` — second foundation sprint
+- `sprint-retro-0b1.md` — insert sprint between 0b and 0c (rules codification)
+- `sprint-retro-0b2.md` — insert sprint between 0b1 and 0c (rules application)
+- `sprint-retro-0c.md` — third
+- `sprint-retro-1.md` — first programming sprint
+- `sprint-retro-2.md` — etc.
+
+Sprint 0x naming for pre-programming phases (research, design, infrastructure stand-up). Sprint 1+ for programming phases. Insert sprints (`0b1`, `0b2`, etc.) per §14.3 sprint-numbering rule. See `docs/kanban-sprint-<id>.md` for the per-sprint live tracker.
 
 ## Template structure
 
@@ -52,7 +55,7 @@ Retros are not polished prose. They are honest operational records. Specific exa
 
 ## Linking from kanban
 
-Each sprint entry in `docs/kanban.md`'s "Done" section should name its retro file by relative path. Makes cross-reference mechanical.
+Each closed sprint's `kanban-sprint-<id>.md` should reference its retrospective file by relative path. Makes cross-reference mechanical.
 
 ---
 

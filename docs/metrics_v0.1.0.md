@@ -20,9 +20,9 @@ Six metrics. Four are measurable now (Sprint 0a); two are named-but-dormant unti
 
 ### 1. Lead time
 
-- **Definition:** Time from card created (or moved into any active lane) in `docs/kanban.md` to card moved into Done, for cards completed in the reporting week. Reported as the weekly median.
+- **Definition:** Time from card created (or moved into any active lane) in `docs/kanban-sprint-<id>.md` to card moved into Done, for cards completed in the reporting week. Reported as the weekly median.
 - **Unit:** Hours (rounded to nearest hour) or days (to one decimal) depending on distribution. Pick one and stay with it.
-- **Source:** `docs/kanban.md` Sprint sections. Card appearance timestamp approximated from git log on kanban.md; completion timestamp from the Done-section date.
+- **Source:** `docs/kanban-sprint-<id>.md` Sprint sections. Card appearance timestamp approximated from git log on kanban.md; completion timestamp from the Done-section date.
 - **Collection method:** Manual. Read kanban.md, pull completed cards for the week, derive timestamps from git blame / git log on the file.
 - **Current week (2026-04-27):** TBD.
 
@@ -30,15 +30,15 @@ Six metrics. Four are measurable now (Sprint 0a); two are named-but-dormant unti
 
 - **Definition:** Time from first commit against a card (or first Edit against an artifact tied to a card) to Done. Excludes the backlog-waiting portion that lead time includes. Reported as the weekly median.
 - **Unit:** Hours.
-- **Source:** `docs/kanban.md` for card identity and Done date; `git log` for first-touch timestamp (first commit whose message or files reference the card).
+- **Source:** `docs/kanban-sprint-<id>.md` for card identity and Done date; `git log` for first-touch timestamp (first commit whose message or files reference the card).
 - **Collection method:** Manual. Automatable once cards carry stable IDs and commits cite them consistently.
 - **Current week (2026-04-27):** TBD.
 
 ### 3. WIP
 
-- **Definition:** Count of cards sitting in the `### In Progress` section of `docs/kanban.md` at a Monday 09:00 snapshot. Raw count, no weighting.
+- **Definition:** Count of cards sitting in the `### In Progress` section of `docs/kanban-sprint-<id>.md` at a Monday 09:00 snapshot. Raw count, no weighting.
 - **Unit:** Cards (integer).
-- **Source:** `docs/kanban.md` at the snapshot time.
+- **Source:** `docs/kanban-sprint-<id>.md` at the snapshot time.
 - **Collection method:** Manual. `grep -c` on the In Progress table row count at Monday 09:00.
 - **Current week (2026-04-27):** TBD.
 
@@ -46,7 +46,7 @@ Six metrics. Four are measurable now (Sprint 0a); two are named-but-dormant unti
 
 - **Definition:** Cards that were marked Done during any week and subsequently returned to In Progress (or any non-Done lane) during the reporting week, divided by total cards completed in the reporting week.
 - **Unit:** Percentage (0–100). If no cards completed this week, N/A.
-- **Source:** `docs/kanban.md` history via `git log -p docs/kanban.md` filtered for reversion patterns (Done → In Progress moves).
+- **Source:** `docs/kanban-sprint-<id>.md` history via `git log -p docs/kanban-sprint-<id>.md` filtered for reversion patterns (Done → In Progress moves).
 - **Collection method:** Manual. Scan the week's commits on kanban.md for card movements out of Done.
 - **Current week (2026-04-27):** TBD.
 
@@ -76,7 +76,7 @@ Living record. One row per Monday, filled in at the Monday-morning cadence. Appe
 
 ## Collection cadence
 
-Every Monday morning. Manual collection for the four active metrics (lead time, cycle time, WIP, defect rate) against `docs/kanban.md` and `git log`. Pipeline velocity and data freshness are recorded as `N/A (pre-Sprint 1)` until Sprint 1 opens; at that point both promote to live collection and the collection-method entries above are revised from "dormant" to "active." The distinction between live and dormant metrics stays visible in this doc so a reader never mistakes a missing number for a zero.
+Every Monday morning. Manual collection for the four active metrics (lead time, cycle time, WIP, defect rate) against `docs/kanban-sprint-<id>.md` and `git log`. Pipeline velocity and data freshness are recorded as `N/A (pre-Sprint 1)` until Sprint 1 opens; at that point both promote to live collection and the collection-method entries above are revised from "dormant" to "active." The distinction between live and dormant metrics stays visible in this doc so a reader never mistakes a missing number for a zero.
 
 ## Baseline interpretation
 

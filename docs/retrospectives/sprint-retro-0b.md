@@ -79,8 +79,8 @@ Eight of eleven close criteria met. Three explicitly deferred to Sprint 0c (not 
 **Retrospectives:**
 
 - `docs/retrospectives/README_v0.1.0.md`
-- `docs/retrospectives/sprint-0a.md`
-- `docs/retrospectives/sprint-0b.md` (this file)
+- `docs/retrospectives/sprint-retro-0a.md`
+- `docs/retrospectives/sprint-retro-0b.md` (this file)
 
 **External:**
 

@@ -222,7 +222,7 @@ Use this for each sprint during execution. Copy and fill in:
 
 ## Timeline
 
-> **Sprint numbering note.** Per `docs/kanban.md` convention, "Sprint 0x" (0a, 0b, 0c, …) covers pre-programming phases (research, infrastructure standup, tooling). Programming sprints start at "Sprint 1". The MVP Sprint Plan above was authored before this convention was adopted — its "Sprint 0 — Foundation" maps to **Sprint 1 — Foundation programming** in the timeline below, and downstream sprint numbers shift by +1 accordingly. The MVP Sprint Plan tables remain authoritative for scope; the timeline below is authoritative for naming and dates.
+> **Sprint numbering note.** Per `docs/kanban-sprint-<id>.md` convention, "Sprint 0x" (0a, 0b, 0c, …) covers pre-programming phases (research, infrastructure standup, tooling). Programming sprints start at "Sprint 1". The MVP Sprint Plan above was authored before this convention was adopted — its "Sprint 0 — Foundation" maps to **Sprint 1 — Foundation programming** in the timeline below, and downstream sprint numbers shift by +1 accordingly. The MVP Sprint Plan tables remain authoritative for scope; the timeline below is authoritative for naming and dates.
 
 | Sprint | Scope | Window | Status |
 |---|---|---|---|
@@ -236,7 +236,7 @@ Use this for each sprint during execution. Copy and fill in:
 | 4 | Web dashboard + business model Phase 2 (Pro tier paywall) | TBD, after 3 (target 4-6 days) | PLANNED |
 | 5+ | Goals (D21), progress photos (D22), wearable integration prep, additional sub-systems | TBD | BACKLOG |
 
-Sprint cadence is **days, not weeks** — solo + AI velocity. Estimates above are conservative ranges; actual closes are tracked in `docs/kanban.md` and retrospected in `docs/retrospectives/`.
+Sprint cadence is **days, not weeks** — solo + AI velocity. Estimates above are conservative ranges; actual closes are tracked in `docs/kanban-sprint-<id>.md` and retrospected in `docs/retrospectives/`.
 
 ### Visual timeline
 
@@ -261,7 +261,7 @@ Durations are conservative initial estimates. Update as actuals come in; the gan
 
 ### Cross-references
 
-- `docs/kanban.md` — live work tracker for the active sprint (single source of truth for in-flight items)
+- `docs/kanban-sprint-<id>.md` — live work tracker for the active sprint (single source of truth for in-flight items)
 - `docs/retrospectives/` — sprint-close retros (one per sprint, indexed at folder root)
 - `docs/risks_v0.1.0.md` — risks and mitigations affecting sprint timing
 - `docs/architecture_v0.4.0.md` D27 — multi-agent interop (Phase 5+ concern; informs MCP server design from Sprint 3 onward)

@@ -18,7 +18,7 @@ This document names and governs the orchestration pattern Eric runs across three
 
 ### Cowork (Dispatch)
 
-Primary surface for strategic orchestration. Runs on the desktop app, spawns sibling tasks via MCP, renders a TodoList widget, maintains `docs/kanban.md`, holds persistent memory across sessions, can attach files and screenshots, and can reach Claude in Chrome.
+Primary surface for strategic orchestration. Runs on the desktop app, spawns sibling tasks via MCP, renders a TodoList widget, maintains `docs/kanban-sprint-<id>.md`, holds persistent memory across sessions, can attach files and screenshots, and can reach Claude in Chrome.
 
 Use for: research, landscape scans, document authoring and revision, source-doc CM work, framework reviews, screenshot analysis, long-horizon planning, coordinating multiple children, and anything that needs the memory layer or attachments.
 
@@ -63,7 +63,7 @@ Ambiguous case default: if the task touches both code and research, Dispatch orc
 
 No shared memory exists between Cowork and Claude Code. Context moves through files and explicit MCP calls, nothing else.
 
-**The kanban as shared state.** `docs/kanban.md` is the canonical work tracker across all surfaces. Dispatch maintains it continuously — spawning a task adds a row to In Progress, completion moves it to In Review or Done, blockers move it to Blocked. Claude Code sessions read it to orient before touching anything. The `## Other Session Work` section is Eric-maintained for sessions Dispatch cannot see (Chrome, mobile, other desktop CLI). Tier: OPERATIONAL, date-based versioning.
+**The kanban as shared state.** `docs/kanban-sprint-<id>.md` is the canonical work tracker across all surfaces. Dispatch maintains it continuously — spawning a task adds a row to In Progress, completion moves it to In Review or Done, blockers move it to Blocked. Claude Code sessions read it to orient before touching anything. The `## Other Session Work` section is Eric-maintained for sessions Dispatch cannot see (Chrome, mobile, other desktop CLI). Tier: OPERATIONAL, date-based versioning.
 
 **Research docs as accumulated findings.** Everything under `docs/reference/` is the research memory of the project. Dispatch tasks produce new files there; subsequent sessions read them as source material. Format: YAML frontmatter + copyright footer, WF-003-style ALIGNED / EXTENDS-US / CONTRADICTS / NEUTRAL alignment maps where appropriate. The `reach4all` research repo (Sprint 0b) will consolidate portfolio-level findings outside any single sub-system's tree.
 
@@ -128,7 +128,7 @@ Attribution and footer stay current. `updated:` bumps on every material edit. Ve
 
 Cross-links to update when this doc changes:
 - `docs/architecture_v0.4.0.md` — if an orchestration decision becomes architectural (e.g., a new D-number), it moves there and this doc references it.
-- `docs/kanban.md` — if a new spawn pattern emerges, the kanban's conventions section is updated too.
+- `docs/kanban-sprint-<id>.md` — if a new spawn pattern emerges, the kanban's conventions section is updated too.
 - `docs/reference/source-doc-cm-design.md` — if a mitigation here becomes a CM skill requirement, it propagates there.
 
 When this doc contradicts observed behavior, the observed behavior wins. Update the doc; do not paper over the divergence.

@@ -65,10 +65,10 @@ Research docs (in `docs/reference/` at sprint close; migrating to Reach4All in S
 
 Operational docs:
 
-- docs/kanban.md
+- docs/kanban-sprint-<id>.md
 - docs/metrics_v0.1.0.md
 - docs/orchestration_v0.1.0.md
-- docs/retrospectives/sprint-0a.md (this file)
+- docs/retrospectives/sprint-retro-0a.md (this file)
 
 External work:
 
