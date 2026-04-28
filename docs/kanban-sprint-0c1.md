@@ -12,7 +12,7 @@ status: open
 
 # XRSize4 ALL / Lifting Tracker — Kanban (Sprint 0c1)
 
-Per CONVENTIONS_v0.2.3 §8 + §14.2, this is Sprint 0c1's per-sprint kanban. Created at sprint open with explicit open-items migration from `kanban-sprint-0c.md`. Frozen at sprint close as the immutable record.
+Per CONVENTIONS_v0.2.4 §8 + §14.2, this is Sprint 0c1's per-sprint kanban. Created at sprint open with explicit open-items migration from `kanban-sprint-0c.md`. Frozen at sprint close as the immutable record.
 
 ## Sprint 0c1 — Documentation Hygiene + AV-2 Enrichment + First Prevention Action
 
@@ -24,7 +24,7 @@ Per CONVENTIONS_v0.2.3 §8 + §14.2, this is Sprint 0c1's per-sprint kanban. Cre
 
 **Close criteria (10 items):**
 
-1. ✅ INHERITED — CONVENTIONS_v0.2.3 §14.4 retros README discipline amendment landed (committed in Sprint 0c close commit; this kanban inherits as baseline)
+1. ✅ INHERITED — CONVENTIONS_v0.2.4 §14.4 retros README discipline amendment landed (committed in Sprint 0c close commit; this kanban inherits as baseline)
 2. NEW — Directory READMEs created: `docs/dodaf/README.md` (DoDAF view index + §11 reference), `docs/adrs/README.md` (ADR index + ADR template), `docs/conversation-archive/README.md` (date-organized index), `docs/README.md` (top-level docs/ overview)
 3. ✅ INHERITED — Retros README rename + index landed (committed in Sprint 0c close commit; this kanban inherits as baseline)
 4. NEW — Naming-convention rename pass: apply `lift-track-` prefix to ~25 system-specific files. Includes:
@@ -52,6 +52,10 @@ Per CONVENTIONS_v0.2.3 §8 + §14.2, this is Sprint 0c1's per-sprint kanban. Cre
 
 - DoDAF cross-reference matrix (`docs/dodaf-cross-reference.md`) per CONVENTIONS §11.6 promise
 - Reach4All bindfs-residue cleanup (worktree branches, untracked `.claude/`)
+
+**Operational items (non-CC; quick-fix; land first thing on day 1):**
+
+- **`GIT_OPTIONAL_LOCKS=0` env var (Layer 1 of bindfs lock-reaper).** Added per Eric's call at Sprint 0c0.5 close, 2026-04-28. Single line addition to `~/.zshrc` (or `~/.bashrc`): `export GIT_OPTIONAL_LOCKS=0`. Tells git not to write `.git/index.lock` for read-only operations. Architecturally trivial — turns off an optional lock, no compensating-control posture needed, no STIG framing required. Cuts the bindfs lock-cycle friction substantially during the deferral window for Sprint 0c0.5 CC8 (full Layer 1 + Layer 2 install deferred to post-Sprint-0d2 per architectural-discipline correction). Validation: in a fresh shell, `cd ~/lifting-tracker && git status && ls .git/*.lock 2>/dev/null && echo "lock present" || echo "no lock created"` should print "no lock created."
 
 ---
 
@@ -145,7 +149,7 @@ Eric-maintained — sessions Dispatch cannot see (Chrome, mobile, other CLI).
 - Prior sprint's kanban (frozen): `docs/kanban-sprint-0c.md`
 - Sprint 0c retrospective: `docs/retrospectives/sprint-retro-0c.md`
 - Sprint 0c1 retrospective at close: `docs/retrospectives/sprint-retro-0c1.md` (or `lift-track-sprint-retro-0c1.md` once rename pass lands during this sprint)
-- Methodology: `docs/CONVENTIONS_v0.2.3.md` §14
+- Methodology: `docs/CONVENTIONS_v0.2.4.md` §14
 - Naming convention rules: §6.1 + §6.2 + the abbreviation table established in Sprint 0c (lift-track / concept-comp / xrsize4all)
 - Failure modes prior research: `reach4all://docs/research/claude-code-failure-modes-and-prevention-research.md` (superseded by CC10 deliverable)
 - DoDAF reference: `reach4all://docs/research/dodaf-dm2-and-av2-guidelines-reference-research.md` + `dodaf-drive-folder-supplemental-research.md`

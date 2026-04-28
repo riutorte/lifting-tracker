@@ -16,7 +16,7 @@ Operational (per `docs/reference/source-doc-cm-design.md` v0.3.0 §3.7 Content C
 
 ## Filename convention
 
-Per CONVENTIONS_v0.2.3.md §6.1 (descriptiveness rule) and §6.2 (point-in-time docs):
+Per CONVENTIONS_v0.2.4.md §6.1 (descriptiveness rule) and §6.2 (point-in-time docs):
 
 `sprint-retro-<id>.md` where `<id>` is the sprint identifier. Type prefix `sprint-retro-` at the start; sprint ID at the end ("version at end" rule).
 
@@ -58,10 +58,11 @@ Each closed sprint's `kanban-sprint-<id>.md` should reference its retrospective 
 
 ## Index of retrospectives
 
-Living index. Updated atomically alongside each new retro at sprint close (per CONVENTIONS_v0.2.3.md §14.4). Most recent at the top.
+Living index. Updated atomically alongside each new retro at sprint close (per CONVENTIONS_v0.2.4.md §14.4). Most recent at the top.
 
 | Sprint | Theme | Dates | Duration | Retro file |
 |---|---|---|---|---|
+| 0c0.5 | Decision Consolidation Sweep + Bindfs Lock-Reaper Install (CC8 MOVED) | 2026-04-28 | 1 day | [sprint-retro-0c0.5.md](sprint-retro-0c0.5.md) |
 | 0c | document-cm Skill Build (UNMET — closed early) | 2026-04-27 → 2026-04-28 | 2 days | [sprint-retro-0c.md](sprint-retro-0c.md) |
 | 0b2 | Documentation Rule Application | 2026-04-27 | 1 day | [sprint-retro-0b2.md](sprint-retro-0b2.md) |
 | 0b1 | Documentation Rule Codification | 2026-04-27 | 1 day | [sprint-retro-0b1.md](sprint-retro-0b1.md) |
