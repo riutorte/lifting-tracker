@@ -45,7 +45,7 @@ Original CC numbering retained for cross-reference stability. CC4, CC5, CC6 (ren
 
 **Operational items (non-CC; quick-fix; land first thing on day 1):**
 
-- **`GIT_OPTIONAL_LOCKS=0` env var (Layer 1 of bindfs lock-reaper).** Added per Eric's call at Sprint 0c0.5 close, 2026-04-28. Single line addition to `~/.zshrc` (or `~/.bashrc`): `export GIT_OPTIONAL_LOCKS=0`. Tells git not to write `.git/index.lock` for read-only operations. Architecturally trivial — turns off an optional lock, no compensating-control posture needed, no STIG framing required. Cuts the bindfs lock-cycle friction substantially during the deferral window for Sprint 0c0.5 CC8 (full Layer 1 + Layer 2 install deferred to post-Sprint-0d2 per architectural-discipline correction). Validation: in a fresh shell, `cd ~/lifting-tracker && git status && ls .git/*.lock 2>/dev/null && echo "lock present" || echo "no lock created"` should print "no lock created."
+- **`GIT_OPTIONAL_LOCKS=0` env var (Layer 1 of bindfs lock-reaper)** — **DEFERRED-TO-POST-SPRINT-0D1** per Eric's correction at Sprint 0c1 mid-stream (2026-04-28). The env var bypasses Cowork's bindfs sandbox lock-handling behavior; even though the implementation is one shell-rc line, it IS a compensating control. The earlier "architecturally trivial — no compensating-control posture needed" framing was wrong. Both Layer 1 (env var) and Layer 2 (full reaper install per SD-004) are compensating controls and defer until the security controls baseline (SD-009 / Sprint 0d1) is in place so the deviation is documented against the formal baseline rather than freelancing. Layer 1 specifically defers to post-Sprint-0d1; Layer 2 stays at post-Sprint-0d2 per its broader architectural-pattern dependencies. Implementation note: single line `export GIT_OPTIONAL_LOCKS=0` in `~/.zshrc` (or `~/.bashrc`). Validation: in a fresh shell, `cd ~/lifting-tracker && git status && ls .git/*.lock 2>/dev/null && echo "lock present" || echo "no lock created"` should print "no lock created."
 
 ---
 
@@ -64,7 +64,7 @@ Per §14.2 inheritance rule. Sprint 0c0.5 inserted between 0c and 0c1 (decimal h
 | CC5 — kanban-sprint-0d.md draft | DONE | Released; 0c1 cites the updated 0d kanban (CC8 install removed, CC3a re-scoped, CC3b moved out) |
 | CC6 — kanban-sprint-0e.md draft | DONE | Released; 0c1 cites it |
 | CC7 — Memory files (project_strategic_decisions_log + feedback_decision_promotion) | DONE | Released; pattern propagated |
-| CC8 — Bindfs lock-reaper install (Layer 1 + Layer 2) | DEFERRED-TO-POST-SPRINT-0D2 | Does NOT carry forward to 0c1. Skips 0c1, 0c2, 0d, 0d1, 0d2; lands post-0d2 in a sprint TBD. Layer 1 env var (`GIT_OPTIONAL_LOCKS=0`) added to 0c1 as separate operational item |
+| CC8 — Bindfs lock-reaper install (Layer 1 + Layer 2) | DEFERRED-TO-POST-SPRINT-0D2 (Layer 2) / POST-SPRINT-0D1 (Layer 1) | Does NOT carry forward to 0c1. Layer 2 (full LaunchAgent + fswatch reaper install) stays deferred to post-Sprint-0d2 per architectural-pattern dependencies (SD-007 reference architecture, SD-008 rolled-up overview, SD-006 framework rename). Layer 1 (env var) deferred to post-Sprint-0d1 per Eric's 2026-04-28 correction — even the env var is a compensating control bypassing bindfs behavior; defers until security controls baseline (SD-009 / Sprint 0d1) is in place |
 
 Net: nothing from 0c0.5 close requires 0c1 sprint-scope work. The 0c0.5 deliverables become 0c1's authoritative substrate.
 
