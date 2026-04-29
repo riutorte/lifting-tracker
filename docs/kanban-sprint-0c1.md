@@ -23,31 +23,20 @@ Per CONVENTIONS_v0.2.4 §8 + §14.2, this is Sprint 0c1's per-sprint kanban. Cre
 
 **Goal:** Portfolio-wide naming convention applied; directory READMEs in place; AV-2 dictionary enriched to fit-for-purpose DoDAF compliance; first failure-modes prevention action shipped (deny list); rollback strategy research delivered.
 
-**Close criteria (10 items):**
+**Close criteria (7 items after Sprint 0c1.5 split — original 10, 3 moved to dedicated rename sprint):**
+
+Original CC numbering retained for cross-reference stability. CC4, CC5, CC6 (rename pass + source-doc-cm-design rename + dispatch-handoff rename) moved to new dedicated Sprint 0c1.5 per Eric's call at Sprint 0c1 mid-stream (2026-04-28): "push rename to its own sprint without anything else in the sprint." Sprint 0c1.5 inserts between 0c1 and 0c2 as a rename-only micro-sprint per CONVENTIONS_v0.2.4 §14.3 decimal-numbering pattern.
 
 1. ✅ INHERITED — CONVENTIONS_v0.2.4 §14.4 retros README discipline amendment landed (committed in Sprint 0c close commit; this kanban inherits as baseline)
 2. NEW — Directory READMEs created: `docs/dodaf/README.md` (DoDAF view index + §11 reference), `docs/adrs/README.md` (ADR index + ADR template), `docs/conversation-archive/README.md` (date-organized index), `docs/README.md` (top-level docs/ overview)
 3. ✅ INHERITED — Retros README rename + index landed (committed in Sprint 0c close commit; this kanban inherits as baseline)
-4. NEW — Naming-convention rename pass: apply `lift-track-` prefix to ~25 system-specific files. Includes:
-   - `architecture_v0.4.0.md` → `lift-track-architecture_v0.4.0.md`
-   - `roadmap_v0.4.0.md` → `lift-track-roadmap_v0.4.0.md`
-   - `risks_v0.1.0.md` → `lift-track-risks_v0.1.0.md`
-   - `metrics_v0.1.0.md` → `lift-track-metrics_v0.1.0.md`
-   - `effort-estimate_v0.1.0.md` → `lift-track-effort-estimate_v0.1.0.md`
-   - `ontology-plan_v0.1.0.md` → `lift-track-ontology-plan_v0.1.0.md`
-   - `themes-epics-features_v0.2.0.md` → `lift-track-themes-epics-features_v0.2.0.md`
-   - `user-stories_v0.2.0.md` → `lift-track-user-stories_v0.2.0.md`
-   - `kanban-sprint-<id>.md` → `lift-track-kanban-sprint-<id>.md` (× all existing sprint kanbans)
-   - `sprint-retro-<id>.md` → `lift-track-sprint-retro-<id>.md` (× all existing retros)
-   - ADRs: `D##-<slug>_v<version>.md` → `lift-track-D##-<slug>_v<version>.md`
-   - DoDAF views: `<view-code>-<slug>_v<version>.md` → `lift-track-dodaf-<view-code>-<slug>_v<version>.md`
-   Plus cross-reference sweep across all active docs.
-5. NEW — `source-doc-cm-design.md` rename to `lift-track-source-document-cm_v0.3.0.md` + ~140 cross-reference updates portfolio-wide
-6. NEW — `dispatch-handoff.md` rename to `lift-track-dispatch-handoff_v0.1.0.md` + semver bump per §6.2 v0.2.3 amendment
+4. **MOVED to Sprint 0c1.5** — Naming-convention rename pass (~25 files + cross-references). See `kanban-sprint-0c1.5.md`.
+5. **MOVED to Sprint 0c1.5** — `source-doc-cm-design.md` rename + ~140 cross-reference updates. See `kanban-sprint-0c1.5.md`.
+6. **MOVED to Sprint 0c1.5** — `dispatch-handoff.md` rename + semver bump. See `kanban-sprint-0c1.5.md`.
 7. ✅ INHERITED — `.gitignore` Obsidian additions × 2 repos (committed in Sprint 0c close commit; this kanban inherits as baseline)
 8. NEW — AV-2 enrichment fit-for-purpose pass: inclusion-completeness across all 10 views, CARP/CARPO subset typing, four authoring rules applied (verb-object activities, no-and, synonym-collapse, bracketed-context-tag), domain concepts (Session, Exercise, Set, Limb Configuration, Volume, Rest Cascade, Goal, Progress Photo, etc.) added as standalone rows. ~8 hours per DoDAF research.
 9. NEW — Project-level `.claude/settings.json` deny list across 3 repos (lifting-tracker, reach4all, Concept). Minimum set per failure-modes research §7-B: `rm -rf` variants, `git push --force`, `terraform destroy`, `supabase db reset`, `cat .env`, secret-pattern-blocking. ~1 hour, highest yield-to-cost prevention action.
-10. NEW — Wide/deep failure-modes + rollback strategy research delivered: `claude-code-failure-modes-and-rollback-strategy-research.md` lands in reach4all (currently running, will land in 0c1). Supersedes prior failure-modes research doc. Target ~1500-2000 lines covering 30-50 documented incidents + comprehensive rollback playbooks for Eric's stack (Supabase PITR, file-system recovery, git history restoration, cloud-platform mistakes, MCP server compromise, secret leak rotation).
+10. ✅ INHERITED-DONE — Wide/deep failure-modes + rollback strategy research already landed in `claude-code-failure-modes-and-rollback-strategy-research.md` (2,574 lines, 10 sections), committed in Sprint 0c close batch (`3691516`). Inadvertently double-counted at 0c1 sprint-open; status marked here for accuracy.
 
 **Stretch (only if 1-10 land cleanly with capacity remaining):**
 
