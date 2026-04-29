@@ -20,7 +20,7 @@ Per CONVENTIONS §11.7, every sub-system produces at minimum the load-bearing fo
 | View | Purpose | File |
 |---|---|---|
 | AV-1 Overview & Summary | Plain-language scope, purpose, stakeholders, environment | `AV-1-overview_v0.1.0.md` |
-| AV-2 Integrated Dictionary | Glossary of terms used across views (CARP/CARPO subset typing landing in Sprint 0c1 CC8) | `AV-2-dictionary_v0.1.0.md` |
+| AV-2 Integrated Dictionary | Glossary of terms used across views (CARP/CARPO subset typing landed in Sprint 0c1 CC8) | `AV-2-dictionary_v0.2.0.md` |
 | CV Capability Viewpoint | Capability hierarchy and dependencies | `CV-capabilities_v0.1.0.md` |
 | OV-1 High-Level Operational Concept Graphic | The "one-picture concept" — actors, environment, value flow | `OV-1-concept-graphic_v0.1.0.md` |
 | OV-5c Activity Sequence | Event-traced behavioral view (sequence diagram form of OV-5b) | `OV-5c-activity-sequence_v0.1.0.md` |

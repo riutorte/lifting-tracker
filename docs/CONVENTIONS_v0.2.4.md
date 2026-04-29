@@ -1,7 +1,7 @@
 ---
 author: Eric Riutort
 created: 2026-04-24
-updated: 2026-04-28
+updated: 2026-04-29
 tier: OPERATIONAL
 content_class: reference
 version: 0.2.4
@@ -295,7 +295,7 @@ The portfolio adopts eleven named DoDAF views. Each view has a defined purpose, 
 | View | Purpose | Preferred mermaid type | Canonical location |
 |---|---|---|---|
 | AV-1 Overview & Summary | Plain-language scope, purpose, stakeholders, environment | mindmap or flowchart | `docs/dodaf/AV-1-overview_v0.1.0.md` |
-| AV-2 Integrated Dictionary | Glossary of terms used across views | table (markdown), no diagram required | `docs/dodaf/AV-2-dictionary_v0.1.0.md` |
+| AV-2 Integrated Dictionary | Glossary of terms used across views | table (markdown), no diagram required | `docs/dodaf/AV-2-dictionary_v0.2.0.md` |
 | CV Capability Viewpoint | Capability hierarchy and dependencies | mindmap (hierarchy) + flowchart (dependencies) | `docs/dodaf/CV-capabilities_v0.1.0.md` |
 | OV-1 High-Level Operational Concept Graphic | The "one-picture concept" — actors, environment, value flow | flowchart with actor stereotypes | `docs/dodaf/OV-1-concept-graphic_v0.1.0.md` |
 | OV-2 Operational Resource Flow Description | Operational nodes and the flows between them | flowchart (directed, labeled edges) | `docs/dodaf/OV-2-resource-flows.md` |
