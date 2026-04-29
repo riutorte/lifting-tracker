@@ -1,14 +1,14 @@
 ---
 author: Eric Riutort
 created: 2026-04-28
-updated: 2026-04-28
+updated: 2026-04-29
 tier: OPERATIONAL
 content_class: operational
 sprint: 0c1.5
 sprint_name: Naming-Convention Rename Pass
-sprint_dates: TBD → TBD
-sprint_open_date: TBD
-status: draft
+sprint_dates: 2026-04-29 → TBD
+sprint_open_date: 2026-04-29
+status: open
 ---
 
 # XRSize4 ALL / Lifting Tracker — Kanban (Sprint 0c1.5)

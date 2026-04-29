@@ -1,14 +1,16 @@
 ---
 author: Eric Riutort
 created: 2026-04-28
-updated: 2026-04-28
+updated: 2026-04-29
 sprint_open_date: 2026-04-28
+sprint_close_date: 2026-04-29
 tier: OPERATIONAL
 content_class: operational
 sprint: 0c1
 sprint_name: Documentation Hygiene + AV-2 Enrichment + First Prevention Action
-sprint_dates: 2026-04-28 → TBD
-status: open
+sprint_dates: 2026-04-28 → 2026-04-29
+duration_days: 2
+status: closed
 ---
 
 # XRSize4 ALL / Lifting Tracker — Kanban (Sprint 0c1)

@@ -62,6 +62,7 @@ Living index. Updated atomically alongside each new retro at sprint close (per C
 
 | Sprint | Theme | Dates | Duration | Retro file |
 |---|---|---|---|---|
+| 0c1 | Documentation Hygiene + AV-2 Enrichment + First Prevention Action (parallel methodology validated) | 2026-04-28 → 2026-04-29 | 2 days | [sprint-retro-0c1.md](sprint-retro-0c1.md) |
 | 0c0.5 | Decision Consolidation Sweep + Bindfs Lock-Reaper Install (CC8 MOVED) | 2026-04-28 | 1 day | [sprint-retro-0c0.5.md](sprint-retro-0c0.5.md) |
 | 0c | document-cm Skill Build (UNMET — closed early) | 2026-04-27 → 2026-04-28 | 2 days | [sprint-retro-0c.md](sprint-retro-0c.md) |
 | 0b2 | Documentation Rule Application | 2026-04-27 | 1 day | [sprint-retro-0b2.md](sprint-retro-0b2.md) |
