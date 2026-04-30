@@ -105,12 +105,15 @@ Eric-maintained — sessions Dispatch cannot see (Chrome, mobile, other CLI).
 - Prior sprint's kanban (frozen at 0c2 close): `docs/lift-track-kanban-sprint-0c2.md` (or `docs/lift-track-kanban-sprint-0c2.md`)
 - Sprint 0c2 retrospective: `docs/retrospectives/sprint-retro-0c2.md`
 - Sprint 0d retrospective at close: `docs/retrospectives/sprint-retro-0d.md`
-- Sprint 0e (next sprint, opens at 0d close): pre-drafted in `docs/lift-track-kanban-sprint-0e.md`
+- **Next sprint (opens at 0d close, or parallel per 0d1 OQ10):** Sprint 0d1 — Security Controls Baseline integration — pre-drafted in `docs/lift-track-kanban-sprint-0d1.md` (scoped from `reach4all://docs/architecture/security-controls-baseline_v0.1.0.md` per SD-009)
+- **Adjacent sprint (also pre-drafted; sequencing per 0d1 OQ10):** Sprint 0d2 — framework rename + reference architecture + xrsize4all repo standup — `docs/lift-track-kanban-sprint-0d2.md`
+- Sprint 0e (downstream sprint, opens after 0d1 + 0d2 close): pre-drafted in `docs/lift-track-kanban-sprint-0e.md`
 - Methodology: `docs/CONVENTIONS_v0.2.4.md` §14
 - CM design source: `lift-track-source-document-cm_v0.3.0.md` (renamed in Sprint 0c1 CC5)
 - Failure-modes research source: `reach4all://docs/research/claude-code-failure-modes-and-rollback-strategy-research.md` (Sprint 0c1 CC10) — §6.A, §7-A
 - DISA Python STIG reference: cited in skill-co-located alignment doc per Q4 = C
 - G31 commitment: STIG alignment carried since Sprint 0b backlog
+- **Sprint 0d CC3b STIG-format doc placement:** see Sprint 0d1 OQ4 for confirmation of post-0d1 deferral or pull-into-0d1 alternative
 
 ---
 
