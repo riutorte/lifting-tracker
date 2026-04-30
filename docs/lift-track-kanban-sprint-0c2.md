@@ -6,9 +6,11 @@ tier: OPERATIONAL
 content_class: operational
 sprint: 0c2
 sprint_name: Sandboxing Discipline + Destructive-Op Policy
-sprint_dates: 2026-04-30 → TBD
+sprint_dates: 2026-04-30 → 2026-04-30
 sprint_open_date: 2026-04-30
-status: open
+sprint_close_date: 2026-04-30
+duration_days: 1
+status: closed
 ---
 
 # XRSize4 ALL / Lifting Tracker — Kanban (Sprint 0c2)
@@ -82,7 +84,8 @@ Per §14.2 inheritance rule. **To be populated at actual sprint open from Sprint
 
 | Card | Closed | Artifact | Notes |
 |---|---|---|---|
-| (Empty at sprint open. Items move here as they close.) | — | — | — |
+| CC1 — Worktree-default amendment to orchestration doc | 2026-04-30 | `docs/orchestration_v0.1.0.md` v0.2.0 (§8 added, six subsections 8.1–8.6) | Failure-modes research §7-D / §1.2 prevention #2. Cowork-spawned tasks default to `isolation: "worktree"`; interactive Mac terminal alias `claude='claude --worktree'`; named override patterns. |
+| CC2 — Destructive-operation policy (lift-track scope) | 2026-04-30 | `docs/lift-track-destructive-operation-policy_v0.1.0.md` (606 lines, 8 sections + Changelog) | Failure-modes research §7-G. 5-tier framework (Tier 0 always-deny → Tier 4 routine); approval matrix at solo+AI scale with Fernando-onboarding placeholder; per-tier audit-trail; cross-references to deny list (CC9, 0c1) and orchestration §8 (CC1, 0c2). |
 
 ---
 
@@ -100,7 +103,7 @@ Eric-maintained — sessions Dispatch cannot see (Chrome, mobile, other CLI).
 
 - Prior sprint's kanban (frozen at 0c1 close): `docs/lift-track-kanban-sprint-0c1.md` (or `docs/lift-track-kanban-sprint-0c1.md` if rename pass landed)
 - Sprint 0c1 retrospective: `docs/retrospectives/lift-track-sprint-retro-0c1.md`
-- Sprint 0c2 retrospective at close: `docs/retrospectives/sprint-retro-0c2.md`
+- Sprint 0c2 retrospective: `docs/retrospectives/lift-track-sprint-retro-0c2.md`
 - Sprint 0d (next sprint, opens at 0c2 close): pre-drafted in `docs/lift-track-kanban-sprint-0d.md`
 - Methodology: `docs/CONVENTIONS_v0.2.4.md` §14
 - Failure-modes research source: `reach4all://docs/research/claude-code-failure-modes-and-rollback-strategy-research.md` (delivered Sprint 0c1 CC10), §7-D + §7-G

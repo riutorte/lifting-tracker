@@ -1,13 +1,14 @@
 ---
 author: Eric Riutort
 created: 2026-04-28
-updated: 2026-04-28
+updated: 2026-04-30
 tier: OPERATIONAL
 content_class: operational
 sprint: 0d
 sprint_name: document-cm Skill Build + STIG + Rollback Readiness
-sprint_dates: TBD → TBD
-status: draft
+sprint_dates: 2026-04-30 → TBD
+sprint_open_date: 2026-04-30
+status: open
 ---
 
 # XRSize4 ALL / Lifting Tracker — Kanban (Sprint 0d)
