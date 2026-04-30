@@ -1,10 +1,10 @@
 ---
 author: Eric Riutort
 created: 2026-04-19
-updated: 2026-04-24
+updated: 2026-04-30
 tier: OPERATIONAL
 content_class: operational
-version: 0.4.0
+version: 0.4.1
 status: accepted
 ---
 
@@ -198,6 +198,135 @@ MVP is organized into 8 sprints (2-week sprints). The ordering respects dependen
 | Backlog | E8.2 Smart Glasses / Voice | T8 | Hands-free logging |
 | Backlog | E8.3 Android / Wear OS | T8 | Cross-platform parity |
 
+## Sprint mapping for 0d → 0e+ (candidate map, v0.4.1 grooming)
+
+**Purpose.** Pre-categorize the 85 MVP + post-MVP backlog items above against the current pre-programming sprint kanbans (0d, 0d1, 0d1.5, 0d2, 0e) so the next sprint-open commit has a candidate map instead of needing fresh categorization mid-sprint. **Eric reviews and decides which items actually land in which sprints; this map does NOT promote items into the kanbans themselves.**
+
+**Calibration note.** Sprints 0d / 0d1 / 0d1.5 / 0d2 / 0e are pre-programming sprints (CM, security baseline, framework rename + reference architecture, hosting stand-up, listener + scheduler + LLM-extraction validation). MVP feature programming begins at "Sprint 1 — Foundation programming" per the Timeline section above. Therefore the **vast majority of backlog items map to post-0e** — not because they're far out in time, but because they require Sprint 1 programming foundation (Expo scaffold, Supabase schema deployment, auth, sync adapter) to begin. The handful of items that have a natural home in 0d / 0d1 / 0d1.5 / 0d2 / 0e are governance / security / hosting / AI-prereq items where the current sprints land the prerequisites, not the build itself.
+
+### Sprint mapping table (all 85 items)
+
+| Source (MVP Sprint / Phase) | Item | Candidate sprint | Rationale |
+|---|---|---|---|
+| MVP Sprint 0 | Supabase project creation + config | **0d1.5** | Hetzner stand-up sprint (does not yet exist) — Phase 1 hosting per SD-014; Supabase project provisioning rides the hosting decision. Per 0d1 OQ6, currently defaulted to 0e; Eric's call. |
+| MVP Sprint 0 | Full schema deployment (D1–D24) | **post-0e** | Requires Supabase project (0d1.5 prereq) + Sprint 1 programming foundation. Schema design cross-references the reference architecture landing in **0d2 CC-2** (P2 Ontology+Data pattern instantiation). |
+| MVP Sprint 0 | Row Level Security policies (US-311) | **0d1 (design) + post-0e (build)** | RLS policy DESIGN folds into 0d1 CC-2 D5 RBAC Security Implications block (AC-3 / AC-6 / IA-2(1) / A.5.15 / V4); BUILD is post-0e Sprint 1 once Supabase is provisioned. |
+| MVP Sprint 0 | Expo project scaffolding + Supabase SDK | **post-0e** | Sprint 1 programming foundation. No pre-programming sprint touches Expo. |
+| MVP Sprint 0 | Magic-link auth flow (US-001) | **post-0e** | Build is Sprint 1; 0d1 CC-2 D6 magic-link auth Security Implications block lands the controls citation (IA-2 / IA-5 / A.5.16 / V2 / V3.6). |
+| MVP Sprint 0 | Persistent session / secure token storage (US-002, US-003) | **post-0e** | Sprint 1 build; iOS Keychain / FileVault inheritance noted in 0d1 CC-2 D23 sync/offline block (SC-8 / SC-28). |
+| MVP Sprint 0 | Offline storage layer (US-320) | **post-0e** | Sprint 1 build; offline durability VERIFICATION (US-320 in MVP Sprint 7) folds into 0d rollback-readiness scope as a verification gate, see below. |
+| MVP Sprint 1 | Seed canonical exercise library (US-020) | **post-0e** | Requires schema + library UI; Sprint 1+ programming. |
+| MVP Sprint 1 | Exercise search and filtering (US-022) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 1 | Exercise aliases (US-023) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 1 | Limb-config-distinct exercise entries (US-024) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 1 | Exercise families (US-025) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 1 | Per-implement weight interpretation (US-026) | **post-0e** | Sprint 1+ programming (D14 already settled in architecture). |
+| MVP Sprint 1 | Custom user-scoped exercises (US-021) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 1 | Session entry (US-010) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 1 | Per-set entry (US-011) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 2 | Rest time three-level defaulting (US-017) | **post-0e** | Sprint 1+ programming (D16 already settled). |
+| MVP Sprint 2 | Set grouping — supersets / drop sets (US-018) | **post-0e** | Sprint 1+ programming (D17 already settled). |
+| MVP Sprint 2 | Limb-config-aware volume math (US-019) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 2 | Body weight entry (US-016) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 2 | Edit / delete previous workouts (US-015) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 2 | Offline logging with local persistence (US-013) | **post-0e** | Sprint 1+ programming (Sprint 2 in MVP plan). |
+| MVP Sprint 2 | Auto-sync on reconnect (US-014) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 2 | Sync conflict resolution (US-321) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 3 | Import parser for combined_workout_log.txt (US-040) | **post-0e** | Requires schema + library; Sprint 3+ programming. |
+| MVP Sprint 3 | Notation-aware import (US-041) | **post-0e** | Sprint 3+ programming. |
+| MVP Sprint 3 | Import fidelity verification (US-312) | **post-0e** | Sprint 3+ programming. |
+| MVP Sprint 3 | Ad-hoc session logging (US-060) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 3 | Optional Exercise Type on session (US-061) | **post-0e** | Sprint 1+ programming. |
+| MVP Sprint 4 | Overview dashboard (US-030) | **post-0e** | Sprint 4+ programming. |
+| MVP Sprint 4 | History by date (US-031) | **post-0e** | Sprint 4+ programming. |
+| MVP Sprint 4 | History by exercise (US-032) | **post-0e** | Sprint 4+ programming. |
+| MVP Sprint 4 | Estimated 1RM trends (US-033) | **post-0e** | Sprint 4+ programming. |
+| MVP Sprint 4 | Volume trends (US-034) | **post-0e** | Sprint 4+ programming. |
+| MVP Sprint 4 | Body weight plotted alongside training (US-035) | **post-0e** | Sprint 4+ programming. |
+| MVP Sprint 4 | Goal progress tracking — legacy (US-036) | **post-0e** | Sprint 4+ programming. |
+| MVP Sprint 5 | Strength goal tied to exercise (US-037) | **post-0e** | Sprint 5+ programming (D21 still pending). |
+| MVP Sprint 5 | Body weight goal (US-038) | **post-0e** | Sprint 5+ programming. |
+| MVP Sprint 5 | Auto-computed goal progress (US-039) | **post-0e** | Sprint 5+ programming. |
+| MVP Sprint 5 | Progress photo upload with date (US-090) | **post-0e** | Sprint 5+ programming (D22 in 0d1 CC-2 scope). |
+| MVP Sprint 5 | Photo gallery ordered by date (US-091) | **post-0e** | Sprint 5+ programming. |
+| MVP Sprint 5 | Side-by-side photo comparison (US-092) | **post-0e** | Sprint 5+ programming. |
+| MVP Sprint 5 | Photo-to-body-weight linkage (US-093) | **post-0e** | Sprint 5+ programming. |
+| MVP Sprint 5 | Sensitive data encryption for photos (US-314) | **0d1 (controls) + post-0e (build)** | Encryption controls baseline-resolved in 0d1 CC-2 D22 sensitivity defaults block (PT-7 + A.5.34) + CC-013/14/15/16/17 inheritance; BUILD is Sprint 5+ programming. |
+| MVP Sprint 6 | NL workout entry parsing (US-070) | **0e (prereq) + post-0e (build)** | LLM hosting decision finalized in 0e Workstream C (CC-7); BUILD is Sprint 6 programming after Sprint 1+ foundation. |
+| MVP Sprint 6 | Plain-language session summaries (US-071) | **0e (prereq) + post-0e (build)** | Same — LLM hosting prereq. |
+| MVP Sprint 6 | Anomaly flagging on entries (US-072) | **0e (prereq) + post-0e (build)** | Same — LLM hosting prereq + analytics base. |
+| MVP Sprint 6 | Free-text paste from iPhone Notes (US-012) | **0e (prereq) + post-0e (build)** | Same — depends on NL parser, which depends on 0e LLM hosting. |
+| MVP Sprint 6 | AI transparency and opt-out controls (US-313) | **0d1 (controls) + 0e (prereq) + post-0e (build)** | LLM Top 10 (LLM06) controls baseline-resolved in 0d1 CC-2 D11 + D19 blocks; 0e LLM hosting decision feeds opt-out scope; BUILD is Sprint 6+ programming. |
+| MVP Sprint 7 | Written form descriptions per exercise (US-027) | **post-0e** | Sprint 7+ programming. |
+| MVP Sprint 7 | External video link per exercise (US-028) | **post-0e** | Sprint 7+ programming. |
+| MVP Sprint 7 | App load performance — <3s target (US-300) | **post-0e** | Sprint 7+ programming (verification gate). |
+| MVP Sprint 7 | Sync performance — <10s target (US-301) | **post-0e** | Sprint 7+ programming (verification gate). |
+| MVP Sprint 7 | Data encryption in transit and at rest (US-310) | **0d1 (controls) + post-0e (verify)** | Encryption controls baseline-resolved in 0d1 CC-2 D23 sync/offline block (SC-8 / SC-28) + Supabase config; VERIFY at pre-launch QA. |
+| MVP Sprint 7 | Role-based privacy enforcement verification (US-311) | **0d1 (controls) + post-0e (verify)** | RLS policy controls in 0d1 CC-2 D5 + production-readiness gate matrix tracker (0d1 CC-4); VERIFY at pre-launch QA. |
+| MVP Sprint 7 | Offline durability verification (US-320) | **0d (rollback adjacency) + post-0e (verify)** | Verification touches the same recovery posture 0d operationalizes (PITR + off-account backup + rollback playbooks); VERIFY at pre-launch QA. |
+| MVP Sprint 8 | Expo EAS Build for iOS (US-050) | **post-0e** | Sprint 8 programming. |
+| MVP Sprint 8 | TestFlight distribution to alpha users (US-050) | **post-0e** | Sprint 8 programming. |
+| MVP Sprint 8 | Web dashboard via Expo Web on Vercel (US-051) | **post-0e** | Sprint 8 programming. |
+| MVP Sprint 8 | Invite alpha users via magic-link (US-001) | **post-0e** | Sprint 8 programming. |
+| MVP Sprint 8 | End-to-end smoke test | **post-0e** | Sprint 8 programming. |
+| MVP Sprint 8 | Bug fixes and UX refinement | **post-0e** | Sprint 8 programming. |
+| Phase 2 | E3.1 Client Management | **post-0e** | Coach UI; deferred per "Don't build coach/admin UI in MVP." |
+| Phase 2 | E3.2 Workout Assignment | **post-0e** | Coach UI; Phase 2. |
+| Phase 2 | E3.3 Coach as Athlete | **post-0e** | Coach UI; Phase 2. |
+| Phase 2 | E4.2 Programs, Routines, Classes | **post-0e** | Phase 2 hierarchy work. |
+| Phase 2 | E5.2 Goals Expansion | **post-0e** | Phase 2 (D21 dependency). |
+| Phase 2 | E5.5 Progress Photos Enhanced | **post-0e** | Phase 2. |
+| Phase 2 | E6.2 Coach Instructional Content | **post-0e** | Phase 2. |
+| Phase 2 | E6.4 Form Analysis — Capture | **post-0e** | Phase 2. |
+| Phase 2 | E7.2 AI-Assisted Coaching | **post-0e** | Phase 2; downstream of 0e LLM hosting. |
+| Phase 2 | F1.2.2 Coach role activation | **post-0e** | Phase 2 (D5 RBAC controls in 0d1 CC-2). |
+| Phase 2 | F1.5.5 Selective video retention | **post-0e** | Phase 2 (privacy controls baseline-resolved in 0d1). |
+| Phase 3 | E5.3 AI-Assisted Goals | **post-0e** | Phase 3 (LLM hosting prereq carried from 0e). |
+| Phase 3 | E5.6 AI Photo Analysis | **post-0e** | Phase 3 (LLM hosting + photo gallery prereq). |
+| Phase 3 | E6.3 AI Instructional Content | **post-0e** | Phase 3 (LLM hosting prereq). |
+| Phase 3 | E6.5 Form Measurements + Feedback | **post-0e** | Phase 3 (pose estimation, NL feedback). |
+| Phase 4 | E6.6 Real-Time Form Feedback | **post-0e** | Phase 4 (on-device processing). |
+| Future | F1.2.3 Gym role | **post-0e** | Future (RBAC controls in 0d1 CC-2 D5). |
+| Future | F1.2.4 Super Admin role | **post-0e** | Future. |
+| Future | F1.2.5 Teams | **post-0e** | Future. |
+| Future | E1.5 Data Portability (CSV, pg_dump) | **post-0e** | Future (CC-013/14/15/16/17 inheritance touches portability — see 0d1 §10.4 promotion triggers). |
+| Future | E8.1 Apple Watch | **post-0e** | Future wearable (Phase 4+). |
+| Future | E8.2 Smart Glasses / Voice | **post-0e** | Future wearable. |
+| Future | E8.3 Android / Wear OS | **post-0e** | Future cross-platform. |
+
+### Categorization summary
+
+| Candidate sprint | Items mapped | Notes |
+|---|---|---|
+| 0d (rollback readiness) | 1 (US-320 verification adjacency) | Build is post-0e; only the verification gate touches 0d's posture. |
+| 0d1 (security controls baseline) | 5 (US-310, US-311, US-313, US-314 + RLS US-311 design) | Controls baseline-resolved in 0d1; build is post-0e. These are the highest-leverage near-term overlaps. |
+| 0d1.5 (Hetzner stand-up — sprint does not yet exist) | 1 (Supabase project creation + config) | Per 0d1 OQ6 default, hosting stand-up is currently scoped at 0e; if 0d1.5 is created as a dedicated hosting sprint, this item moves there. |
+| 0d2 (framework rename + reference architecture + xrsize4all) | 1 (Schema deployment cross-references reference architecture P2 Ontology+Data) | Design cross-reference only; build is post-0e. |
+| 0e (listener + scheduler + LLM-extraction) | 5 (US-070, US-071, US-072, US-012, US-313) | LLM hosting decision is the prereq landed by 0e Workstream C / CC-7; BUILD of these features is post-0e. |
+| post-0e (Sprint 1+ programming) | ~78 (essentially all MVP feature items + post-MVP epic-level items) | The bulk of the roadmap. Sprint 1 programming foundation gates everything below it. |
+
+### Items without a clear sprint home (gaps for Eric to address)
+
+Per the calibration note above, "no clear sprint home" is the **expected default** for MVP feature items — they wait for Sprint 1 programming. The actual gaps surfaced by this grooming are:
+
+1. **0d1.5 (Hetzner stand-up) does not yet exist as a kanban.** Per 0d1 OQ6 + 0d2 Q9.7, Phase 1 hosting stand-up (SD-014) currently defaults to 0e. If Eric's intent is a dedicated hosting sprint between 0d2 and 0e, the 0d1.5 kanban needs to be drafted from the SD-014 substrate before any Supabase project provisioning can land. **Decision needed:** stand up 0d1.5 as a discrete sprint, OR fold hosting into 0e CC-9 (would expand 0e scope), OR keep the 0e default and live with hosting + listener + scheduler + LLM all in one sprint.
+
+2. **D21 (Goals) and D22 (Progress Photos) architectural decisions are still pending** per the architecture doc cross-references. MVP Sprint 5 backlog items (US-037, US-038, US-039, US-090–US-093) cannot start build until D21 and D22 land. **Decision needed:** schedule D21 / D22 architecture work — likely as a 0d2 stretch or a separate micro-sprint between 0d2 and 0e.
+
+3. **Verification gates (US-310, US-311, US-320, US-300, US-301)** are listed in MVP Sprint 7 as build-time work but are actually **acceptance gates** that fire at pre-launch QA, not buildable items. The 0d1 production-readiness gate matrix tracker (CC-4) is the natural home for the controls side; the performance gates (US-300, US-301) have no corresponding pre-programming sprint home and are pure post-0e Sprint 7 verification. **No action needed; just flagging the structural mismatch.**
+
+4. **MVP Sprint 6 AI items (US-070, US-071, US-072, US-012)** are blocked on 0e Workstream C / CC-7 LLM hosting decision. If 0e LLM-extraction validation slips beyond the 60-day Lambda Labs window, MVP Sprint 6 build slips correspondingly. **Decision needed at 0e close:** confirm LLM hosting decision is solid enough to feed Sprint 6 build, OR document the slip risk in MVP Sprint 6 entry conditions.
+
+5. **Phase 2 coach UI (E3.1, E3.2, E3.3, F1.2.2) is fully gated by D5 RBAC controls** which baseline in 0d1 CC-2 — but the schema is already designed and the UI gate is purely a "don't expose in MVP" decision. **No structural gap; intentional MVP scoping.**
+
+### Top 3-5 most-load-bearing items for next-sprint inclusion consideration
+
+1. **Supabase project creation + config (MVP Sprint 0)** — gates EVERYTHING downstream (schema deployment, RLS policies, auth, sync, every feature). Per 0d1 OQ6 default, this is currently scoped at 0e; Eric's call on whether to pull into 0d1.5 (if created) or accept the 0e bundle. **Highest-leverage decision in this grooming.**
+2. **Full schema deployment (MVP Sprint 0)** — second-order downstream of Supabase project; once provisioned, schema deployment is a 1-day action that unblocks Sprint 1 programming. Aligns with 0d2 CC-2 reference architecture P2 Ontology+Data pattern landing.
+3. **Magic-link auth flow (US-001) + persistent session (US-002, US-003)** — auth is the critical path for ANY user-facing feature; D6 magic-link auth controls baseline-resolved in 0d1 CC-2; Sprint 1 programming should treat these as day-1 items.
+4. **Offline storage layer (US-320)** — the offline-first commitment is load-bearing for the gym-connectivity scenario (per CLAUDE.md "Don't skip offline support"); architecture is designed but no code exists. Sprint 1 programming should sequence this early.
+5. **NL workout entry parsing (US-070) + free-text paste (US-012)** — Eric's actual logging workflow is iPhone Notes paste (per memory `user_logging_workflow.md`), so US-012 is the load-bearing UX entry point for Eric's own use of the app. Gated on 0e LLM hosting; if LLM hosting decision lands cleanly in 0e, MVP Sprint 6 should treat US-012 + US-070 as the headline pair.
+
 ## Sprint Tracking Template
 
 Use this for each sprint during execution. Copy and fill in:
@@ -218,7 +347,8 @@ Use this for each sprint during execution. Copy and fill in:
 
 ## Change log
 
-- 2026-04-19: Initial version. 8 MVP sprints covering ~55 stories across 12 epics. Post-MVP phases at epic level. Sprint tracking template included.
+- 2026-04-19: Initial version (v0.4.0). 8 MVP sprints covering ~55 stories across 12 epics. Post-MVP phases at epic level. Sprint tracking template included.
+- 2026-04-30: PATCH grooming (v0.4.1). Backlog grooming pass — added "Sprint mapping for 0d → 0e+" candidate-map section categorizing all 85 backlog items against current pre-programming sprint kanbans (0d, 0d1, 0d1.5, 0d2, 0e). No new content; pure categorization aid for future sprint-open commits. Surfaces 5 gaps for Eric to address (Hetzner stand-up sprint absence, D21/D22 architecture pending, verification-gate structural mismatch, 0e LLM-hosting slip risk on MVP Sprint 6, intentional Phase 2 coach-UI gating). Top 5 load-bearing items flagged for next-sprint inclusion consideration.
 
 ## Timeline
 
