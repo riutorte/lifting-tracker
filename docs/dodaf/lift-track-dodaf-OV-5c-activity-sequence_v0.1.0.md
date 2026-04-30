@@ -1,10 +1,10 @@
 ---
 author: Eric Riutort
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-04-30
 tier: OPERATIONAL
 content_class: architecture
-version: 0.1.0
+version: 0.1.1
 status: accepted
 ---
 
@@ -155,7 +155,7 @@ sequenceDiagram
 
 **Trigger:** Athlete taps voice-entry and dictates "200 by 5 for 3 sets" mid-session.
 **Actor (D3 RBAC):** Athlete (base role) + AI Agent (under Authority Rule).
-**Stories:** US-070 (NL workout entry), US-313 (AI transparency), US-073 (Tier 2 concern signals).
+**Stories:** US-070 (NL workout entry), US-313 (AI transparency). The Tier 2 concern log surface is referenced via `lift-track-source-document-cm_v0.3.0.md` §6.6 rather than a dedicated US-### in `lift-track-user-stories_v0.2.0.md`; if and when a user-facing Tier 2 concern review story is added, it can be pinned here in the same patch.
 **Decisions involved:** D19 (Reasoner Duality + Authority Rule), D14 (per-implement weight; Tier 1 must validate), D15 (limb config), D26 (TypeScript across boundaries — typed-episode shape).
 
 ```mermaid
@@ -331,11 +331,11 @@ When any of these grows a non-trivial decision point or a new actor, it gets pro
 
 **Architectural decisions:** D2 (per-set granularity — Sequence 1), D3 (RBAC — every sequence), D4 (cloud source of truth — Sequence 1), D8 (Expo + Supabase + offline-first stack — Sequence 1), D10 (coach inherits athlete — Sequence 2), D12 (ontological schema — Sequence 2), D13 (training hierarchy — Sequence 2), D14 (per-implement weight — Tier 1 validation in Sequence 3), D15 (limb config — Tier 1 validation in Sequence 3), D17 (set grouping — Sequence 1), D19 (Reasoner Duality + Authority Rule — Sequences 3 + 4), D25 (source-document CM — Sequence 4), D26 (TypeScript across boundaries — Sequence 3), D27 (MCP-first, multi-agent interop — Sequence 4 cm.* tools). Cross-cutting principles: Three-layer data, MCP-first, Observability (every sequence emits OTel spans).
 
-**User stories:** US-013 (offline gym logging — Sequence 1), US-014 (auto-sync — Sequence 1), US-070 (NL workout entry — Sequence 3), US-073 (Tier 2 concern log — Sequence 3), US-313 (AI transparency — Sequence 3), US-320 (sync durability — Sequence 1), US-321 (sync conflict — Sequence 1). v2 stories US-100-series and US-110-series for Sequence 2 (modeled now, ship later).
+**User stories:** US-013 (offline gym logging — Sequence 1), US-014 (auto-sync — Sequence 1), US-070 (NL workout entry — Sequence 3), US-313 (AI transparency — Sequence 3), US-320 (sync durability — Sequence 1), US-321 (sync conflict — Sequence 1). v2 stories US-100-series and US-110-series for Sequence 2 (modeled now, ship later). The Tier 2 concern log feature surface is referenced from Sequence 3 via `lift-track-source-document-cm_v0.3.0.md` §6.6 rather than a dedicated US-###; defect X-01 (cross-reference matrix v0.1.1) closed by removing the prior unbacked US-073 citation here.
 
 **Sprint of last revision:** Sprint 0b Day 1 (2026-04-24).
 
-**Other DoDAF views referenced:** AV-1 (orientation), AV-2 §1 (D-number glossary), AV-2 §3 (workflow IDs — WF-003 in Sequence 4), CV-capabilities (which capabilities each sequence realizes), OV-1 (the operational graphic these sequences animate), SV-1 (the components named in every sequence), SV-6 (the row-by-row exchange catalog these sequences walk through), DIV-2 (the tables Sequences 1–3 read and write), StdV-1 (the standards the wire formats commit to — PostgREST, MCP, OTel, JWT).
+**Other DoDAF views referenced:** AV-1 (orientation), AV-2 §1 (D-number glossary), AV-2 §3 (workflow IDs — WF-003 in Sequence 4), CV-capabilities (which capabilities each sequence realizes), OV-1 (the operational graphic these sequences animate), SV-1 (the components named in every sequence), SV-6 (the row-by-row exchange catalog these sequences walk through), SvcV-1 (the services Sequences 1, 3, 4 traverse — Postgres, Edge Functions, document-cm MCP), DIV-2 (the tables Sequences 1–3 read and write), StdV-1 (the standards the wire formats commit to — PostgREST, MCP, OTel, JWT).
 
 ---
 

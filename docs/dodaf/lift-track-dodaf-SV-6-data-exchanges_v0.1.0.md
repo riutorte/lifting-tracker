@@ -1,10 +1,10 @@
 ---
 author: Eric Riutort
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-04-30
 tier: OPERATIONAL
 content_class: architecture
-version: 0.1.0
+version: 0.1.1
 status: draft
 ---
 
@@ -170,7 +170,7 @@ This matrix is **append-only**, with two operations allowed:
 1. **Add a row** when a new exchange ships or when an existing one was missed during initial population.
 2. **Bump the Phase column** when an exchange transitions from reserved to active. Do not delete the reserved row when a Phase 2 surface goes live; just change the Phase tag.
 
-Removing a row is an architectural change (an interface was retired) and bumps SV-6 to MINOR per CONVENTIONS_v0.2.2.md §8 — the prior row is preserved in the baseline snapshot.
+Removing a row is an architectural change (an interface was retired) and bumps SV-6 to MINOR per CONVENTIONS_v0.2.4.md §8 — the prior row is preserved in the baseline snapshot.
 
 ## Cross-references
 
@@ -180,7 +180,7 @@ Removing a row is an architectural change (an interface was retired) and bumps S
 
 **Sprint of last revision:** Sprint 0b Day 1 (2026-04-24). Initial population.
 
-**Other DoDAF views referenced:** SV-1 (component + port catalog this matrix populates), DIV-2 (the table-level data model these exchanges read and write), StdV-1 (every Standard column entry corresponds to a row in StdV-1), AV-2 §9 (component definitions), AV-2 §10 (risk IDs that bind to interface choices: R-TV-03 + R-TV-04 affect HyperDX rows; R-TV-05 affects Railway hosting; R-CI-01 + R-CI-02 affect document-cm rows in section 6).
+**Other DoDAF views referenced:** SV-1 (component + port catalog this matrix populates), SvcV-1 (the services these exchanges traverse; every protocol named in SV-6's Standard column has a corresponding service entry), DIV-2 (the table-level data model these exchanges read and write), StdV-1 (every Standard column entry corresponds to a row in StdV-1), AV-2 §9 (component definitions), AV-2 §10 (risk IDs that bind to interface choices: R-TV-03 + R-TV-04 affect HyperDX rows; R-TV-05 affects Railway hosting; R-CI-01 + R-CI-02 affect document-cm rows in section 6).
 
 ---
 

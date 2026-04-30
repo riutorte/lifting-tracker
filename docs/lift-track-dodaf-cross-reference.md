@@ -1,10 +1,10 @@
 ---
 author: Eric Riutort
 created: 2026-04-29
-updated: 2026-04-29
+updated: 2026-04-30
 tier: REFERENCE
 content_class: reference
-version: 0.1.0
+version: 0.1.1
 status: accepted
 ---
 
@@ -496,30 +496,43 @@ flowchart LR
 | OV-5c | AV-2, SvcV-1 | 2 |
 | SV-1 | AV-2, CV, OV-1, OV-5c, SV-6, SvcV-1, DIV-2, StdV-1 | 8 |
 | SV-6 | AV-2, CV, OV-1, OV-5c, SV-1, SvcV-1, DIV-2, StdV-1 | 8 |
-| SvcV-1 | AV-2 | **1 (one-sided)** |
+| SvcV-1 | AV-2, OV-5c, SV-1, SV-6 (reciprocal pins added in Sprint 0c2 cleanup per X-09) | 4 |
 | DIV-2 | AV-2, CV, OV-5c, SV-1, SV-6, SvcV-1, StdV-1 | 7 |
 | StdV-1 | AV-2, OV-1, OV-5c, SV-1, SV-6, SvcV-1, DIV-2, CV | 8 |
 
-**SvcV-1 is one-sided.** It references widely but is referenced into only by AV-2's Section 18 view catalog. No technical-layer view (SV-1, SV-6, OV-5c) has a reciprocal pin to SvcV-1. This is a partial orphan signal: SvcV-1 may be over-produced for the current architectural decision load, OR the technical views need to add reciprocal pins when they next rev. Flagged §6.
+**SvcV-1 reciprocal pins** (added Sprint 0c2 cleanup per X-09). At v0.1.0 of this matrix SvcV-1 was inbound-referenced only by AV-2's Section 18, flagged as a partial orphan. The Sprint 0c2 cleanup added reciprocal "Other DoDAF views referenced: SvcV-1" entries to OV-5c, SV-1, and SV-6 (the three co-pertinent technical-layer views). Inbound count is now 4. SvcV-1 is no longer one-sided; it is the service-level rollup of the component-level interfaces SV-1 catalogues, the sequence-traversed services OV-5c walks, and the protocols SV-6 carries.
 
 ## §6 Defects surfaced
 
 The cross-reference work uncovered the following inconsistencies. Surfacing them here — even when they are minor — is required by the reproducibility-needs-honesty norm.
 
+The Sprint 0c2 cleanup pass (2026-04-30) addressed eight of the twelve defects in-place against the affected DoDAF view files; three remain deferred (intentional / scope-bound); X-12 was self-resolving when this matrix landed. Resolved defects are moved to §6.1 below; deferred and self-resolved entries are retained in the open table with severity downgraded to "Deferred / Resolved" so the audit trail stays visible.
+
+### §6.0 Open / deferred / resolved-by-landing
+
 | ID | Defect | Severity | Location | Resolution path |
 |---|---|---|---|---|
-| X-01 | OV-5c Sequence 3 cross-references US-073 (Tier 2 concern signals); US-073 does not exist in `lift-track-user-stories_v0.2.0.md` (sequence is US-070, US-071, US-072, then US-090). | Medium | lift-track-dodaf-OV-5c-activity-sequence_v0.1.0.md "Stories" line of Sequence 3 | Either add US-073 to user-stories OR drop the OV-5c reference. The Tier 2 concern log is genuinely a user-facing surface (per D19) and warrants a story; lean toward adding US-073 in next user-stories revision |
-| X-02 | StdV-1 cites `CONVENTIONS_v0.2.2.md §6, §7, §11`; current is v0.2.4. | Low (cosmetic) | lift-track-dodaf-StdV-1-standards_v0.1.0.md §3 (multiple rows) | Bump StdV-1 PATCH; rewrite three references to v0.2.4. Functional content unchanged |
-| X-03 | SV-6 cites `CONVENTIONS_v0.2.2.md §8`; current is v0.2.4. | Low (cosmetic) | lift-track-dodaf-SV-6-data-exchanges_v0.1.0.md "Maintenance protocol" | Bump SV-6 PATCH; rewrite reference |
-| X-04 | OV-1 cites `CONVENTIONS_v0.2.2.md §4–§5`; current is v0.2.4. | Low (cosmetic) | lift-track-dodaf-OV-1-concept-graphic_v0.1.0.md "Fit-for-purpose notes" | Bump OV-1 PATCH; rewrite reference |
-| X-05 | AV-2 §1 marks D28 as "ADR pending" but `docs/adrs/lift-track-D28-architectural-discipline-profile_v0.1.0.md` exists. | Low | lift-track-dodaf-AV-2-dictionary_v0.2.0.md §1 D28 row "References" column | Update reference from "(this directory; ADR pending)" to the actual ADR file path. AV-2 PATCH |
-| X-06 | AV-1 frontmatter `updated: 2026-04-29` but prose still says "Sprint of last revision: Sprint 0b Day 1 (2026-04-24)". | Low | lift-track-dodaf-AV-1-overview_v0.1.0.md cross-references section | Update to "Sprint 0c1 (2026-04-29 — minor edit)" or revert the frontmatter `updated:` if no material change occurred. Prose should match frontmatter |
-| X-07 | CV cross-references include "D8 (Expo + Supabase)" using the conjunctive-plus form; AV-2's no-and rule renames D8 to "Expo with Supabase, offline-first". | Low (terminology drift) | lift-track-dodaf-CV-capabilities_v0.1.0.md cross-references list | CV PATCH — adopt AV-2 canonical name. Same for any other +/and-form D-decision names |
-| X-08 | US-100a, US-100b, US-100c, US-100d use alphanumeric suffix that breaks the numeric ID convention and visually collide with US-100. | Low (cosmetic) | lift-track-user-stories_v0.2.0.md lines 184–191; DIV-2 cross-references | Renumber to US-104, US-105, US-106, US-107 (or similar) in next user-stories MINOR; cascade to DIV-2 reference |
-| X-09 | SvcV-1 is referenced inbound only by AV-2; no technical view (SV-1, SV-6, OV-5c) reciprocally pins to SvcV-1 despite being co-pertinent. | Low | view dependency graph §5 | When SV-1, SV-6, or OV-5c next rev, add a reciprocal "Other DoDAF views referenced: SvcV-1" line. Alternatively confirm SvcV-1 is correctly scoped and one-sidedness is acceptable |
+| X-08 | US-100a, US-100b, US-100c, US-100d use alphanumeric suffix that breaks the numeric ID convention and visually collide with US-100. | Low (deferred) | lift-track-user-stories_v0.2.0.md lines 184–191; DIV-2 cross-references | Deferred from Sprint 0c2 cleanup because the resolution requires editing `lift-track-user-stories_v0.2.0.md` (a non-DoDAF-view file) outside the cleanup scope. Renumber to US-104, US-105, US-106, US-107 in next user-stories MINOR bump and cascade to DIV-2 reference |
 | X-10 | v2 / v3 user stories US-120, US-121, US-133, US-134, US-140–US-149, US-153–US-160 have no direct view coverage at story-ID level. | Medium (deferred) | §4 inverse map | Acceptable today (these are not load-bearing for current architectural decisions). When v2 / v3 sprints scope, the relevant view producers add story-ID pins |
 | X-11 | Future stories US-200–US-204, US-210–US-212, US-220–US-221, US-330–US-331 have no view coverage at all. | Low (deferred) | §4 inverse map | Acceptable — schema reserves room (`users.role`, `users.tier`) but no architectural view models them yet. Will be addressed when admin/gym/teams sprints scope |
-| X-12 | "DoDAF cross-reference matrix" was promised by `CONVENTIONS_v0.2.4.md §11.6` as an existing artifact but did not exist until this Sprint 0c1 stretch deliverable. | Resolved | this file | Resolved by landing this matrix |
+| X-12 | "DoDAF cross-reference matrix" was promised by `CONVENTIONS_v0.2.4.md §11.6` as an existing artifact but did not exist until this Sprint 0c1 stretch deliverable. | Resolved (Sprint 0c1 — landing) | this file | Resolved by landing this matrix |
+
+### §6.1 Resolved defects (Sprint 0c2 cleanup, 2026-04-30)
+
+Eight defects resolved in a single cleanup pass. Each entry is preserved here with the as-fixed citation so the audit history remains intact even after the affected view files rev again.
+
+| ID | Defect | Resolution applied | Affected files |
+|---|---|---|---|
+| X-01 | OV-5c Sequence 3 cross-references US-073 (Tier 2 concern signals); US-073 does not exist in `lift-track-user-stories_v0.2.0.md`. | Dropped both US-073 references in OV-5c (the Sequence 3 "Stories" line and the file-level "User stories" cross-reference). The Tier 2 concern log surface remains pinned via `lift-track-source-document-cm_v0.3.0.md` §6.6, which is its actual canonical source; if and when a user-facing US-### is added for the Tier 2 concern review surface, it can be re-pinned in OV-5c at that time. The §2 OV-5c entry above retains the historical "DEFECT" marker as a reading aid — the body of OV-5c is now clean. | `lift-track-dodaf-OV-5c-activity-sequence_v0.1.0.md` (PATCH; frontmatter v0.1.0 → 0.1.1, `updated:` → 2026-04-30) |
+| X-02 | StdV-1 cites `CONVENTIONS_v0.2.2.md §6, §7, §11`; current is v0.2.4. | Replaced four occurrences of `CONVENTIONS_v0.2.2.md` with `CONVENTIONS_v0.2.4.md` in StdV-1 §1, §3, and the internal-standards table. Sectional references (§6, §7, §8, §11) preserved verbatim — those did not move between v0.2.2 and v0.2.4 (verified). | `lift-track-dodaf-StdV-1-standards_v0.1.0.md` (PATCH; frontmatter v0.1.0 → 0.1.1) |
+| X-03 | SV-6 "Maintenance protocol" cites `CONVENTIONS_v0.2.2.md §8`; current is v0.2.4. | Replaced one occurrence in the SV-6 maintenance-protocol prose. | `lift-track-dodaf-SV-6-data-exchanges_v0.1.0.md` (PATCH; frontmatter v0.1.0 → 0.1.1) |
+| X-04 | OV-1 cites `CONVENTIONS_v0.2.2.md §4–§5`; current is v0.2.4. | Replaced both occurrences in OV-1's "Fit-for-purpose notes" prose. | `lift-track-dodaf-OV-1-concept-graphic_v0.1.0.md` (PATCH; frontmatter v0.1.0 → 0.1.1) |
+| X-05 | AV-2 §1 D28 row marked "(this directory; ADR pending)" but the ADR exists at `docs/adrs/lift-track-D28-architectural-discipline-profile_v0.1.0.md`. | Replaced the D28 §1 row "References" cell with the actual ADR file path; same fix applied to the D28 row in §6 architectural-principles table. | `lift-track-dodaf-AV-2-dictionary_v0.2.0.md` (PATCH; frontmatter v0.2.0 → 0.2.1) |
+| X-06 | AV-1 frontmatter `updated: 2026-04-29` but prose still said "Sprint of last revision: Sprint 0b Day 1 (2026-04-24)". | Rewrote the AV-1 "Sprint of last revision" prose line to name Sprint 0c1 (2026-04-29) cosmetic sweep + Sprint 0c2 (2026-04-30) defect-cleanup alignment. Prose now matches frontmatter. | `lift-track-dodaf-AV-1-overview_v0.1.0.md` (PATCH; frontmatter v0.1.0 → 0.1.1) |
+| X-07 | CV cross-references list cites "D8 (Expo + Supabase)" using conjunctive-plus form; AV-2 canonical name is "Expo with Supabase, offline-first" (no-and rule). | Adopted the AV-2 canonical "D8 (Expo with Supabase, offline-first)" form in the CV cross-references list. AV-1 cross-references received the same fix in passing (X-06 + X-07 land together for AV-1). | `lift-track-dodaf-CV-capabilities_v0.1.0.md`, `lift-track-dodaf-AV-1-overview_v0.1.0.md` (both PATCH) |
+| X-09 | SvcV-1 was referenced inbound only by AV-2's §18; no technical-layer view (SV-1, SV-6, OV-5c) reciprocally pinned to SvcV-1. | Added "SvcV-1" to the "Other DoDAF views referenced" lines of SV-1, SV-6, and OV-5c with one-line justification per file (SV-1: services these components compose into; SV-6: services these exchanges traverse; OV-5c: services Sequences 1, 3, 4 traverse). SvcV-1 inbound count rises from 1 to 4. | `lift-track-dodaf-SV-1-interfaces_v0.1.0.md`, `lift-track-dodaf-SV-6-data-exchanges_v0.1.0.md`, `lift-track-dodaf-OV-5c-activity-sequence_v0.1.0.md` (all PATCH) |
+
+**Filename-rename deferral.** This cleanup pass bumped frontmatter `version:` and `updated:` on each affected view file but did not rename the filename (e.g., `lift-track-dodaf-StdV-1-standards_v0.1.0.md` retains its `_v0.1.0.md` suffix despite frontmatter now reading `version: 0.1.1`). Filename alignment is a cascading edit (sprint kanbans, retros, this matrix's §2 per-view headers, and the §5 mermaid graph all cite versioned filenames) and is out of scope for a single defect-cleanup pass under the "touch only the matrix file and the specific DoDAF view files" rule. Filename rename will land when each view next opens for material edit, or as a follow-on cosmetic-rename sweep.
 
 **Cyclic dependencies.** None of the cycles in §5 represent definitional circularity (no view's authority depends on a downstream view's). The cycles are mutual contextual references, which DoDAF expects between co-pertinent views (SV-1 ↔ SV-6 ↔ DIV-2 forming the technical-interface ↔ exchange ↔ data triangle is canonical). Not flagged as defects.
 
@@ -605,6 +618,7 @@ This matrix is **append-and-revise**. Operations:
 | Version | Date | Summary |
 |---|---|---|
 | 0.1.0 | 2026-04-29 | Initial population. Eight sections covering purpose, per-view cross-reference (10 views), inverse D-decision → views map (28 D-numbers), inverse US-### → views map (114 stories across MVP / v2 / v3 / Future / Non-functional phases), mermaid dependency graph with cycles + orphan analysis, twelve defects surfaced, sprint placement table for all 10 views, future-maintenance protocol. Reference class, semver on structural revisions per CONVENTIONS_v0.2.4 §8. Sprint 0c1 stretch deliverable per CONVENTIONS_v0.2.4 §11.6 promise. |
+| 0.1.1 | 2026-04-30 | Sprint 0c2 defect-cleanup pass. Eight defects resolved (X-01, X-02, X-03, X-04, X-05, X-06, X-07, X-09); three deferred for cause (X-08 — out of cleanup scope; X-10 + X-11 — intentional, addressed in future sprints); X-12 self-resolved on landing. §6 split into §6.0 (open / deferred / resolved-by-landing) and §6.1 (resolved Sprint 0c2). §5 inbound-count table updated for SvcV-1 (1 → 4 after reciprocal pins added in OV-5c / SV-1 / SV-6). §5 narrative below the table updated to retire the "one-sided" framing. PATCH bump per CONVENTIONS_v0.2.4 §8 (citation-tracking edit, no structural change). Affected DoDAF view files: AV-1, AV-2, CV, OV-1, OV-5c, SV-1, SV-6, StdV-1 each PATCH-bumped in frontmatter; filename rename deferred per §6.1 note. |
 
 ---
 
