@@ -404,7 +404,8 @@ Eric-maintained — sessions Dispatch cannot see (Chrome, mobile, other CLI).
   - `reach4all://docs/research/data-retention-policy-research.md` — retention informing PT family + A.5.34
   - `reach4all://docs/research/data-storage-and-archiving-strategy-research.md` — storage/archiving informing CP family
 - **Prior sprint kanban:** `docs/lift-track-kanban-sprint-0d.md` (document-cm skill build).
-- **Adjacent sprint kanban:** `docs/lift-track-kanban-sprint-0d2.md` (framework rename + reference architecture + xrsize4all repo standup) — coordination required for OQ3 (CC-7 / 0d2 CC-4 §4.1 bind-date) and OQ10 (sequential vs parallel sprint open).
+- **Next sprint kanban:** `docs/lift-track-kanban-sprint-0d1.5.md` (Hetzner Phase 1 self-hosted Supabase stand-up — operationalizes SD-014 + SD-015 Phase 1 substrate; inserted between 0d1 and 0d2 per the 2026-04-30 sprint sequencing call).
+- **Adjacent sprint kanban:** `docs/lift-track-kanban-sprint-0d2.md` (framework rename + reference architecture + xrsize4all repo standup) — coordination required for OQ3 (CC-7 / 0d2 CC-4 §4.1 bind-date) and OQ10 (sequential vs parallel sprint open). Sprint 0d2 still follows 0d1 in the SD-coordination dependency graph; 0d1.5 inserts between them as an infrastructure-stand-up sprint that does not block 0d2's document workstreams.
 - **Sprint 0d1 retrospective at close:** `docs/retrospectives/lift-track-sprint-retro-0d1.md`.
 - **Sprint 0e (next sprint after 0d2):** pre-drafted in `docs/lift-track-kanban-sprint-0e.md`.
 - **Methodology:** `docs/CONVENTIONS_v0.2.4.md` §6.2 (frontmatter), §8 (per-sprint kanban), §14 (sprint open / close / carry-forward).

@@ -411,7 +411,7 @@ Eric-maintained — sessions Dispatch cannot see (Chrome, mobile, other CLI).
   - `reach4all://docs/research/data-retention-policy-research.md`
   - `reach4all://docs/research/data-storage-and-archiving-strategy-research.md`
   - `reach4all://docs/research/environment-strategy-and-promotion-demotion-architecture-research.md`
-- **Prior sprint kanbans:** `docs/lift-track-kanban-sprint-0d.md` (document-cm skill build); `docs/lift-track-kanban-sprint-0d1.md` (security controls baseline — TBD if drafted).
+- **Prior sprint kanbans:** `docs/lift-track-kanban-sprint-0d.md` (document-cm skill build); `docs/lift-track-kanban-sprint-0d1.md` (security controls baseline integration); `docs/lift-track-kanban-sprint-0d1.5.md` (Hetzner Phase 1 self-hosted Supabase stand-up — immediate prior sprint per the 2026-04-30 sprint sequencing call; operational runbooks authored in 0d1.5 land at `~/reach4all/docs/operational/` paths and are swept to `~/xrsize4all/docs/operational/` in 0d2 CC-6).
 - **Sprint 0d2 retrospective at close:** `docs/retrospectives/lift-track-sprint-retro-0d2.md`.
 - **Sprint 0e (next sprint, opens at 0d2 close):** pre-drafted in `docs/lift-track-kanban-sprint-0e.md`.
 - **Methodology:** `docs/CONVENTIONS_v0.2.4.md` §14 (and any v0.2.5 amendments landing in CC-4).
