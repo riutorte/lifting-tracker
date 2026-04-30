@@ -3,6 +3,7 @@
 
 # Obsidian
 .obsidian/
+*.canvas
 
 # macOS
 .DS_Store
