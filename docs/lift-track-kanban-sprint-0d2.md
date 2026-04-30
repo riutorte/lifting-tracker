@@ -23,7 +23,12 @@ Per CONVENTIONS_v0.2.4 §8 + §14.2, this is Sprint 0d2's per-sprint kanban. **D
 
 **Goal:** xrsize4all repo is master for portfolio-level architecture, research-promoted-to-architecture, and XRSize4 ALL-specific (not Lifting Tracker-specific) artifacts. AAF is the new official framework name; "DoDAF" references in active artifacts are reframed as "DoDAF view set within AAF." Reference architecture is v0.1.0 released and is the inheritance source for sub-system #2 onboarding when that occurs. Strategic Implications discipline and decision-history traceability discipline are binding from 0d2 forward. Reach4all retains research-class docs only.
 
-**Input substrate:** `reach4all://docs/research/0d2-prep-amendments-and-sd-entries.md` (1,775 lines, drafted 2026-04-30). Every CC below maps to one or more sections of the prep doc; paste-in is mechanical at sprint open per §1.2 of the prep.
+**Input substrate:** Two parallel prep deliverables drafted 2026-04-29 / 2026-04-30:
+
+- `reach4all://docs/research/0d2-prep-amendments-and-sd-entries.md` (1,775 lines, drafted 2026-04-30) — D-decision Strategic Implications amendments + new SD entries + process amendments. Feeds CC-1 / CC-3 / CC-4 / CC-5 / CC-6 / CC-7 / CC-8.
+- `reach4all://docs/architecture/xrsize4all-reference-architecture-starter_v0.1.0.md` (2,007 lines, drafted 2026-04-29) — reference-architecture starter for SD-007. Feeds CC-2 directly (the starter IS the substrate; CC-2 is migration + framework-name substitution + sprint-bound open-question resolution + Lifting Tracker back-port reconciliation, NOT from-scratch authoring). See CC-2 sub-criteria below.
+
+Every CC below maps to one or more sections of the prep deliverables; paste-in (CC-4 / CC-7 / CC-8) is mechanical at sprint open per §1.2 of the amendments-and-SD prep.
 
 ---
 
@@ -49,15 +54,33 @@ Per prep §7.1 close-criteria framing matrix. Effort estimates and risk classes 
 
 **Deliverable.** `xrsize4all://docs/architecture/xrsize4all-reference-architecture_v0.1.0.md` lands as v0.1.0 release. Starter doc (`xrsize4all-reference-architecture-starter_v0.1.0.md`) archived or merged into the release.
 
-**Maps to.** Prep §1.1 item 2, SD-007.
+**Maps to.** Prep §1.1 item 2, SD-007. Substrate: `reach4all://docs/architecture/xrsize4all-reference-architecture-starter_v0.1.0.md` (2,007 lines, drafted 2026-04-29 in Sprint 0c1 adjacency, 11 sections — executive summary; ref-arch as discipline; seven-pattern catalog (P1 Identity / P2 Ontology+Data / P3 Intelligence / P4 Content / P5 Commerce / P6 Analytics / P7 Lifecycle); per-sub-system instantiation template; cross-cutting capability catalog (eight capabilities); four architectural invariants; specialization guidelines; lifecycle; DoDAF/AAF view layering across three abstraction tiers; ten open questions; cross-references).
 
-**Effort.** 1-2 days authoring (input substrate exists in reach4all).
+**Effort.** 1-2 days. **Reframed per starter content review:** authoring is largely complete in the starter — CC-2 work is re-home + framework-name substitution + sprint-bound open-question resolution + Lifting Tracker back-port reconciliation, not from-scratch authoring. The "1-2 days" upper bound holds; the dominant cost is decision-making on §10 open questions, not prose composition.
 
 **Risk.** Low.
 
-**Entry.** CC-1 done (AAF naming binds; reference architecture inherits from AAF).
+**Entry.** CC-1 done (AAF naming binds; reference architecture inherits from AAF); CC-6 done (starter doc migrated from reach4all to xrsize4all per prep §6 + starter §10.9).
 
-**Exit.** Reference architecture v0.1.0 committed in xrsize4all; starter doc disposition committed (archive or merge); v0.1.0 inheritance source ready for sub-system #2 onboarding.
+**Exit.** Reference architecture v0.1.0 committed in xrsize4all; starter doc disposition committed (archive or merge); v0.1.0 inheritance source ready for sub-system #2 onboarding; sprint-bound open questions from starter §10 (10.1, 10.6, 10.9) resolved or explicitly deferred at sprint close per starter §10.11 timing matrix.
+
+**Sub-criteria (additive — sourced from `reach4all://docs/architecture/xrsize4all-reference-architecture-starter_v0.1.0.md` review on 2026-04-30; do not renumber CC-1 through CC-8):**
+
+- **CC-2.1 — Re-home and de-starter.** Move `reach4all://docs/architecture/xrsize4all-reference-architecture-starter_v0.1.0.md` to `xrsize4all://docs/architecture/xrsize4all-reference-architecture_v0.1.0.md`; drop the `-starter` suffix; remove the provenance note at the document head per starter §10.9. Version remains 0.1.0 (re-home is not a substantive revision per starter top-of-doc note). Coordinated with CC-6 migration sweep — this is one entry in the §6 migration ledger.
+
+- **CC-2.2 — Framework-name substitution.** Replace the placeholder term "the framework" throughout the migrated doc with the SD-006-finalized name (AAF per current leading candidate from `reach4all://docs/research/ai-architecture-framework-naming-research.md`). Targets per starter top-of-doc framework-name caveat: §1 caveat block; §9 view-layering section (framework-name placeholder); all inline references reading "the framework." DoDAF view names (AV-1, AV-2, CV, OV-1, OV-5c, SV-1, SV-6, SvcV-1, StdV-1, DIV-2) are RETAINED — they are inherited as components within AAF, not renamed. Resolves starter §10.1 sprint-bound open question; same answer as Q9.x framework-name in this kanban.
+
+- **CC-2.3 — Three-tier view-layering ratification (Eric's 2026-04-29 correction).** Confirm starter §9.1 three-tier abstraction (Reference → Platform → Sub-system) as the binding view-layering discipline. Cross-reference and align with the new CONVENTIONS §11.7 amendment landing in CC-4 ("three-layer DoDAF view layering"). The view-layering matrix in starter §9.4 stands as the v0.1.0 reference. Each tier produces the same DoDAF view set (per starter §9.3.5 R-5). Cross-references layer downward, compliance flows upward (per starter §9.3.3 R-3 + §9.3.4 R-4). Reference-layer view extraction into standalone files (per starter §9.7 / §10.4) DEFERRED to v0.X.0+ per starter §10.11 timing matrix.
+
+- **CC-2.4 — Sprint-bound open-question resolution per starter §10.11.** Resolve the three open questions starter §10.11 marks "Sprint 0d2 open" / "Sprint 0d" timing:
+  - §10.1 — Framework name lock-in (paired with CC-1 + Q9.x; default AAF).
+  - §10.6 — Concept Computing inheritance depth. Decide whether the seven directly-applicable concerns (CC-011 Reasoner Duality, CC-013, CC-014, CC-015, CC-016 Autonomous Agent Governance, CC-017 LLM Instruction Fidelity, CC-018) get portfolio-level resolution status analogous to SD-009. CC-017 is the most acute case per starter §10.6 — referenced extensively but has no formal portfolio home.
+  - §10.9 — Migration timing (resolved by CC-6 sequencing; CC-2.1 above is the operational expression).
+  - Other §10 questions (§10.2 specialization strictness; §10.3 phase-mandatoriness per pattern; §10.4 reference-layer view extraction; §10.5 patterns catalog completeness; §10.7 publication-primitive reshape; §10.8 OWL companion timing; §10.10 ARB scope) EXPLICITLY DEFERRED per starter §10.11 — flag in the v0.1.0 release note that these remain open for v0.2.0+ per their suggested timing.
+
+- **CC-2.5 — Lifting Tracker back-port reconciliation.** Starter §4.3 contains the worked instantiation back-port: Lifting Tracker pattern-by-pattern — six patterns Inherit-or-Inherit-with-extension, P5 Commerce Phase-deferred, no formal Deviations. CC-2 confirms the back-port lands either (a) as a new section / appendix in `lifting-tracker://docs/lift-track-architecture_v0.4.0.md` cross-referencing the reference architecture, OR (b) as a new companion doc `lift-track-reference-architecture-instantiation_v0.1.0.md`. Per starter §4.3.3, the strategic-implications research §8.5 D19 amendment is the ONLY formal back-port required to bring Lifting Tracker fully into compliance with reference architecture v0.1.0 — that amendment is already scoped in CC-8 (D19 Strategic Implications block). Decide format (a vs b) at sprint open.
+
+- **CC-2.6 — CM-governance posture binding.** Starter §8.1 establishes this document as Architecture-class under WF-001 (ADR-based workflow per `lift-track-source-document-cm_v0.3.0.md`). Confirm binding at v0.1.0 release: material changes (pattern adds/removes; mandatory→optional shifts; invariant changes; instantiation-template required-field changes; lifecycle policy changes) require WF-001 ADR. Non-material changes (examples added, wording clarified, placeholders filled, cross-references updated) follow lighter cadence per starter §8.1. Every future amendment carries a Strategic Implications block per starter §6.5 invariant I-4 (binds regardless of when SD-006 / SD-009 / SD-013 / SD-014 finalize). Couples to CC-4 ADR template binding (the I-4 discipline IS the §4.1 ADR template Strategic Implications section).
 
 ### CC-3 — Rolled-up architectural overviews (SD-008)
 
@@ -380,7 +403,9 @@ Eric-maintained — sessions Dispatch cannot see (Chrome, mobile, other CLI).
 
 ## Cross-reference
 
-- **Input substrate (the prep deliverable):** `reach4all://docs/research/0d2-prep-amendments-and-sd-entries.md` (1,775 lines, 2026-04-30). Every CC maps to one or more sections of this doc.
+- **Input substrate (two parallel prep deliverables):**
+  - `reach4all://docs/research/0d2-prep-amendments-and-sd-entries.md` (1,775 lines, 2026-04-30) — feeds CC-1 / CC-3 / CC-4 / CC-5 / CC-6 / CC-7 / CC-8.
+  - `reach4all://docs/architecture/xrsize4all-reference-architecture-starter_v0.1.0.md` (2,007 lines, 2026-04-29) — feeds CC-2 (the starter IS the substrate; CC-2 sub-criteria 2.1-2.6 enumerate the operational steps).
 - **Source research feeding the prep doc** (per prep §10.1):
   - `reach4all://docs/research/portfolio-strategic-implications-and-ownership-trajectory-research.md`
   - `reach4all://docs/research/data-retention-policy-research.md`
