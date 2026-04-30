@@ -12,7 +12,7 @@ Historical record of every sprint, kept for future-session context. Each retrosp
 
 ## Content class
 
-Operational (per `docs/reference/source-doc-cm-design.md` v0.3.0 §3.7 Content Classes). Date-versioned, no WF-003, no GATE, no staleness tag (retros are historical records — they don't go stale, they just get added to).
+Operational (per `docs/reference/lift-track-source-document-cm_v0.3.0.md` v0.3.0 §3.7 Content Classes). Date-versioned, no WF-003, no GATE, no staleness tag (retros are historical records — they don't go stale, they just get added to).
 
 ## Filename convention
 
@@ -20,11 +20,11 @@ Per CONVENTIONS_v0.2.4.md §6.1 (descriptiveness rule) and §6.2 (point-in-time 
 
 `sprint-retro-<id>.md` where `<id>` is the sprint identifier. Type prefix `sprint-retro-` at the start; sprint ID at the end ("version at end" rule).
 
-- `sprint-retro-0a.md` — first foundation sprint (pre-programming)
-- `sprint-retro-0b.md` — second foundation sprint
-- `sprint-retro-0b1.md` — insert sprint between 0b and 0c (rules codification)
-- `sprint-retro-0b2.md` — insert sprint between 0b1 and 0c (rules application)
-- `sprint-retro-0c.md` — third
+- `lift-track-sprint-retro-0a.md` — first foundation sprint (pre-programming)
+- `lift-track-sprint-retro-0b.md` — second foundation sprint
+- `lift-track-sprint-retro-0b1.md` — insert sprint between 0b and 0c (rules codification)
+- `lift-track-sprint-retro-0b2.md` — insert sprint between 0b1 and 0c (rules application)
+- `lift-track-sprint-retro-0c.md` — third
 - `sprint-retro-1.md` — first programming sprint
 - `sprint-retro-2.md` — etc.
 
@@ -62,13 +62,13 @@ Living index. Updated atomically alongside each new retro at sprint close (per C
 
 | Sprint | Theme | Dates | Duration | Retro file |
 |---|---|---|---|---|
-| 0c1 | Documentation Hygiene + AV-2 Enrichment + First Prevention Action (parallel methodology validated) | 2026-04-28 → 2026-04-29 | 2 days | [sprint-retro-0c1.md](sprint-retro-0c1.md) |
-| 0c0.5 | Decision Consolidation Sweep + Bindfs Lock-Reaper Install (CC8 MOVED) | 2026-04-28 | 1 day | [sprint-retro-0c0.5.md](sprint-retro-0c0.5.md) |
-| 0c | document-cm Skill Build (UNMET — closed early) | 2026-04-27 → 2026-04-28 | 2 days | [sprint-retro-0c.md](sprint-retro-0c.md) |
-| 0b2 | Documentation Rule Application | 2026-04-27 | 1 day | [sprint-retro-0b2.md](sprint-retro-0b2.md) |
-| 0b1 | Documentation Rule Codification | 2026-04-27 | 1 day | [sprint-retro-0b1.md](sprint-retro-0b1.md) |
-| 0b | Foundation Sprint Day 1 | 2026-04-24 | 1 day | [sprint-retro-0b.md](sprint-retro-0b.md) |
-| 0a | Foundation Research & CM Design | 2026-04-21 → 2026-04-23 | 3 days | [sprint-retro-0a.md](sprint-retro-0a.md) |
+| 0c1 | Documentation Hygiene + AV-2 Enrichment + First Prevention Action (parallel methodology validated) | 2026-04-28 → 2026-04-29 | 2 days | [lift-track-sprint-retro-0c1.md](lift-track-sprint-retro-0c1.md) |
+| 0c0.5 | Decision Consolidation Sweep + Bindfs Lock-Reaper Install (CC8 MOVED) | 2026-04-28 | 1 day | [lift-track-sprint-retro-0c0.5.md](lift-track-sprint-retro-0c0.5.md) |
+| 0c | document-cm Skill Build (UNMET — closed early) | 2026-04-27 → 2026-04-28 | 2 days | [lift-track-sprint-retro-0c.md](lift-track-sprint-retro-0c.md) |
+| 0b2 | Documentation Rule Application | 2026-04-27 | 1 day | [lift-track-sprint-retro-0b2.md](lift-track-sprint-retro-0b2.md) |
+| 0b1 | Documentation Rule Codification | 2026-04-27 | 1 day | [lift-track-sprint-retro-0b1.md](lift-track-sprint-retro-0b1.md) |
+| 0b | Foundation Sprint Day 1 | 2026-04-24 | 1 day | [lift-track-sprint-retro-0b.md](lift-track-sprint-retro-0b.md) |
+| 0a | Foundation Research & CM Design | 2026-04-21 → 2026-04-23 | 3 days | [lift-track-sprint-retro-0a.md](lift-track-sprint-retro-0a.md) |
 
 ---
 

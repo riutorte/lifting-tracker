@@ -127,9 +127,9 @@ This is a living document. Review at each sprint close. Add new failure modes as
 Attribution and footer stay current. `updated:` bumps on every material edit. Version bumps are date-based per OPERATIONAL tier conventions; no semver.
 
 Cross-links to update when this doc changes:
-- `docs/architecture_v0.4.0.md` — if an orchestration decision becomes architectural (e.g., a new D-number), it moves there and this doc references it.
+- `docs/lift-track-architecture_v0.4.0.md` — if an orchestration decision becomes architectural (e.g., a new D-number), it moves there and this doc references it.
 - `docs/kanban-sprint-<id>.md` — if a new spawn pattern emerges, the kanban's conventions section is updated too.
-- `docs/reference/source-doc-cm-design.md` — if a mitigation here becomes a CM skill requirement, it propagates there.
+- `docs/reference/lift-track-source-document-cm_v0.3.0.md` — if a mitigation here becomes a CM skill requirement, it propagates there.
 
 When this doc contradicts observed behavior, the observed behavior wins. Update the doc; do not paper over the divergence.
 
