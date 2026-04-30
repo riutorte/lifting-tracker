@@ -8,12 +8,12 @@ Lifting Tracker — the first sub-system of XRSize4 ALL. A coach-client workout 
 - AI — Supabase Edge Functions → external LLM API for NL workout parsing and summaries
 
 ## Architecture docs (read before making decisions)
-- `docs/architecture_v0.4.0.md` — 24 decisions (D1–D24), full data model, non-decisions list
-- `docs/user-stories_v0.2.0.md` — 114 user stories, MVP through v4+
-- `docs/themes-epics-features_v0.2.0.md` — 8 themes, 31 epics, 109 features
+- `docs/lift-track-architecture_v0.4.0.md` — 24 decisions (D1–D24), full data model, non-decisions list
+- `docs/lift-track-user-stories_v0.2.0.md` — 114 user stories, MVP through v4+
+- `docs/lift-track-themes-epics-features_v0.2.0.md` — 8 themes, 31 epics, 109 features
 - `docs/xrsize4all_concept_v0.2.0.md` — platform-level system-of-systems concept
 - `docs/architecture-comparison_v0.3.0.md` — platform comparison and evolution through 5 phases
-- `docs/roadmap_v0.4.0.md` — 8 MVP sprints with backlog and dependencies
+- `docs/lift-track-roadmap_v0.4.0.md` — 8 MVP sprints with backlog and dependencies
 
 ## Key decisions (quick reference)
 - D2: Per-set granularity. User → Session → Exercise → Set.
@@ -50,7 +50,7 @@ Lifting Tracker — the first sub-system of XRSize4 ALL. A coach-client workout 
 - Every doc gets YAML frontmatter (author: Eric Riutort, created/updated dates) and a copyright footer
 
 ## Don't
-- Don't make architectural decisions without checking `docs/architecture_v0.4.0.md` first
+- Don't make architectural decisions without checking `docs/lift-track-architecture_v0.4.0.md` first
 - Don't store weight as total load — always per-implement (D14)
 - Don't force Sessions into Programs/Routines — all parent relationships are nullable (D12)
 - Don't let AI write data without user confirmation (D19 Authority Rule)

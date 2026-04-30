@@ -17,11 +17,11 @@ This file is Reference class and carries semver on structural revisions (see §8
 
 ## 2. Content classes recap
 
-Four content classes govern every in-scope artifact in the portfolio, plus one named-but-deferred class. The canonical definition lives in `docs/reference/source-doc-cm-design.md` v0.3.0 §3.7. The matrix below is the scannable summary.
+Four content classes govern every in-scope artifact in the portfolio, plus one named-but-deferred class. The canonical definition lives in `docs/reference/lift-track-source-document-cm_v0.3.0.md` v0.3.0 §3.7. The matrix below is the scannable summary.
 
 | Class | Typical artifacts | Workflow | Version scheme | GATE | Staleness policy |
 |---|---|---|---|---|---|
-| Architecture | ADRs, `architecture_v0.4.0.md`, `xrsize4all_concept_v0.2.0.md`, ontology plans | WF-003 full | Semver | Required | None (cited by pin; drift handled via `superseded_by:`) |
+| Architecture | ADRs, `lift-track-architecture_v0.4.0.md`, `xrsize4all_concept_v0.2.0.md`, ontology plans | WF-003 full | Semver | Required | None (cited by pin; drift handled via `superseded_by:`) |
 | Research | Finding reports, landscape scans, vendor analyses, book digestions | WF-003L (light) | Date-based default; semver if promoted to Reference | Optional per finding; **required** for landscape synthesis | Mandatory `stale_after:` tag, 90-day default |
 | Operational | Kanban, metrics, risks, dispatch-handoff, retros, roadmap | Direct-edit or WF-003L depending on scope | Date-based (`updated:` is the version) | Optional; required only for material reorganization | Sprint-boundary review; read-only after 30 days |
 | Reference | `CLAUDE.md`, `README.md`, `CONVENTIONS_v0.2.4.md`, orchestration, glossary | WF-003 full (soft GATE if no downstream pins) | Semver on structural revisions | Required | 180-day review horizon |
@@ -52,18 +52,18 @@ Canonical layout. Every existing doc in the repo resolves into one of these slot
 |---|---|---|
 | `docs/CLAUDE.md` (root) | Project-scoped Claude config | Reference |
 | `docs/CONVENTIONS_v0.2.4.md` (this file) | Rule of record | Reference |
-| `docs/architecture_v0.4.0.md` | D1–D27 full architecture record | Architecture |
+| `docs/lift-track-architecture_v0.4.0.md` | D1–D27 full architecture record | Architecture |
 | `docs/xrsize4all_concept_v0.2.0.md` | Platform-level system-of-systems concept | Architecture |
 | `docs/architecture-comparison_v0.3.0.md` | Platform comparison and evolution phases | Architecture |
-| `docs/themes-epics-features_v0.2.0.md` | Feature decomposition | Architecture |
-| `docs/user-stories_v0.2.0.md` | 114 user stories | Architecture |
-| `docs/ontology-plan_v0.1.0.md` | Exercise ontology plan | Architecture |
-| `docs/roadmap_v0.4.0.md` | Sprint backlog and dependencies | Operational |
+| `docs/lift-track-themes-epics-features_v0.2.0.md` | Feature decomposition | Architecture |
+| `docs/lift-track-user-stories_v0.2.0.md` | 114 user stories | Architecture |
+| `docs/lift-track-ontology-plan_v0.1.0.md` | Exercise ontology plan | Architecture |
+| `docs/lift-track-roadmap_v0.4.0.md` | Sprint backlog and dependencies | Operational |
 | `docs/kanban-sprint-<id>.md` | Per-sprint work tracker | Operational |
-| `docs/metrics_v0.1.0.md` | Productivity baseline | Operational |
-| `docs/risks_v0.1.0.md` | Risk register | Operational |
-| `docs/dispatch-handoff.md` | Session-to-session handoff | Operational |
-| `docs/effort-estimate_v0.1.0.md` | Effort planning | Operational |
+| `docs/lift-track-metrics_v0.1.0.md` | Productivity baseline | Operational |
+| `docs/lift-track-risks_v0.1.0.md` | Risk register | Operational |
+| `docs/lift-track-dispatch-handoff_v0.1.0.md` | Session-to-session handoff | Operational |
+| `docs/lift-track-effort-estimate_v0.1.0.md` | Effort planning | Operational |
 | `docs/orchestration_v0.1.0.md` | Three-surface orchestration pattern | Reference |
 | `docs/adrs/D##-slug.md` | One file per decision | Architecture |
 | `docs/retrospectives/README_v0.1.0.md` | Retrospective convention | Reference |
@@ -79,7 +79,7 @@ Canonical layout for the portfolio-level research repo.
 
 | Path | Content |
 |---|---|
-| `docs/architecture/` | Portfolio-level Architecture class (source-doc-cm-design.md, future code-cm-design.md, cross-program architecture) |
+| `docs/architecture/` | Portfolio-level Architecture class (lift-track-source-document-cm_v0.3.0.md, future code-cm-design.md, cross-program architecture) |
 | `docs/research/ai-landscape/` | agentic-ai-landscape-scan, chatgpt/gemini/grok-agentic-ai-findings |
 | `docs/research/vendors/` | workato-findings, context-hub-findings |
 | `docs/research/books/` | building-agentic-ai-systems-findings, agentic-ai-bible-findings |
@@ -102,11 +102,11 @@ New research docs land directly in the appropriate subcategory. Research added t
 - **Extension.** `.md` for markdown docs. Other extensions as appropriate (`.yaml`, `.json`, `.py`).
 - **Date prefix.** For chronological content that accumulates without a monotonic ID: `YYYY-MM-DD_<slug>.md`. Used in `conversation-archive/`.
 - **No date prefix where an ID is monotonic.** Sprint retros are `sprint-0a.md`, `sprint-0b.md`, etc. The sprint ID already orders the series; a date prefix would be redundant and brittle.
-- **ADR naming.** `D##-slug_v<version>.md` where `##` is the decision number, `slug` is kebab-case, and `<version>` is the ADR's semver (`D25-source-document-cm_v0.1.0.md`).
-- **Version in filename — semver-versioned docs only.** Files governed by semver (Architecture class, Reference class, substantive Operational class per the §7 amendment) carry their current version in the filename per the Concept Computing pattern: `<name>_v<version>.md` (underscore + lowercase v + dotted semver). Examples: `architecture_v0.4.0.md`, `CONVENTIONS_v0.2.4.md`, `roadmap_v0.4.0.md`, `D25-source-document-cm_v0.1.0.md`. Each version bump renames the file. Cross-references update at the same time. The filename and the frontmatter `version:` field carry the same value; mismatch is a defect.
+- **ADR naming.** `D##-slug_v<version>.md` where `##` is the decision number, `slug` is kebab-case, and `<version>` is the ADR's semver (`lift-track-D25-source-document-cm_v0.1.0.md`).
+- **Version in filename — semver-versioned docs only.** Files governed by semver (Architecture class, Reference class, substantive Operational class per the §7 amendment) carry their current version in the filename per the Concept Computing pattern: `<name>_v<version>.md` (underscore + lowercase v + dotted semver). Examples: `lift-track-architecture_v0.4.0.md`, `CONVENTIONS_v0.2.4.md`, `lift-track-roadmap_v0.4.0.md`, `lift-track-D25-source-document-cm_v0.1.0.md`. Each version bump renames the file. Cross-references update at the same time. The filename and the frontmatter `version:` field carry the same value; mismatch is a defect.
 - **No version in filename — Research class and point-in-time docs only.** Research-class docs use `valid_as_of:` + `re_check_by:` for freshness signals; point-in-time docs (sprint retros `sprint-<id>.md`, dated conversation archives `YYYY-MM-DD_<slug>.md`) encode their temporal scope in the filename. Both classes keep bare filenames because they have no semver to mirror.
-- **Operational ledgers carry per-sprint or semver naming depending on type.** The kanban uses sprint-tagged naming: `kanban-sprint-<id>.md`. At sprint open, a new kanban file is created with open items inherited from the prior sprint; at sprint close the file freezes as the immutable record of that sprint's work. `dispatch-handoff.md` continues with semver (`dispatch-handoff_v<version>.md`) bumped on material structural changes — it's session-to-session handoff, not sprint-bounded. See §8 for the per-type bump rules.
-- **Baseline snapshots.** `.baseline-<state>-YYYYMMDD.md` at the same directory as the file they shadow. Examples: `.baseline-v0.2.0-20260423.md`, `.baseline-pre-sprint-0b-20260424.md`. Baselines do not carry a version-in-filename suffix — the `<state>` field already encodes the version they shadow.
+- **Operational ledgers carry per-sprint or semver naming depending on type.** The kanban uses sprint-tagged naming: `kanban-sprint-<id>.md`. At sprint open, a new kanban file is created with open items inherited from the prior sprint; at sprint close the file freezes as the immutable record of that sprint's work. `lift-track-dispatch-handoff_v0.1.0.md` continues with semver (`dispatch-handoff_v<version>.md`) bumped on material structural changes — it's session-to-session handoff, not sprint-bounded. See §8 for the per-type bump rules.
+- **Baseline snapshots.** `.baseline-<state>-YYYYMMDD.md` at the same directory as the file they shadow. Examples: `.baseline-lift-track-source-document-cm-v0.2.0-20260423.md`, `.baseline-lift-track-architecture-pre-sprint-0b-20260424.md`. Baselines do not carry a version-in-filename suffix — the `<state>` field already encodes the version they shadow.
 
 ### 6.1 Filename descriptiveness rule
 
@@ -117,7 +117,7 @@ Every filename must telegraph BOTH content type AND version (or temporal scope, 
 
 Vague single-word names that don't name a topic (e.g., `community-research.md`, `best-practices-review.md`, `stack-validation.md`) are defects under this rule and must be qualified. Hashes, share IDs, ticket numbers, or other opaque tokens may not appear as the only descriptor in a filename — they may appear as a supplementary element if a descriptor is also present.
 
-Filenames that have a version/scope indicator but lack the content-type-out-of-context (e.g., `sprint-0b1.md` — the sprint ID is there but "what kind of doc" requires the directory) are also defects and should be qualified by adding a type indicator at the start (e.g., `sprint-retro-0b1.md` — type `sprint-retro` at the start, version `0b1` at the end per the "version at end" rule).
+Filenames that have a version/scope indicator but lack the content-type-out-of-context (e.g., `sprint-0b1.md` — the sprint ID is there but "what kind of doc" requires the directory) are also defects and should be qualified by adding a type indicator at the start (e.g., `lift-track-sprint-retro-0b1.md` — type `sprint-retro` at the start, version `0b1` at the end per the "version at end" rule).
 
 Apply at file creation and at any rename. When in doubt, choose the longer, more specific name. Filename length is not a constraint at portfolio scale; comprehension is.
 
@@ -142,13 +142,13 @@ Two prefix-conventions also exist; under these, the prefix is fixed but the rest
 
 Point-in-time documents (sprint retros, dated conversation archives) carry no semver because they are not revised post-publication; their names encode the temporal scope AND the content type (per §6.1):
 
-- **Sprint retrospectives:** `sprint-retro-<id>.md` (e.g., `sprint-retro-0a.md`, `sprint-retro-0b.md`, `sprint-retro-0b1.md`). Type indicator `sprint-retro-` at the start; sprint ID at the end (the "version at end" rule per §6.1).
-- **Sprint kanbans:** `kanban-sprint-<id>.md` (e.g., `kanban-sprint-0b2.md`). Type indicator `kanban-` at the start; sprint ID at the end. Per §8 ledger rule — the kanban is per-sprint and rolls forward at sprint boundaries.
+- **Sprint retrospectives:** `sprint-retro-<id>.md` (e.g., `lift-track-sprint-retro-0a.md`, `lift-track-sprint-retro-0b.md`, `lift-track-sprint-retro-0b1.md`). Type indicator `sprint-retro-` at the start; sprint ID at the end (the "version at end" rule per §6.1).
+- **Sprint kanbans:** `kanban-sprint-<id>.md` (e.g., `lift-track-kanban-sprint-0b2.md`). Type indicator `kanban-` at the start; sprint ID at the end. Per §8 ledger rule — the kanban is per-sprint and rolls forward at sprint boundaries.
 - **Conversation archives:** `YYYY-MM-DD_<slug>.md` where the slug supplies the type and topic (e.g., `2026-04-21_dispatch-session-1.md`). The date is the temporal scope and is at the start to enable chronological sort — an explicit exception to the "version at end" rule, since for archives the date IS the structural/sortable key.
 
 ## 7. Required frontmatter fields per content class
 
-Every in-scope doc carries YAML frontmatter. Fields marked required below must be populated; optional fields are listed in the `source-doc-cm-design.md` manifest schema. Every doc also closes with the copyright footer per §12.
+Every in-scope doc carries YAML frontmatter. Fields marked required below must be populated; optional fields are listed in the `lift-track-source-document-cm_v0.3.0.md` manifest schema. Every doc also closes with the copyright footer per §12.
 
 ### Architecture class
 
@@ -223,7 +223,7 @@ Unambiguous decision rules. Given any edit, the rule below answers "do I bump a 
 
 **Operational class — date-based for most docs, sprint-tagged or semver for ledgers.** Most Operational docs (metrics, risks, roadmap, retrospectives) use `updated:` as the version; minor edits bump `updated:` only and git log carries the change history. No baselines for date-versioned Operational docs. Retrospectives are point-in-time (no semver, no `updated:` bump after publication) per §6.2.
 
-**Sprint-tagged ledger (kanban).** The kanban is per-sprint: `kanban-sprint-<id>.md` (e.g., `kanban-sprint-0b2.md`). Lifecycle:
+**Sprint-tagged ledger (kanban).** The kanban is per-sprint: `kanban-sprint-<id>.md` (e.g., `lift-track-kanban-sprint-0b2.md`). Lifecycle:
 
 - **Sprint open.** A new `kanban-sprint-<new-id>.md` file is created. Items still open from the prior sprint's kanban are migrated as the sprint planning's first action. The migration is explicit (deliberate decision per item: bring forward, defer, drop) and visible (a single commit at sprint open, not a silent rollover).
 - **Sprint execution.** All grooming, status changes, and new-item additions happen in the active sprint's kanban file.
@@ -255,7 +255,7 @@ Migration moves a doc from one repo or directory to another without data loss. T
 
 **Cross-repo pins.** A doc in Repo A that cites a doc in Repo B uses a repo-qualified path: `reach4all://docs/research/ai-landscape/agentic-ai-landscape-scan.md`. The manifest resolves qualified paths when document-cm ships; until then, the qualified path is documentary.
 
-**Class migration.** Moving a doc from Research to Reference (or any cross-class move) requires an ADR naming the authority shift, per `source-doc-cm-design.md` §3.7.2 invariant 3. The ADR bumps Architecture-class semver in the ADRs directory.
+**Class migration.** Moving a doc from Research to Reference (or any cross-class move) requires an ADR naming the authority shift, per `lift-track-source-document-cm_v0.3.0.md` §3.7.2 invariant 3. The ADR bumps Architecture-class semver in the ADRs directory.
 
 ## 10. Change-log and baseline-snapshot discipline
 
@@ -272,7 +272,7 @@ Research class docs may carry a change log if the finding is actively maintained
 
 - Every Architecture-class MAJOR or MINOR version bump.
 - Every significant Reference-class structural revision.
-- Before any multi-edit session on a tier-1 (REFERENCE) or tier-2 (COMPANION) doc per `source-doc-cm-design.md` §5.7 Defense 4.
+- Before any multi-edit session on a tier-1 (REFERENCE) or tier-2 (COMPANION) doc per `lift-track-source-document-cm_v0.3.0.md` §5.7 Defense 4.
 
 Not required for Operational or Research class unless manually invoked for a specific revision.
 
@@ -294,18 +294,18 @@ The portfolio adopts eleven named DoDAF views. Each view has a defined purpose, 
 
 | View | Purpose | Preferred mermaid type | Canonical location |
 |---|---|---|---|
-| AV-1 Overview & Summary | Plain-language scope, purpose, stakeholders, environment | mindmap or flowchart | `docs/dodaf/AV-1-overview_v0.1.0.md` |
-| AV-2 Integrated Dictionary | Glossary of terms used across views | table (markdown), no diagram required | `docs/dodaf/AV-2-dictionary_v0.2.0.md` |
-| CV Capability Viewpoint | Capability hierarchy and dependencies | mindmap (hierarchy) + flowchart (dependencies) | `docs/dodaf/CV-capabilities_v0.1.0.md` |
-| OV-1 High-Level Operational Concept Graphic | The "one-picture concept" — actors, environment, value flow | flowchart with actor stereotypes | `docs/dodaf/OV-1-concept-graphic_v0.1.0.md` |
+| AV-1 Overview & Summary | Plain-language scope, purpose, stakeholders, environment | mindmap or flowchart | `docs/dodaf/lift-track-dodaf-AV-1-overview_v0.1.0.md` |
+| AV-2 Integrated Dictionary | Glossary of terms used across views | table (markdown), no diagram required | `docs/dodaf/lift-track-dodaf-AV-2-dictionary_v0.2.0.md` |
+| CV Capability Viewpoint | Capability hierarchy and dependencies | mindmap (hierarchy) + flowchart (dependencies) | `docs/dodaf/lift-track-dodaf-CV-capabilities_v0.1.0.md` |
+| OV-1 High-Level Operational Concept Graphic | The "one-picture concept" — actors, environment, value flow | flowchart with actor stereotypes | `docs/dodaf/lift-track-dodaf-OV-1-concept-graphic_v0.1.0.md` |
 | OV-2 Operational Resource Flow Description | Operational nodes and the flows between them | flowchart (directed, labeled edges) | `docs/dodaf/OV-2-resource-flows.md` |
 | OV-5a/5b Operational Activity Model | Activity decomposition (5a) and event-traced behavior (5b) | flowchart (5a) + sequenceDiagram (5b) | `docs/dodaf/OV-5-activity-model.md` |
-| SV-1 Systems Interface Description | Systems, sub-systems, interfaces between them | classDiagram (SysML BDD-equivalent) or flowchart | `docs/dodaf/SV-1-interfaces_v0.1.0.md` |
+| SV-1 Systems Interface Description | Systems, sub-systems, interfaces between them | classDiagram (SysML BDD-equivalent) or flowchart | `docs/dodaf/lift-track-dodaf-SV-1-interfaces_v0.1.0.md` |
 | SV-4 Systems Functionality | Functional decomposition of each system | flowchart | folded into SV-1 unless complex |
-| SV-6 Systems Resource Flow Matrix | Data and control exchanges between systems | erDiagram or table + sequenceDiagram | `docs/dodaf/SV-6-data-exchanges_v0.1.0.md` |
+| SV-6 Systems Resource Flow Matrix | Data and control exchanges between systems | erDiagram or table + sequenceDiagram | `docs/dodaf/lift-track-dodaf-SV-6-data-exchanges_v0.1.0.md` |
 | SvcV Services Viewpoint | Service contracts, MCP servers, API surfaces | classDiagram with «service» stereotype | `docs/dodaf/SvcV-services.md` |
-| DIV-1/2/3 Data and Information Viewpoint | Conceptual (1), logical (2), physical (3) data models | erDiagram | `docs/dodaf/DIV-2-logical-data_v0.1.0.md` (DIV-2 is the load-bearing one) |
-| StdV-1 Standards Profile | Standards the system commits to (protocols, schemas, regulatory) | table (markdown), no diagram required | `docs/dodaf/StdV-1-standards_v0.1.0.md` |
+| DIV-1/2/3 Data and Information Viewpoint | Conceptual (1), logical (2), physical (3) data models | erDiagram | `docs/dodaf/lift-track-dodaf-DIV-2-logical-data_v0.1.0.md` (DIV-2 is the load-bearing one) |
+| StdV-1 Standards Profile | Standards the system commits to (protocols, schemas, regulatory) | table (markdown), no diagram required | `docs/dodaf/lift-track-dodaf-StdV-1-standards_v0.1.0.md` |
 
 Each DoDAF view file carries: `content_class: architecture`, semver in frontmatter per §7/§8, the diagram(s) embedded as mermaid blocks, and supporting prose stating the view's purpose and the decisions/stories it informs.
 
@@ -342,12 +342,12 @@ Apply SysML iconography within mermaid's expressive limits. Where mermaid render
 
 Every DoDAF view file links to:
 
-- **Decisions it informs** — by D# reference into `docs/architecture_v0.4.0.md` (e.g., "supports D14, D15").
-- **User stories it covers** — by US-### reference into `docs/user-stories_v0.2.0.md`.
+- **Decisions it informs** — by D# reference into `docs/lift-track-architecture_v0.4.0.md` (e.g., "supports D14, D15").
+- **User stories it covers** — by US-### reference into `docs/lift-track-user-stories_v0.2.0.md`.
 - **Sprint(s) it was produced or revised in** — by sprint ID.
 - **Other DoDAF views it depends on** — by view ID and path.
 
-These per-file cross-references roll up into the portfolio-level cross-reference matrix at `docs/dodaf-cross-reference.md` (its own deliverable, governed separately from this CONVENTIONS file). The matrix is the auditable record that decisions, stories, and views are mutually consistent.
+These per-file cross-references roll up into the portfolio-level cross-reference matrix at `docs/lift-track-dodaf-cross-reference.md` (its own deliverable, governed separately from this CONVENTIONS file). The matrix is the auditable record that decisions, stories, and views are mutually consistent.
 
 ### 11.7 What gets which views
 
@@ -488,12 +488,12 @@ The portfolio runs a rare combination of Anthropic tools (Cowork + Dispatch + Co
 | 0.2.3 | 2026-04-27 | §6.1 strengthened: filename must telegraph content TYPE + version/scope; type-by-directory insufficient. §6.2: sprint retrospectives now `sprint-retro-<id>.md` (type prefix, sprint ID at end per "version at end" rule); sprint kanbans `kanban-sprint-<id>.md`; conversation archives keep date-first as explicit exception. §6 ledger bullet + §8 Operational class: kanban Path B (sprint-tagged, per-sprint files, explicit open-items migration at sprint open); dispatch-handoff stays semver. §4 structure table: kanban + retro filenames updated. §14.2: sprint-open kanban inheritance pattern added. Sprint 0b2 deliverable. |
 | 0.2.4 | 2026-04-28 | §14 SDLC methodology amended: §14.5 work mode 8 (event-driven sensing / listener / sniffer) added; §14.5 work mode 3 refined (research-spawn during sprints is STANDARD practice, not exception); §14.2 early-close pattern documented (Sprint 0c canonical example); §14.2 inherited-baseline pattern documented (Sprint 0c1 inherited from Sprint 0c close commit); §14.3 decimal/half-step inserts pattern (`0c0.5` between `0c` and `0c1`); §14.3 parallel-sprints stub (full methodology deferred to first-real-parallel-sprint); §14.4 README index discipline (atomic with retro file at sprint close); §14.6 Plan Mode pointer to `project_plan_mode_decision.md` memory; new §14.7 Rare-workflow / pioneer-pattern recognition (six implications, recognition signal); prior §14.7 renumbered to §14.8. Sprint 0c0.5 deliverable (CC1). |
 
-**v0.1.0 (2026-04-24).** First release. Codifies the rules that had been accumulating informally across `source-doc-cm-design.md` v0.3.0 §3.7, `retrospectives/README_v0.1.0.md`, `kanban-sprint-<id>.md`, `metrics_v0.1.0.md`, and the existing frontmatter patterns in `docs/adrs/` and `docs/reference/`. The Reach4All subfolder taxonomy (§5) reflects the staging → portfolio migration plan for Sprint 0b Day 1. No prior version to diff against; baseline is implicit in the Sprint 0a closing state captured in `.baseline-pre-sprint-0b-20260424.md` at the docs/ root.
+**v0.1.0 (2026-04-24).** First release. Codifies the rules that had been accumulating informally across `lift-track-source-document-cm_v0.3.0.md` v0.3.0 §3.7, `retrospectives/README_v0.1.0.md`, `kanban-sprint-<id>.md`, `lift-track-metrics_v0.1.0.md`, and the existing frontmatter patterns in `docs/adrs/` and `docs/reference/`. The Reach4All subfolder taxonomy (§5) reflects the staging → portfolio migration plan for Sprint 0b Day 1. No prior version to diff against; baseline is implicit in the Sprint 0a closing state captured in `.baseline-lift-track-architecture-pre-sprint-0b-20260424.md` at the docs/ root.
 
 **v0.2.0 (2026-04-24).** Adds §11 "Diagrams and architectural views" codifying the discipline established in ADR D28: mermaid-in-markdown as canonical diagram tool, eleven named DoDAF views (AV-1, AV-2, CV, OV-1, OV-2, OV-5a/5b, SV-1, SV-4, SV-6, SvcV, DIV-1/2/3, StdV-1) with file-location and per-view production guidance, SysML iconography conventions applied within mermaid's expressive limits, mermaid-type → DoDAF-view mapping table, fit-for-purpose ADD/SUBTRACT authority for view producers, cross-reference discipline tying views to D# decisions and US-### stories, fallback options for diagrams mermaid can't render, and presentation-portability rules. Renumbers prior §11 (Attribution) → §12 and prior §12 (How future sessions use this doc) → §13. Internal §11 reference in §7 frontmatter prose updated to §12. No content removed; §11 is purely additive. Baseline at `docs/.baseline-CONVENTIONS-v0.1.0-20260424.md`.
 
 
-**v0.2.1 (2026-04-27).** §6 Filename conventions amended to encode the Concept Computing filename-versioning pattern. Files governed by semver — Architecture class, Reference class, substantive Operational class — now carry the version in the filename as `<name>_v<version>.md` (underscore + lowercase v + dotted semver). The prior "No version in filename" rule is reversed for these classes. Date-versioned (Research class) and pure-ledger (`kanban-sprint-<id>.md`, `dispatch-handoff.md`, sprint retros) docs continue to use bare filenames because they have no semver to mirror. Baselines also keep bare names; their `<state>` field already encodes the version they shadow. The ADR-naming bullet was updated to reflect that ADRs (Architecture class) carry version in filename per the new rule. CLAUDE.md and project-rule README files are noted as version-bearing where they have semver. The rule is self-applied: this file is `CONVENTIONS_v0.2.1.md`. Cross-references portfolio-wide were updated in the same Sprint 0b Day 1 commit that introduced filename versioning. No baseline snapshot for this minor amendment — change is small and the §6 text was the only material edit; the prior content survives at `docs/CONVENTIONS_v0.2.0.md` in git history (commit `df89d3f` — that earlier filename was renamed to `docs/CONVENTIONS_v0.2.1.md` as part of this amendment, applying the new rule to itself).
+**v0.2.1 (2026-04-27).** §6 Filename conventions amended to encode the Concept Computing filename-versioning pattern. Files governed by semver — Architecture class, Reference class, substantive Operational class — now carry the version in the filename as `<name>_v<version>.md` (underscore + lowercase v + dotted semver). The prior "No version in filename" rule is reversed for these classes. Date-versioned (Research class) and pure-ledger (`kanban-sprint-<id>.md`, `lift-track-dispatch-handoff_v0.1.0.md`, sprint retros) docs continue to use bare filenames because they have no semver to mirror. Baselines also keep bare names; their `<state>` field already encodes the version they shadow. The ADR-naming bullet was updated to reflect that ADRs (Architecture class) carry version in filename per the new rule. CLAUDE.md and project-rule README files are noted as version-bearing where they have semver. The rule is self-applied: this file is `CONVENTIONS_v0.2.1.md`. Cross-references portfolio-wide were updated in the same Sprint 0b Day 1 commit that introduced filename versioning. No baseline snapshot for this minor amendment — change is small and the §6 text was the only material edit; the prior content survives at `docs/CONVENTIONS_v0.2.0.md` in git history (commit `df89d3f` — that earlier filename was renamed to `docs/CONVENTIONS_v0.2.1.md` as part of this amendment, applying the new rule to itself).
 
 **v0.2.3 (2026-04-27).** Sprint 0b2 deliverable. Two filename-rule amendments triggered by self-application of the §6.1 descriptiveness rule.
 
@@ -506,16 +506,16 @@ The portfolio runs a rare combination of Anthropic tools (Cowork + Dispatch + Co
 File renames triggered by this amendment:
 
 - `docs/CONVENTIONS_v0.2.2.md` → `docs/CONVENTIONS_v0.2.3.md` (this file, self-applied)
-- `docs/retrospectives/sprint-retro-0a.md` → `docs/retrospectives/sprint-retro-0a.md`
-- `docs/retrospectives/sprint-retro-0b.md` → `docs/retrospectives/sprint-retro-0b.md`
-- `docs/retrospectives/sprint-retro-0b1.md` → `docs/retrospectives/sprint-retro-0b1.md`
-- `docs/kanban-sprint-<id>.md` → `docs/kanban-sprint-0b2.md`
+- `docs/retrospectives/lift-track-sprint-retro-0a.md` → `docs/retrospectives/lift-track-sprint-retro-0a.md`
+- `docs/retrospectives/lift-track-sprint-retro-0b.md` → `docs/retrospectives/lift-track-sprint-retro-0b.md`
+- `docs/retrospectives/lift-track-sprint-retro-0b1.md` → `docs/retrospectives/lift-track-sprint-retro-0b1.md`
+- `docs/kanban-sprint-<id>.md` → `docs/lift-track-kanban-sprint-0b2.md`
 
 Cross-references updated portfolio-wide. Baseline at `docs/.baseline-CONVENTIONS-v0.2.2-20260427.md`.
 
 **v0.2.2 (2026-04-27).** Sprint 0b1 deliverable. Three substantive amendments and one new section.
 - §6 Filename conventions: added §6.1 filename descriptiveness rule (every filename must telegraph its content; vague single-word names are defects requiring qualification; opaque hashes/IDs may not be the sole descriptor) and §6.2 fixed-name exceptions list (CLAUDE.md, README.md, MEMORY.md, LICENSE, CHANGELOG.md, .gitignore, package.json/tsconfig.json — exhaustive list — plus prefix-conventions for ADRs and DoDAF views).
-- §6 amended bullet: Operational ledgers (`kanban-sprint-<id>.md`, `dispatch-handoff.md`) reverse from bare filenames to `<name>_v<version>.md` semver pattern. Reverses the prior "pure ledger" exemption to prevent silent overwrite.
+- §6 amended bullet: Operational ledgers (`kanban-sprint-<id>.md`, `lift-track-dispatch-handoff_v0.1.0.md`) reverse from bare filenames to `<name>_v<version>.md` semver pattern. Reverses the prior "pure ledger" exemption to prevent silent overwrite.
 - §8 Versioning rules: amended Operational class rule — most Operational docs continue date-based, but ledgers (kanban, dispatch-handoff) carry semver bumped at sprint boundaries. MINOR increments on each sprint close.
 - §14 SDLC methodology (new): sprint cadence in days under solo+AI; sprint structure (planning/execution/close/retro); sprint numbering with insert-sprints (0b1 between 0b and 0c); retrospective convention; 7 SDLC work modes; Eric-only gating model.
 - Cross-references: all `CONVENTIONS_v0.2.1.md` references updated to `CONVENTIONS_v0.2.2.md` portfolio-wide. Baseline at `docs/.baseline-CONVENTIONS-v0.2.1-20260427.md`.

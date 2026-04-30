@@ -27,12 +27,12 @@ The decision-of-record set. Pinned by downstream consumers; version bumps requir
 
 | File | Purpose |
 |---|---|
-| `architecture_v0.4.0.md` | D1–D27 full architecture record |
+| `lift-track-architecture_v0.4.0.md` | D1–D27 full architecture record |
 | `xrsize4all_concept_v0.2.0.md` | Platform-level system-of-systems concept (XRSize4 ALL) |
 | `architecture-comparison_v0.3.0.md` | Platform comparison and evolution through five phases |
-| `themes-epics-features_v0.2.0.md` | Feature decomposition (8 themes / 31 epics / 109 features) |
-| `user-stories_v0.2.0.md` | 114 user stories — MVP through v4+ |
-| `ontology-plan_v0.1.0.md` | Exercise ontology plan |
+| `lift-track-themes-epics-features_v0.2.0.md` | Feature decomposition (8 themes / 31 epics / 109 features) |
+| `lift-track-user-stories_v0.2.0.md` | 114 user stories — MVP through v4+ |
+| `lift-track-ontology-plan_v0.1.0.md` | Exercise ontology plan |
 
 ## Operational (Operational class — date-versioned or sprint-tagged)
 
@@ -40,16 +40,16 @@ Living docs that track current state. Most use `updated:` as the version; sprint
 
 | File | Purpose |
 |---|---|
-| `roadmap_v0.4.0.md` | Sprint backlog and dependencies |
-| `effort-estimate_v0.1.0.md` | Effort planning under solo+AI baseline |
-| `metrics_v0.1.0.md` | Productivity baseline |
-| `risks_v0.1.0.md` | Risk register (R-TV-* vendor watch, etc.) |
-| `dispatch-handoff.md` | Session-to-session handoff (currently bare-name; renames to `lift-track-dispatch-handoff_v0.1.0.md` in Sprint 0c1.5) |
+| `lift-track-roadmap_v0.4.0.md` | Sprint backlog and dependencies |
+| `lift-track-effort-estimate_v0.1.0.md` | Effort planning under solo+AI baseline |
+| `lift-track-metrics_v0.1.0.md` | Productivity baseline |
+| `lift-track-risks_v0.1.0.md` | Risk register (R-TV-* vendor watch, etc.) |
+| `lift-track-dispatch-handoff_v0.1.0.md` | Session-to-session handoff (currently bare-name; renames to `lift-track-dispatch-handoff_v0.1.0.md` in Sprint 0c1.5) |
 | `kanban-sprint-<id>.md` | Per-sprint work tracker; new file at sprint open with explicit open-items migration; frozen at sprint close as immutable record |
 
 Sprint kanbans currently in-tree:
 
-- `kanban-sprint-0b2.md`, `kanban-sprint-0c.md`, `kanban-sprint-0c0.5.md`, `kanban-sprint-0c1.md` (active), `kanban-sprint-0c1.5.md`, `kanban-sprint-0c2.md`, `kanban-sprint-0d.md`, `kanban-sprint-0e.md`
+- `lift-track-kanban-sprint-0b2.md`, `lift-track-kanban-sprint-0c.md`, `lift-track-kanban-sprint-0c0.5.md`, `lift-track-kanban-sprint-0c1.md` (active), `lift-track-kanban-sprint-0c1.5.md`, `lift-track-kanban-sprint-0c2.md`, `lift-track-kanban-sprint-0d.md`, `lift-track-kanban-sprint-0e.md`
 
 ## Subdirectories
 
@@ -65,7 +65,7 @@ Sprint kanbans currently in-tree:
 
 Side-car snapshots taken before structural revisions. Per CONVENTIONS §10. Stored at the same directory level as the file they shadow. Not part of the active doc set; safe to ignore on day-to-day reads.
 
-Currently in-tree at `docs/`: `.baseline-pre-sprint-0b-20260424.md`, `.baseline-CONVENTIONS-v0.1.0-20260424.md`, `.baseline-CONVENTIONS-v0.2.1-20260427.md`, `.baseline-CONVENTIONS-v0.2.2-20260427.md`, `.baseline-CONVENTIONS-v0.2.3-20260428.md`, `.baseline-roadmap-pre-timeline-20260424.md`.
+Currently in-tree at `docs/`: `.baseline-lift-track-architecture-pre-sprint-0b-20260424.md`, `.baseline-CONVENTIONS-v0.1.0-20260424.md`, `.baseline-CONVENTIONS-v0.2.1-20260427.md`, `.baseline-CONVENTIONS-v0.2.2-20260427.md`, `.baseline-CONVENTIONS-v0.2.3-20260428.md`, `.baseline-lift-track-roadmap-pre-timeline-20260424.md`.
 
 ## Navigating to portfolio-level concerns
 

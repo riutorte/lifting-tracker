@@ -11,22 +11,22 @@ version: 0.1.0
 
 Index of the Architecture Decision Records (ADRs) for Lifting Tracker. Each ADR captures one architectural decision with its alternatives, rationale, consequences, and (per the strategic-implications process amendment per Sprint 0c1 portfolio research) a Strategic Implications section addressing cost / lock-in / retention / ownership / exit posture.
 
-ADRs are Architecture-class per CONVENTIONS_v0.2.4 §2: semver-versioned, GATE required, baseline snapshot on MAJOR/MINOR bumps. The decision-of-record set is in `../architecture_v0.4.0.md` (D1–D27); standalone ADR files capture decisions that warrant their own document.
+ADRs are Architecture-class per CONVENTIONS_v0.2.4 §2: semver-versioned, GATE required, baseline snapshot on MAJOR/MINOR bumps. The decision-of-record set is in `../lift-track-architecture_v0.4.0.md` (D1–D27); standalone ADR files capture decisions that warrant their own document.
 
 ## ADRs in scope
 
 | ID | Decision | Status | File |
 |---|---|---|---|
-| D25 | Source-Document Configuration Management | Accepted | `D25-source-document-cm_v0.1.0.md` |
-| D28 | Architectural Discipline Profile (calibrated rigor for solo+AI scale) | Accepted | `D28-architectural-discipline-profile_v0.1.0.md` |
+| D25 | Source-Document Configuration Management | Accepted | `lift-track-D25-source-document-cm_v0.1.0.md` |
+| D28 | Architectural Discipline Profile (calibrated rigor for solo+AI scale) | Accepted | `lift-track-D28-architectural-discipline-profile_v0.1.0.md` |
 
-D1–D24 and D26–D27 live as numbered decisions inside `../architecture_v0.4.0.md` rather than as standalone files. The D-numbering is portfolio-wide; standalone ADR files use the same number as their corresponding entry in the master architecture document.
+D1–D24 and D26–D27 live as numbered decisions inside `../lift-track-architecture_v0.4.0.md` rather than as standalone files. The D-numbering is portfolio-wide; standalone ADR files use the same number as their corresponding entry in the master architecture document.
 
 ## Naming convention
 
 `D##-<descriptive-slug>_v<version>.md` per CONVENTIONS §6.2 prefix-conventions. The `D##` prefix is fixed; the slug is descriptive; the version is semver.
 
-Sprint 0c1.5 rename pass prepends `lift-track-` to make system context explicit out of repo context (e.g., `D25-source-document-cm_v0.1.0.md` → `lift-track-D25-source-document-cm_v0.1.0.md`).
+Sprint 0c1.5 rename pass prepends `lift-track-` to make system context explicit out of repo context (e.g., `lift-track-D25-source-document-cm_v0.1.0.md` → `lift-track-D25-source-document-cm_v0.1.0.md`).
 
 ## ADR template structure
 
@@ -50,14 +50,14 @@ A superseded ADR keeps its file in place with `status: superseded` and a `supers
 
 ## Cross-references
 
-- Master architecture set: `../architecture_v0.4.0.md` (D1–D27 numbered decisions)
+- Master architecture set: `../lift-track-architecture_v0.4.0.md` (D1–D27 numbered decisions)
 - DoDAF view set the ADRs inform: `../dodaf/` (cross-reference matrix landing as Sprint 0c1 stretch)
 - Strategic-decisions log (lighter than ADRs, for chat-derived decisions): `~/reach4all/docs/architecture/strategic-decisions-log_v0.1.0.md`
 - ADR-vs-SD-vs-memory routing: `feedback_decision_promotion.md` memory file
 
 ## When to write a new ADR
 
-A new D-number ADR file (rather than an inline entry in `architecture_v0.4.0.md`) is warranted when:
+A new D-number ADR file (rather than an inline entry in `lift-track-architecture_v0.4.0.md`) is warranted when:
 
 - The decision needs deep treatment with multiple alternatives, rationale chains, and consequences (more than ~150 lines)
 - Downstream consumers will pin to this specific decision
