@@ -1,7 +1,7 @@
 ---
 author: Eric Riutort
 created: 2026-04-23
-updated: 2026-04-27
+updated: 2026-04-30
 tier: OPERATIONAL
 content_class: reference
 ---
@@ -62,6 +62,7 @@ Living index. Updated atomically alongside each new retro at sprint close (per C
 
 | Sprint | Theme | Dates | Duration | Retro file |
 |---|---|---|---|---|
+| 0c1.5 | Naming-Convention Rename Pass (mass-rename branch + merge-before-close pattern validated) | 2026-04-29 → 2026-04-30 | 2 days | [lift-track-sprint-retro-0c1.5.md](lift-track-sprint-retro-0c1.5.md) |
 | 0c1 | Documentation Hygiene + AV-2 Enrichment + First Prevention Action (parallel methodology validated) | 2026-04-28 → 2026-04-29 | 2 days | [lift-track-sprint-retro-0c1.md](lift-track-sprint-retro-0c1.md) |
 | 0c0.5 | Decision Consolidation Sweep + Bindfs Lock-Reaper Install (CC8 MOVED) | 2026-04-28 | 1 day | [lift-track-sprint-retro-0c0.5.md](lift-track-sprint-retro-0c0.5.md) |
 | 0c | document-cm Skill Build (UNMET — closed early) | 2026-04-27 → 2026-04-28 | 2 days | [lift-track-sprint-retro-0c.md](lift-track-sprint-retro-0c.md) |
