@@ -1,10 +1,10 @@
 ---
 author: Eric Riutort
 created: 2026-04-23
-updated: 2026-04-24
+updated: 2026-04-30
 tier: OPERATIONAL
 content_class: reference
-version: 0.1.0
+version: 0.2.0
 status: accepted
 ---
 
@@ -120,7 +120,67 @@ Pulled from `reach4all://docs/research/concept-computing-april-10-failure-analys
 
 **Claude Code session making architectural decisions.** Per global CLAUDE.md: architectural decisions live in `docs/` and go through Dispatch or Eric, not inside a Claude Code implementation session. If Claude Code hits an architectural fork, stop and surface to Dispatch or Eric rather than pushing through.
 
-## 8. Evolution policy
+## 8. Worktree isolation as default
+
+Added Sprint 0c2 per the failure-modes research (`reach4all://docs/research/claude-code-failure-modes-and-rollback-strategy-research.md`, §1.2 prevention action #2 and §5.1 blast-radius patterns). Treat this section as the operational rule that pairs with the deny list (Sprint 0c1 CC9) and the forthcoming bindfs reaper (deferred post-Sprint-0d2 per SD-004): the deny list refuses literal destructive commands; the worktree default contains blast radius when an unblocked destructive action still gets through; the reaper cleans up after sandbox failures. Three layers, three failure modes, no overlap.
+
+### 8.1 Why
+
+Every documented Claude Code / coding-agent destructive incident in the failure-modes catalog (rm -rf wipes, accidental file deletes, git history rewrites, multi-file refactor cascades) had a recoverable scope only when the work was in a separate worktree. Where the agent ran on the live checkout, recovery cost minutes-to-hours of restore work and sometimes lost uncommitted state. The single architectural commitment that flips this — "agent edits never touch the live tree" — is cheap enough (one alias, one spawn-template change) that not adopting it is the unusual choice.
+
+This section establishes worktree-as-default for both code-task spawning surfaces. Override paths are explicit and named.
+
+### 8.2 Cowork-spawned Code tasks
+
+Cowork's `mcp__dispatch__start_code_task` (and the parent-agent `Agent` tool when called with `subagent_type` matching a code-execution role) accepts an `isolation: "worktree"` parameter. Per Anthropic's Cowork documentation as of April 2026, code-task spawns from Cowork/Dispatch should use `isolation: "worktree"` for any task that mutates the repo. The platform's behavior with this flag: a temporary git worktree is created off `origin/HEAD`, the child agent operates inside it, and on completion the worktree is auto-cleaned if no changes were made; if changes were made, the worktree path and branch name are returned for explicit promotion (merge, cherry-pick, or discard).
+
+Operational rule:
+- **Default:** every Cowork-spawned Code task that may write to the repo uses `isolation: "worktree"` in the spawn payload.
+- **User-prompted approval-per-worktree.** When a Code-task child exits with changes, Eric reviews the worktree via the returned path/branch and decides whether to promote to the live tree. Dispatch does not auto-merge.
+- **Read-only override:** code tasks that are pure-read (grep over the repo, scan files, summarize logs) may omit `isolation: "worktree"` since there is no blast radius. Spawn prompt must explicitly state "read-only" so the override is auditable.
+
+The spawn-prompt template under `feedback_workspace_split.md` (and any future Dispatch task templates) carries `isolation: "worktree"` as the default keyword and lists read-only as the named exception. Any other use of the live tree from a spawn requires Eric's explicit go.
+
+### 8.3 Interactive Mac terminal sessions
+
+The Claude Code CLI exposes worktree isolation via the `--worktree` flag (shorthand `-w`) — verified against [Anthropic Claude Code docs](https://code.claude.com/docs) and [Boris Cherny's `--worktree` post](https://www.threads.com/@boris_cherny/post/DVAAoZ3gYut/use-claude-worktree-for-isolation-to-run-claude-code-in-its-own-git-worktree) (April 2026). With the flag, Claude Code creates a worktree at `<repo>/.claude/worktrees/<name>/` on a branch `worktree-<name>`, and scopes the session to that directory. With no name, Claude auto-generates one.
+
+Shell alias for Eric's `~/.zshrc`:
+
+```bash
+# Default Claude Code to worktree isolation. Override with `command claude` or `\claude`.
+alias claude='claude --worktree'
+```
+
+To start an interactive Claude Code session on the live tree (read-only inspection, doc-only edits, single-step git ops where the worktree round-trip is overhead), bypass the alias with one of the standard zsh escapes: `command claude`, `\claude`, or `unalias claude && claude`. The override is intentional friction — typing `command claude` is the visible decision to skip isolation.
+
+### 8.4 Override patterns
+
+Three named cases where running on the live tree is the right call:
+
+| Case | Surface | Override |
+|---|---|---|
+| Read-only inspection (grep, log review, file enumeration, kanban update) | Cowork or terminal | Spawn payload omits `isolation: "worktree"` and states "read-only" in prompt; terminal uses `command claude` |
+| Single-step git op already committed elsewhere (tag, push of an existing commit, branch surgery on a known-clean tree) | Terminal | `command claude` for the session |
+| Doc-only edits where the doc is at a stable commit and the edit is small enough that the worktree-merge round-trip is overhead | Terminal or Cowork | `command claude` for terminal; Cowork keeps `isolation: "worktree"` even here, since Cowork's worktree promotion flow is fast enough that the friction is negligible |
+
+When in doubt, default to worktree. The override path is for cases where the worktree explicitly costs more than it gains; absent that calculation, take the isolation.
+
+### 8.5 Re-evaluation cadence
+
+Per SD-012 Lifecycle Integrity. Review at every sprint close. Trigger an out-of-cycle re-evaluation if any of the following occurs:
+- A code-task spawn destroys live-tree state despite the default (worktree was overridden incorrectly, or the override path is too easy to hit).
+- Anthropic ships a Cowork or Claude Code change that alters the worktree default behavior (e.g., the platform adopts worktree as the platform default, making this section's discipline implicit; or removes the flag entirely).
+- A new Claude surface (mobile, IDE plugin, etc.) enters Eric's orchestration pattern and needs its own override-pattern row in §8.4.
+
+### 8.6 Cross-references
+
+- `reach4all://docs/research/claude-code-failure-modes-and-rollback-strategy-research.md` §1.2 (prevention action #2), §5.1 (blast-radius limitation patterns), §9.2 (Sprint 0c2 actions)
+- `~/lifting-tracker/.claude/settings.json` — Sprint 0c1 CC9 deny list (the layer below this one; refuses literal destructive commands)
+- `~/lifting-tracker/docs/lift-track-destructive-operation-policy_v0.1.0.md` — Sprint 0c2 CC2; the operational policy that classifies destructive operations into tiers and names the approval matrix
+- SD-004 (bindfs bypass) — compensating-control pattern; the reaper that cleans up sandbox-mount remnants is deferred post-Sprint-0d2
+
+## 9. Evolution policy
 
 This is a living document. Review at each sprint close. Add new failure modes as they are observed; prune entries that no longer apply. Changes go through WF-003 Lite — `content_class: reference` with a GATE required only on structural changes (new section, revised decision tree, new tool lane). Typographical fixes and new table rows within existing sections do not require a GATE.
 
