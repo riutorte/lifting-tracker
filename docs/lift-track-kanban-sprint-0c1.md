@@ -1,7 +1,7 @@
 ---
 author: Eric Riutort
 created: 2026-04-28
-updated: 2026-04-29
+updated: 2026-04-30
 sprint_open_date: 2026-04-28
 sprint_close_date: 2026-04-29
 tier: OPERATIONAL
@@ -157,9 +157,10 @@ Eric-maintained — sessions Dispatch cannot see (Chrome, mobile, other CLI).
 
 ## Cross-reference
 
-- Prior sprint's kanban (frozen): `docs/lift-track-kanban-sprint-0c.md`
-- Sprint 0c retrospective: `docs/retrospectives/lift-track-sprint-retro-0c.md`
-- Sprint 0c1 retrospective at close: `docs/retrospectives/lift-track-sprint-retro-0c1.md` (or `lift-track-sprint-retro-0c1.md` once rename pass lands during this sprint)
+- Prior sprint's kanban (frozen at 0c0.5 close): `docs/lift-track-kanban-sprint-0c0.5.md`
+- Sprint 0c0.5 retrospective: `docs/retrospectives/lift-track-sprint-retro-0c0.5.md`
+- Sprint 0c1 retrospective at close: `docs/retrospectives/lift-track-sprint-retro-0c1.md`
+- Next sprint's kanban (after 0c1 close): `docs/lift-track-kanban-sprint-0c1.5.md`
 - Methodology: `docs/CONVENTIONS_v0.2.4.md` §14
 - Naming convention rules: §6.1 + §6.2 + the abbreviation table established in Sprint 0c (lift-track / concept-comp / xrsize4all)
 - Failure modes prior research: `reach4all://docs/research/claude-code-failure-modes-and-prevention-research.md` (superseded by CC10 deliverable)

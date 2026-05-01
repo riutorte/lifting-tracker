@@ -101,10 +101,10 @@ Eric-maintained — sessions Dispatch cannot see (Chrome, mobile, other CLI).
 
 ## Cross-reference
 
-- Prior sprint's kanban (frozen at 0c1 close): `docs/lift-track-kanban-sprint-0c1.md` (or `docs/lift-track-kanban-sprint-0c1.md` if rename pass landed)
-- Sprint 0c1 retrospective: `docs/retrospectives/lift-track-sprint-retro-0c1.md`
+- Prior sprint's kanban (frozen at 0c1.5 close): `docs/lift-track-kanban-sprint-0c1.5.md`
+- Sprint 0c1.5 retrospective: `docs/retrospectives/lift-track-sprint-retro-0c1.5.md`
 - Sprint 0c2 retrospective: `docs/retrospectives/lift-track-sprint-retro-0c2.md`
-- Sprint 0d (next sprint, opens at 0c2 close): pre-drafted in `docs/lift-track-kanban-sprint-0d.md`
+- Next sprint's kanban (after 0c2 close): `docs/lift-track-kanban-sprint-0d.md`
 - Methodology: `docs/CONVENTIONS_v0.2.4.md` §14
 - Failure-modes research source: `reach4all://docs/research/claude-code-failure-modes-and-rollback-strategy-research.md` (delivered Sprint 0c1 CC10), §7-D + §7-G
 - Deny list precedent: Sprint 0c1 CC9 (project-level `.claude/settings.json` across 3 repos)

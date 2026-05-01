@@ -1,7 +1,7 @@
 ---
 author: Eric Riutort
 created: 2026-04-27
-updated: 2026-04-28
+updated: 2026-04-30
 tier: OPERATIONAL
 content_class: operational
 sprint: 0c
@@ -139,10 +139,10 @@ Eric-maintained — sessions Dispatch cannot see (Chrome, mobile, other CLI).
 
 ## Cross-reference
 
-- Prior sprint's kanban (frozen): `docs/lift-track-kanban-sprint-0b2.md`
+- Prior sprint's kanban (frozen at 0b2 close): `docs/lift-track-kanban-sprint-0b2.md`
 - Sprint 0b2 retrospective: `docs/retrospectives/lift-track-sprint-retro-0b2.md`
 - Sprint 0c retrospective at close: `docs/retrospectives/lift-track-sprint-retro-0c.md`
-- Sprint 0c1 (insert sprint, opens at 0c close): scoped in this file's "Defer to Sprint 0c1" section
+- Next sprint's kanban (after 0c close): `docs/lift-track-kanban-sprint-0c0.5.md`
 - Methodology: `docs/CONVENTIONS_v0.2.3.md` §14
 - Roadmap context: `docs/lift-track-roadmap_v0.4.0.md`
 

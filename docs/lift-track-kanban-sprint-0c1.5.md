@@ -106,7 +106,7 @@ Eric-maintained — sessions Dispatch cannot see (Chrome, mobile, other CLI).
 
 - Prior sprint's kanban (frozen at 0c1 close): `docs/lift-track-kanban-sprint-0c1.md`
 - Sprint 0c1 retrospective: `docs/retrospectives/lift-track-sprint-retro-0c1.md`
-- Sprint 0c1.5 retrospective at close: `docs/retrospectives/sprint-retro-0c1.5.md`
+- Sprint 0c1.5 retrospective at close: `docs/retrospectives/lift-track-sprint-retro-0c1.5.md`
 - Next sprint's kanban (after 0c1.5 close): `docs/lift-track-kanban-sprint-0c2.md`
 - Methodology: `docs/CONVENTIONS_v0.2.4.md` §14
 - Filename rule source: `docs/CONVENTIONS_v0.2.4.md` §6.1 descriptiveness rule + §6.2 fixed-name exceptions
