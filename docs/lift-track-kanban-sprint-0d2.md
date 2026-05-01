@@ -242,13 +242,17 @@ If any of these surface mid-sprint, pause and re-plan:
 
 These are the calls Eric needs to make at Sprint 0d2 sprint-open per prep §9. Each has a recommended default in the prep doc; each is reversible at low cost. Listed verbatim from prep §9; **NOT pre-empted in this kanban.** Eric ratifies or overrides at sprint-open commit.
 
-### Q9.1 — SD numbering and ordering
+**Partial-OQ-resolution note.** Q9.1 resolved 2026-04-30 ahead of sprint open per Eric's ratification of dependency-order numbering (see Q9.1 below). Q9.2 through Q9.10 remain open and ratify at sprint-open commit.
 
-SD-013 / SD-014 / SD-015 / SD-016 — confirm the assignments?
+### Q9.1 — SD numbering and ordering — RATIFIED 2026-04-30
+
+> **Q9.1 — RATIFIED 2026-04-30 by Eric.** SD entries land in dependency order: SD-013 (athlete-data permanent retention) → SD-014 (strategic hosting + ownership) → SD-015 (layered storage architecture) → SD-016 (four-environment topology). Each depends on the prior. Don't re-litigate at sprint open.
+
+**Original question (preserved for audit trail).** SD-013 / SD-014 / SD-015 / SD-016 — confirm the assignments?
 
 Prep default: SD-013 = retention principle (data-retention research); SD-014 = strategic hosting + storage architecture (merged from strategic-implications + data-storage research); SD-015 = environment topology (environment-strategy research); SD-016 = decision-history traceability (Sprint 0c1 retro). Reflects dependency order: principle → architecture → topology → discipline. Alternative: temporal order of original drafting.
 
-**Eric's call.** Default OR explicit alternative. **Blocks CC-7 and CC-8.**
+**Eric's call.** RATIFIED 2026-04-30 — dependency-order numbering with content assignments per the ratification block above (note: Eric's mapping differs from the prep default for SD-014 / SD-015 / SD-016 content assignments — to be reconciled in CC-7 paste-in). **No longer blocks CC-7 and CC-8.**
 
 ### Q9.2 — D-amendment merge mechanics
 
