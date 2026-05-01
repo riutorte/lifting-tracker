@@ -134,12 +134,11 @@ Eric-maintained — sessions Dispatch cannot see (Chrome, mobile, other CLI).
 
 ## Cross-reference
 
-- Prior sprint's kanban (frozen at 0c2 close): `docs/lift-track-kanban-sprint-0c2.md` (or `docs/lift-track-kanban-sprint-0c2.md`)
-- Sprint 0c2 retrospective: `docs/retrospectives/sprint-retro-0c2.md`
-- Sprint 0d retrospective at close: `docs/retrospectives/sprint-retro-0d.md`
-- **Next sprint (opens at 0d close, or parallel per 0d1 OQ10):** Sprint 0d1 — Security Controls Baseline integration — pre-drafted in `docs/lift-track-kanban-sprint-0d1.md` (scoped from `reach4all://docs/architecture/security-controls-baseline_v0.1.0.md` per SD-009)
-- **Adjacent sprint (also pre-drafted; sequencing per 0d1 OQ10):** Sprint 0d2 — framework rename + reference architecture + xrsize4all repo standup — `docs/lift-track-kanban-sprint-0d2.md`
-- Sprint 0e (downstream sprint, opens after 0d1 + 0d2 close): pre-drafted in `docs/lift-track-kanban-sprint-0e.md`
+- Prior sprint's kanban (frozen at 0c2 close): `docs/lift-track-kanban-sprint-0c2.md`
+- Sprint 0c2 retrospective: `docs/retrospectives/lift-track-sprint-retro-0c2.md`
+- Sprint 0d retrospective at close: `docs/retrospectives/lift-track-sprint-retro-0d.md`
+- **Next sprint's kanban (after 0d close):** `docs/lift-track-kanban-sprint-0d1.md` (Security Controls Baseline integration; scoped from `reach4all://docs/architecture/security-controls-baseline_v0.1.0.md` per SD-009)
+- **Downstream sprints (pre-drafted):** `docs/lift-track-kanban-sprint-0d1.5.md` (Hetzner Phase 1 self-hosted Supabase stand-up — inserted between 0d1 and 0d2 per the 2026-04-30 sprint sequencing call); `docs/lift-track-kanban-sprint-0d2.md` (framework rename + reference architecture + xrsize4all repo standup); `docs/lift-track-kanban-sprint-0e.md` (listener daemon + LLM-extraction validation)
 - Methodology: `docs/CONVENTIONS_v0.2.4.md` §14
 - CM design source: `lift-track-source-document-cm_v0.3.0.md` (renamed in Sprint 0c1 CC5)
 - Failure-modes research source: `reach4all://docs/research/claude-code-failure-modes-and-rollback-strategy-research.md` (Sprint 0c1 CC10) — §6.A, §7-A

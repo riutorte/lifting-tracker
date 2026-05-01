@@ -264,9 +264,10 @@ Recorded so the next sprint planning has the carry-forward list:
 - **LLM scoping prior research:** `reach4all://docs/research/frontier-adjacent-local-llm-build-scoping-research.md` (Sprint 0c).
 - **Hardware research:** `reach4all://docs/research/hardware-selection-research.md` (Sprint 0c).
 - **DeepSeek-V4 miss-case origin:** Sprint 0c retro — canonical use case for event-driven sensing; cited in prep doc §1.2.
-- **Prior sprint's kanban (frozen at 0d close):** `docs/lift-track-kanban-sprint-0d.md`.
-- **Sprint 0d retrospective:** `docs/retrospectives/sprint-retro-0d.md`.
-- **Sprint 0e retrospective at close:** `docs/retrospectives/sprint-retro-0e.md`.
+- **Prior sprint's kanban (frozen at 0d2 close):** `docs/lift-track-kanban-sprint-0d2.md`.
+- **Sprint 0d2 retrospective:** `docs/retrospectives/lift-track-sprint-retro-0d2.md`.
+- **Sprint 0e retrospective at close:** `docs/retrospectives/lift-track-sprint-retro-0e.md`.
+- **Upstream sprint chain:** 0d → 0d1 → 0d1.5 → 0d2 → 0e per the 2026-04-30 sprint sequencing call. See `docs/lift-track-kanban-sprint-0d.md`, `docs/lift-track-kanban-sprint-0d1.md`, `docs/lift-track-kanban-sprint-0d1.5.md`.
 - **Methodology:** `docs/CONVENTIONS_v0.2.4.md` §14, §14.5 work modes 6 (scheduled cadence) + 8 (event-driven listener).
 - **Anthropic translated-quote rule:** applies to Claude outputs, not to Eric's self-hosted LLM (per Eric's call documented in Workstream C / CC7).
 
