@@ -63,7 +63,7 @@ flowchart TB
 3. `docs/lift-track-architecture_v0.4.0.md` — Lifting Tracker decisions D1–D27 and cross-cutting principles.
 4. `docs/dodaf/lift-track-dodaf-OV-1-concept-graphic_v0.1.0.md` — operational concept graphic with infrastructure layer.
 5. `docs/dodaf/lift-track-dodaf-CV-capabilities_v0.1.0.md` — capability decomposition (8 themes → 31 epics → 109 features).
-6. `docs/dodaf/lift-track-dodaf-AV-2-dictionary_v0.2.0.md` — vocabulary of record.
+6. `docs/dodaf/lift-track-dodaf-AV-2-dictionary_v0.3.0.md` — vocabulary of record.
 7. Remaining DoDAF views as the question warrants.
 
 ## Cross-references

@@ -59,16 +59,16 @@ For each view in `docs/dodaf/`, this section enumerates the D-decisions cited, U
 | **Sibling views referenced** | OV-1 (deeper concept graphic), CV-capabilities (capability decomposition), AV-2 (vocabulary), all remaining views in the initial set as the question warrants |
 | **Sprint(s) produced/revised** | Produced Sprint 0b Day 1 (2026-04-24); frontmatter `updated: 2026-04-29` but prose still names "Sprint of last revision: Sprint 0b Day 1" — drift flagged in §6 |
 
-### AV-2 — Integrated Dictionary (`lift-track-dodaf-AV-2-dictionary_v0.2.0.md`)
+### AV-2 — Integrated Dictionary (`lift-track-dodaf-AV-2-dictionary_v0.3.0.md`)
 
-**Purpose.** Authoritative term registry for the sub-system. Eighteen sections covering D-decisions, domain concepts, capabilities, activities, sub-systems, workflows, agents, roles, components/ports, services, data entities, standards, principles, content classes, tiers, risks, story-prefix conventions, and DoDAF views.
+**Purpose.** Authoritative term registry for the sub-system. Nineteen sections covering D-decisions, domain concepts, capabilities, activities, sub-systems, workflows, agents, roles, components/ports, services, data entities, standards, principles, content classes, tiers, risks, story-prefix conventions, DoDAF views, and (v0.3.0) Sprint-0c2+ operational governance controls (four-control composition / destructive-op tier framework / approval matrix / override procedure).
 
 | Cross-reference axis | Entries |
 |---|---|
 | **D-decisions cited** | D1–D28 (full catalog — every D-decision in scope plus portfolio-scope D25, D27, D28) |
 | **US-### stories covered** | Prefix-level only (US-0XX athlete MVP, US-1XX coach + v2 expansion, US-2XX admin/gym/teams, US-3XX NFR-class). Individual story IDs deliberately not catalogued here per Section 17 — story IDs live in `lift-track-user-stories_v0.2.0.md` |
 | **Sibling views referenced** | AV-1, CV-capabilities, OV-1, OV-5c, SV-1, SV-6, SvcV-1, DIV-2, StdV-1 — every other view (Section 18 catalogues them; the dictionary is the single shared lookup) |
-| **Sprint(s) produced/revised** | v0.1.0 produced Sprint 0b Day 1 (2026-04-24); v0.2.0 inclusion-completeness pass Sprint 0c1 CC8 (2026-04-29). Structural revision: CARP/CARPO type column added per row; four authoring rules applied (verb-object activities, no-and, synonym-collapse, bracketed-context-tag); domain concepts promoted to standalone rows. Baseline at `dodaf/.baseline-lift-track-dodaf-AV-2-v0.1.0-20260429.md` |
+| **Sprint(s) produced/revised** | v0.1.0 produced Sprint 0b Day 1 (2026-04-24); v0.2.0 inclusion-completeness pass Sprint 0c1 CC8 (2026-04-29) — CARP/CARPO type column added per row; four authoring rules applied (verb-object activities, no-and, synonym-collapse, bracketed-context-tag); domain concepts promoted to standalone rows. v0.3.0 additive enrichment Sprint 0c2 close (2026-04-30) — 28 new entries from Sprint 0c2 work and adjacent prep deliverables (0d/0d1/0d2/0e); NEW §19 Operational governance controls. Baselines at `dodaf/.baseline-lift-track-dodaf-AV-2-v0.1.0-20260429.md` |
 
 ### CV — Capability Viewpoint (`lift-track-dodaf-CV-capabilities_v0.1.0.md`)
 
@@ -534,6 +534,7 @@ Anchored to `docs/retrospectives/lift-track-sprint-retro-0b.md` (Sprint 0b close
 | AV-1 — Overview | 2026-04-24 | Sprint 0b Day 1 | 2026-04-29 | Sprint 0c1 (cosmetic edit; frontmatter `updated:` only) | Body prose still names Sprint 0b — see X-06 |
 | AV-2 — Dictionary v0.1.0 | 2026-04-24 | Sprint 0b Day 1 | — | — | Twelve sections initial population |
 | AV-2 — Dictionary v0.2.0 | 2026-04-29 | Sprint 0c1 CC8 | 2026-04-29 | Sprint 0c1 CC8 | Inclusion-completeness pass; CARP/CARPO type column; four authoring rules; domain concepts promoted; tier corrected ARCH; status `accepted`. Baseline `dodaf/.baseline-lift-track-dodaf-AV-2-v0.1.0-20260429.md` |
+| AV-2 — Dictionary v0.3.0 | 2026-04-30 | Sprint 0c2 close | 2026-04-30 | Sprint 0c2 close | Additive enrichment: 28 new entries from Sprint 0c2 work and 0d/0d1/0d2/0e prep deliverables. NEW §19 Operational governance controls (four-control composition / destructive-op tier framework / approval matrix / override procedure / portfolio-scope governance). MINOR bump per CONVENTIONS §8. |
 | CV — Capabilities | 2026-04-24 | Sprint 0b Day 1 | 2026-04-24 | — | Not revised |
 | OV-1 — Concept Graphic | 2026-04-24 | Sprint 0b Day 1 | 2026-04-24 | — | Not revised |
 | OV-5c — Activity Sequence | 2026-04-24 | Sprint 0b Day 1 | 2026-04-24 | — | Not revised; status `accepted` |

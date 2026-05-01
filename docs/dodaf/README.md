@@ -20,7 +20,7 @@ Per CONVENTIONS §11.7, every sub-system produces at minimum the load-bearing fo
 | View | Purpose | File |
 |---|---|---|
 | AV-1 Overview & Summary | Plain-language scope, purpose, stakeholders, environment | `lift-track-dodaf-AV-1-overview_v0.1.0.md` |
-| AV-2 Integrated Dictionary | Glossary of terms used across views (CARP/CARPO subset typing landed in Sprint 0c1 CC8) | `lift-track-dodaf-AV-2-dictionary_v0.2.0.md` |
+| AV-2 Integrated Dictionary | Glossary of terms used across views (CARP/CARPO subset typing landed in Sprint 0c1 CC8; Sprint 0c2+ governance enrichment landed in v0.3.0) | `lift-track-dodaf-AV-2-dictionary_v0.3.0.md` |
 | CV Capability Viewpoint | Capability hierarchy and dependencies | `lift-track-dodaf-CV-capabilities_v0.1.0.md` |
 | OV-1 High-Level Operational Concept Graphic | The "one-picture concept" — actors, environment, value flow | `lift-track-dodaf-OV-1-concept-graphic_v0.1.0.md` |
 | OV-5c Activity Sequence | Event-traced behavioral view (sequence diagram form of OV-5b) | `lift-track-dodaf-OV-5c-activity-sequence_v0.1.0.md` |
