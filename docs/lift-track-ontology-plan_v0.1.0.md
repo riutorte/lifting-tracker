@@ -163,4 +163,4 @@ A backlog item is done when:
 
 ---
 
-(c) 2026 Eric Riutort. All rights reserved.
+© 2026 Eric Riutort. All rights reserved.
