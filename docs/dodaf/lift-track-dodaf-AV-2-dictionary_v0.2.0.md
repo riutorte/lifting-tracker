@@ -1,10 +1,10 @@
 ---
 author: Eric Riutort
 created: 2026-04-24
-updated: 2026-04-29
+updated: 2026-04-30
 tier: ARCHITECTURE
 content_class: architecture
-version: 0.2.0
+version: 0.2.1
 status: accepted
 ---
 
@@ -88,7 +88,7 @@ D-rows are governance information artifacts (Type R). The decision's *subject* (
 | D25 — Source-document CM | R | Document configuration management discipline for the portfolio; full design in CM brief v0.3.0. | docs/adrs/lift-track-D25-source-document-cm_v0.1.0.md | Portfolio scope; cited here because OV-5c Sequence 4 walks WF-003 GATE. |
 | D26 — Language: TypeScript with TC39 escape hatch | R | TypeScript primary; TC39 Type Annotations is the open-standards migration path. | lift-track-architecture_v0.4.0.md §D26 | |
 | D27 — Multi-agent interop is first-class | R | Promoted from Phase 5 per Gartner L5; specific protocol (A2A / AAIF / custom) deferred. | lift-track-architecture_v0.4.0.md §D27 | Portfolio scope; cited here because SvcV-1 MCP layer depends on it. |
-| D28 — DoDAF with SysML iconography (fit-for-purpose) | R | DoDAF view set in Mermaid; SysML stereotypes; producer authority to add/subtract content per view. | (this directory; ADR pending) | Renamed from "DoDAF + SysML" — the '+' reads as 'and'. |
+| D28 — DoDAF with SysML iconography (fit-for-purpose) | R | DoDAF view set in Mermaid; SysML stereotypes; producer authority to add/subtract content per view. | docs/adrs/lift-track-D28-architectural-discipline-profile_v0.1.0.md; this directory | Renamed from "DoDAF + SysML" — the '+' reads as 'and'. ADR landed; prior "(ADR pending)" placeholder retired per cross-reference matrix defect X-05. |
 
 ---
 
@@ -492,7 +492,7 @@ Internal architectural principles authored within the portfolio. Type R (governa
 | Brain-hands separation | R | Reasoning (LLM) and execution (skill scripts, hooks, CI) are decoupled. Interfaces outlast implementations. | lift-track-source-document-cm_v0.3.0.md §1.4 | Portfolio scope. |
 | Generator-evaluator separation | R | Writer cannot be the verifier. Book Boss verify (Step 7 of WF-003) implements this. | lift-track-source-document-cm_v0.3.0.md §1.4 + §5.1 | Portfolio scope. |
 | Composition discipline (CC-017) | R | Governance steps must be composed (skill calls a script that runs the check), not listed in prose. Prose erodes; composed tools do not. | lift-track-source-document-cm_v0.3.0.md §1.4 + §5.4 | Portfolio scope. |
-| Fit-for-purpose view authority (D28) | R | The producer of a DoDAF view has authority to add or subtract content based on what genuinely supports the decision the view exists to inform. | (D28 ADR pending); CONVENTIONS_v0.2.4 §11.3 | |
+| Fit-for-purpose view authority (D28) | R | The producer of a DoDAF view has authority to add or subtract content based on what genuinely supports the decision the view exists to inform. | docs/adrs/lift-track-D28-architectural-discipline-profile_v0.1.0.md; CONVENTIONS_v0.2.4 §11.3 | |
 
 ---
 

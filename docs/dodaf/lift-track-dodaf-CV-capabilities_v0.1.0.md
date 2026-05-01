@@ -1,10 +1,10 @@
 ---
 author: Eric Riutort
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-04-30
 tier: OPERATIONAL
 content_class: architecture
-version: 0.1.0
+version: 0.1.1
 status: draft
 ---
 
@@ -190,7 +190,7 @@ The DoDAF 2.02 CV taxonomy includes CV-1 through CV-7 (capability vision, taxono
 
 ## Cross-references
 
-**Architectural decisions:** D1 (entry + analysis), D2 (per-set), D3 (RBAC), D4 (cloud source of truth), D5 (exercise library), D6 (auth), D7 (alpha audience), D8 (Expo + Supabase), D9 (business model), D10 (Ethan as Coach), D11 (trajectory), D12 (ontological schema), D13 (training hierarchy), D14 (per-implement weight), D15 (limb config), D16 (rest), D17 (set grouping), D18 (import notation), D19 (Reasoner Duality), D20 (wearables separate), D21 (Goals first-class), D22 (progress photos privacy), D23 (form analysis), D24 (instructional content).
+**Architectural decisions:** D1 (entry + analysis), D2 (per-set), D3 (RBAC), D4 (cloud source of truth), D5 (exercise library), D6 (auth), D7 (alpha audience), D8 (Expo with Supabase, offline-first), D9 (business model), D10 (Ethan as Coach), D11 (trajectory), D12 (ontological schema), D13 (training hierarchy), D14 (per-implement weight), D15 (limb config), D16 (rest), D17 (set grouping), D18 (import notation), D19 (Reasoner Duality), D20 (wearables separate), D21 (Goals first-class), D22 (progress photos privacy), D23 (form analysis), D24 (instructional content).
 
 **User stories:** Sampled in the MVP capability slice. Full catalog: `lift-track-user-stories_v0.2.0.md` (US-001 through ~US-330; 114 unique stories plus 3 cross-referenced).
 

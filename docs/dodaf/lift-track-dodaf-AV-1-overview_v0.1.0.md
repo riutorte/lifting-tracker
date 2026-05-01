@@ -1,10 +1,10 @@
 ---
 author: Eric Riutort
 created: 2026-04-24
-updated: 2026-04-29
+updated: 2026-04-30
 tier: OPERATIONAL
 content_class: architecture
-version: 0.1.0
+version: 0.1.1
 status: draft
 ---
 
@@ -68,11 +68,11 @@ flowchart TB
 
 ## Cross-references
 
-**Architectural decisions:** D1 (entry + analysis), D3 (RBAC hierarchy), D7 (closed alpha), D8 (Expo + Supabase), D11 (personal tool → business), D27 (multi-agent interop first-class), D28 (fit-for-purpose DoDAF view authority).
+**Architectural decisions:** D1 (entry + analysis), D3 (RBAC hierarchy), D7 (closed alpha), D8 (Expo with Supabase, offline-first), D11 (personal tool → business), D27 (multi-agent interop first-class), D28 (fit-for-purpose DoDAF view authority).
 
 **User stories:** US-001 (magic-link invite), US-050 (TestFlight iPhone app), US-051 (web dashboard) — the alpha entry points.
 
-**Sprint of last revision:** Sprint 0b Day 1 (2026-04-24).
+**Sprint of last revision:** Sprint 0c1 (2026-04-29) — frontmatter `updated:` bumped during Sprint 0c1 cosmetic sweep; Sprint 0c2 cleanup (2026-04-30) aligned this prose line with frontmatter and adopted AV-2's canonical D8 wording per cross-reference matrix defects X-06 + X-07.
 
 **Other DoDAF views referenced:** OV-1, CV-capabilities, AV-2, all remaining views in the initial set.
 

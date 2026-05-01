@@ -1,10 +1,10 @@
 ---
 author: Eric Riutort
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-04-30
 tier: OPERATIONAL
 content_class: architecture
-version: 0.1.0
+version: 0.1.1
 status: draft
 ---
 
@@ -305,7 +305,7 @@ Where these gaps mattered for SV-1's purpose (component identity + interface nam
 
 **Sprint of last revision:** Sprint 0b Day 1 (2026-04-24).
 
-**Other DoDAF views referenced:** AV-2 §9 (component term definitions), OV-1 (operational graphic — same components in less detail), SV-6 (the data exchange matrix between these components), DIV-2 (the data the components exchange), StdV-1 (the standards the ports speak — MCP, OTel, PostgREST, SPARQL).
+**Other DoDAF views referenced:** AV-2 §9 (component term definitions), OV-1 (operational graphic — same components in less detail), SV-6 (the data exchange matrix between these components), SvcV-1 (the services these components compose into; SvcV-1 is the service-level rollup of the component-level interfaces catalogued here), DIV-2 (the data the components exchange), StdV-1 (the standards the ports speak — MCP, OTel, PostgREST, SPARQL).
 
 ---
 
